@@ -16,6 +16,9 @@
 		1B83C9D6162475FC005799B6 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B83C9D4162475FC005799B6 /* MainStoryboard_iPhone.storyboard */; };
 		1B83C9D9162475FC005799B6 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B83C9D7162475FC005799B6 /* MainStoryboard_iPad.storyboard */; };
 		1B83C9DC162475FC005799B6 /* CGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83C9DB162475FC005799B6 /* CGViewController.m */; };
+		1B83C9E81624A662005799B6 /* CGAddGuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83C9E71624A662005799B6 /* CGAddGuestViewController.m */; };
+		1B83C9EA1624A717005799B6 /* CGGuestDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83C9E91624A717005799B6 /* CGGuestDetailTableViewController.m */; };
+		1B83CAFC16283BA2005799B6 /* CGOwnerVenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,12 @@
 		1B83C9D8162475FC005799B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		1B83C9DA162475FC005799B6 /* CGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGViewController.h; sourceTree = "<group>"; };
 		1B83C9DB162475FC005799B6 /* CGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGViewController.m; sourceTree = "<group>"; };
+		1B83C9E316249394005799B6 /* CGGuestDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGuestDetailTableViewController.h; sourceTree = "<group>"; };
+		1B83C9E61624A662005799B6 /* CGAddGuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAddGuestViewController.h; sourceTree = "<group>"; };
+		1B83C9E71624A662005799B6 /* CGAddGuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAddGuestViewController.m; sourceTree = "<group>"; };
+		1B83C9E91624A717005799B6 /* CGGuestDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGuestDetailTableViewController.m; sourceTree = "<group>"; };
+		1B83CAFA16283BA2005799B6 /* CGOwnerVenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGOwnerVenueViewController.h; sourceTree = "<group>"; };
+		1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGOwnerVenueViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +88,7 @@
 		1B83C9C8162475FC005799B6 /* WaitList */ = {
 			isa = PBXGroup;
 			children = (
+				1B83C9E21624934B005799B6 /* iPhone Controllers */,
 				1B83C9D1162475FC005799B6 /* CGAppDelegate.h */,
 				1B83C9D2162475FC005799B6 /* CGAppDelegate.m */,
 				1B83C9D4162475FC005799B6 /* MainStoryboard_iPhone.storyboard */,
@@ -99,6 +109,19 @@
 				1B83C9D0162475FC005799B6 /* WaitList-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1B83C9E21624934B005799B6 /* iPhone Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B83C9E316249394005799B6 /* CGGuestDetailTableViewController.h */,
+				1B83C9E91624A717005799B6 /* CGGuestDetailTableViewController.m */,
+				1B83C9E61624A662005799B6 /* CGAddGuestViewController.h */,
+				1B83C9E71624A662005799B6 /* CGAddGuestViewController.m */,
+				1B83CAFA16283BA2005799B6 /* CGOwnerVenueViewController.h */,
+				1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */,
+			);
+			name = "iPhone Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +192,9 @@
 				1B83C9CF162475FC005799B6 /* main.m in Sources */,
 				1B83C9D3162475FC005799B6 /* CGAppDelegate.m in Sources */,
 				1B83C9DC162475FC005799B6 /* CGViewController.m in Sources */,
+				1B83C9E81624A662005799B6 /* CGAddGuestViewController.m in Sources */,
+				1B83C9EA1624A717005799B6 /* CGGuestDetailTableViewController.m in Sources */,
+				1B83CAFC16283BA2005799B6 /* CGOwnerVenueViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
