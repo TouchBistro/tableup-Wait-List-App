@@ -1,23 +1,23 @@
 //
-//  CGUserDetailTableViewController.m
+//  CGWaitListTableViewController.m
 //  WaitList
 //
-//  Created by Padraic Doyle on 10/9/12.
+//  Created by Padraic Doyle on 10/19/12.
 //  Copyright (c) 2012 Padraic Doyle. All rights reserved.
 //
 
-#import "CGGuestDetailTableViewController.h"
-#import "CGRestaurantGuest.h"
+#import "CGWaitListTableViewController.h"
+#import "CGRestaurantWaitList.h"
+#import "CGRestaurantWaitListCell.h"
 #import <RestKit/RestKit.h>
 
-@interface CGGuestDetailTableViewController ()
+@interface CGWaitListTableViewController ()
 
 @end
 
-@implementation CGGuestDetailTableViewController
+@implementation CGWaitListTableViewController
 
-@synthesize userActionView;
-@synthesize tableView;
+@synthesize waitListers;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,34 +31,63 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setDataLoaded:FALSE];
     
-    self.tableView.tableFooterView = userActionView;
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/waitlist" delegate:self];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/guests" delegate:self];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    RKLogInfo(@"Load collection of Guests: %@", objects);
+    RKLogInfo(@"Load collection of Wait Listers: %@", objects);
+    self.waitListers = [[NSMutableArray alloc] initWithArray:objects];
+    self.dataLoaded = TRUE;
+    [self.tableView reloadData];
 }
 
-- (void)viewDidUnload
+- (void)didReceiveMemoryWarning
 {
-    [self setUserActionView:nil];
-    [self setTableView:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (self.dataLoaded){
+        return self.waitListers.count;
+    }else{
+        return 0;
+    }
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"inVenueCell";
+    
+    CGRestaurantWaitList *waitListee = [self.waitListers objectAtIndex:indexPath.row];
+    
+    CGRestaurantWaitListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil){
+        cell = [[CGRestaurantWaitListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    //TODO set the text of the cell
+    cell.name.text = waitListee.guest.name;
+    return cell;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -112,4 +141,7 @@
      */
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
 @end

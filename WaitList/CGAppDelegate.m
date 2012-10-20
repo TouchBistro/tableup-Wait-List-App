@@ -7,14 +7,51 @@
 //
 
 #import "CGAppDelegate.h"
+#import "CGRestaurantGuest.h"
+#import "CGRestaurantWaitList.h"
+
+#import <RestKit/RestKit.h>
 
 @implementation CGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    RKClient *client = [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    
+    RKObjectMapping *guestMapping = [RKObjectMapping mappingForClass:[CGRestaurantGuest class]];
+    [guestMapping mapKeyPath:@"id" toAttribute:@"guestId"];
+    [guestMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [guestMapping mapKeyPath:@"email" toAttribute:@"email"];
+    [guestMapping mapKeyPath:@"phoneNumber" toAttribute:@"phoneNumber"];
+    [guestMapping mapKeyPath:@"guestRestaurantURL" toAttribute:@"guestRestaurantURLString"];
+    [guestMapping mapKeyPath:@"shortenedGuestRestaurantURL" toAttribute:@"shortenedGuestRestaurantURLString"];
+    [guestMapping mapKeyPath:@"permanentNotes" toAttribute:@"permanentNotes"];
+    [guestMapping mapKeyPath:@"totalNumberOfVisits" toAttribute:@"totalNumberOfVisits"];
+    [guestMapping mapKeyPath:@"lastVisit" toAttribute:@"lastVisit"];
+    
+    RKObjectMapping *waitListMapping = [RKObjectMapping mappingForClass:[CGRestaurantWaitList class]];
+    [waitListMapping mapKeyPath:@"id" toAttribute:@"waitListId"];
+    [waitListMapping mapKeyPath:@"estimatedWait" toAttribute:@"estimatedWait"];
+    [waitListMapping mapKeyPath:@"numberInParty" toAttribute:@"numberInParty"];
+    [waitListMapping mapKeyPath:@"visitNotes" toAttribute:@"visitNotes"];
+    [waitListMapping mapKeyPath:@"reserveOnline" toAttribute:@"reserveOnline"];
+    [waitListMapping mapKeyPath:@"timeTableReadyTextSent" toAttribute:@"timeTableReadyTextSent"];
+    [waitListMapping mapKeyPath:@"timeSeated" toAttribute:@"timeSeated"];
+    [waitListMapping mapKeyPath:@"timeRemovedFromWaitList" toAttribute:@"timeRemovedFromWaitList"];
+    [waitListMapping mapKeyPath:@"dateCreated" toAttribute:@"dateCreated"];
+    [waitListMapping mapKeyPath:@"lastUpdated" toAttribute:@"lastUpdated"];
+    
+    [waitListMapping mapKeyPath:@"guest" toRelationship:@"guest" withMapping:guestMapping];
+    
+    [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];
+    [[RKObjectManager sharedManager].mappingProvider setMapping:waitListMapping forKeyPath:@"waitlisters"];
+    
     return YES;
 }
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

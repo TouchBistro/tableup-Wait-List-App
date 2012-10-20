@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1BBF33162CB13900708323 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF26162CAF4B00708323 /* libRestKit.a */; };
+		1B1BBF35162CB17C00708323 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF34162CB17C00708323 /* CFNetwork.framework */; };
+		1B1BBF37162CB18A00708323 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF36162CB18A00708323 /* CoreData.framework */; };
+		1B1BBF39162CB19600708323 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF38162CB19600708323 /* MobileCoreServices.framework */; };
+		1B1BBF3B162CB1A200708323 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3A162CB1A200708323 /* Security.framework */; };
+		1B1BBF3D162CB1AC00708323 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */; };
+		1B1BBF3F162CB1B400708323 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3E162CB1B400708323 /* QuartzCore.framework */; };
+		1B1BBF41162CB1C000708323 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF40162CB1C000708323 /* libxml2.dylib */; };
 		1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C2162475FC005799B6 /* UIKit.framework */; };
 		1B83C9C5162475FC005799B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C4162475FC005799B6 /* Foundation.framework */; };
 		1B83C9C7162475FC005799B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C6162475FC005799B6 /* CoreGraphics.framework */; };
@@ -15,13 +23,71 @@
 		1B83C9D3162475FC005799B6 /* CGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83C9D2162475FC005799B6 /* CGAppDelegate.m */; };
 		1B83C9D6162475FC005799B6 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B83C9D4162475FC005799B6 /* MainStoryboard_iPhone.storyboard */; };
 		1B83C9D9162475FC005799B6 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B83C9D7162475FC005799B6 /* MainStoryboard_iPad.storyboard */; };
-		1B83C9DC162475FC005799B6 /* CGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83C9DB162475FC005799B6 /* CGViewController.m */; };
 		1B83C9E81624A662005799B6 /* CGAddGuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83C9E71624A662005799B6 /* CGAddGuestViewController.m */; };
 		1B83C9EA1624A717005799B6 /* CGGuestDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83C9E91624A717005799B6 /* CGGuestDetailTableViewController.m */; };
 		1B83CAFC16283BA2005799B6 /* CGOwnerVenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */; };
+		1B8627D41631B6890025B835 /* CGWaitListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */; };
+		1B8627DC16321D700025B835 /* CGRestaurantWaitListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */; };
+		1BAE48921630BAE400332F47 /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48901630BAE400332F47 /* CGLoginViewController.m */; };
+		1BAE48931630BAE400332F47 /* CGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE48911630BAE400332F47 /* CGLoginViewController.xib */; };
+		1BAE48A81630CEEC00332F47 /* CGRestaurantWaitList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */; };
+		1BAE48B01630CF0900332F47 /* CGRestaurantGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1B1BBF25162CAF4B00708323 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		1B1BBF27162CAF4B00708323 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		1B1BBF29162CAF4B00708323 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		1B1BBF2B162CAF4B00708323 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		1B1BBF2D162CAF4B00708323 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 259C301615128079003066A2;
+			remoteInfo = RestKitResources;
+		};
+		1B1BBF31162CB0C200708323 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		1B1BBF34162CB17C00708323 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1B1BBF36162CB18A00708323 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1B1BBF38162CB19600708323 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1B1BBF3A162CB1A200708323 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1B1BBF3E162CB1B400708323 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1B1BBF40162CB1C000708323 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1B83C9BE162475FC005799B6 /* WaitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B83C9C2162475FC005799B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1B83C9C4162475FC005799B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -34,14 +100,23 @@
 		1B83C9D2162475FC005799B6 /* CGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAppDelegate.m; sourceTree = "<group>"; };
 		1B83C9D5162475FC005799B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		1B83C9D8162475FC005799B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		1B83C9DA162475FC005799B6 /* CGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGViewController.h; sourceTree = "<group>"; };
-		1B83C9DB162475FC005799B6 /* CGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGViewController.m; sourceTree = "<group>"; };
 		1B83C9E316249394005799B6 /* CGGuestDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGuestDetailTableViewController.h; sourceTree = "<group>"; };
 		1B83C9E61624A662005799B6 /* CGAddGuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAddGuestViewController.h; sourceTree = "<group>"; };
 		1B83C9E71624A662005799B6 /* CGAddGuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAddGuestViewController.m; sourceTree = "<group>"; };
 		1B83C9E91624A717005799B6 /* CGGuestDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGuestDetailTableViewController.m; sourceTree = "<group>"; };
 		1B83CAFA16283BA2005799B6 /* CGOwnerVenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGOwnerVenueViewController.h; sourceTree = "<group>"; };
 		1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGOwnerVenueViewController.m; sourceTree = "<group>"; };
+		1B8627D21631B6890025B835 /* CGWaitListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGWaitListTableViewController.h; sourceTree = "<group>"; };
+		1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGWaitListTableViewController.m; sourceTree = "<group>"; };
+		1B8627DA16321D700025B835 /* CGRestaurantWaitListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitListCell.h; sourceTree = "<group>"; };
+		1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitListCell.m; sourceTree = "<group>"; };
+		1BAE488F1630BAE400332F47 /* CGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginViewController.h; sourceTree = "<group>"; };
+		1BAE48901630BAE400332F47 /* CGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginViewController.m; sourceTree = "<group>"; };
+		1BAE48911630BAE400332F47 /* CGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CGLoginViewController.xib; sourceTree = "<group>"; };
+		1BAE48A61630CEEC00332F47 /* CGRestaurantWaitList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitList.h; sourceTree = "<group>"; };
+		1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitList.m; sourceTree = "<group>"; };
+		1BAE48AE1630CF0900332F47 /* CGRestaurantGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantGuest.h; sourceTree = "<group>"; };
+		1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantGuest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +124,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1BBF41162CB1C000708323 /* libxml2.dylib in Frameworks */,
+				1B1BBF3F162CB1B400708323 /* QuartzCore.framework in Frameworks */,
+				1B1BBF3D162CB1AC00708323 /* SystemConfiguration.framework in Frameworks */,
+				1B1BBF3B162CB1A200708323 /* Security.framework in Frameworks */,
+				1B1BBF39162CB19600708323 /* MobileCoreServices.framework in Frameworks */,
+				1B1BBF37162CB18A00708323 /* CoreData.framework in Frameworks */,
+				1B1BBF35162CB17C00708323 /* CFNetwork.framework in Frameworks */,
+				1B1BBF33162CB13900708323 /* libRestKit.a in Frameworks */,
 				1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */,
 				1B83C9C5162475FC005799B6 /* Foundation.framework in Frameworks */,
 				1B83C9C7162475FC005799B6 /* CoreGraphics.framework in Frameworks */,
@@ -58,9 +141,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1BBF1B162CAF4B00708323 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B1BBF26162CAF4B00708323 /* libRestKit.a */,
+				1B1BBF28162CAF4B00708323 /* RestKitTests.octest */,
+				1B1BBF2A162CAF4B00708323 /* RestKit.framework */,
+				1B1BBF2C162CAF4B00708323 /* RestKitFrameworkTests.octest */,
+				1B1BBF2E162CAF4B00708323 /* RestKitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B1BBF42162CB2E900708323 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE48A61630CEEC00332F47 /* CGRestaurantWaitList.h */,
+				1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */,
+				1BAE48AE1630CF0900332F47 /* CGRestaurantGuest.h */,
+				1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		1B83C9B3162475FC005799B6 = {
 			isa = PBXGroup;
 			children = (
+				1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */,
 				1B83C9C8162475FC005799B6 /* WaitList */,
 				1B83C9C1162475FC005799B6 /* Frameworks */,
 				1B83C9BF162475FC005799B6 /* Products */,
@@ -78,6 +185,13 @@
 		1B83C9C1162475FC005799B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B1BBF40162CB1C000708323 /* libxml2.dylib */,
+				1B1BBF3E162CB1B400708323 /* QuartzCore.framework */,
+				1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */,
+				1B1BBF3A162CB1A200708323 /* Security.framework */,
+				1B1BBF38162CB19600708323 /* MobileCoreServices.framework */,
+				1B1BBF36162CB18A00708323 /* CoreData.framework */,
+				1B1BBF34162CB17C00708323 /* CFNetwork.framework */,
 				1B83C9C2162475FC005799B6 /* UIKit.framework */,
 				1B83C9C4162475FC005799B6 /* Foundation.framework */,
 				1B83C9C6162475FC005799B6 /* CoreGraphics.framework */,
@@ -88,13 +202,13 @@
 		1B83C9C8162475FC005799B6 /* WaitList */ = {
 			isa = PBXGroup;
 			children = (
+				1B1BBF42162CB2E900708323 /* Models */,
+				1BAE488E1630BA7800332F47 /* iPhone Views */,
 				1B83C9E21624934B005799B6 /* iPhone Controllers */,
 				1B83C9D1162475FC005799B6 /* CGAppDelegate.h */,
 				1B83C9D2162475FC005799B6 /* CGAppDelegate.m */,
 				1B83C9D4162475FC005799B6 /* MainStoryboard_iPhone.storyboard */,
 				1B83C9D7162475FC005799B6 /* MainStoryboard_iPad.storyboard */,
-				1B83C9DA162475FC005799B6 /* CGViewController.h */,
-				1B83C9DB162475FC005799B6 /* CGViewController.m */,
 				1B83C9C9162475FC005799B6 /* Supporting Files */,
 			);
 			path = WaitList;
@@ -120,8 +234,22 @@
 				1B83C9E71624A662005799B6 /* CGAddGuestViewController.m */,
 				1B83CAFA16283BA2005799B6 /* CGOwnerVenueViewController.h */,
 				1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */,
+				1BAE488F1630BAE400332F47 /* CGLoginViewController.h */,
+				1BAE48901630BAE400332F47 /* CGLoginViewController.m */,
+				1B8627D21631B6890025B835 /* CGWaitListTableViewController.h */,
+				1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */,
 			);
 			name = "iPhone Controllers";
+			sourceTree = "<group>";
+		};
+		1BAE488E1630BA7800332F47 /* iPhone Views */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE48911630BAE400332F47 /* CGLoginViewController.xib */,
+				1B8627DA16321D700025B835 /* CGRestaurantWaitListCell.h */,
+				1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */,
+			);
+			name = "iPhone Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +266,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1B1BBF32162CB0C200708323 /* PBXTargetDependency */,
 			);
 			name = WaitList;
 			productName = WaitList;
@@ -164,12 +293,56 @@
 			mainGroup = 1B83C9B3162475FC005799B6;
 			productRefGroup = 1B83C9BF162475FC005799B6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1B1BBF1B162CAF4B00708323 /* Products */;
+					ProjectRef = 1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1B83C9BD162475FC005799B6 /* WaitList */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1B1BBF26162CAF4B00708323 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 1B1BBF25162CAF4B00708323 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B1BBF28162CAF4B00708323 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 1B1BBF27162CAF4B00708323 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B1BBF2A162CAF4B00708323 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 1B1BBF29162CAF4B00708323 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B1BBF2C162CAF4B00708323 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 1B1BBF2B162CAF4B00708323 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B1BBF2E162CAF4B00708323 /* RestKitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitResources.bundle;
+			remoteRef = 1B1BBF2D162CAF4B00708323 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1B83C9BC162475FC005799B6 /* Resources */ = {
@@ -179,6 +352,7 @@
 				1B83C9CD162475FC005799B6 /* InfoPlist.strings in Resources */,
 				1B83C9D6162475FC005799B6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				1B83C9D9162475FC005799B6 /* MainStoryboard_iPad.storyboard in Resources */,
+				1BAE48931630BAE400332F47 /* CGLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,14 +365,26 @@
 			files = (
 				1B83C9CF162475FC005799B6 /* main.m in Sources */,
 				1B83C9D3162475FC005799B6 /* CGAppDelegate.m in Sources */,
-				1B83C9DC162475FC005799B6 /* CGViewController.m in Sources */,
 				1B83C9E81624A662005799B6 /* CGAddGuestViewController.m in Sources */,
 				1B83C9EA1624A717005799B6 /* CGGuestDetailTableViewController.m in Sources */,
 				1B83CAFC16283BA2005799B6 /* CGOwnerVenueViewController.m in Sources */,
+				1BAE48921630BAE400332F47 /* CGLoginViewController.m in Sources */,
+				1BAE48A81630CEEC00332F47 /* CGRestaurantWaitList.m in Sources */,
+				1BAE48B01630CF0900332F47 /* CGRestaurantGuest.m in Sources */,
+				1B8627D41631B6890025B835 /* CGWaitListTableViewController.m in Sources */,
+				1B8627DC16321D700025B835 /* CGRestaurantWaitListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B1BBF32162CB0C200708323 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 1B1BBF31162CB0C200708323 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1B83C9CB162475FC005799B6 /* InfoPlist.strings */ = {
@@ -284,7 +470,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaitList/WaitList-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "WaitList/WaitList-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -295,7 +486,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaitList/WaitList-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
 				INFOPLIST_FILE = "WaitList/WaitList-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -320,6 +516,7 @@
 				1B83C9E1162475FC005799B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
