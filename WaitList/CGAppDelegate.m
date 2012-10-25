@@ -17,8 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    RKClient *client = [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
-    RKObjectManager *manager = [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
     
     RKObjectMapping *guestMapping = [RKObjectMapping mappingForClass:[CGRestaurantGuest class]];
     [guestMapping mapKeyPath:@"id" toAttribute:@"guestId"];
@@ -40,9 +40,11 @@
     [waitListMapping mapKeyPath:@"timeTableReadyTextSent" toAttribute:@"timeTableReadyTextSent"];
     [waitListMapping mapKeyPath:@"timeSeated" toAttribute:@"timeSeated"];
     [waitListMapping mapKeyPath:@"timeRemovedFromWaitList" toAttribute:@"timeRemovedFromWaitList"];
+    [waitListMapping mapKeyPath:@"timeSinceTextSent" toAttribute:@"timeSinceTextSent"];
+    [waitListMapping mapKeyPath:@"timeOnWaitList" toAttribute:@"timeOnWaitList"];
     [waitListMapping mapKeyPath:@"dateCreated" toAttribute:@"dateCreated"];
     [waitListMapping mapKeyPath:@"lastUpdated" toAttribute:@"lastUpdated"];
-    
+        
     [waitListMapping mapKeyPath:@"guest" toRelationship:@"guest" withMapping:guestMapping];
     
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];

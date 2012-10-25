@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import "CGWaitListTableViewController.h"
 
 @interface CGAddGuestViewController : UITableViewController
+
 @property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
 - (IBAction)cancel:(id)sender;
@@ -21,6 +23,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *estimatedWaitTextField;
 @property (strong, nonatomic) IBOutlet UITextField *visitNotesTextField;
 @property (strong, nonatomic) IBOutlet UITextField *permanentNotesTextField;
+
+@property (strong, nonatomic) CGWaitListTableViewController *waitListTableViewController;
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
+
 
 - (IBAction)save:(id)sender;
 - (IBAction)saveAndText:(id)sender;

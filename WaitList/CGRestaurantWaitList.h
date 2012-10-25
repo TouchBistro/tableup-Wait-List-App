@@ -26,6 +26,9 @@
 @property (nonatomic, strong) NSDate *dateCreated;
 @property (nonatomic, strong) NSDate *lastUpdated;
 
+@property (nonatomic, strong) NSNumber *timeOnWaitList;
+@property (nonatomic, strong) NSNumber *timeSinceTextSent;
+
 @property (nonatomic, strong) CGRestaurantGuest *guest;
 
 @end

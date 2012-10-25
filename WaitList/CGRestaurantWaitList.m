@@ -27,6 +27,9 @@
 
 @synthesize guest;
 
+@synthesize timeOnWaitList;
+@synthesize timeSinceTextSent;
+
 
 - (NSDictionary*)elementToPropertyMappings {
     return [NSDictionary dictionaryWithObjectsAndKeys:

@@ -9,6 +9,8 @@
 #import "CGWaitListTableViewController.h"
 #import "CGRestaurantWaitList.h"
 #import "CGRestaurantWaitListCell.h"
+#import "CGAddGuestViewController.h"
+#import "CGGuestDetailTableViewController.h"
 #import <RestKit/RestKit.h>
 
 @interface CGWaitListTableViewController ()
@@ -30,16 +32,20 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [self setDataLoaded:FALSE];
     
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/waitlist" delegate:self];
+    
+    [super viewDidLoad];
+    [self setDataLoaded:FALSE];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    refreshControl = [[UIRefreshControl alloc] init];
+    
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Pull to refresh"];
+    
+    [refreshControl addTarget:self action:@selector(refreshMyTableView) forControlEvents:UIControlEventValueChanged];
+        
+    self.refreshControl = refreshControl;
+    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
@@ -47,6 +53,9 @@
     self.waitListers = [[NSMutableArray alloc] initWithArray:objects];
     self.dataLoaded = TRUE;
     [self.tableView reloadData];
+    
+    [refreshControl endRefreshing];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,64 +93,99 @@
         cell = [[CGRestaurantWaitListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //TODO set the text of the cell
-    cell.name.text = waitListee.guest.name;
+    if (waitListee != nil){
+        cell.name.text = waitListee.guest ? waitListee.guest.name : nil;
+        
+        if (waitListee.estimatedWait != nil){
+            NSString *estimatedWait = waitListee.estimatedWait.stringValue;
+            estimatedWait = [estimatedWait stringByAppendingString:@" mins"];
+            
+            cell.estimatedWaitTime.text = estimatedWait;
+        }
+        
+        if (waitListee.timeOnWaitList != nil){
+            NSString *timeOnWaitList = @"(";
+            timeOnWaitList = [timeOnWaitList stringByAppendingString:waitListee.timeOnWaitList.stringValue];
+            timeOnWaitList = [timeOnWaitList stringByAppendingString:@")"];
+            
+            cell.estimatedWaitTimeRemaining.text = timeOnWaitList;
+        }
+        
+        if (waitListee.timeSinceTextSent != nil){
+            NSString *timeSinceTextSent = waitListee.timeSinceTextSent.stringValue;
+            timeSinceTextSent = [timeSinceTextSent stringByAppendingString:@" mins ago"];
+            
+            cell.textSentTimeAgo.text = timeSinceTextSent;
+        }else{
+            cell.textSentTimeAgo.text = @"";
+        }
+        
+        if (waitListee.numberInParty != nil){
+            NSString *numberInParty = waitListee.numberInParty.stringValue;
+            
+            cell.numberInParty.text = numberInParty;
+        }
+    }
+    
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
+
+-(void)refreshMyTableView{
+    
+    //set the title while refreshing
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"Refreshing Waitlist"];
+    //set the date and time of refreshing
+    NSDateFormatter *formattedDate = [[NSDateFormatter alloc]init];
+    [formattedDate setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
+    
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/waitlist" delegate:self];
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self setDataLoaded:FALSE];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/waitlist" delegate:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([[segue identifier] isEqualToString:@"newGuest"]){
+        UINavigationController *navController = [segue destinationViewController];
+        
+        if (navController != nil){
+            CGAddGuestViewController *addGuestController = (CGAddGuestViewController *)navController.topViewController;
+
+            if (addGuestController != nil){
+                [addGuestController setWaitListTableViewController:segue.sourceViewController];
+            }
+        }
+    }else if ([[segue identifier] isEqualToString:@"guestDetail"]){
+        CGGuestDetailTableViewController *guestDetailTableViewController = [segue destinationViewController];
+        
+        if (guestDetailTableViewController != nil){
+            [guestDetailTableViewController setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
+        }
+    }
+}
+
+- (void)guestDetailControllerDidFinish:(NSArray *)currentWaitList{
+    if (currentWaitList){
+        [self.waitListers removeAllObjects];
+        [self.waitListers addObjectsFromArray:currentWaitList];
+        [self.tableView reloadData];
+    }
+}
+
+
+
 @end

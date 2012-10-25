@@ -24,6 +24,9 @@
 @synthesize permanentNotesTextField;
 @synthesize numberInPartyTextField;
 @synthesize estimatedWaitTextField;
+@synthesize waitListTableViewController;
+
+@synthesize activityView;
 
 
 - (void)viewDidLoad
@@ -108,7 +111,7 @@
     if (self.phoneNumberTextField.text != nil){
         [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
     }
-    
+        
     if (self.nameTextField.text != nil){
         [params setObject:self.nameTextField.text forKey:@"name" ];
     }
@@ -133,7 +136,14 @@
         [params setObject:self.permanentNotesTextField.text forKey:@"permanentNotes"];
     }
     
+    
     [[RKClient sharedClient] post:@"/restaurants/1/waitlist" params:params delegate:self];
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.tableView addSubview: activityView];
+    
+    self.activityView.center = CGPointMake(240,160);
+    [self.activityView startAnimating];
+
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
@@ -141,11 +151,35 @@
         if ([response isOK]) {
             if ([response isJSON]) {
                 NSLog(@"Got a JSON response back from our POST!");
+                
+                NSString* JSONString = [response bodyAsString];
+                NSString* MIMEType = @"application/json";
+                NSError* error = nil;
+                
+                id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
+                id parsedData = [parser objectFromString:JSONString error:&error];
+                if (parsedData == nil && error) {
+                    NSLog(@"ERROR: JSON parsing error");
+                }
+                
+                RKObjectMappingProvider* mappingProvider = [RKObjectManager sharedManager].mappingProvider;
+                RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
+                RKObjectMappingResult* result = [mapper performMapping];
+                if (result) {
+                    
+                    NSArray *resultArray = result.asCollection;
+                    [self.waitListTableViewController.waitListers removeAllObjects];
+                    [self.waitListTableViewController.waitListers addObjectsFromArray:resultArray];
+                    [self.waitListTableViewController.tableView reloadData];
+                    
+                }
             }
         }
     }
     
-//    [self dismissModalViewControllerAnimated:YES];
+    [self.activityView stopAnimating];
+    [self dismissModalViewControllerAnimated:YES];
+
 }
 
 - (IBAction)saveAndText:(id)sender {

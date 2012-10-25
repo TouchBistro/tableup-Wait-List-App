@@ -7,11 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGGuestDetailTableViewController.h"
 
-@interface CGWaitListTableViewController : UITableViewController
+
+@interface CGWaitListTableViewController : UITableViewController <CGGuestDetailTableViewControllerDelegate>{
+    UIRefreshControl *refreshControl;
+    
+}
 
 @property (nonatomic, strong) NSMutableArray *waitListers;
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
+
+-(void) refreshMyTableView;
+-(void) retrieveWaitListForDisplay;
+
+
+- (void)guestDetailControllerDidFinish:(NSArray *)currentWaitList;
 
 
 @end

@@ -8,6 +8,8 @@
 
 #import "CGGuestDetailTableViewController.h"
 #import "CGRestaurantGuest.h"
+#import "CGWaitListTableViewController.h"
+
 #import <RestKit/RestKit.h>
 
 @interface CGGuestDetailTableViewController ()
@@ -18,6 +20,23 @@
 
 @synthesize userActionView;
 @synthesize tableView;
+
+@synthesize phoneNumberTextField;
+@synthesize nameTextField;
+@synthesize numberInPartyTextField;
+@synthesize emailTextField;
+@synthesize estimatedWaitTextField;
+@synthesize visitNotesTextField;
+@synthesize permanentNotesTextField;
+@synthesize timeAgoLabel;
+
+@synthesize waitListee;
+@synthesize currentWaitList;
+
+@synthesize delegate;
+
+@synthesize activityView;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,17 +49,25 @@
 
 - (void)viewDidLoad
 {
+    if (self.waitListee && self.waitListee.guest){
+        self.phoneNumberTextField.text = self.waitListee.guest.phoneNumber;
+        self.nameTextField.text = self.waitListee.guest.name;
+        self.emailTextField.text = self.waitListee.guest.email;
+        self.estimatedWaitTextField.text = self.waitListee.estimatedWait ? self.waitListee.estimatedWait.stringValue : nil;
+        self.visitNotesTextField.text = self.waitListee.visitNotes;
+        self.permanentNotesTextField.text = self.waitListee.guest.permanentNotes;
+        
+        NSString *timeAgoString = self.waitListee.estimatedWait.stringValue;
+        timeAgoString = [timeAgoString stringByAppendingString:@" mins ("];
+        timeAgoString = [timeAgoString stringByAppendingString:self.waitListee.timeOnWaitList.stringValue];
+        timeAgoString = [timeAgoString stringByAppendingString:@")"];
+        
+        self.timeAgoLabel.text = timeAgoString;
+    }
+    
     [super viewDidLoad];
     
-    self.tableView.tableFooterView = userActionView;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/guests" delegate:self];
+//    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/guests" delegate:self];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
@@ -51,65 +78,91 @@
 {
     [self setUserActionView:nil];
     [self setTableView:nil];
+    [self setTimeAgoLabel:nil];
+    
+    [self setPhoneNumberTextField:nil];
+    [self setNameTextField:nil];
+    [self setNumberInPartyTextField:nil];
+    [self setEmailTextField:nil];
+    [self setEstimatedWaitTextField:nil];
+    [self setVisitNotesTextField:nil];
+    [self setPermanentNotesTextField:nil];
+    [self setTimeAgoLabel:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-#pragma mark - Table view data source
-
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (IBAction)notify:(id)sender {
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (IBAction)remove:(id)sender {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:@"10" forKey:@"userId"];
+    [params setObject:@"admin" forKey:@"password"];
+    
+    NSString *urlString = @"/restaurants/1/waitlist/";
+    urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/remove"];
+    
+    [[RKClient sharedClient] post:urlString params:params delegate:self];
+    
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.tableView addSubview: activityView];
+    
+    self.activityView.center = CGPointMake(240,160);
+    [self.activityView startAnimating];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
+- (IBAction)seated:(id)sender {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:@"10" forKey:@"userId"];
+    [params setObject:@"admin" forKey:@"password"];
+    
+    NSString *urlString = @"/restaurants/1/waitlist/";
+    urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/seat"];
+    
+    [[RKClient sharedClient] post:urlString params:params delegate:self];
+    
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.tableView addSubview: activityView];
+    
+    self.activityView.center = CGPointMake(240,160);
+    [self.activityView startAnimating];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    [self.activityView stopAnimating];
+    
+    if ([request isPOST]) {
+        if ([response isOK]) {
+            if ([response isJSON]) {
+                NSLog(@"Got a JSON response back from our POST!");
+                
+                NSString* JSONString = [response bodyAsString];
+                NSString* MIMEType = @"application/json";
+                NSError* error = nil;
+                
+                id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
+                id parsedData = [parser objectFromString:JSONString error:&error];
+                if (parsedData == nil && error) {
+                    NSLog(@"ERROR: JSON parsing error");
+                }
+                
+                RKObjectMappingProvider* mappingProvider = [RKObjectManager sharedManager].mappingProvider;
+                RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
+                RKObjectMappingResult* result = [mapper performMapping];
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+                if (result) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }
+        }
+    }
 }
 
 @end
