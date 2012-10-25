@@ -95,6 +95,22 @@
 }
 
 - (IBAction)notify:(id)sender {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:@"10" forKey:@"userId"];
+    [params setObject:@"admin" forKey:@"password"];
+    
+    NSString *urlString = @"/restaurants/1/waitlist/";
+    urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/text"];
+    
+    [[RKClient sharedClient] post:urlString params:params delegate:self];
+    
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.tableView addSubview: activityView];
+    
+    self.activityView.center = CGPointMake(240,160);
+    [self.activityView startAnimating];
 }
 
 - (IBAction)remove:(id)sender {
