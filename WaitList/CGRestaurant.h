@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSNumber *restaurantId;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *address1;
 
 @end

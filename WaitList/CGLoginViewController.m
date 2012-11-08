@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     [scroller setScrollEnabled:YES];
-    [scroller setContentSize:CGSizeMake(320, 1000)];
+    [scroller setContentSize:CGSizeMake(320, 800)];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -125,6 +125,8 @@
                     }
                 }
             }
+        }else{
+            [[[UIAlertView alloc] initWithTitle:@"Login Failed" message:@"Login Failed. Please Try Again." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }
     }
         

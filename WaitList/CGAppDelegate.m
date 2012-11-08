@@ -58,6 +58,7 @@
     RKObjectMapping *restaurantMapping = [RKObjectMapping mappingForClass:[CGRestaurant class]];
     [restaurantMapping mapKeyPath:@"id" toAttribute:@"restaurantId"];
     [restaurantMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [restaurantMapping mapKeyPath:@"address1" toAttribute:@"address1"];
     
     RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[CGUser class]];
     [userMapping mapKeyPath:@"id" toAttribute:@"userId"];

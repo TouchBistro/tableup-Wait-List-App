@@ -81,44 +81,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -169,12 +131,9 @@
     urlString = [urlString stringByAppendingString:@"/waitlist"];
     
     [[RKClient sharedClient] post:urlString params:params delegate:self];
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [self.tableView addSubview: activityView];
-    
-    self.activityView.center = CGPointMake(240,160);
-    [self.activityView startAnimating];
-
+   
+    [self.spinner startAnimating];
+    [self.view addSubview:spinner];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
@@ -251,6 +210,9 @@
                 }
             }
         }
+        
+        [self.spinner stopAnimating];
+        [self.spinner removeFromSuperview];
         
         [self.activityView stopAnimating];
         [self dismissModalViewControllerAnimated:YES];

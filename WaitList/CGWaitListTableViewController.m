@@ -113,9 +113,6 @@
             timeOnWaitList = [timeOnWaitList stringByAppendingString:@")"];
             
             cell.estimatedWaitTimeRemaining.text = timeOnWaitList;
-            cell.notifyImage.hidden = NO;
-        }else{
-            cell.notifyImage.hidden = YES;
         }
         
         if (waitListee.timeSinceTextSent != nil){
@@ -123,8 +120,18 @@
             timeSinceTextSent = [timeSinceTextSent stringByAppendingString:@" mins ago"];
             
             cell.textSentTimeAgo.text = timeSinceTextSent;
+            cell.notifyImage.hidden = NO;
         }else{
             cell.textSentTimeAgo.text = @"";
+            cell.notifyImage.hidden = YES;
+        }
+        
+        if (waitListee.visitNotes != nil){
+            NSString *visitNotes = waitListee.visitNotes;
+            
+            cell.visitNotesLabel.text = visitNotes;
+        }else{
+            cell.visitNotesLabel.text = @"";
         }
         
         if (waitListee.numberInParty != nil){

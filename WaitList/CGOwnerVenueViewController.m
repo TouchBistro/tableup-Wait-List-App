@@ -61,6 +61,7 @@
     
     if (restaurant != nil){
         cell.textLabel.text = restaurant.name;
+        cell.detailTextLabel.text = restaurant.address1;
     }
     
     return cell;
