@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import "CGRestaurant.h"
+#import "CGUser.h"
 #import "CGWaitListTableViewController.h"
 
-@interface CGAddGuestViewController : UITableViewController
+@interface CGAddGuestViewController : UITableViewController <UITextFieldDelegate, UITextViewDelegate>
+
 
 @property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
@@ -27,8 +30,18 @@
 @property (strong, nonatomic) CGWaitListTableViewController *waitListTableViewController;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
+@property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
+@property (nonatomic, strong) CGRestaurant *currentRestaurant;
+@property (nonatomic, strong) CGUser *loggedInUser;
+
 
 - (IBAction)save:(id)sender;
 - (IBAction)saveAndText:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) IBOutlet UIButton *saveAndSendButton;
+
 
 @end

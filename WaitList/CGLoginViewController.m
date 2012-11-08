@@ -94,8 +94,6 @@
     
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
-        [self.textNoteOrLink setText:[NSString stringWithFormat:@"https://graph.facebook.com/me/friends?access_token=%@",
-                                      appDelegate.session.accessToken]];
     }
 }
 

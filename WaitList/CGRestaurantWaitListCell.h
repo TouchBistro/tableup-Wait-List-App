@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *estimatedWaitTimeRemaining;
 @property (strong, nonatomic) IBOutlet UILabel *textSentTimeAgo;
 @property (strong, nonatomic) IBOutlet UILabel *numberInParty;
+@property (strong, nonatomic) IBOutlet UIImageView *notifyImage;
 
 @end

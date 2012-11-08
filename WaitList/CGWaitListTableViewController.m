@@ -113,6 +113,9 @@
             timeOnWaitList = [timeOnWaitList stringByAppendingString:@")"];
             
             cell.estimatedWaitTimeRemaining.text = timeOnWaitList;
+            cell.notifyImage.hidden = NO;
+        }else{
+            cell.notifyImage.hidden = YES;
         }
         
         if (waitListee.timeSinceTextSent != nil){
@@ -180,6 +183,8 @@
 
             if (addGuestController != nil){
                 [addGuestController setWaitListTableViewController:segue.sourceViewController];
+                [addGuestController setLoggedInUser:self.loggedInUser];
+                [addGuestController setCurrentRestaurant:self.currentRestaurant];
             }
         }
     }else if ([[segue identifier] isEqualToString:@"guestDetail"]){
