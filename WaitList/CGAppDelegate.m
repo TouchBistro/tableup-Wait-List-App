@@ -9,10 +9,18 @@
 #import "CGAppDelegate.h"
 #import "CGRestaurantGuest.h"
 #import "CGRestaurantWaitList.h"
+#import "CGRestaurant.h"
+#import "CGUser.h"
+
+#import "CGUtils.h"
+#import "CGLoginViewController.h"
 
 #import <RestKit/RestKit.h>
 
+
 @implementation CGAppDelegate
+
+@synthesize session = _session;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -47,9 +55,22 @@
         
     [waitListMapping mapKeyPath:@"guest" toRelationship:@"guest" withMapping:guestMapping];
     
+    RKObjectMapping *restaurantMapping = [RKObjectMapping mappingForClass:[CGRestaurant class]];
+    [restaurantMapping mapKeyPath:@"id" toAttribute:@"restaurantId"];
+    [restaurantMapping mapKeyPath:@"name" toAttribute:@"name"];
+    
+    RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[CGUser class]];
+    [userMapping mapKeyPath:@"id" toAttribute:@"userId"];
+    [userMapping mapKeyPath:@"username" toAttribute:@"username"];
+    [userMapping mapKeyPath:@"firstname" toAttribute:@"firstname"];
+    [userMapping mapKeyPath:@"lastname" toAttribute:@"lastname"];
+    
+    [userMapping mapKeyPath:@"ownedRestaurants" toRelationship:@"ownedRestaurants" withMapping:restaurantMapping];
+    
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];
     [[RKObjectManager sharedManager].mappingProvider setMapping:waitListMapping forKeyPath:@"waitlisters"];
-    
+    [[RKObjectManager sharedManager].mappingProvider setMapping:userMapping forKeyPath:@"user"];
+        
     return YES;
 }
 
@@ -74,12 +95,20 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self.session close];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
+    return [self.session handleOpenURL:url];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CGRestaurantWaitList.h"
+#import "CGRestaurant.h"
 
 @protocol CGGuestDetailTableViewControllerDelegate;
 
@@ -28,6 +29,8 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (nonatomic, assign) id<CGGuestDetailTableViewControllerDelegate> delegate;
+
+@property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 
 
 - (IBAction)notify:(id)sender;

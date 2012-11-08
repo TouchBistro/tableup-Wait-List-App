@@ -28,10 +28,18 @@
 		1B83CAFC16283BA2005799B6 /* CGOwnerVenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */; };
 		1B8627D41631B6890025B835 /* CGWaitListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */; };
 		1B8627DC16321D700025B835 /* CGRestaurantWaitListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */; };
+		1BA0D22B1646C9FF009E0B3A /* CGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D22A1646C9FF009E0B3A /* CGUtils.m */; };
+		1BA0D22E1647E6FE009E0B3A /* CGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D22D1647E6FE009E0B3A /* CGUser.m */; };
+		1BA0D2311647E717009E0B3A /* CGRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D2301647E717009E0B3A /* CGRestaurant.m */; };
+		1BA0D23416480512009E0B3A /* CGOwnerAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D23316480512009E0B3A /* CGOwnerAccountInfoViewController.m */; };
 		1BAE48921630BAE400332F47 /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48901630BAE400332F47 /* CGLoginViewController.m */; };
-		1BAE48931630BAE400332F47 /* CGLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE48911630BAE400332F47 /* CGLoginViewController.xib */; };
 		1BAE48A81630CEEC00332F47 /* CGRestaurantWaitList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */; };
 		1BAE48B01630CF0900332F47 /* CGRestaurantGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */; };
+		1BC08F50164AADDD00496D8B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F4F164AADDD00496D8B /* FacebookSDK.framework */; };
+		1BC08F52164AAE2600496D8B /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1BC08F51164AAE2600496D8B /* FacebookSDKResources.bundle */; };
+		1BC08F54164AAE3D00496D8B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F53164AAE3D00496D8B /* Social.framework */; };
+		1BC08F57164AAE4700496D8B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F55164AAE4700496D8B /* Accounts.framework */; };
+		1BC08F58164AAE4700496D8B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F56164AAE4700496D8B /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,13 +118,25 @@
 		1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGWaitListTableViewController.m; sourceTree = "<group>"; };
 		1B8627DA16321D700025B835 /* CGRestaurantWaitListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitListCell.h; sourceTree = "<group>"; };
 		1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitListCell.m; sourceTree = "<group>"; };
+		1BA0D2291646C9FF009E0B3A /* CGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGUtils.h; sourceTree = "<group>"; };
+		1BA0D22A1646C9FF009E0B3A /* CGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGUtils.m; sourceTree = "<group>"; };
+		1BA0D22C1647E6FE009E0B3A /* CGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGUser.h; sourceTree = "<group>"; };
+		1BA0D22D1647E6FE009E0B3A /* CGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGUser.m; sourceTree = "<group>"; };
+		1BA0D22F1647E717009E0B3A /* CGRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurant.h; sourceTree = "<group>"; };
+		1BA0D2301647E717009E0B3A /* CGRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurant.m; sourceTree = "<group>"; };
+		1BA0D23216480511009E0B3A /* CGOwnerAccountInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGOwnerAccountInfoViewController.h; sourceTree = "<group>"; };
+		1BA0D23316480512009E0B3A /* CGOwnerAccountInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGOwnerAccountInfoViewController.m; sourceTree = "<group>"; };
 		1BAE488F1630BAE400332F47 /* CGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginViewController.h; sourceTree = "<group>"; };
 		1BAE48901630BAE400332F47 /* CGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginViewController.m; sourceTree = "<group>"; };
-		1BAE48911630BAE400332F47 /* CGLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CGLoginViewController.xib; sourceTree = "<group>"; };
 		1BAE48A61630CEEC00332F47 /* CGRestaurantWaitList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitList.h; sourceTree = "<group>"; };
 		1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitList.m; sourceTree = "<group>"; };
 		1BAE48AE1630CF0900332F47 /* CGRestaurantGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantGuest.h; sourceTree = "<group>"; };
 		1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantGuest.m; sourceTree = "<group>"; };
+		1BC08F4F164AADDD00496D8B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		1BC08F51164AAE2600496D8B /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		1BC08F53164AAE3D00496D8B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		1BC08F55164AAE4700496D8B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		1BC08F56164AAE4700496D8B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +144,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC08F57164AAE4700496D8B /* Accounts.framework in Frameworks */,
+				1BC08F58164AAE4700496D8B /* AdSupport.framework in Frameworks */,
+				1BC08F54164AAE3D00496D8B /* Social.framework in Frameworks */,
 				1B1BBF41162CB1C000708323 /* libxml2.dylib in Frameworks */,
 				1B1BBF3F162CB1B400708323 /* QuartzCore.framework in Frameworks */,
 				1B1BBF3D162CB1AC00708323 /* SystemConfiguration.framework in Frameworks */,
@@ -135,6 +158,7 @@
 				1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */,
 				1B83C9C5162475FC005799B6 /* Foundation.framework in Frameworks */,
 				1B83C9C7162475FC005799B6 /* CoreGraphics.framework in Frameworks */,
+				1BC08F50164AADDD00496D8B /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +184,10 @@
 				1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */,
 				1BAE48AE1630CF0900332F47 /* CGRestaurantGuest.h */,
 				1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */,
+				1BA0D22C1647E6FE009E0B3A /* CGUser.h */,
+				1BA0D22D1647E6FE009E0B3A /* CGUser.m */,
+				1BA0D22F1647E717009E0B3A /* CGRestaurant.h */,
+				1BA0D2301647E717009E0B3A /* CGRestaurant.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -185,6 +213,11 @@
 		1B83C9C1162475FC005799B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BC08F55164AAE4700496D8B /* Accounts.framework */,
+				1BC08F56164AAE4700496D8B /* AdSupport.framework */,
+				1BC08F53164AAE3D00496D8B /* Social.framework */,
+				1BC08F51164AAE2600496D8B /* FacebookSDKResources.bundle */,
+				1BC08F4F164AADDD00496D8B /* FacebookSDK.framework */,
 				1B1BBF40162CB1C000708323 /* libxml2.dylib */,
 				1B1BBF3E162CB1B400708323 /* QuartzCore.framework */,
 				1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */,
@@ -210,6 +243,8 @@
 				1B83C9D4162475FC005799B6 /* MainStoryboard_iPhone.storyboard */,
 				1B83C9D7162475FC005799B6 /* MainStoryboard_iPad.storyboard */,
 				1B83C9C9162475FC005799B6 /* Supporting Files */,
+				1BA0D2291646C9FF009E0B3A /* CGUtils.h */,
+				1BA0D22A1646C9FF009E0B3A /* CGUtils.m */,
 			);
 			path = WaitList;
 			sourceTree = "<group>";
@@ -238,6 +273,8 @@
 				1BAE48901630BAE400332F47 /* CGLoginViewController.m */,
 				1B8627D21631B6890025B835 /* CGWaitListTableViewController.h */,
 				1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */,
+				1BA0D23216480511009E0B3A /* CGOwnerAccountInfoViewController.h */,
+				1BA0D23316480512009E0B3A /* CGOwnerAccountInfoViewController.m */,
 			);
 			name = "iPhone Controllers";
 			sourceTree = "<group>";
@@ -245,7 +282,6 @@
 		1BAE488E1630BA7800332F47 /* iPhone Views */ = {
 			isa = PBXGroup;
 			children = (
-				1BAE48911630BAE400332F47 /* CGLoginViewController.xib */,
 				1B8627DA16321D700025B835 /* CGRestaurantWaitListCell.h */,
 				1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */,
 			);
@@ -352,7 +388,7 @@
 				1B83C9CD162475FC005799B6 /* InfoPlist.strings in Resources */,
 				1B83C9D6162475FC005799B6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				1B83C9D9162475FC005799B6 /* MainStoryboard_iPad.storyboard in Resources */,
-				1BAE48931630BAE400332F47 /* CGLoginViewController.xib in Resources */,
+				1BC08F52164AAE2600496D8B /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +409,10 @@
 				1BAE48B01630CF0900332F47 /* CGRestaurantGuest.m in Sources */,
 				1B8627D41631B6890025B835 /* CGWaitListTableViewController.m in Sources */,
 				1B8627DC16321D700025B835 /* CGRestaurantWaitListCell.m in Sources */,
+				1BA0D22B1646C9FF009E0B3A /* CGUtils.m in Sources */,
+				1BA0D22E1647E6FE009E0B3A /* CGUser.m in Sources */,
+				1BA0D2311647E717009E0B3A /* CGRestaurant.m in Sources */,
+				1BA0D23416480512009E0B3A /* CGOwnerAccountInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +508,10 @@
 		1B83C9E0162475FC005799B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaitList/WaitList-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
@@ -475,6 +519,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -484,6 +529,10 @@
 		1B83C9E1162475FC005799B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaitList/WaitList-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)/../../Headers\"";
@@ -491,6 +540,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

@@ -9,6 +9,7 @@
 #import "CGGuestDetailTableViewController.h"
 #import "CGRestaurantGuest.h"
 #import "CGWaitListTableViewController.h"
+#import "CGUtils.h"
 
 #import <RestKit/RestKit.h>
 
@@ -97,10 +98,15 @@
 - (IBAction)notify:(id)sender {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    [params setObject:@"10" forKey:@"userId"];
-    [params setObject:@"admin" forKey:@"password"];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
     
-    NSString *urlString = @"/restaurants/1/waitlist/";
+    [params setObject:userId forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
+    
+    NSString *urlString = @"/restaurants/";
+    urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/waitlist/"];
     urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
     urlString = [urlString stringByAppendingString:@"/text"];
     
@@ -119,7 +125,9 @@
     [params setObject:@"10" forKey:@"userId"];
     [params setObject:@"admin" forKey:@"password"];
     
-    NSString *urlString = @"/restaurants/1/waitlist/";
+    NSString *urlString = @"/restaurants/";
+    urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/waitlist/"];
     urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
     urlString = [urlString stringByAppendingString:@"/remove"];
     
@@ -138,7 +146,9 @@
     [params setObject:@"10" forKey:@"userId"];
     [params setObject:@"admin" forKey:@"password"];
     
-    NSString *urlString = @"/restaurants/1/waitlist/";
+    NSString *urlString = @"/restaurants/";
+    urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/waitlist/"];
     urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
     urlString = [urlString stringByAppendingString:@"/seat"];
     

@@ -11,6 +11,7 @@
 #import "CGRestaurantWaitListCell.h"
 #import "CGAddGuestViewController.h"
 #import "CGGuestDetailTableViewController.h"
+#import "CGOwnerAccountInfoViewController.h"
 #import <RestKit/RestKit.h>
 
 @interface CGWaitListTableViewController ()
@@ -32,8 +33,11 @@
 
 - (void)viewDidLoad
 {
+    NSString *url = @"/restaurants/";
+    url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
+    url = [url stringByAppendingString:@"/waitlist"];
     
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/waitlist" delegate:self];
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
     
     [super viewDidLoad];
     [self setDataLoaded:FALSE];
@@ -148,13 +152,22 @@
     NSString *lastupdated = [NSString stringWithFormat:@"Last Updated on %@",[formattedDate stringFromDate:[NSDate date]]];
     refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:lastupdated];
     
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/waitlist" delegate:self];
+    NSString *url = @"/restaurants/";
+    url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
+    url = [url stringByAppendingString:@"/waitlist"];
+    
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [self setDataLoaded:FALSE];
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/waitlist" delegate:self];
+    
+    NSString *url = @"/restaurants/";
+    url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
+    url = [url stringByAppendingString:@"/waitlist"];
+    
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -173,9 +186,24 @@
         CGGuestDetailTableViewController *guestDetailTableViewController = [segue destinationViewController];
         
         if (guestDetailTableViewController != nil){
+            [guestDetailTableViewController setSelectedRestaurant:self.currentRestaurant];
             [guestDetailTableViewController setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
         }
+    }else if ([[segue identifier] isEqualToString:@"accountInfo"]){
+        UINavigationController *navController = [segue destinationViewController];
+        
+        if (navController != nil){
+            CGOwnerAccountInfoViewController  *ownerAccountInfoController = (CGOwnerAccountInfoViewController *)navController.topViewController;
+            if (ownerAccountInfoController != nil){
+                ownerAccountInfoController.loggedInUser = [self loggedInUser];
+            }
+        }
     }
+}
+
+- (IBAction)accountInfo:(id)sender {
+//    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)guestDetailControllerDidFinish:(NSArray *)currentWaitList{
