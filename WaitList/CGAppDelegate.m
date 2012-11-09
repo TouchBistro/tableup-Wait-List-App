@@ -25,8 +25,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
-    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+//    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+//    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    
+    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
+    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
+
     
     RKObjectMapping *guestMapping = [RKObjectMapping mappingForClass:[CGRestaurantGuest class]];
     [guestMapping mapKeyPath:@"id" toAttribute:@"guestId"];
@@ -101,7 +105,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [self.session close];
+    [FBSession.activeSession close];
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -109,7 +113,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     // attempt to extract a token from the url
-    return [self.session handleOpenURL:url];
+    return [FBSession.activeSession handleOpenURL:url];
 }
 
 @end

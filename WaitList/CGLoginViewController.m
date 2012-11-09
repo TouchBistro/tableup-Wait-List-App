@@ -130,8 +130,6 @@
 #pragma mark - FBLoginViewDelegate
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    [params setObject:@"" forKey:@"fbUid"];
 }
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
