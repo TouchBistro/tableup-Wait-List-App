@@ -17,6 +17,7 @@
 *.lock
 profile
 
+project.pbxproj
 
 ####
 # Xcode temporary files that should never be committed
