@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CGOwnerAccountInfoViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 #import "CGUser.h"
 
 @interface CGLoginViewController : UIViewController
@@ -19,5 +20,6 @@
 
 - (IBAction)login:(id)sender;
 - (IBAction)loginFacebook:(id)sender;
+@property (strong, nonatomic) IBOutlet FBLoginView *facebookLoginView;
 
 @end

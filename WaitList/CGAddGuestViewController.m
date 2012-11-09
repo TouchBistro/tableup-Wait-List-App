@@ -97,43 +97,60 @@
     
     [params setObject:userId forKey:@"userId"];
     [params setObject:password forKey:@"password"];
+    
+    if (self.phoneNumberTextField.text.length > 0 && self.nameTextField.text.length > 0 &&
+        self.numberInPartyTextField.text.length > 0 && self.estimatedWaitTextField.text.length > 0 && self.emailTextField.text.length > 0)
+    {
+        if (self.phoneNumberTextField.text.length > 0){
+            [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
+        }
         
-    if (self.phoneNumberTextField.text != nil){
-        [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
-    }
+        if (self.nameTextField.text.length > 0){
+            [params setObject:self.nameTextField.text forKey:@"name" ];
+        }
         
-    if (self.nameTextField.text != nil){
-        [params setObject:self.nameTextField.text forKey:@"name" ];
+        if (self.numberInPartyTextField.text.length > 0){
+            [params setObject:self.numberInPartyTextField.text forKey:@"numberInParty"];
+        }
+        
+        if (self.estimatedWaitTextField.text.length > 0){
+            [params setObject:self.estimatedWaitTextField.text forKey:@"estimatedWait"];
+        }
+        
+        if (self.emailTextField.text.length > 0){
+            [params setObject:self.emailTextField.text forKey:@"email"];
+        }
+        
+        if (self.visitNotesTextField.text.length > 0){
+            [params setObject:self.visitNotesTextField.text forKey:@"visitNotes"];
+        }
+        
+        if (self.permanentNotesTextField.text.length > 0){
+            [params setObject:self.permanentNotesTextField.text forKey:@"permanentNotes"];
+        }
+        
+        NSString *urlString = @"/restaurants/";
+        urlString = [urlString stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
+        urlString = [urlString stringByAppendingString:@"/waitlist"];
+        
+        [[RKClient sharedClient] post:urlString params:params delegate:self];
+        
+        [self.spinner startAnimating];
+        [self.view addSubview:spinner];
+    }else{
+        if (self.phoneNumberTextField.text.length == 0){
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Phone number required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (self.nameTextField.text.length == 0){
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Name required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (self.numberInPartyTextField.text.length == 0) {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Number of guests required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (self.estimatedWaitTextField.text.length == 0) {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Estimated wait required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (self.emailTextField.text.length == 0) {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Email required" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }
     }
     
-    if (self.numberInPartyTextField.text != nil){
-        [params setObject:self.numberInPartyTextField.text forKey:@"numberInParty"];
-    }
-    
-    if (self.estimatedWaitTextField.text != nil){
-        [params setObject:self.estimatedWaitTextField.text forKey:@"estimatedWait"];
-    }
-    
-    if (self.emailTextField.text != nil){
-        [params setObject:self.emailTextField.text forKey:@"email"];
-    }
-    
-    if (self.visitNotesTextField.text != nil){
-        [params setObject:self.visitNotesTextField.text forKey:@"visitNotes"];
-    }
-    
-    if (self.permanentNotesTextField.text != nil){
-        [params setObject:self.permanentNotesTextField.text forKey:@"permanentNotes"];
-    }
-    
-    NSString *urlString = @"/restaurants/";
-    urlString = [urlString stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
-    urlString = [urlString stringByAppendingString:@"/waitlist"];
-    
-    [[RKClient sharedClient] post:urlString params:params delegate:self];
-   
-    [self.spinner startAnimating];
-    [self.view addSubview:spinner];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
@@ -208,7 +225,10 @@
                         
                     }
                 }
+            }else{
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Something went wrong" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
             }
+            
         }
         
         [self.spinner stopAnimating];

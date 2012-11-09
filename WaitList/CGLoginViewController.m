@@ -10,6 +10,7 @@
 #import "CGUtils.h"
 #import "CGUser.h"
 #import "CGAppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
 #import <RestKit/RestKit.h>
 
 @interface CGLoginViewController ()
@@ -22,6 +23,7 @@
 @synthesize passwordTextField;
 @synthesize usernameTextField;
 @synthesize loggedInUser;
+@synthesize facebookLoginView;
 
 - (void)viewDidLoad
 {
@@ -29,6 +31,10 @@
     
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 800)];
+    
+    // Create Login View so that the app will be granted "status_update" permission.
+    self.facebookLoginView.delegate = self;
+    [self.facebookLoginView sizeToFit];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -42,6 +48,7 @@
 - (void)viewDidUnload {
     [self setUsernameTextField:nil];
     [self setPasswordTextField:nil];
+    [self setFacebookLoginView:nil];
     [super viewDidUnload];
 }
 - (IBAction)login:(id)sender {
@@ -61,32 +68,6 @@
     [[RKClient sharedClient] post:@"/waitlist/login" params:params delegate:self];
 }
 
-- (IBAction)loginFacebook:(id)sender {
-    CGAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    
-    // this button's job is to flip-flop the session from open to closed
-    if (appDelegate.session.isOpen) {
-        // if a user logs out explicitly, we delete any cached token information, and next
-        // time they run the applicaiton they will be presented with log in UX again; most
-        // users will simply close the app or switch away, without logging out; this will
-        // cause the implicit cached-token login to occur on next launch of the application
-        [appDelegate.session closeAndClearTokenInformation];
-        
-    } else {
-        if (appDelegate.session.state != FBSessionStateCreated) {
-            // Create a new, logged out session.
-            appDelegate.session = [[FBSession alloc] init];
-        }
-        
-        // if the session isn't open, let's open it now and present the login UX to the user
-        [appDelegate.session openWithCompletionHandler:^(FBSession *session,
-                                                         FBSessionState status,
-                                                         NSError *error) {
-            // and here we make sure to update our UX according to the new session state
-            [self updateView];
-        }];
-    }
-}
 
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
@@ -144,6 +125,26 @@
             ownerAccountInfoController.loggedInUser = [self loggedInUser];
         }
     }
+}
+
+#pragma mark - FBLoginViewDelegate
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:@"" forKey:@"fbUid"];
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    
+    if (user && user.id){
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setObject:user.id forKey:@"fbUid"];
+        [[RKClient sharedClient] post:@"/waitlist/facebook/login" params:params delegate:self];
+    }
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
 }
 
 
