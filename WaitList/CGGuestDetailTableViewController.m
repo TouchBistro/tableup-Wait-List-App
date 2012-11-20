@@ -261,6 +261,18 @@
             [params setObject:self.numberInPartyTextField.text forKey:@"numberInParty"];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
+    }else if (textField == self.phoneNumberTextField){
+        if ([self.phoneNumberTextField.text length] == 0){
+            self.phoneNumberTextField.text = self.waitListee.guest.phoneNumber;
+            
+            [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"Phone Number can not be blank." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (![self.phoneNumberTextField.text isEqualToString:self.waitListee.guest.phoneNumber]){
+            
+            [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
+            [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
+            
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
     }else if (textField == self.estimatedWaitTextField){
         if ([self.estimatedWaitTextField.text length] == 0){
             self.estimatedWaitTextField.text = self.waitListee.estimatedWait.stringValue;
@@ -317,6 +329,12 @@
     [textField resignFirstResponder];
     
     return NO;
+}
+
+- (void) viewWillDisappear: (BOOL) animated {
+    [super viewWillDisappear: animated];
+    // Force any text fields that might be being edited to end so the text is stored
+    [self.view.window endEditing: NO];
 }
 
 @end
