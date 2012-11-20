@@ -25,12 +25,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
-//    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
     
-    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
-    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
-
+//    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
+//    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
+    
     
     RKObjectMapping *guestMapping = [RKObjectMapping mappingForClass:[CGRestaurantGuest class]];
     [guestMapping mapKeyPath:@"id" toAttribute:@"guestId"];

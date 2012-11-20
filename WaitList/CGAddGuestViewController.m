@@ -182,6 +182,7 @@
                         if (guest){
                             self.nameTextField.text = guest.name;
                             self.emailTextField.text = guest.email;
+                            self.permanentNotesTextField.text = guest.permanentNotes;
                         }
                     }
                 }
