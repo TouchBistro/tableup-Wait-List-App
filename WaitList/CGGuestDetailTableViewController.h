@@ -12,7 +12,7 @@
 
 @protocol CGGuestDetailTableViewControllerDelegate;
 
-@interface CGGuestDetailTableViewController : UITableViewController
+@interface CGGuestDetailTableViewController : UITableViewController <UITextFieldDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *userActionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

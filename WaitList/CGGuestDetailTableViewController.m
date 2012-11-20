@@ -142,8 +142,11 @@
 - (IBAction)remove:(id)sender {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    [params setObject:@"10" forKey:@"userId"];
-    [params setObject:@"admin" forKey:@"password"];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    [params setObject:userId forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
     
     NSString *urlString = @"/restaurants/";
     urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
@@ -163,8 +166,11 @@
 - (IBAction)seated:(id)sender {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    [params setObject:@"10" forKey:@"userId"];
-    [params setObject:@"admin" forKey:@"password"];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    [params setObject:userId forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
     
     NSString *urlString = @"/restaurants/";
     urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
@@ -184,7 +190,10 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     [self.activityView stopAnimating];
     
-    if ([request isPOST]) {
+    NSString *urlString = [request.URL absoluteString];
+    NSRange isRange = [urlString rangeOfString:@"update" options:NSCaseInsensitiveSearch];
+
+    if (isRange.location == NSNotFound && [request isPOST]) {
         if ([response isOK]) {
             if ([response isJSON]) {
                 NSLog(@"Got a JSON response back from our POST!");
@@ -202,13 +211,112 @@
                 RKObjectMappingProvider* mappingProvider = [RKObjectManager sharedManager].mappingProvider;
                 RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
                 RKObjectMappingResult* result = [mapper performMapping];
-
+                
                 if (result) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }
             }
         }
     }
+    
+    
+}
+
+
+#pragma mark - TextFieldDelegate
+-(void) textFieldDidEndEditing: (UITextField * ) textField {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    NSNumber *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    [params setObject:userId.stringValue forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
+    
+    NSString *urlString = @"/restaurants/";
+    urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/waitlist/"];
+    urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/update"];
+    
+    if (textField == self.nameTextField){
+        if ([self.nameTextField.text length] == 0){
+            self.nameTextField.text = self.waitListee.guest.name;
+            
+            [[[UIAlertView alloc] initWithTitle:@"Name" message:@"Name can not be blank." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (![self.nameTextField.text isEqualToString:self.waitListee.guest.name]){
+            
+            [params setObject:self.nameTextField.text forKey:@"name"];
+            [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
+            
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }else if (textField == self.numberInPartyTextField){
+        if ([self.numberInPartyTextField.text length] == 0){
+            self.numberInPartyTextField.text = self.waitListee.numberInParty.stringValue;
+            
+            [[[UIAlertView alloc] initWithTitle:@"Guests" message:@"Guests can not be blank." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (![self.numberInPartyTextField.text isEqualToString:self.waitListee.numberInParty.stringValue]){
+            
+            [params setObject:self.numberInPartyTextField.text forKey:@"numberInParty"];
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }else if (textField == self.estimatedWaitTextField){
+        if ([self.estimatedWaitTextField.text length] == 0){
+            self.estimatedWaitTextField.text = self.waitListee.estimatedWait.stringValue;
+            
+            [[[UIAlertView alloc] initWithTitle:@"Estimated Wait" message:@"Estimated Wait can not be blank." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (![self.estimatedWaitTextField.text isEqualToString:self.waitListee.estimatedWait.stringValue]){
+            
+            [params setObject:self.estimatedWaitTextField.text forKey:@"estimatedWait"];
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }else if (textField == self.emailTextField){
+        if (![self.emailTextField.text isEqualToString:self.waitListee.guest.email]){
+            
+            [params setObject:self.emailTextField.text forKey:@"email"];
+            [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
+            
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }
+}
+
+-(void) textViewDidEndEditing: (UITextView * ) textView{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    NSNumber *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    [params setObject:userId.stringValue forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
+    
+    NSString *urlString = @"/restaurants/";
+    urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/waitlist/"];
+    urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/update"];
+    
+    if (textView == self.permanentNotesTextView){
+        if (self.visitNotesTextView.text != self.waitListee.visitNotes){
+            [params setObject:self.permanentNotesTextView.text forKey:@"permanentNotes"];
+            [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
+            
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }else if (textView == self.visitNotesTextView){
+        if (self.visitNotesTextView.text != self.waitListee.visitNotes){
+            
+            [params setObject:self.visitNotesTextView.text forKey:@"visitNotes"];
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    return NO;
 }
 
 @end
