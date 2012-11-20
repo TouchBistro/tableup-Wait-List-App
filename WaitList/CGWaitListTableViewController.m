@@ -201,6 +201,8 @@
             [guestDetailTableViewController setSelectedRestaurant:self.currentRestaurant];
             [guestDetailTableViewController setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
         }
+        
+        self.title = @"WaitList";
     }else if ([[segue identifier] isEqualToString:@"accountInfo"]){
         UINavigationController *navController = [segue destinationViewController];
         

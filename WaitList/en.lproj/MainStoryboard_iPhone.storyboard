@@ -393,7 +393,11 @@
                             <outlet property="delegate" destination="S6j-IC-Des" id="hM0-rt-4R4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="CityGusto" id="udk-14-KNx"/>
+                    <navigationItem key="navigationItem" title="CityGusto" id="udk-14-KNx">
+                        <connections>
+                            <outlet property="backBarButtonItem" destination="D1T-SA-c76" id="eJ5-j1-t9H"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="3w0-hJ-nhs" id="vLE-aS-B4z"/>
                         <outlet property="estimatedWaitTextField" destination="lrf-sL-fno" id="Lbt-gW-yue"/>
@@ -409,6 +413,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Te1-5s-rwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Waitlist" id="D1T-SA-c76"/>
             </objects>
             <point key="canvasLocation" x="1659" y="228"/>
         </scene>

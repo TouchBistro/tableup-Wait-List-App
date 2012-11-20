@@ -79,8 +79,7 @@
             self.textTimeSentAgoLabel.text = @"";
             self.notifyImageView.hidden = YES;
         }
-        
-        
+                
     }
     
     [super viewDidLoad];
