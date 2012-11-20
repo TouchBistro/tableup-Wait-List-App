@@ -22,9 +22,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *numberInPartyTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *estimatedWaitTextField;
-@property (strong, nonatomic) IBOutlet UITextField *visitNotesTextField;
-@property (strong, nonatomic) IBOutlet UITextField *permanentNotesTextField;
 @property (strong, nonatomic) IBOutlet UITextView *permanentNotesTextView;
+@property (strong, nonatomic) IBOutlet UITextView *visitNotesTextView;
 
 @property (strong, nonatomic) IBOutlet UILabel *timeAgoLabel;
 

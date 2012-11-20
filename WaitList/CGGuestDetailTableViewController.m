@@ -27,7 +27,7 @@
 @synthesize numberInPartyTextField;
 @synthesize emailTextField;
 @synthesize estimatedWaitTextField;
-@synthesize visitNotesTextField;
+@synthesize visitNotesTextView;
 @synthesize timeAgoLabel;
 
 @synthesize waitListee;
@@ -57,7 +57,7 @@
         self.nameTextField.text = self.waitListee.guest.name;
         self.emailTextField.text = self.waitListee.guest.email;
         self.estimatedWaitTextField.text = self.waitListee.estimatedWait ? self.waitListee.estimatedWait.stringValue : nil;
-        self.visitNotesTextField.text = self.waitListee.visitNotes;
+        self.visitNotesTextView.text = self.waitListee.visitNotes;
         self.permanentNotesTextView.text = self.waitListee.guest.permanentNotes;
         
         self.numberInPartyTextField.text = self.waitListee.numberInParty.stringValue;
@@ -103,13 +103,13 @@
     [self setNumberInPartyTextField:nil];
     [self setEmailTextField:nil];
     [self setEstimatedWaitTextField:nil];
-    [self setVisitNotesTextField:nil];
     [self setTimeAgoLabel:nil];
     
     [self setNotifyImageView:nil];
     [self setTimeAgoLabel:nil];
     [self setTextTimeSentAgoLabel:nil];
     [self setPermanentNotesTextView:nil];
+    [self setVisitNotesTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

@@ -21,7 +21,7 @@
 @synthesize phoneNumberTextField;
 @synthesize nameTextField;
 @synthesize emailTextField;
-@synthesize visitNotesTextField;
+@synthesize visitNotesTextView;
 
 @synthesize numberInPartyTextField;
 @synthesize estimatedWaitTextField;
@@ -73,13 +73,13 @@
     [self setNumberInPartyTextField:nil];
     [self setEmailTextField:nil];
     [self setEstimatedWaitTextField:nil];
-    [self setVisitNotesTextField:nil];
     
     [self setSaveButton:nil];
     [self setSaveAndSendButton:nil];
     [self setGuestId:nil];
     
     [self setPermanentNotesTextView:nil];
+    [self setVisitNotesTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -125,8 +125,8 @@
             [params setObject:self.emailTextField.text forKey:@"email"];
         }
         
-        if (self.visitNotesTextField.text.length > 0){
-            [params setObject:self.visitNotesTextField.text forKey:@"visitNotes"];
+        if (self.visitNotesTextView.text.length > 0){
+            [params setObject:self.visitNotesTextView.text forKey:@"visitNotes"];
         }
         
         if (self.permanentNotesTextView.text.length > 0){
