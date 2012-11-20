@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0F7FC0165B22E0004EA747 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0F7FBE165B22E0004EA747 /* FacebookSDK.framework */; };
+		1B0F7FC1165B22E0004EA747 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F7FBF165B22E0004EA747 /* FacebookSDKResources.bundle */; };
 		1B1BBF33162CB13900708323 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF26162CAF4B00708323 /* libRestKit.a */; };
 		1B1BBF35162CB17C00708323 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF34162CB17C00708323 /* CFNetwork.framework */; };
 		1B1BBF37162CB18A00708323 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF36162CB18A00708323 /* CoreData.framework */; };
@@ -49,8 +51,6 @@
 		1BAE48921630BAE400332F47 /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48901630BAE400332F47 /* CGLoginViewController.m */; };
 		1BAE48A81630CEEC00332F47 /* CGRestaurantWaitList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */; };
 		1BAE48B01630CF0900332F47 /* CGRestaurantGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */; };
-		1BC08F50164AADDD00496D8B /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F4F164AADDD00496D8B /* FacebookSDK.framework */; };
-		1BC08F52164AAE2600496D8B /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1BC08F51164AAE2600496D8B /* FacebookSDKResources.bundle */; };
 		1BC08F54164AAE3D00496D8B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F53164AAE3D00496D8B /* Social.framework */; };
 		1BC08F57164AAE4700496D8B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F55164AAE4700496D8B /* Accounts.framework */; };
 		1BC08F58164AAE4700496D8B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F56164AAE4700496D8B /* AdSupport.framework */; };
@@ -102,6 +102,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0F7FBE165B22E0004EA747 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		1B0F7FBF165B22E0004EA747 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		1B1BBF34162CB17C00708323 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1B1BBF36162CB18A00708323 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -160,8 +162,6 @@
 		1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitList.m; sourceTree = "<group>"; };
 		1BAE48AE1630CF0900332F47 /* CGRestaurantGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantGuest.h; sourceTree = "<group>"; };
 		1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantGuest.m; sourceTree = "<group>"; };
-		1BC08F4F164AADDD00496D8B /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		1BC08F51164AAE2600496D8B /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		1BC08F53164AAE3D00496D8B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1BC08F55164AAE4700496D8B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1BC08F56164AAE4700496D8B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -186,7 +186,7 @@
 				1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */,
 				1B83C9C5162475FC005799B6 /* Foundation.framework in Frameworks */,
 				1B83C9C7162475FC005799B6 /* CoreGraphics.framework in Frameworks */,
-				1BC08F50164AADDD00496D8B /* FacebookSDK.framework in Frameworks */,
+				1B0F7FC0165B22E0004EA747 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,11 +241,11 @@
 		1B83C9C1162475FC005799B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B0F7FBE165B22E0004EA747 /* FacebookSDK.framework */,
+				1B0F7FBF165B22E0004EA747 /* FacebookSDKResources.bundle */,
 				1BC08F55164AAE4700496D8B /* Accounts.framework */,
 				1BC08F56164AAE4700496D8B /* AdSupport.framework */,
 				1BC08F53164AAE3D00496D8B /* Social.framework */,
-				1BC08F51164AAE2600496D8B /* FacebookSDKResources.bundle */,
-				1BC08F4F164AADDD00496D8B /* FacebookSDK.framework */,
 				1B1BBF40162CB1C000708323 /* libxml2.dylib */,
 				1B1BBF3E162CB1B400708323 /* QuartzCore.framework */,
 				1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */,
@@ -438,7 +438,6 @@
 				1B83C9CD162475FC005799B6 /* InfoPlist.strings in Resources */,
 				1B83C9D6162475FC005799B6 /* MainStoryboard_iPhone.storyboard in Resources */,
 				1B83C9D9162475FC005799B6 /* MainStoryboard_iPad.storyboard in Resources */,
-				1BC08F52164AAE2600496D8B /* FacebookSDKResources.bundle in Resources */,
 				1B8D1D76164C4F4E008AFE6E /* buttonBackground.png in Resources */,
 				1B8D1D77164C4F4E008AFE6E /* buttonBackground@2x.png in Resources */,
 				1B8D1D78164C4F4E008AFE6E /* notifySmall@2x.png in Resources */,
@@ -453,6 +452,7 @@
 				1B8D1D81164C4F4E008AFE6E /* seated.png in Resources */,
 				1B8D1D82164C4F4E008AFE6E /* partySize.png in Resources */,
 				1B8D1D83164C4F4E008AFE6E /* partySize@2x.png in Resources */,
+				1B0F7FC1165B22E0004EA747 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +575,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaitList/WaitList-Prefix.pch";
@@ -596,6 +597,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaitList/WaitList-Prefix.pch";
