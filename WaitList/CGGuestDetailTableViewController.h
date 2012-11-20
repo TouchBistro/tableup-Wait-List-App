@@ -24,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *estimatedWaitTextField;
 @property (strong, nonatomic) IBOutlet UITextField *visitNotesTextField;
 @property (strong, nonatomic) IBOutlet UITextField *permanentNotesTextField;
+@property (strong, nonatomic) IBOutlet UITextView *permanentNotesTextView;
 
 @property (strong, nonatomic) IBOutlet UILabel *timeAgoLabel;
 
@@ -31,6 +32,8 @@
 @property (nonatomic, assign) id<CGGuestDetailTableViewControllerDelegate> delegate;
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
+@property (strong, nonatomic) IBOutlet UIImageView *notifyImageView;
+@property (strong, nonatomic) IBOutlet UILabel *textTimeSentAgoLabel;
 
 
 - (IBAction)notify:(id)sender;

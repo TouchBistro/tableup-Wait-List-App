@@ -15,7 +15,10 @@
 @property (nonatomic, strong) CGUser *loggedInUser;
 @property (strong, nonatomic) IBOutlet UIButton *currentVenueButton;
 - (IBAction)logOut:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *currentVenueLabel;
+@property (strong, nonatomic) IBOutlet UIButton *changeRestaurantButton;
 
 @property (nonatomic, strong) CGRestaurant *currentRestaurant;
+@property (strong, nonatomic) IBOutlet UITextView *adminMessageTextView;
 
 @end

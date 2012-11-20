@@ -26,11 +26,25 @@
 - (void)viewDidLoad
 {
     if (loggedInUser != nil && loggedInUser.ownedRestaurants != nil){
-        self.currentRestaurant = [loggedInUser.ownedRestaurants objectAtIndex:0];
         
-        if (currentRestaurant != nil){
-            [self.currentVenueButton setTitle:currentRestaurant.name forState:UIControlStateNormal];
+        if ([loggedInUser.ownedRestaurants count] > 0){
+            self.currentRestaurant = [loggedInUser.ownedRestaurants objectAtIndex:0];
+            
+            if (currentRestaurant != nil){
+                [self.currentVenueButton setTitle:currentRestaurant.name forState:UIControlStateNormal];
+            }
+            
+            self.adminMessageTextView.hidden = YES;
+        }else{
+            self.currentVenueLabel.hidden = YES;
+            self.currentVenueButton.hidden = YES;
+            self.changeRestaurantButton.hidden = YES;
+            
+            self.adminMessageTextView.hidden = NO;
+            self.adminMessageTextView.text = @"You are currently not an admin for a Wait List enabled restaurant.  Visit http://citygusto.com for more information.";
         }
+        
+        
     }
     
     [super viewDidLoad];
@@ -44,6 +58,9 @@
 }
 
 - (void)viewDidUnload {
+    [self setCurrentVenueLabel:nil];
+    [self setChangeRestaurantButton:nil];
+    [self setAdminMessageTextView:nil];
     [super viewDidUnload];
     [self setCurrentVenueButton:nil];
     [self setCurrentRestaurant:nil];

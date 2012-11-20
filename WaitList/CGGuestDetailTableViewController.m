@@ -28,7 +28,6 @@
 @synthesize emailTextField;
 @synthesize estimatedWaitTextField;
 @synthesize visitNotesTextField;
-@synthesize permanentNotesTextField;
 @synthesize timeAgoLabel;
 
 @synthesize waitListee;
@@ -37,6 +36,9 @@
 @synthesize delegate;
 
 @synthesize activityView;
+
+@synthesize notifyImageView;
+@synthesize textTimeSentAgoLabel;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -56,7 +58,9 @@
         self.emailTextField.text = self.waitListee.guest.email;
         self.estimatedWaitTextField.text = self.waitListee.estimatedWait ? self.waitListee.estimatedWait.stringValue : nil;
         self.visitNotesTextField.text = self.waitListee.visitNotes;
-        self.permanentNotesTextField.text = self.waitListee.guest.permanentNotes;
+        self.permanentNotesTextView.text = self.waitListee.guest.permanentNotes;
+        
+        self.numberInPartyTextField.text = self.waitListee.numberInParty.stringValue;
         
         NSString *timeAgoString = self.waitListee.estimatedWait.stringValue;
         timeAgoString = [timeAgoString stringByAppendingString:@" mins ("];
@@ -64,6 +68,19 @@
         timeAgoString = [timeAgoString stringByAppendingString:@")"];
         
         self.timeAgoLabel.text = timeAgoString;
+        
+        if (waitListee.timeSinceTextSent != nil){
+            NSString *timeSinceTextSent = waitListee.timeSinceTextSent.stringValue;
+            timeSinceTextSent = [timeSinceTextSent stringByAppendingString:@" mins ago"];
+            
+            self.textTimeSentAgoLabel.text = timeSinceTextSent;
+            self.notifyImageView.hidden = NO;
+        }else{
+            self.textTimeSentAgoLabel.text = @"";
+            self.notifyImageView.hidden = YES;
+        }
+        
+        
     }
     
     [super viewDidLoad];
@@ -87,9 +104,12 @@
     [self setEmailTextField:nil];
     [self setEstimatedWaitTextField:nil];
     [self setVisitNotesTextField:nil];
-    [self setPermanentNotesTextField:nil];
     [self setTimeAgoLabel:nil];
     
+    [self setNotifyImageView:nil];
+    [self setTimeAgoLabel:nil];
+    [self setTextTimeSentAgoLabel:nil];
+    [self setPermanentNotesTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

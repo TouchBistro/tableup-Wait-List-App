@@ -22,7 +22,7 @@
 @synthesize nameTextField;
 @synthesize emailTextField;
 @synthesize visitNotesTextField;
-@synthesize permanentNotesTextField;
+
 @synthesize numberInPartyTextField;
 @synthesize estimatedWaitTextField;
 @synthesize waitListTableViewController;
@@ -36,6 +36,8 @@
 
 @synthesize currentRestaurant;
 @synthesize loggedInUser;
+
+@synthesize guestId;
 
 - (void)viewDidLoad
 {
@@ -72,10 +74,12 @@
     [self setEmailTextField:nil];
     [self setEstimatedWaitTextField:nil];
     [self setVisitNotesTextField:nil];
-    [self setPermanentNotesTextField:nil];
     
     [self setSaveButton:nil];
     [self setSaveAndSendButton:nil];
+    [self setGuestId:nil];
+    
+    [self setPermanentNotesTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -99,7 +103,7 @@
     [params setObject:password forKey:@"password"];
     
     if (self.phoneNumberTextField.text.length > 0 && self.nameTextField.text.length > 0 &&
-        self.numberInPartyTextField.text.length > 0 && self.estimatedWaitTextField.text.length > 0 && self.emailTextField.text.length > 0)
+        self.numberInPartyTextField.text.length > 0 && self.estimatedWaitTextField.text.length > 0)
     {
         if (self.phoneNumberTextField.text.length > 0){
             [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
@@ -125,8 +129,12 @@
             [params setObject:self.visitNotesTextField.text forKey:@"visitNotes"];
         }
         
-        if (self.permanentNotesTextField.text.length > 0){
-            [params setObject:self.permanentNotesTextField.text forKey:@"permanentNotes"];
+        if (self.permanentNotesTextView.text.length > 0){
+            [params setObject:self.permanentNotesTextView.text forKey:@"permanentNotes"];
+        }
+        
+        if (self.guestId){
+            [params setObject:self.guestId forKey:@"guestId"];
         }
         
         NSString *urlString = @"/restaurants/";
@@ -146,8 +154,6 @@
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Number of guests required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }else if (self.estimatedWaitTextField.text.length == 0) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Estimated wait required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
-        }else if (self.emailTextField.text.length == 0) {
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Email required" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }
     }
     
@@ -182,7 +188,8 @@
                         if (guest){
                             self.nameTextField.text = guest.name;
                             self.emailTextField.text = guest.email;
-                            self.permanentNotesTextField.text = guest.permanentNotes;
+                            self.permanentNotesTextView.text = guest.permanentNotes;
+                            self.guestId = guest.guestId;
                         }
                     }
                 }

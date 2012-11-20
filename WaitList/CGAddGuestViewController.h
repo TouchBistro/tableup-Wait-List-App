@@ -25,7 +25,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *estimatedWaitTextField;
 @property (strong, nonatomic) IBOutlet UITextField *visitNotesTextField;
-@property (strong, nonatomic) IBOutlet UITextField *permanentNotesTextField;
+@property (strong, nonatomic) IBOutlet UITextView *permanentNotesTextView;
 
 @property (strong, nonatomic) CGWaitListTableViewController *waitListTableViewController;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
@@ -35,6 +35,8 @@
 
 @property (nonatomic, strong) CGRestaurant *currentRestaurant;
 @property (nonatomic, strong) CGUser *loggedInUser;
+
+@property (nonatomic, strong) NSNumber *guestId;
 
 
 - (IBAction)save:(id)sender;

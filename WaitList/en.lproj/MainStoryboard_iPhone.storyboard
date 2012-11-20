@@ -124,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="l5E-za-1zs">
-                            <rect key="frame" x="0.0" y="239" width="320" height="209"/>
+                            <rect key="frame" x="0.0" y="333" width="320" height="209"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="25 mins (15)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="MUe-wk-Zfv">
@@ -135,7 +135,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mqF-b0-ZqH">
-                                    <rect key="frame" x="20" y="54" width="80" height="80"/>
+                                    <rect key="frame" x="20" y="70" width="80" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Notify" image="notify.png" backgroundImage="notify.png">
@@ -150,7 +150,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HTB-lY-aXf">
-                                    <rect key="frame" x="120" y="54" width="80" height="80"/>
+                                    <rect key="frame" x="120" y="70" width="80" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Seated" image="seated.png" backgroundImage="seated.png">
@@ -165,7 +165,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W14-QL-egg">
-                                    <rect key="frame" x="217" y="54" width="83" height="80"/>
+                                    <rect key="frame" x="217" y="70" width="83" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Remove" image="remove.png" backgroundImage="remove.png">
@@ -179,6 +179,17 @@
                                         <action selector="remove:" destination="S6j-IC-Des" eventType="touchUpInside" id="T71-6e-uot"/>
                                     </connections>
                                 </button>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="notifySmall.png" id="yYN-iD-quB">
+                                    <rect key="frame" x="132" y="41" width="15" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JB3-YQ-Qnr">
+                                    <rect key="frame" x="155" y="37" width="145" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -329,11 +340,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vNe-Ei-W9S">
-                                        <rect key="frame" x="0.0" y="197" width="320" height="32"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="125" id="vNe-Ei-W9S">
+                                        <rect key="frame" x="0.0" y="197" width="320" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="30"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Permanent Notes:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6aw-Ml-HqE">
@@ -343,12 +354,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="YL1-fL-2Dg">
-                                                    <rect key="frame" x="138" y="0.0" width="162" height="30"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="YWP-fn-EDv">
+                                                    <rect key="frame" x="20" y="29" width="260" height="81"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -366,11 +377,12 @@
                         <outlet property="emailTextField" destination="3w0-hJ-nhs" id="vLE-aS-B4z"/>
                         <outlet property="estimatedWaitTextField" destination="lrf-sL-fno" id="Lbt-gW-yue"/>
                         <outlet property="nameTextField" destination="mpz-J1-2Xb" id="KPl-57-iqj"/>
+                        <outlet property="notifyImageView" destination="yYN-iD-quB" id="N9s-ys-S16"/>
                         <outlet property="numberInPartyTextField" destination="Hre-8t-W5W" id="E60-sV-oiY"/>
-                        <outlet property="permanentNotesTextField" destination="YL1-fL-2Dg" id="LHW-CP-Tyl"/>
+                        <outlet property="permanentNotesTextView" destination="YWP-fn-EDv" id="HjB-At-0Ih"/>
                         <outlet property="phoneNumberTextField" destination="sUA-Sm-KBh" id="9OI-4E-CY1"/>
                         <outlet property="tableView" destination="3kf-eZ-Suy" id="0cj-Xy-kyT"/>
-                        <outlet property="timeAgoLabel" destination="MUe-wk-Zfv" id="bvy-uz-Z0o"/>
+                        <outlet property="textTimeSentAgoLabel" destination="JB3-YQ-Qnr" id="G6T-vH-CMZ"/>
                         <outlet property="userActionView" destination="l5E-za-1zs" id="g0S-qK-ezr"/>
                         <outlet property="visitNotesTextField" destination="JdA-G6-Z5m" id="L0F-rk-u87"/>
                     </connections>
@@ -388,7 +400,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="nYR-eE-jUb">
-                            <rect key="frame" x="0.0" y="261" width="320" height="416"/>
+                            <rect key="frame" x="0.0" y="344" width="320" height="416"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Tx-KO-3wz">
@@ -578,19 +590,13 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="X7R-jK-eY2">
-                                        <rect key="frame" x="0.0" y="219" width="320" height="32"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="114" id="X7R-jK-eY2">
+                                        <rect key="frame" x="0.0" y="219" width="320" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="30"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="h73-jj-dn5">
-                                                    <rect key="frame" x="133" y="0.0" width="278" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Permanent Notes:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="GjG-Va-rWn">
                                                     <rect key="frame" x="9" y="3" width="124" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -598,6 +604,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="dFG-nD-sA8">
+                                                    <rect key="frame" x="20" y="25" width="260" height="81"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -625,7 +637,7 @@
                         <outlet property="estimatedWaitTextField" destination="jU7-SQ-mfr" id="g2l-Yw-4Nv"/>
                         <outlet property="nameTextField" destination="Ybi-Lp-I1U" id="604-bB-Li5"/>
                         <outlet property="numberInPartyTextField" destination="yPK-uK-cbv" id="GNn-Vj-ke3"/>
-                        <outlet property="permanentNotesTextField" destination="h73-jj-dn5" id="lJe-8r-aK0"/>
+                        <outlet property="permanentNotesTextView" destination="dFG-nD-sA8" id="Ayk-t0-SY4"/>
                         <outlet property="phoneNumberTextField" destination="Zxg-UK-hD1" id="uzH-n3-hcO"/>
                         <outlet property="saveAndSendButton" destination="PTC-u6-nTW" id="rVa-d5-Hgr"/>
                         <outlet property="saveButton" destination="7Tx-KO-3wz" id="HUp-ov-sTW"/>
@@ -814,12 +826,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="fE5-de-C2e">
+                                <rect key="frame" x="40" y="82" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="CityGusto" id="sND-25-OeT"/>
                     <connections>
+                        <outlet property="adminMessageTextView" destination="fE5-de-C2e" id="YBT-ya-jkh"/>
+                        <outlet property="changeRestaurantButton" destination="FJO-Xz-mzg" id="tRi-tX-u2C"/>
                         <outlet property="currentVenueButton" destination="GYx-y7-KYc" id="0ZE-sm-X4j"/>
+                        <outlet property="currentVenueLabel" destination="OPO-Sc-uZE" id="NUr-Q6-KXd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKo-cD-f4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -954,7 +977,7 @@
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="navItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="permanentNotesTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="saveAndSendButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
@@ -971,10 +994,13 @@
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="estimatedWaitTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notifyImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="permanentNotesTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="textTimeSentAgoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeAgoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userActionView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="visitNotesTextField" candidateClass="UITextField"/>
@@ -995,7 +1021,10 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGOwnerAccountInfoViewController.h"/>
             <relationships>
                 <relationship kind="action" name="logOut:"/>
+                <relationship kind="outlet" name="adminMessageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="changeRestaurantButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="currentVenueButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="currentVenueLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="CGOwnerVenueViewController" superclassName="UITableViewController">
