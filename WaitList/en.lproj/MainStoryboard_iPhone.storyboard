@@ -430,7 +430,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Tx-KO-3wz">
-                                    <rect key="frame" x="20" y="20" width="280" height="37"/>
+                                    <rect key="frame" x="20" y="20" width="280" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Save" backgroundImage="buttonBackground.png">
@@ -445,7 +445,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PTC-u6-nTW">
-                                    <rect key="frame" x="20" y="80" width="280" height="37"/>
+                                    <rect key="frame" x="20" y="78" width="280" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Save and Send Intro Text" backgroundImage="buttonBackground.png">
@@ -742,16 +742,16 @@
                                         <rect key="frame" x="84" y="307" width="156" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="R8A-i9-hhi">
                                         <rect key="frame" x="84" y="263" width="156" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tqI-W3-bg3">
-                                        <rect key="frame" x="22" y="359" width="280" height="37"/>
+                                        <rect key="frame" x="22" y="359" width="280" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Login" backgroundImage="buttonBackground.png">
@@ -785,6 +785,7 @@
                     </view>
                     <connections>
                         <outlet property="facebookLoginView" destination="XgI-uc-C8A" id="PTg-H3-XPc"/>
+                        <outlet property="loginButton" destination="tqI-W3-bg3" id="cma-4f-aw1"/>
                         <outlet property="passwordTextField" destination="hr3-zK-Htb" id="px0-qG-puA"/>
                         <outlet property="scroller" destination="qdA-PP-0DR" id="dBo-FO-o6F"/>
                         <outlet property="usernameTextField" destination="R8A-i9-hhi" id="f4T-OZ-Jff"/>
@@ -804,7 +805,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FJO-Xz-mzg">
-                                <rect key="frame" x="20" y="235" width="280" height="37"/>
+                                <rect key="frame" x="20" y="235" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Change Restaurant" backgroundImage="buttonBackground.png">
@@ -819,7 +820,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GYx-y7-KYc">
-                                <rect key="frame" x="20" y="149" width="280" height="37"/>
+                                <rect key="frame" x="20" y="149" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <state key="normal" backgroundImage="buttonBackground.png">
@@ -831,7 +832,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VHG-PG-yt6">
-                                <rect key="frame" x="20" y="300" width="280" height="37"/>
+                                <rect key="frame" x="20" y="300" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Log out" backgroundImage="buttonBackground.png">
@@ -1037,6 +1038,7 @@
                 <relationship kind="action" name="login:"/>
                 <relationship kind="action" name="loginFacebook:"/>
                 <relationship kind="outlet" name="facebookLoginView" candidateClass="FBLoginView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>

@@ -21,5 +21,6 @@
 - (IBAction)login:(id)sender;
 - (IBAction)loginFacebook:(id)sender;
 @property (strong, nonatomic) IBOutlet FBLoginView *facebookLoginView;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
 
 @end

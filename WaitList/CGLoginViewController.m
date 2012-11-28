@@ -24,6 +24,7 @@
 @synthesize usernameTextField;
 @synthesize loggedInUser;
 @synthesize facebookLoginView;
+@synthesize loginButton;
 
 - (void)viewDidLoad
 {
@@ -35,6 +36,15 @@
     // Create Login View so that the app will be granted "status_update" permission.
     self.facebookLoginView.delegate = self;
     [self.facebookLoginView sizeToFit];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -49,6 +59,9 @@
     [self setUsernameTextField:nil];
     [self setPasswordTextField:nil];
     [self setFacebookLoginView:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setLoginButton:nil];
     [super viewDidUnload];
 }
 - (IBAction)login:(id)sender {
@@ -143,6 +156,34 @@
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+}
+
+- (void)keyboardWasShown:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+    self.scroller.contentInset = contentInsets;
+    self.scroller.scrollIndicatorInsets = contentInsets;
+    
+    // Step 3: Scroll the target text field into view.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= keyboardSize.height;
+    if (!CGRectContainsPoint(aRect, self.loginButton.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.loginButton.frame.origin.y - (keyboardSize.height-68));
+        [self.scroller setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+- (void) keyboardWillHide:(NSNotification *)notification {
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scroller.contentInset = contentInsets;
+    self.scroller.scrollIndicatorInsets = contentInsets;
+}
+
+- (IBAction)dismissKeyboard:(id)sender
+{
+    [self.passwordTextField resignFirstResponder];
 }
 
 
