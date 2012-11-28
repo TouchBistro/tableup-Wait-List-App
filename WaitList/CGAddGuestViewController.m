@@ -22,6 +22,7 @@
 @synthesize nameTextField;
 @synthesize emailTextField;
 @synthesize visitNotesTextView;
+@synthesize permanentNotesTextView;
 
 @synthesize numberInPartyTextField;
 @synthesize estimatedWaitTextField;
@@ -66,6 +67,12 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [tap setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tap];
     
     
 }
@@ -363,6 +370,32 @@
     [textField resignFirstResponder];
     
     return NO;
+}
+
+-(void)dismissKeyboard {
+    
+    UITextField *activeTextField = nil;
+    UITextView *activeTextView = nil;
+    
+    if ([phoneNumberTextField isEditing]){
+        activeTextField = phoneNumberTextField;  
+    }else if ([nameTextField isEditing]){
+        activeTextField = nameTextField;
+    }else if ([numberInPartyTextField isEditing]){
+        activeTextField = numberInPartyTextField;
+    }else if ([emailTextField isEditing]){
+        activeTextField = emailTextField;
+    }else if ([estimatedWaitTextField isEditing]){
+        activeTextField = estimatedWaitTextField;
+    }else if ([permanentNotesTextView isFirstResponder]){
+        activeTextView = permanentNotesTextView;
+    }else if ([visitNotesTextView isFirstResponder]){
+        activeTextView = visitNotesTextView;
+    }
+    
+    if (activeTextField) [activeTextField resignFirstResponder];
+    if (activeTextView) [activeTextView resignFirstResponder];
+
 }
 
 

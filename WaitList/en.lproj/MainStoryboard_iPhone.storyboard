@@ -411,6 +411,7 @@
                         <outlet property="phoneNumberTextField" destination="sUA-Sm-KBh" id="9OI-4E-CY1"/>
                         <outlet property="tableView" destination="3kf-eZ-Suy" id="0cj-Xy-kyT"/>
                         <outlet property="textTimeSentAgoLabel" destination="JB3-YQ-Qnr" id="G6T-vH-CMZ"/>
+                        <outlet property="timeAgoLabel" destination="MUe-wk-Zfv" id="YOP-nj-kQr"/>
                         <outlet property="userActionView" destination="l5E-za-1zs" id="g0S-qK-ezr"/>
                         <outlet property="visitNotesTextView" destination="FHi-wp-8rb" id="qpq-lb-KdO"/>
                     </connections>
