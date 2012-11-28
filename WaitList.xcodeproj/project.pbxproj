@@ -17,6 +17,8 @@
 		1B1BBF3D162CB1AC00708323 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */; };
 		1B1BBF3F162CB1B400708323 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3E162CB1B400708323 /* QuartzCore.framework */; };
 		1B1BBF41162CB1C000708323 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF40162CB1C000708323 /* libxml2.dylib */; };
+		1B585F6C166664920064D49F /* appHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6A166664920064D49F /* appHeader.png */; };
+		1B585F6D166664920064D49F /* headerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6B166664920064D49F /* headerButton.png */; };
 		1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C2162475FC005799B6 /* UIKit.framework */; };
 		1B83C9C5162475FC005799B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C4162475FC005799B6 /* Foundation.framework */; };
 		1B83C9C7162475FC005799B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C6162475FC005799B6 /* CoreGraphics.framework */; };
@@ -112,6 +114,8 @@
 		1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1B1BBF3E162CB1B400708323 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B1BBF40162CB1C000708323 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1B585F6A166664920064D49F /* appHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeader.png; sourceTree = "<group>"; };
+		1B585F6B166664920064D49F /* headerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerButton.png; sourceTree = "<group>"; };
 		1B83C9BE162475FC005799B6 /* WaitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B83C9C2162475FC005799B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1B83C9C4162475FC005799B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -311,6 +315,8 @@
 		1B8D1D67164C4F31008AFE6E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B585F6A166664920064D49F /* appHeader.png */,
+				1B585F6B166664920064D49F /* headerButton.png */,
 				1B8D1D68164C4F4E008AFE6E /* buttonBackground.png */,
 				1B8D1D69164C4F4E008AFE6E /* buttonBackground@2x.png */,
 				1B8D1D6A164C4F4E008AFE6E /* notifySmall@2x.png */,
@@ -453,6 +459,8 @@
 				1B8D1D82164C4F4E008AFE6E /* partySize.png in Resources */,
 				1B8D1D83164C4F4E008AFE6E /* partySize@2x.png in Resources */,
 				1B0F7FC1165B22E0004EA747 /* FacebookSDKResources.bundle in Resources */,
+				1B585F6C166664920064D49F /* appHeader.png in Resources */,
+				1B585F6D166664920064D49F /* headerButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
