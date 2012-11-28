@@ -25,6 +25,7 @@
 @synthesize loggedInUser;
 @synthesize facebookLoginView;
 @synthesize loginButton;
+@synthesize loginNavigationBar;
 
 - (void)viewDidLoad
 {
@@ -46,6 +47,12 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     
+    if ([self.loginNavigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.loginNavigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -62,6 +69,7 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self setLoginButton:nil];
+    [self setLoginNavigationBar:nil];
     [super viewDidUnload];
 }
 - (IBAction)login:(id)sender {

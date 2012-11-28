@@ -50,6 +50,12 @@
         
     self.refreshControl = refreshControl;
     
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
@@ -202,7 +208,8 @@
             [guestDetailTableViewController setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
         }
         
-        self.title = @"WaitList";
+//        self.title = @"WaitList";
+        
     }else if ([[segue identifier] isEqualToString:@"accountInfo"]){
         UINavigationController *navController = [segue destinationViewController];
         
