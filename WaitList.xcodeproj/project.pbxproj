@@ -51,6 +51,7 @@
 		1B8D1D81164C4F4E008AFE6E /* seated.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D73164C4F4E008AFE6E /* seated.png */; };
 		1B8D1D82164C4F4E008AFE6E /* partySize.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D74164C4F4E008AFE6E /* partySize.png */; };
 		1B8D1D83164C4F4E008AFE6E /* partySize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D75164C4F4E008AFE6E /* partySize@2x.png */; };
+		1B965865166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */; };
 		1BA0D22B1646C9FF009E0B3A /* CGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D22A1646C9FF009E0B3A /* CGUtils.m */; };
 		1BA0D22E1647E6FE009E0B3A /* CGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D22D1647E6FE009E0B3A /* CGUser.m */; };
 		1BA0D2311647E717009E0B3A /* CGRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D2301647E717009E0B3A /* CGRestaurant.m */; };
@@ -163,6 +164,8 @@
 		1B8D1D73164C4F4E008AFE6E /* seated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seated.png; sourceTree = "<group>"; };
 		1B8D1D74164C4F4E008AFE6E /* partySize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = partySize.png; sourceTree = "<group>"; };
 		1B8D1D75164C4F4E008AFE6E /* partySize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "partySize@2x.png"; sourceTree = "<group>"; };
+		1B965863166FB0BA00CFDF38 /* CGRestaurantFullWaitList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantFullWaitList.h; sourceTree = "<group>"; };
+		1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantFullWaitList.m; sourceTree = "<group>"; };
 		1BA0D2291646C9FF009E0B3A /* CGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGUtils.h; sourceTree = "<group>"; };
 		1BA0D22A1646C9FF009E0B3A /* CGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGUtils.m; sourceTree = "<group>"; };
 		1BA0D22C1647E6FE009E0B3A /* CGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGUser.h; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				1BA0D2301647E717009E0B3A /* CGRestaurant.m */,
 				1BC94226166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.h */,
 				1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */,
+				1B965863166FB0BA00CFDF38 /* CGRestaurantFullWaitList.h */,
+				1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 				1BA0D2311647E717009E0B3A /* CGRestaurant.m in Sources */,
 				1BA0D23416480512009E0B3A /* CGOwnerAccountInfoViewController.m in Sources */,
 				1BC94228166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m in Sources */,
+				1B965865166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "CGAddGuestViewController.h"
 #import "CGGuestDetailTableViewController.h"
 #import "CGOwnerAccountInfoViewController.h"
+#import "CGRestaurantFullWaitList.h"
 #import <RestKit/RestKit.h>
 
 @interface CGWaitListTableViewController ()
@@ -21,6 +22,10 @@
 @implementation CGWaitListTableViewController
 
 @synthesize waitListers;
+
+@synthesize totalGuests;
+@synthesize totalParties;
+@synthesize estimatedWait;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -55,14 +60,24 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
-    
+        
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     RKLogInfo(@"Load collection of Wait Listers: %@", objects);
-    self.waitListers = [[NSMutableArray alloc] initWithArray:objects];
-    self.dataLoaded = TRUE;
-    [self.tableView reloadData];
+    //should only have 1 object
+    CGRestaurantFullWaitList *fullWaitList = [objects objectAtIndex:0];
+    
+    if (fullWaitList){
+        self.waitListers = [[NSMutableArray alloc] initWithArray:fullWaitList.waitListers];
+        self.totalParties = fullWaitList.totalParties;
+        self.totalGuests = fullWaitList.totalGuests;
+        self.estimatedWait = fullWaitList.estimatedWait;
+        
+        self.dataLoaded = TRUE;
+        [self.tableView reloadData];
+        
+    }
     
     [refreshControl endRefreshing];
 
@@ -107,19 +122,20 @@
         cell.name.text = waitListee.guest ? waitListee.guest.name : nil;
         
         if (waitListee.estimatedWait != nil){
-            NSString *estimatedWait = waitListee.estimatedWait.stringValue;
-            estimatedWait = [estimatedWait stringByAppendingString:@" mins"];
+            NSString *estimatedWaitString = waitListee.estimatedWait.stringValue;
             
-            cell.estimatedWaitTime.text = estimatedWait;
+            if (waitListee.timeOnWaitList != nil){
+                estimatedWaitString = [estimatedWaitString stringByAppendingString:@" mins ("];
+                estimatedWaitString = [estimatedWaitString stringByAppendingString:waitListee.timeOnWaitList.stringValue];
+                estimatedWaitString = [estimatedWaitString stringByAppendingString:@")"];
+            }else{
+                estimatedWaitString = [estimatedWaitString stringByAppendingString:@" mins"];
+            }
+            
+            cell.estimatedWaitTime.text = estimatedWaitString;
         }
         
-        if (waitListee.timeOnWaitList != nil){
-            NSString *timeOnWaitList = @"(";
-            timeOnWaitList = [timeOnWaitList stringByAppendingString:waitListee.timeOnWaitList.stringValue];
-            timeOnWaitList = [timeOnWaitList stringByAppendingString:@")"];
-            
-            cell.estimatedWaitTimeRemaining.text = timeOnWaitList;
-        }
+        
         
         if (waitListee.timeSinceTextSent != nil){
             NSString *timeSinceTextSent = waitListee.timeSinceTextSent.stringValue;
@@ -195,6 +211,10 @@
             CGAddGuestViewController *addGuestController = (CGAddGuestViewController *)navController.topViewController;
 
             if (addGuestController != nil){
+                addGuestController.totalParties = self.totalParties;
+                addGuestController.totalGuests = self.totalGuests;
+                addGuestController.estimatedWait = self.estimatedWait;
+                
                 [addGuestController setWaitListTableViewController:segue.sourceViewController];
                 [addGuestController setLoggedInUser:self.loggedInUser];
                 [addGuestController setCurrentRestaurant:self.currentRestaurant];

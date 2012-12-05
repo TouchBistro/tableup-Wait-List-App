@@ -12,6 +12,7 @@
 #import "CGRestaurant.h"
 #import "CGUser.h"
 #import "CGRestaurantWaitListWaitTime.h"
+#import "CGRestaurantFullWaitList.h"
 
 #import "CGUtils.h"
 #import "CGLoginViewController.h"
@@ -70,6 +71,14 @@
         
     [waitListMapping mapKeyPath:@"guest" toRelationship:@"guest" withMapping:guestMapping];
     
+    RKObjectMapping *fullWaitListMapping = [RKObjectMapping mappingForClass:[CGRestaurantFullWaitList class]];
+    [fullWaitListMapping mapKeyPath:@"id" toAttribute:@"fullWaitListId"];
+    [fullWaitListMapping mapKeyPath:@"totalGuests" toAttribute:@"totalGuests"];
+    [fullWaitListMapping mapKeyPath:@"totalParties" toAttribute:@"totalParties"];
+    [fullWaitListMapping mapKeyPath:@"estimatedWait" toAttribute:@"estimatedWait"];
+    
+    [fullWaitListMapping mapKeyPath:@"waitListers" toRelationship:@"waitListers" withMapping:waitListMapping];
+    
     RKObjectMapping *restaurantMapping = [RKObjectMapping mappingForClass:[CGRestaurant class]];
     [restaurantMapping mapKeyPath:@"id" toAttribute:@"restaurantId"];
     [restaurantMapping mapKeyPath:@"name" toAttribute:@"name"];
@@ -84,10 +93,10 @@
     [userMapping mapKeyPath:@"ownedRestaurants" toRelationship:@"ownedRestaurants" withMapping:restaurantMapping];
     
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];
-    [[RKObjectManager sharedManager].mappingProvider setMapping:waitListMapping forKeyPath:@"waitlisters"];
+//    [[RKObjectManager sharedManager].mappingProvider setMapping:waitListMapping forKeyPath:@"waitlisters"];
     [[RKObjectManager sharedManager].mappingProvider setMapping:userMapping forKeyPath:@"user"];
+    [[RKObjectManager sharedManager].mappingProvider setMapping:fullWaitListMapping forKeyPath:@"waitList"];
     
-//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     UIImage *image = [[UIImage imageNamed:@"headerButton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 10, 1, 10)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

@@ -40,6 +40,10 @@
 
 @property (nonatomic, strong) NSNumber *guestId;
 
+@property (nonatomic, strong) NSNumber *totalParties;
+@property (nonatomic, strong) NSNumber *totalGuests;
+@property (nonatomic, strong) NSNumber *estimatedWait;
+
 
 - (IBAction)save:(id)sender;
 - (IBAction)saveAndText:(id)sender;

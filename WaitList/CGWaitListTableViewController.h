@@ -21,6 +21,11 @@
 @property (nonatomic, strong) CGRestaurant *currentRestaurant;
 @property (nonatomic, strong) CGUser *loggedInUser;
 
+@property (nonatomic, strong) NSNumber *totalParties;
+@property (nonatomic, strong) NSNumber *totalGuests;
+@property (nonatomic, strong) NSNumber *estimatedWait;
+
+
 -(void) refreshMyTableView;
 -(void) retrieveWaitListForDisplay;
 - (IBAction)accountInfo:(id)sender;
