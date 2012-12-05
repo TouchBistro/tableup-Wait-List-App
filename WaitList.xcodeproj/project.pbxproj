@@ -17,6 +17,11 @@
 		1B1BBF3D162CB1AC00708323 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */; };
 		1B1BBF3F162CB1B400708323 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3E162CB1B400708323 /* QuartzCore.framework */; };
 		1B1BBF41162CB1C000708323 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF40162CB1C000708323 /* libxml2.dylib */; };
+		1B2EAB4B166881D000DFA1DB /* WaitListIcon57px.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB4A166881D000DFA1DB /* WaitListIcon57px.png */; };
+		1B2EAB52166881E300DFA1DB /* WaitListIcon114px.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB51166881E300DFA1DB /* WaitListIcon114px.png */; };
+		1B2EAB54166881EC00DFA1DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB53166881EC00DFA1DB /* Default.png */; };
+		1B2EAB56166881F700DFA1DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB55166881F700DFA1DB /* Default@2x.png */; };
+		1B2EAB581668820100DFA1DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB571668820100DFA1DB /* Default-568h@2x.png */; };
 		1B585F6C166664920064D49F /* appHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6A166664920064D49F /* appHeader.png */; };
 		1B585F6D166664920064D49F /* headerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6B166664920064D49F /* headerButton.png */; };
 		1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C2162475FC005799B6 /* UIKit.framework */; };
@@ -115,6 +120,11 @@
 		1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1B1BBF3E162CB1B400708323 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B1BBF40162CB1C000708323 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1B2EAB4A166881D000DFA1DB /* WaitListIcon57px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaitListIcon57px.png; sourceTree = "<group>"; };
+		1B2EAB51166881E300DFA1DB /* WaitListIcon114px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaitListIcon114px.png; sourceTree = "<group>"; };
+		1B2EAB53166881EC00DFA1DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1B2EAB55166881F700DFA1DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1B2EAB571668820100DFA1DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1B585F6A166664920064D49F /* appHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeader.png; sourceTree = "<group>"; };
 		1B585F6B166664920064D49F /* headerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerButton.png; sourceTree = "<group>"; };
 		1B83C9BE162475FC005799B6 /* WaitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +242,11 @@
 		1B83C9B3162475FC005799B6 = {
 			isa = PBXGroup;
 			children = (
+				1B2EAB571668820100DFA1DB /* Default-568h@2x.png */,
+				1B2EAB55166881F700DFA1DB /* Default@2x.png */,
+				1B2EAB53166881EC00DFA1DB /* Default.png */,
+				1B2EAB51166881E300DFA1DB /* WaitListIcon114px.png */,
+				1B2EAB4A166881D000DFA1DB /* WaitListIcon57px.png */,
 				1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */,
 				1B83C9C8162475FC005799B6 /* WaitList */,
 				1B83C9C1162475FC005799B6 /* Frameworks */,
@@ -466,6 +481,11 @@
 				1B0F7FC1165B22E0004EA747 /* FacebookSDKResources.bundle in Resources */,
 				1B585F6C166664920064D49F /* appHeader.png in Resources */,
 				1B585F6D166664920064D49F /* headerButton.png in Resources */,
+				1B2EAB4B166881D000DFA1DB /* WaitListIcon57px.png in Resources */,
+				1B2EAB52166881E300DFA1DB /* WaitListIcon114px.png in Resources */,
+				1B2EAB54166881EC00DFA1DB /* Default.png in Resources */,
+				1B2EAB56166881F700DFA1DB /* Default@2x.png in Resources */,
+				1B2EAB581668820100DFA1DB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
