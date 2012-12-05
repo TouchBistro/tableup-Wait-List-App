@@ -10,6 +10,7 @@
 #import "CGRestaurantGuest.h"
 #import "CGWaitListTableViewController.h"
 #import "CGUtils.h"
+#import "CGRestaurantWaitListWaitTime.h"
 
 #import <RestKit/RestKit.h>
 
@@ -42,6 +43,13 @@
 
 @synthesize permanentNotesTextView;
 
+@synthesize visitsLabel;
+@synthesize wait1Label;
+@synthesize wait2Label;
+@synthesize wait3Label;
+@synthesize wait4Label;
+@synthesize wait5Label;
+
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -55,6 +63,13 @@
 
 - (void)viewDidLoad
 {
+    self.visitsLabel.hidden = YES;
+    self.wait1Label.hidden = YES;
+    self.wait2Label.hidden = YES;
+    self.wait3Label.hidden = YES;
+    self.wait4Label.hidden = YES;
+    self.wait5Label.hidden = YES;
+    
     if (self.waitListee && self.waitListee.guest){
         self.phoneNumberTextField.text = self.waitListee.guest.phoneNumber;
         self.nameTextField.text = self.waitListee.guest.name;
@@ -82,8 +97,59 @@
             self.textTimeSentAgoLabel.text = @"";
             self.notifyImageView.hidden = YES;
         }
+        
+        if (self.waitListee.guest.waitListHistory && [self.waitListee.guest.waitListHistory count] > 0){
+            NSString *label = @"Visits: ";
+            label = [label stringByAppendingString:self.waitListee.guest.totalNumberOfVisits.stringValue];
+            label = [label stringByAppendingString:@" / Avg Wait: "];
+            label = [label stringByAppendingString:self.waitListee.guest.averageWait.stringValue];
+            label = [label stringByAppendingString:@" mins / Avg Party: "];
+            label = [label stringByAppendingString:self.waitListee.guest.averageParty.stringValue];
+            label = [label stringByAppendingString:@" ppl"];
+            
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MM/dd/yy"];
+            
+            NSUInteger indexInArray = 0;
+            for (CGRestaurantWaitListWaitTime *longestWaitInfo in self.waitListee.guest.waitListHistory) {
+                NSString *dateCreated = [formatter stringFromDate:longestWaitInfo.dateCreated];
+                NSString *longestWait = @"Longest Wait: ";
+                longestWait = [longestWait stringByAppendingString:longestWaitInfo.totalWaitTime.stringValue];
+                longestWait = [longestWait stringByAppendingString:@" mins "];
+                longestWait = [longestWait stringByAppendingString:dateCreated];
+                longestWait = [longestWait stringByAppendingString:@" ("];
+                longestWait = [longestWait stringByAppendingString:longestWaitInfo.numberInParty.stringValue];
+                longestWait = [longestWait stringByAppendingString:@" ppl)"];
                 
+                if (indexInArray == 0){
+                    self.wait1Label.text = longestWait;
+                    self.wait1Label.hidden = NO;
+                }else if (indexInArray == 1){
+                    self.wait2Label.text = longestWait;
+                    self.wait2Label.hidden = NO;
+                }else if (indexInArray == 2){
+                    self.wait3Label.text = longestWait;
+                    self.wait3Label.hidden = NO;
+                }else if (indexInArray == 3){
+                    self.wait4Label.text = longestWait;
+                    self.wait4Label.hidden = NO;
+                }else if (indexInArray == 4){
+                    self.wait5Label.text = longestWait;
+                    self.wait5Label.hidden = NO;
+                }
+                
+                indexInArray++;
+            }
+            
+            self.visitsLabel.text = label;
+            self.visitsLabel.hidden = NO;
+        }
+        
+        
+        
     }
+    
     
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
@@ -124,6 +190,12 @@
     [self setTextTimeSentAgoLabel:nil];
     [self setPermanentNotesTextView:nil];
     [self setVisitNotesTextView:nil];
+    [self setVisitsLabel:nil];
+    [self setWait1Label:nil];
+    [self setWait2Label:nil];
+    [self setWait3Label:nil];
+    [self setWait4Label:nil];
+    [self setWait5Label:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

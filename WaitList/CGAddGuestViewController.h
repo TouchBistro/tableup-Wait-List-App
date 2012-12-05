@@ -29,6 +29,8 @@
 
 @property (strong, nonatomic) CGWaitListTableViewController *waitListTableViewController;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (strong, nonatomic) IBOutlet UILabel *visitLabel;
+@property (strong, nonatomic) IBOutlet UILabel *longestWaitLabel;
 
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;

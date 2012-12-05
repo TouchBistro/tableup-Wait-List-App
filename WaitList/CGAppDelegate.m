@@ -11,6 +11,7 @@
 #import "CGRestaurantWaitList.h"
 #import "CGRestaurant.h"
 #import "CGUser.h"
+#import "CGRestaurantWaitListWaitTime.h"
 
 #import "CGUtils.h"
 #import "CGLoginViewController.h"
@@ -31,6 +32,12 @@
 //    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
 //    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
     
+    RKObjectMapping *waitListWaitTimeMapping = [RKObjectMapping mappingForClass:[CGRestaurantWaitListWaitTime class]];
+    [waitListWaitTimeMapping mapKeyPath:@"id" toAttribute:@"waitListWaitTimeId"];
+    [waitListWaitTimeMapping mapKeyPath:@"totalWaitTime" toAttribute:@"totalWaitTime"];
+    [waitListWaitTimeMapping mapKeyPath:@"dateCreated" toAttribute:@"dateCreated"];
+    [waitListWaitTimeMapping mapKeyPath:@"numberInParty" toAttribute:@"numberInParty"];
+    
     
     RKObjectMapping *guestMapping = [RKObjectMapping mappingForClass:[CGRestaurantGuest class]];
     [guestMapping mapKeyPath:@"id" toAttribute:@"guestId"];
@@ -42,6 +49,10 @@
     [guestMapping mapKeyPath:@"permanentNotes" toAttribute:@"permanentNotes"];
     [guestMapping mapKeyPath:@"totalNumberOfVisits" toAttribute:@"totalNumberOfVisits"];
     [guestMapping mapKeyPath:@"lastVisit" toAttribute:@"lastVisit"];
+    [guestMapping mapKeyPath:@"averageWait" toAttribute:@"averageWait"];
+    [guestMapping mapKeyPath:@"averageParty" toAttribute:@"averageParty"];
+    
+    [guestMapping mapKeyPath:@"waitListHistory" toRelationship:@"waitListHistory" withMapping:waitListWaitTimeMapping];
     
     RKObjectMapping *waitListMapping = [RKObjectMapping mappingForClass:[CGRestaurantWaitList class]];
     [waitListMapping mapKeyPath:@"id" toAttribute:@"waitListId"];

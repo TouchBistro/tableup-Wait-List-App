@@ -33,6 +33,16 @@
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 @property (strong, nonatomic) IBOutlet UIImageView *notifyImageView;
 @property (strong, nonatomic) IBOutlet UILabel *textTimeSentAgoLabel;
+@property (strong, nonatomic) IBOutlet UILabel *visitsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *wait1Label;
+@property (strong, nonatomic) IBOutlet UILabel *wait2Label;
+@property (strong, nonatomic) IBOutlet UILabel *wait3Label;
+@property (strong, nonatomic) IBOutlet UILabel *wait4Label;
+@property (strong, nonatomic) IBOutlet UILabel *wait5Label;
+
+
+
+
 
 
 - (IBAction)notify:(id)sender;

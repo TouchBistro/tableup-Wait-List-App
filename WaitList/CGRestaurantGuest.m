@@ -19,5 +19,9 @@
 @synthesize permanentNotes;
 @synthesize totalNumberOfVisits;
 @synthesize lastVisit;
+@synthesize averageParty;
+@synthesize averageWait;
+
+@synthesize waitListHistory;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "CGAddGuestViewController.h"
 #import "CGUtils.h"
+#import "CGRestaurantWaitListWaitTime.h"
 #import <RestKit/RestKit.h>
 
 @interface CGAddGuestViewController ()
@@ -27,6 +28,8 @@
 @synthesize numberInPartyTextField;
 @synthesize estimatedWaitTextField;
 @synthesize waitListTableViewController;
+@synthesize visitLabel;
+@synthesize longestWaitLabel;
 
 @synthesize activityView;
 
@@ -48,6 +51,9 @@
     [self setDataLoaded:NO];
     self.saveButton.hidden = YES;
     self.saveAndSendButton.hidden = YES;
+    
+    self.visitLabel.hidden = YES;
+    self.longestWaitLabel.hidden = YES;
     
     self.spinner.center = self.view.center;
     
@@ -93,6 +99,8 @@
     
     [self setPermanentNotesTextView:nil];
     [self setVisitNotesTextView:nil];
+    [self setVisitLabel:nil];
+    [self setLongestWaitLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -267,10 +275,43 @@
                         CGRestaurantGuest *guest = result.asObject;
                         
                         if (guest){
+                            self.visitLabel.hidden = NO;
+                            self.longestWaitLabel.hidden = NO;
+                            
                             self.nameTextField.text = guest.name;
                             self.emailTextField.text = guest.email;
                             self.permanentNotesTextView.text = guest.permanentNotes;
                             self.guestId = guest.guestId;
+                            
+                            
+                            if (guest.waitListHistory && [guest.waitListHistory count] > 0){
+                                NSString *label = @"Visits: ";
+                                label = [label stringByAppendingString:guest.totalNumberOfVisits.stringValue];
+                                label = [label stringByAppendingString:@" / Avg Wait: "];
+                                label = [label stringByAppendingString:guest.averageWait.stringValue];
+                                label = [label stringByAppendingString:@" mins / Avg Party: "];
+                                label = [label stringByAppendingString:guest.averageParty.stringValue];
+                                label = [label stringByAppendingString:@" ppl"];
+                                
+                                CGRestaurantWaitListWaitTime *longestWaitInfo = [guest.waitListHistory objectAtIndex:0];
+                                
+                                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                                [formatter setDateFormat:@"MM/dd/yy"];
+                                
+                                NSString *dateCreated = [formatter stringFromDate:longestWaitInfo.dateCreated];
+                                
+                                NSString *longestWait = @"Longest Wait: ";
+                                longestWait = [longestWait stringByAppendingString:longestWaitInfo.totalWaitTime.stringValue];
+                                longestWait = [longestWait stringByAppendingString:@" mins "];
+                                longestWait = [longestWait stringByAppendingString:dateCreated];
+                                longestWait = [longestWait stringByAppendingString:@" ("];
+                                longestWait = [longestWait stringByAppendingString:longestWaitInfo.numberInParty.stringValue];
+                                longestWait = [longestWait stringByAppendingString:@" ppl)"];
+                                
+                                self.visitLabel.text = label;
+                                self.longestWaitLabel.text = longestWait;
+                            }
+
                         }
                     }
                 }

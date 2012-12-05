@@ -56,6 +56,7 @@
 		1BC08F54164AAE3D00496D8B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F53164AAE3D00496D8B /* Social.framework */; };
 		1BC08F57164AAE4700496D8B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F55164AAE4700496D8B /* Accounts.framework */; };
 		1BC08F58164AAE4700496D8B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F56164AAE4700496D8B /* AdSupport.framework */; };
+		1BC94228166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,8 @@
 		1BC08F53164AAE3D00496D8B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1BC08F55164AAE4700496D8B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1BC08F56164AAE4700496D8B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		1BC94226166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitListWaitTime.h; sourceTree = "<group>"; };
+		1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitListWaitTime.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,8 @@
 				1BA0D22D1647E6FE009E0B3A /* CGUser.m */,
 				1BA0D22F1647E717009E0B3A /* CGRestaurant.h */,
 				1BA0D2301647E717009E0B3A /* CGRestaurant.m */,
+				1BC94226166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.h */,
+				1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -485,6 +490,7 @@
 				1BA0D22E1647E6FE009E0B3A /* CGUser.m in Sources */,
 				1BA0D2311647E717009E0B3A /* CGRestaurant.m in Sources */,
 				1BA0D23416480512009E0B3A /* CGOwnerAccountInfoViewController.m in Sources */,
+				1BC94228166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

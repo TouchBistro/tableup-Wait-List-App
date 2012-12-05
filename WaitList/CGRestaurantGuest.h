@@ -20,4 +20,9 @@
 @property (nonatomic, strong) NSNumber *totalNumberOfVisits;
 @property (nonatomic, strong) NSDate *lastVisit;
 
+@property (nonatomic, strong) NSNumber *averageWait;
+@property (nonatomic, strong) NSNumber *averageParty;
+
+@property (nonatomic, strong) NSMutableArray *waitListHistory;
+
 @end
