@@ -174,11 +174,11 @@
                                     </connections>
                                 </button>
                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="notifySmall.png" id="yYN-iD-quB">
-                                    <rect key="frame" x="132" y="41" width="15" height="14"/>
+                                    <rect key="frame" x="120" y="41" width="15" height="14"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JB3-YQ-Qnr">
-                                    <rect key="frame" x="155" y="37" width="145" height="18"/>
+                                    <rect key="frame" x="143" y="39" width="150" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

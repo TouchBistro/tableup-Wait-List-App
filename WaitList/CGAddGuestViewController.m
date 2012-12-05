@@ -9,6 +9,7 @@
 #import "CGAddGuestViewController.h"
 #import "CGUtils.h"
 #import "CGRestaurantWaitListWaitTime.h"
+#import "CGRestaurantFullWaitList.h"
 #import <RestKit/RestKit.h>
 
 @interface CGAddGuestViewController ()
@@ -353,9 +354,13 @@
                     if (result) {
                         
                         NSArray *resultArray = result.asCollection;
-                        [self.waitListTableViewController.waitListers removeAllObjects];
-                        [self.waitListTableViewController.waitListers addObjectsFromArray:resultArray];
-                        [self.waitListTableViewController.tableView reloadData];
+                        CGRestaurantFullWaitList *fullWaitList = [resultArray objectAtIndex:0];
+                        
+                        if (fullWaitList){
+                            [self.waitListTableViewController.waitListers removeAllObjects];
+                            [self.waitListTableViewController.waitListers addObjectsFromArray:fullWaitList.waitListers];
+                            [self.waitListTableViewController.tableView reloadData];
+                        }
                         
                     }
                 }
