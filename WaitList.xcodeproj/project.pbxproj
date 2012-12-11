@@ -63,6 +63,8 @@
 		1BC08F57164AAE4700496D8B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F55164AAE4700496D8B /* Accounts.framework */; };
 		1BC08F58164AAE4700496D8B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC08F56164AAE4700496D8B /* AdSupport.framework */; };
 		1BC94228166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */; };
+		1BCDA157167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDA156167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m */; };
+		1BCDA15B16778825004AEB50 /* CGWaitListTableActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDA15A16778825004AEB50 /* CGWaitListTableActionsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,10 @@
 		1BC08F56164AAE4700496D8B /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		1BC94226166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitListWaitTime.h; sourceTree = "<group>"; };
 		1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitListWaitTime.m; sourceTree = "<group>"; };
+		1BCDA155167780C2004AEB50 /* CGRestaurantWaitListActionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitListActionsCell.h; sourceTree = "<group>"; };
+		1BCDA156167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitListActionsCell.m; sourceTree = "<group>"; };
+		1BCDA15916778825004AEB50 /* CGWaitListTableActionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGWaitListTableActionsViewController.h; sourceTree = "<group>"; };
+		1BCDA15A16778825004AEB50 /* CGWaitListTableActionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGWaitListTableActionsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,7 +299,9 @@
 			isa = PBXGroup;
 			children = (
 				1B1BBF42162CB2E900708323 /* Models */,
+				1BCDA15416777E15004AEB50 /* iPad Views */,
 				1BAE488E1630BA7800332F47 /* iPhone Views */,
+				1BCDA158167787F0004AEB50 /* iPad Controller */,
 				1B83C9E21624934B005799B6 /* iPhone Controllers */,
 				1B83C9D1162475FC005799B6 /* CGAppDelegate.h */,
 				1B83C9D2162475FC005799B6 /* CGAppDelegate.m */,
@@ -367,6 +375,24 @@
 				1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */,
 			);
 			name = "iPhone Views";
+			sourceTree = "<group>";
+		};
+		1BCDA15416777E15004AEB50 /* iPad Views */ = {
+			isa = PBXGroup;
+			children = (
+				1BCDA155167780C2004AEB50 /* CGRestaurantWaitListActionsCell.h */,
+				1BCDA156167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m */,
+			);
+			name = "iPad Views";
+			sourceTree = "<group>";
+		};
+		1BCDA158167787F0004AEB50 /* iPad Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1BCDA15916778825004AEB50 /* CGWaitListTableActionsViewController.h */,
+				1BCDA15A16778825004AEB50 /* CGWaitListTableActionsViewController.m */,
+			);
+			name = "iPad Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,6 +543,8 @@
 				1BA0D23416480512009E0B3A /* CGOwnerAccountInfoViewController.m in Sources */,
 				1BC94228166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m in Sources */,
 				1B965865166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m in Sources */,
+				1BCDA157167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m in Sources */,
+				1BCDA15B16778825004AEB50 /* CGWaitListTableActionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
