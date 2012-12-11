@@ -29,6 +29,7 @@
 @synthesize totalGuests;
 @synthesize totalParties;
 @synthesize estimatedWait;
+@synthesize currentRestaurant;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -333,6 +334,16 @@
     [super viewDidUnload];
 }
 
+- (IBAction)showAccount:(id)sender {
+    if (self.accountViewController == nil) {
+        self.accountViewController = [[CGAccountViewController alloc] initWithStyle:UITableViewStylePlain];
+        self.accountViewController.delegate = self;
+        self.accountPopover = [[UIPopoverController alloc] initWithContentViewController:self.accountViewController];
+    }
+    
+    [self.accountPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
 -(void)refreshMyTableView{
     
     //set the title while refreshing
@@ -359,6 +370,10 @@
     url = [url stringByAppendingString:@"/waitlist"];
     
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
+}
+
+- (void)restaurantSelected:(NSString *)restaurantName{
+    NSLog(@"in here");
 }
 
 

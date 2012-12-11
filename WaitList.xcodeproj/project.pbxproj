@@ -65,6 +65,8 @@
 		1BC94228166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */; };
 		1BCDA157167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDA156167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m */; };
 		1BCDA15B16778825004AEB50 /* CGWaitListTableActionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDA15A16778825004AEB50 /* CGWaitListTableActionsViewController.m */; };
+		1BCDA1611677B9FC004AEB50 /* CGIPadLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDA1601677B9FC004AEB50 /* CGIPadLoginViewController.m */; };
+		1BCDA1641677C1BB004AEB50 /* CGAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCDA1631677C1BB004AEB50 /* CGAccountViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,10 @@
 		1BCDA156167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitListActionsCell.m; sourceTree = "<group>"; };
 		1BCDA15916778825004AEB50 /* CGWaitListTableActionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGWaitListTableActionsViewController.h; sourceTree = "<group>"; };
 		1BCDA15A16778825004AEB50 /* CGWaitListTableActionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGWaitListTableActionsViewController.m; sourceTree = "<group>"; };
+		1BCDA15F1677B9FC004AEB50 /* CGIPadLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGIPadLoginViewController.h; sourceTree = "<group>"; };
+		1BCDA1601677B9FC004AEB50 /* CGIPadLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGIPadLoginViewController.m; sourceTree = "<group>"; };
+		1BCDA1621677C1BB004AEB50 /* CGAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAccountViewController.h; sourceTree = "<group>"; };
+		1BCDA1631677C1BB004AEB50 /* CGAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAccountViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +397,10 @@
 			children = (
 				1BCDA15916778825004AEB50 /* CGWaitListTableActionsViewController.h */,
 				1BCDA15A16778825004AEB50 /* CGWaitListTableActionsViewController.m */,
+				1BCDA15F1677B9FC004AEB50 /* CGIPadLoginViewController.h */,
+				1BCDA1601677B9FC004AEB50 /* CGIPadLoginViewController.m */,
+				1BCDA1621677C1BB004AEB50 /* CGAccountViewController.h */,
+				1BCDA1631677C1BB004AEB50 /* CGAccountViewController.m */,
 			);
 			name = "iPad Controller";
 			sourceTree = "<group>";
@@ -545,6 +555,8 @@
 				1B965865166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m in Sources */,
 				1BCDA157167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m in Sources */,
 				1BCDA15B16778825004AEB50 /* CGWaitListTableActionsViewController.m in Sources */,
+				1BCDA1611677B9FC004AEB50 /* CGIPadLoginViewController.m in Sources */,
+				1BCDA1641677C1BB004AEB50 /* CGAccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
