@@ -6,10 +6,11 @@
 //  Copyright (c) 2012 Padraic Doyle. All rights reserved.
 //
 
+#import "CGRestaurant.h"
 #import <UIKit/UIKit.h>
 
 @protocol CCAccountViewDelegate
-- (void)restaurantSelected:(NSString *)restaurantName;
+- (void)restaurantSelected:(CGRestaurant *)restaurant;
 @end
 
 

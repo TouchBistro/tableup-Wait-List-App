@@ -9,6 +9,7 @@
 #import "CGIPadLoginViewController.h"
 #import "CGUtils.h"
 #import "CGWaitListTableActionsViewController.h"
+#import "CGAddGuestIPadTableViewController.h"
 #import <RestKit/RestKit.h>
 
 
@@ -93,12 +94,7 @@
             CGWaitListTableActionsViewController *waitListTableViewController = (CGWaitListTableActionsViewController *)navController.topViewController;
             
             if (waitListTableViewController != nil){
-                if (waitListTableViewController.accountViewController == nil) {
-                    waitListTableViewController.accountViewController = [[CGAccountViewController alloc] initWithStyle:UITableViewStylePlain];
-                    waitListTableViewController.accountViewController.delegate = waitListTableViewController.accountViewController;
-                    waitListTableViewController.accountPopover = [[UIPopoverController alloc] initWithContentViewController:waitListTableViewController.accountViewController];
-                }
-                waitListTableViewController.accountViewController.restaurants = self.loggedInUser.ownedRestaurants;
+                waitListTableViewController.loggedInUser = self.loggedInUser;
                 waitListTableViewController.currentRestaurant = [self.loggedInUser.ownedRestaurants objectAtIndex:0];
             }
         }

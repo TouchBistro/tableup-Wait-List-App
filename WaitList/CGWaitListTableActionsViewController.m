@@ -334,15 +334,6 @@
     [super viewDidUnload];
 }
 
-- (IBAction)showAccount:(id)sender {
-    if (self.accountViewController == nil) {
-        self.accountViewController = [[CGAccountViewController alloc] initWithStyle:UITableViewStylePlain];
-        self.accountViewController.delegate = self;
-        self.accountPopover = [[UIPopoverController alloc] initWithContentViewController:self.accountViewController];
-    }
-    
-    [self.accountPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-}
 
 -(void)refreshMyTableView{
     
@@ -372,8 +363,9 @@
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
 }
 
-- (void)restaurantSelected:(NSString *)restaurantName{
-    NSLog(@"in here");
+- (void)restaurantSelected:(CGRestaurant *)restaurant{
+    self.currentRestaurant = restaurant;
+    [self.tableView reloadData];
 }
 
 
@@ -389,5 +381,27 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"accountView"]){
+        CGAccountViewController *accountViewController = [segue destinationViewController];
+        accountViewController.delegate = self;
+        accountViewController.restaurants = self.loggedInUser.ownedRestaurants;
+    }
+    else if ([[segue identifier] isEqualToString:@"addGuest"]){
+        CGAddGuestIPadTableViewController *addGuestController = [segue destinationViewController];
+        
+        if (addGuestController != nil){
+            addGuestController.totalParties = self.totalParties;
+            addGuestController.totalGuests = self.totalGuests;
+            addGuestController.estimatedWait = self.estimatedWait;
+            
+            [addGuestController setLoggedInUser:self.loggedInUser];
+            [addGuestController setCurrentRestaurant:self.currentRestaurant];
+        }
+    }
+}
+
+
 
 @end

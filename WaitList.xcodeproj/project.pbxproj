@@ -22,6 +22,7 @@
 		1B2EAB54166881EC00DFA1DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB53166881EC00DFA1DB /* Default.png */; };
 		1B2EAB56166881F700DFA1DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB55166881F700DFA1DB /* Default@2x.png */; };
 		1B2EAB581668820100DFA1DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2EAB571668820100DFA1DB /* Default-568h@2x.png */; };
+		1B468E4F16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */; };
 		1B585F6C166664920064D49F /* appHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6A166664920064D49F /* appHeader.png */; };
 		1B585F6D166664920064D49F /* headerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6B166664920064D49F /* headerButton.png */; };
 		1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C2162475FC005799B6 /* UIKit.framework */; };
@@ -130,6 +131,8 @@
 		1B2EAB53166881EC00DFA1DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1B2EAB55166881F700DFA1DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1B2EAB571668820100DFA1DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1B468E4C16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAddGuestIPadTableViewController.h; sourceTree = "<group>"; };
+		1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAddGuestIPadTableViewController.m; sourceTree = "<group>"; };
 		1B585F6A166664920064D49F /* appHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeader.png; sourceTree = "<group>"; };
 		1B585F6B166664920064D49F /* headerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerButton.png; sourceTree = "<group>"; };
 		1B83C9BE162475FC005799B6 /* WaitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -401,6 +404,8 @@
 				1BCDA1601677B9FC004AEB50 /* CGIPadLoginViewController.m */,
 				1BCDA1621677C1BB004AEB50 /* CGAccountViewController.h */,
 				1BCDA1631677C1BB004AEB50 /* CGAccountViewController.m */,
+				1B468E4C16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.h */,
+				1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */,
 			);
 			name = "iPad Controller";
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				1BCDA15B16778825004AEB50 /* CGWaitListTableActionsViewController.m in Sources */,
 				1BCDA1611677B9FC004AEB50 /* CGIPadLoginViewController.m in Sources */,
 				1BCDA1641677C1BB004AEB50 /* CGAccountViewController.m in Sources */,
+				1B468E4F16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

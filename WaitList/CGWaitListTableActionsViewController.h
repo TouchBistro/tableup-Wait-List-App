@@ -10,6 +10,7 @@
 #import "CGRestaurant.h"
 #import "CGAccountViewController.h"
 #import "CGUser.h"
+#import "CGAddGuestIPadTableViewController.h"
 
 @interface CGWaitListTableActionsViewController : UITableViewController <CCAccountViewDelegate>{
     UIRefreshControl *refreshControl;
@@ -24,10 +25,11 @@
 @property (nonatomic, strong) NSNumber *totalGuests;
 @property (nonatomic, strong) NSNumber *estimatedWait;
 
-@property (nonatomic, retain) CGAccountViewController *accountViewController;
-@property (nonatomic, retain) UIPopoverController *accountPopover;
+@property (nonatomic, retain) CGAddGuestIPadTableViewController *addGuestController;
+@property (nonatomic, retain) UIPopoverController *addGuestPopover;
 
 - (IBAction)showAccount:(id)sender;
+- (IBAction)showAddGuest:(id)sender;
 
 -(void) refreshMyTableView;
 -(void) retrieveWaitListForDisplay;

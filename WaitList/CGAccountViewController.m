@@ -22,8 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.clearsSelectionOnViewWillAppear = NO;
-    self.contentSizeForViewInPopover = CGSizeMake(150.0, 140.0);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -33,7 +31,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.restaurants.count;
+    if (section == 0){
+        return self.restaurants.count;
+    }else{
+        return 0;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -50,14 +53,42 @@
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0){
+        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,60)];
+        customView.backgroundColor = self.tableView.backgroundColor;
+        
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,60)];
+        
+        textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the Wait List Feature.  Tap a restaurant to see it's wait list.";
+        textView.textAlignment = UITextAlignmentCenter;
+        textView.backgroundColor = nil;
+        textView.editable = NO;
+        
+        [customView addSubview:textView];
+        return customView;
+    }else{
+        return nil;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0){
+        return 60.0;
+    }else{
+        return 0.0;
+    }
+}
+
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.delegate != nil) {
-        NSString *restaurantName = [[_restaurants objectAtIndex:indexPath.row] name];
-        [self.delegate restaurantSelected:restaurantName];
+        CGRestaurant *restaurant = [_restaurants objectAtIndex:indexPath.row];
+        [self.delegate restaurantSelected:restaurant];
     }
 }
 
