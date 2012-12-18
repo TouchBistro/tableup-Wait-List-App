@@ -46,6 +46,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *wait4Label;
 @property (strong, nonatomic) IBOutlet UILabel *wait5Label;
 
+@property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
+@property (nonatomic, assign, getter=isTimeToClose) BOOL timeToClose;
+
 - (IBAction)close:(id)sender;
 
 - (IBAction)notify:(id)sender;
