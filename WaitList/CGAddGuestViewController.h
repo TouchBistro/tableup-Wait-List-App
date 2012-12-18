@@ -12,6 +12,10 @@
 #import "CGUser.h"
 #import "CGWaitListTableViewController.h"
 
+@protocol CGAddGuestViewDelete
+-(void) guestAdded: (CGRestaurantGuest *) guest;
+@end
+
 @interface CGAddGuestViewController : UITableViewController <UITextFieldDelegate, UITextViewDelegate>
 
 

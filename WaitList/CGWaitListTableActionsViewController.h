@@ -12,8 +12,9 @@
 #import "CGUser.h"
 #import "CGAddGuestIPadTableViewController.h"
 
-@interface CGWaitListTableActionsViewController : UITableViewController <CCAccountViewDelegate>{
+@interface CGWaitListTableActionsViewController : UITableViewController <CCAccountViewDelegate, CCAddGuestIPadDelegate>{
     UIRefreshControl *refreshControl;
+    __weak UIPopoverController *playAllPopover;
 }
 
 @property (nonatomic, strong) NSMutableArray *waitListers;

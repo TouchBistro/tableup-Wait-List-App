@@ -8,11 +8,12 @@
 
 #import "CGRestaurant.h"
 #import "CGUser.h"
+#import "CGRestaurantFullWaitList.h"
 
 #import <UIKit/UIKit.h>
 
 @protocol CCAddGuestIPadDelegate
-- (void)restaurantSelected:(NSString *)restaurantName;
+- (void) guestAdded:(CGRestaurantFullWaitList *) waitList;
 @end
 
 @interface CGAddGuestIPadTableViewController : UITableViewController {

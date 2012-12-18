@@ -281,8 +281,6 @@
                         CGRestaurantGuest *guest = result.asObject;
                         
                         if (guest){
-                            self.visitLabel.hidden = NO;
-                            self.longestWaitLabel.hidden = NO;
                             
                             self.nameTextField.text = guest.name;
                             self.emailTextField.text = guest.email;
@@ -316,6 +314,9 @@
                                 
                                 self.visitLabel.text = label;
                                 self.longestWaitLabel.text = longestWait;
+                                
+                                self.visitLabel.hidden = NO;
+                                self.longestWaitLabel.hidden = NO;
                             }
                             
                         }
@@ -358,9 +359,7 @@
                         CGRestaurantFullWaitList *fullWaitList = [resultArray objectAtIndex:0];
                         
                         if (fullWaitList){
-//                            [self.waitListTableViewController.waitListers removeAllObjects];
-//                            [self.waitListTableViewController.waitListers addObjectsFromArray:fullWaitList.waitListers];
-//                            [self.waitListTableViewController.tableView reloadData];
+                            [self.delegate guestAdded:fullWaitList];
                         }
                         
                     }

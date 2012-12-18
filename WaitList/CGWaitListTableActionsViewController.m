@@ -395,11 +395,25 @@
             addGuestController.totalParties = self.totalParties;
             addGuestController.totalGuests = self.totalGuests;
             addGuestController.estimatedWait = self.estimatedWait;
+            addGuestController.delegate = self;
             
             [addGuestController setLoggedInUser:self.loggedInUser];
             [addGuestController setCurrentRestaurant:self.currentRestaurant];
+            
+            playAllPopover =  [(UIStoryboardPopoverSegue *)segue popoverController];
         }
     }
+}
+
+- (void) guestAdded:(CGRestaurantFullWaitList *) waitList{
+    [self.waitListers removeAllObjects];
+    [self.waitListers addObjectsFromArray:waitList.waitListers];
+    [self.tableView reloadData];
+    
+    if (playAllPopover){
+        [playAllPopover dismissPopoverAnimated:YES];
+    }
+
 }
 
 
