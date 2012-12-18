@@ -92,4 +92,8 @@
     }
 }
 
+- (IBAction)logOut:(id)sender {
+    [self.delegate logOut];
+}
+
 @end

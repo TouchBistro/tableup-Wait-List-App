@@ -14,6 +14,7 @@
 #import "CGOwnerAccountInfoViewController.h"
 #import "CGRestaurantFullWaitList.h"
 #import "CGRestaurantWaitListActionsCell.h"
+#import "CGGuestDetailModalViewController.h"
 #import "CGUtils.h"
 
 #import <RestKit/RestKit.h>
@@ -387,6 +388,8 @@
         CGAccountViewController *accountViewController = [segue destinationViewController];
         accountViewController.delegate = self;
         accountViewController.restaurants = self.loggedInUser.ownedRestaurants;
+        
+        accountPopover =  [(UIStoryboardPopoverSegue *)segue popoverController];
     }
     else if ([[segue identifier] isEqualToString:@"addGuest"]){
         CGAddGuestIPadTableViewController *addGuestController = [segue destinationViewController];
@@ -400,7 +403,16 @@
             [addGuestController setLoggedInUser:self.loggedInUser];
             [addGuestController setCurrentRestaurant:self.currentRestaurant];
             
-            playAllPopover =  [(UIStoryboardPopoverSegue *)segue popoverController];
+            addGuestPopover =  [(UIStoryboardPopoverSegue *)segue popoverController];
+        }
+    }else if ([[segue identifier] isEqualToString:@"guestDetailSegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        CGGuestDetailModalViewController *guestDetail = (CGGuestDetailModalViewController *)navController.topViewController;
+        
+        if (guestDetail != nil){
+            [guestDetail setSelectedRestaurant:self.currentRestaurant];
+            [guestDetail setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
+            guestDetail.delegate = self;
         }
     }
 }
@@ -410,12 +422,29 @@
     [self.waitListers addObjectsFromArray:waitList.waitListers];
     [self.tableView reloadData];
     
-    if (playAllPopover){
-        [playAllPopover dismissPopoverAnimated:YES];
+    if (addGuestPopover){
+        [addGuestPopover dismissPopoverAnimated:YES];
     }
 
 }
 
+-(void) guestEdited:(CGRestaurantFullWaitList *) waitList{
+    [self.waitListers removeAllObjects];
+    [self.waitListers addObjectsFromArray:waitList.waitListers];
+    [self.tableView reloadData];
+}
 
+- (void)logOut {
+    if (accountPopover){
+        [accountPopover dismissPopoverAnimated:YES];
+    }
+    
+    [self setLoggedInUser:nil];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUserId];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPassword];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUsername];
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 @end

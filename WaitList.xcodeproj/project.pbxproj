@@ -25,6 +25,7 @@
 		1B468E4F16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */; };
 		1B585F6C166664920064D49F /* appHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6A166664920064D49F /* appHeader.png */; };
 		1B585F6D166664920064D49F /* headerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6B166664920064D49F /* headerButton.png */; };
+		1B5AFBE41680C19800112CAA /* CGGuestDetailModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5AFBE31680C19800112CAA /* CGGuestDetailModalViewController.m */; };
 		1B83C9C3162475FC005799B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C2162475FC005799B6 /* UIKit.framework */; };
 		1B83C9C5162475FC005799B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C4162475FC005799B6 /* Foundation.framework */; };
 		1B83C9C7162475FC005799B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B83C9C6162475FC005799B6 /* CoreGraphics.framework */; };
@@ -135,6 +136,8 @@
 		1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAddGuestIPadTableViewController.m; sourceTree = "<group>"; };
 		1B585F6A166664920064D49F /* appHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeader.png; sourceTree = "<group>"; };
 		1B585F6B166664920064D49F /* headerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerButton.png; sourceTree = "<group>"; };
+		1B5AFBE21680C19800112CAA /* CGGuestDetailModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGGuestDetailModalViewController.h; sourceTree = "<group>"; };
+		1B5AFBE31680C19800112CAA /* CGGuestDetailModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGGuestDetailModalViewController.m; sourceTree = "<group>"; };
 		1B83C9BE162475FC005799B6 /* WaitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B83C9C2162475FC005799B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1B83C9C4162475FC005799B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -406,6 +409,8 @@
 				1BCDA1631677C1BB004AEB50 /* CGAccountViewController.m */,
 				1B468E4C16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.h */,
 				1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */,
+				1B5AFBE21680C19800112CAA /* CGGuestDetailModalViewController.h */,
+				1B5AFBE31680C19800112CAA /* CGGuestDetailModalViewController.m */,
 			);
 			name = "iPad Controller";
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				1BCDA1611677B9FC004AEB50 /* CGIPadLoginViewController.m in Sources */,
 				1BCDA1641677C1BB004AEB50 /* CGAccountViewController.m in Sources */,
 				1B468E4F16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m in Sources */,
+				1B5AFBE41680C19800112CAA /* CGGuestDetailModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 
 @protocol CCAccountViewDelegate
 - (void)restaurantSelected:(CGRestaurant *)restaurant;
+- (void)logOut;
 @end
 
 
@@ -21,5 +22,7 @@
 
 @property (nonatomic, retain) NSMutableArray *restaurants;
 @property (nonatomic, assign) id <CCAccountViewDelegate> delegate;
+
+- (IBAction)logOut:(id)sender;
 
 @end
