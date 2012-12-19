@@ -39,6 +39,10 @@
 		1B83CAFC16283BA2005799B6 /* CGOwnerVenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83CAFB16283BA2005799B6 /* CGOwnerVenueViewController.m */; };
 		1B8627D41631B6890025B835 /* CGWaitListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */; };
 		1B8627DC16321D700025B835 /* CGRestaurantWaitListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */; };
+		1B869C4816820AC300887ECD /* appHeaderiPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4416820AC300887ECD /* appHeaderiPad.png */; };
+		1B869C4916820AC300887ECD /* appHeaderiPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4516820AC300887ECD /* appHeaderiPad@2x.png */; };
+		1B869C4A16820AC300887ECD /* appHeaderiPadModal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4616820AC300887ECD /* appHeaderiPadModal.png */; };
+		1B869C4B16820AC300887ECD /* appHeaderiPadModal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4716820AC300887ECD /* appHeaderiPadModal@2x.png */; };
 		1B8D1D76164C4F4E008AFE6E /* buttonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D68164C4F4E008AFE6E /* buttonBackground.png */; };
 		1B8D1D77164C4F4E008AFE6E /* buttonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D69164C4F4E008AFE6E /* buttonBackground@2x.png */; };
 		1B8D1D78164C4F4E008AFE6E /* notifySmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D6A164C4F4E008AFE6E /* notifySmall@2x.png */; };
@@ -160,6 +164,10 @@
 		1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGWaitListTableViewController.m; sourceTree = "<group>"; };
 		1B8627DA16321D700025B835 /* CGRestaurantWaitListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitListCell.h; sourceTree = "<group>"; };
 		1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantWaitListCell.m; sourceTree = "<group>"; };
+		1B869C4416820AC300887ECD /* appHeaderiPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeaderiPad.png; sourceTree = "<group>"; };
+		1B869C4516820AC300887ECD /* appHeaderiPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appHeaderiPad@2x.png"; sourceTree = "<group>"; };
+		1B869C4616820AC300887ECD /* appHeaderiPadModal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeaderiPadModal.png; sourceTree = "<group>"; };
+		1B869C4716820AC300887ECD /* appHeaderiPadModal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appHeaderiPadModal@2x.png"; sourceTree = "<group>"; };
 		1B8D1D68164C4F4E008AFE6E /* buttonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBackground.png; sourceTree = "<group>"; };
 		1B8D1D69164C4F4E008AFE6E /* buttonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBackground@2x.png"; sourceTree = "<group>"; };
 		1B8D1D6A164C4F4E008AFE6E /* notifySmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notifySmall@2x.png"; sourceTree = "<group>"; };
@@ -360,6 +368,10 @@
 		1B8D1D67164C4F31008AFE6E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B869C4416820AC300887ECD /* appHeaderiPad.png */,
+				1B869C4516820AC300887ECD /* appHeaderiPad@2x.png */,
+				1B869C4616820AC300887ECD /* appHeaderiPadModal.png */,
+				1B869C4716820AC300887ECD /* appHeaderiPadModal@2x.png */,
 				1B585F6A166664920064D49F /* appHeader.png */,
 				1B585F6B166664920064D49F /* headerButton.png */,
 				1B8D1D68164C4F4E008AFE6E /* buttonBackground.png */,
@@ -537,6 +549,10 @@
 				1B2EAB54166881EC00DFA1DB /* Default.png in Resources */,
 				1B2EAB56166881F700DFA1DB /* Default@2x.png in Resources */,
 				1B2EAB581668820100DFA1DB /* Default-568h@2x.png in Resources */,
+				1B869C4816820AC300887ECD /* appHeaderiPad.png in Resources */,
+				1B869C4916820AC300887ECD /* appHeaderiPad@2x.png in Resources */,
+				1B869C4A16820AC300887ECD /* appHeaderiPadModal.png in Resources */,
+				1B869C4B16820AC300887ECD /* appHeaderiPadModal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

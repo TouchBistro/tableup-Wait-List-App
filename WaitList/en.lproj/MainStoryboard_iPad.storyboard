@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="1170" y="-1769"/>
         </scene>
-        <!--Wait List Table Actions View Controller - WaitList-->
+        <!--Wait List Table Actions View Controller-->
         <scene sceneID="SIh-eN-fq3">
             <objects>
                 <tableViewController id="HJE-l2-9J6" customClass="CGWaitListTableActionsViewController" sceneMemberID="viewController">
@@ -205,7 +205,7 @@
                             <outlet property="delegate" destination="HJE-l2-9J6" id="XPn-M9-Fqf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="WaitList" id="kb7-5E-euf">
+                    <navigationItem key="navigationItem" id="kb7-5E-euf">
                         <barButtonItem key="leftBarButtonItem" title="Account" id="V2W-p2-3f3">
                             <connections>
                                 <segue destination="RcY-dB-D0P" kind="popover" identifier="accountView" popoverAnchorBarButtonItem="V2W-p2-3f3" id="oFS-qM-Kce">

@@ -134,14 +134,11 @@
             self.visitsLabel.text = label;
             self.visitsLabel.hidden = NO;
         }
-        
-        
-        
     }
     
     
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeaderiPadModal.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }

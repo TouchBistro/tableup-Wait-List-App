@@ -62,12 +62,6 @@
     
     self.refreshControl = refreshControl;
     
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
-    }
-    
     if (self.totalParties && self.totalGuests && self.estimatedWait){
         UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,30)];
         
@@ -88,6 +82,11 @@
         
         [customView addSubview:headerLabel];
         self.tableView.tableHeaderView = customView;
+    }
+    
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeaderiPad.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
     }
     
 }
@@ -366,7 +365,19 @@
 
 - (void)restaurantSelected:(CGRestaurant *)restaurant{
     self.currentRestaurant = restaurant;
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
+    
+    [self setDataLoaded:FALSE];
+    
+    NSString *url = @"/restaurants/";
+    url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
+    url = [url stringByAppendingString:@"/waitlist"];
+    
+    if (accountPopover){
+        [accountPopover dismissPopoverAnimated:YES];
+    }
+    
+    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
 }
 
 
