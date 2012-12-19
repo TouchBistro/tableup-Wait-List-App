@@ -15,6 +15,8 @@
 @synthesize estimatedWaitTimeRemaining;
 @synthesize textSentTimeAgo;
 @synthesize numberInParty;
+@synthesize addOnlineImage;
+@synthesize tableNumberLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

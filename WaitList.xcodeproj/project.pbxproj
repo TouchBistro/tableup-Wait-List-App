@@ -43,12 +43,12 @@
 		1B869C4916820AC300887ECD /* appHeaderiPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4516820AC300887ECD /* appHeaderiPad@2x.png */; };
 		1B869C4A16820AC300887ECD /* appHeaderiPadModal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4616820AC300887ECD /* appHeaderiPadModal.png */; };
 		1B869C4B16820AC300887ECD /* appHeaderiPadModal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4716820AC300887ECD /* appHeaderiPadModal@2x.png */; };
+		1B869C4E1682267B00887ECD /* addOnline.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4C1682267B00887ECD /* addOnline.png */; };
+		1B869C4F1682267B00887ECD /* addOnline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B869C4D1682267B00887ECD /* addOnline@2x.png */; };
 		1B8D1D76164C4F4E008AFE6E /* buttonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D68164C4F4E008AFE6E /* buttonBackground.png */; };
 		1B8D1D77164C4F4E008AFE6E /* buttonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D69164C4F4E008AFE6E /* buttonBackground@2x.png */; };
 		1B8D1D78164C4F4E008AFE6E /* notifySmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D6A164C4F4E008AFE6E /* notifySmall@2x.png */; };
 		1B8D1D79164C4F4E008AFE6E /* notifySmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D6B164C4F4E008AFE6E /* notifySmall.png */; };
-		1B8D1D7A164C4F4E008AFE6E /* addOnline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D6C164C4F4E008AFE6E /* addOnline@2x.png */; };
-		1B8D1D7B164C4F4E008AFE6E /* addOnline.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D6D164C4F4E008AFE6E /* addOnline.png */; };
 		1B8D1D7C164C4F4E008AFE6E /* notify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D6E164C4F4E008AFE6E /* notify@2x.png */; };
 		1B8D1D7D164C4F4E008AFE6E /* seated@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D6F164C4F4E008AFE6E /* seated@2x.png */; };
 		1B8D1D7E164C4F4E008AFE6E /* remove@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D70164C4F4E008AFE6E /* remove@2x.png */; };
@@ -168,12 +168,12 @@
 		1B869C4516820AC300887ECD /* appHeaderiPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appHeaderiPad@2x.png"; sourceTree = "<group>"; };
 		1B869C4616820AC300887ECD /* appHeaderiPadModal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeaderiPadModal.png; sourceTree = "<group>"; };
 		1B869C4716820AC300887ECD /* appHeaderiPadModal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appHeaderiPadModal@2x.png"; sourceTree = "<group>"; };
+		1B869C4C1682267B00887ECD /* addOnline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addOnline.png; sourceTree = "<group>"; };
+		1B869C4D1682267B00887ECD /* addOnline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addOnline@2x.png"; sourceTree = "<group>"; };
 		1B8D1D68164C4F4E008AFE6E /* buttonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBackground.png; sourceTree = "<group>"; };
 		1B8D1D69164C4F4E008AFE6E /* buttonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBackground@2x.png"; sourceTree = "<group>"; };
 		1B8D1D6A164C4F4E008AFE6E /* notifySmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notifySmall@2x.png"; sourceTree = "<group>"; };
 		1B8D1D6B164C4F4E008AFE6E /* notifySmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notifySmall.png; sourceTree = "<group>"; };
-		1B8D1D6C164C4F4E008AFE6E /* addOnline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addOnline@2x.png"; sourceTree = "<group>"; };
-		1B8D1D6D164C4F4E008AFE6E /* addOnline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addOnline.png; sourceTree = "<group>"; };
 		1B8D1D6E164C4F4E008AFE6E /* notify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notify@2x.png"; sourceTree = "<group>"; };
 		1B8D1D6F164C4F4E008AFE6E /* seated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seated@2x.png"; sourceTree = "<group>"; };
 		1B8D1D70164C4F4E008AFE6E /* remove@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remove@2x.png"; sourceTree = "<group>"; };
@@ -369,6 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				1B869C4416820AC300887ECD /* appHeaderiPad.png */,
+				1B869C4C1682267B00887ECD /* addOnline.png */,
+				1B869C4D1682267B00887ECD /* addOnline@2x.png */,
 				1B869C4516820AC300887ECD /* appHeaderiPad@2x.png */,
 				1B869C4616820AC300887ECD /* appHeaderiPadModal.png */,
 				1B869C4716820AC300887ECD /* appHeaderiPadModal@2x.png */,
@@ -378,8 +380,6 @@
 				1B8D1D69164C4F4E008AFE6E /* buttonBackground@2x.png */,
 				1B8D1D6A164C4F4E008AFE6E /* notifySmall@2x.png */,
 				1B8D1D6B164C4F4E008AFE6E /* notifySmall.png */,
-				1B8D1D6C164C4F4E008AFE6E /* addOnline@2x.png */,
-				1B8D1D6D164C4F4E008AFE6E /* addOnline.png */,
 				1B8D1D6E164C4F4E008AFE6E /* notify@2x.png */,
 				1B8D1D6F164C4F4E008AFE6E /* seated@2x.png */,
 				1B8D1D70164C4F4E008AFE6E /* remove@2x.png */,
@@ -531,8 +531,6 @@
 				1B8D1D77164C4F4E008AFE6E /* buttonBackground@2x.png in Resources */,
 				1B8D1D78164C4F4E008AFE6E /* notifySmall@2x.png in Resources */,
 				1B8D1D79164C4F4E008AFE6E /* notifySmall.png in Resources */,
-				1B8D1D7A164C4F4E008AFE6E /* addOnline@2x.png in Resources */,
-				1B8D1D7B164C4F4E008AFE6E /* addOnline.png in Resources */,
 				1B8D1D7C164C4F4E008AFE6E /* notify@2x.png in Resources */,
 				1B8D1D7D164C4F4E008AFE6E /* seated@2x.png in Resources */,
 				1B8D1D7E164C4F4E008AFE6E /* remove@2x.png in Resources */,
@@ -553,6 +551,8 @@
 				1B869C4916820AC300887ECD /* appHeaderiPad@2x.png in Resources */,
 				1B869C4A16820AC300887ECD /* appHeaderiPadModal.png in Resources */,
 				1B869C4B16820AC300887ECD /* appHeaderiPadModal@2x.png in Resources */,
+				1B869C4E1682267B00887ECD /* addOnline.png in Resources */,
+				1B869C4F1682267B00887ECD /* addOnline@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -117,9 +117,12 @@
             urlString = [urlString stringByAppendingString:waitListee.waitListId.stringValue];
             urlString = [urlString stringByAppendingString:@"/text"];
             
-            NSString *timeSinceTextSent = @"0 mins ago";
-            cell.textSentTimeAgo.text = timeSinceTextSent;
-            cell.notifyImage.hidden = NO;
+            if (cell.notifyImage.hidden == YES){
+                NSString *timeSinceTextSent = @"0 mins ago";
+                cell.textSentTimeAgo.text = timeSinceTextSent;
+                cell.notifyImage.hidden = NO;
+            }
+
             
             [[RKClient sharedClient] post:urlString params:params delegate:self];
             
@@ -320,6 +323,7 @@
             
             cell.numberInParty.text = numberInParty;
         }
+        
         
         [cell.notifyButton addTarget:self action:@selector(notifyButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
         [cell.seatedButton addTarget:self action:@selector(seatedButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];

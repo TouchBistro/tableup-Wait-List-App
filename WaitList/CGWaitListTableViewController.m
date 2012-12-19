@@ -205,6 +205,9 @@
             
             cell.numberInParty.text = numberInParty;
         }
+        
+        cell.tableNumberLabel.textColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1];
+        cell.tableNumberLabel.text = @"P191";
     }
     
     return cell;
