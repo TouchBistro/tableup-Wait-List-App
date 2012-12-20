@@ -449,32 +449,30 @@
 }
 
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section == 0){
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,30)];
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    if (section == 0){
+//        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,30)];
         
-        NSString *label = @"Parties: ";
-        label = [label stringByAppendingString:self.totalParties.stringValue];
-        label = [label stringByAppendingString:@" / Guests: "];
-        label = [label stringByAppendingString:self.totalGuests.stringValue];
-        label = [label stringByAppendingString:@" / Estimated Wait: "];
-        label = [label stringByAppendingString:self.estimatedWait.stringValue];
-        label = [label stringByAppendingString:@" mins"];
+//        NSString *label = @"Parties: ";
+//        label = [label stringByAppendingString:self.totalParties.stringValue];
+//        label = [label stringByAppendingString:@" / Guests: "];
+//        label = [label stringByAppendingString:self.totalGuests.stringValue];
+//        label = [label stringByAppendingString:@" / Estimated Wait: "];
+//        label = [label stringByAppendingString:self.estimatedWait.stringValue];
+//        label = [label stringByAppendingString:@" mins"];
         
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont systemFontOfSize:10];
-        headerLabel.frame = CGRectMake(0,0,300,30);
-        headerLabel.text =  label;
-        headerLabel.textAlignment = UITextAlignmentCenter;
+//        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+//        headerLabel.backgroundColor = [UIColor clearColor];
+//        headerLabel.font = [UIFont systemFontOfSize:10];
+//        headerLabel.frame = CGRectMake(0,0,300,30);
+//        headerLabel.text =  label;
+//        headerLabel.textAlignment = UITextAlignmentCenter;
 //        headerLabel.textColor = [UIColor redColor];
         
-        [customView addSubview:headerLabel];
-        return customView;
-    }
-    
-    
-}
+//        [customView addSubview:headerLabel];
+//        return customView;
+//    }
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
