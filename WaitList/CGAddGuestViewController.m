@@ -106,6 +106,7 @@
     [self setVisitNotesTextView:nil];
     [self setVisitLabel:nil];
     [self setLongestWaitLabel:nil];
+    [self setTableNumberField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -157,6 +158,10 @@
         
         if (self.permanentNotesTextView.text.length > 0){
             [params setObject:self.permanentNotesTextView.text forKey:@"permanentNotes"];
+        }
+        
+        if (self.tableNumberField.text.length > 0){
+            [params setObject:self.tableNumberField.text forKey:@"tableNumber"];
         }
         
         if (self.guestId){
@@ -230,6 +235,10 @@
         
         if (self.guestId){
             [params setObject:self.guestId forKey:@"guestId"];
+        }
+        
+        if (self.tableNumberField.text.length > 0){
+            [params setObject:self.tableNumberField.text forKey:@"tableNumber"];
         }
         
         NSString *urlString = @"/restaurants/";
@@ -483,7 +492,9 @@
 {
     if (section == 0){
         return 30;
-    }    
+    }else{
+        return 0;
+    }
 }
 
 

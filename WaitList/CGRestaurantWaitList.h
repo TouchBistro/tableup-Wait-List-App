@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSNumber *numberInParty;
 
 @property (nonatomic, strong) NSString *visitNotes;
+@property (nonatomic, strong) NSString *tableNumber;
 
 @property (nonatomic, assign, getter=isReserveOnline) BOOL reserveOnline;
 

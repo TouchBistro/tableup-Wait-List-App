@@ -123,7 +123,7 @@
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Needs a highchair..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fes-1s-ATE">
-                                            <rect key="frame" x="104" y="43" width="224" height="21"/>
+                                            <rect key="frame" x="104" y="43" width="176" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -183,10 +183,22 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="addOnline.png" highlightedImage="addOnline.png" id="nd6-fN-IKC">
+                                            <rect key="frame" x="349" y="22" width="14" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Table 19" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eIS-es-Hci">
+                                            <rect key="frame" x="288" y="43" width="53" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
+                                    <outlet property="addOnlineImageView" destination="nd6-fN-IKC" id="mwb-0t-9os"/>
                                     <outlet property="estimatedWaitTime" destination="u1H-iV-fMf" id="Cz6-bD-9UJ"/>
                                     <outlet property="name" destination="kL6-n7-PsU" id="W5W-dI-ofY"/>
                                     <outlet property="notifyButton" destination="6CM-gX-rym" id="rFm-Sy-pZW"/>
@@ -194,6 +206,7 @@
                                     <outlet property="numberInParty" destination="lgi-Jb-cao" id="51l-yN-7h5"/>
                                     <outlet property="removeButton" destination="H9d-OJ-lE7" id="MPg-uU-wjx"/>
                                     <outlet property="seatedButton" destination="tVI-5D-a4B" id="aPv-ab-3sP"/>
+                                    <outlet property="tableNumberLabel" destination="eIS-es-Hci" id="mIs-y8-NJu"/>
                                     <outlet property="textSentTimeAgo" destination="Vxf-7c-vtI" id="UDZ-Ed-9go"/>
                                     <outlet property="visitNotesLabel" destination="fes-1s-ATE" id="cNa-ub-Oxe"/>
                                     <segue destination="Ggl-zW-EU6" kind="modal" identifier="guestDetailSegue" modalPresentationStyle="formSheet" id="a9h-5P-j7H"/>
@@ -928,6 +941,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addOnline.png" width="14" height="14"/>
         <image name="buttonBackground.png" width="280" height="36"/>
         <image name="notify.png" width="80" height="80"/>
         <image name="notifySmall.png" width="15" height="14"/>
@@ -1000,6 +1014,7 @@
         <class className="CGRestaurantWaitListActionsCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantWaitListActionsCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="addOnlineImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="estimatedWaitTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="name" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
@@ -1007,6 +1022,7 @@
                 <relationship kind="outlet" name="numberInParty" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="removeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="seatedButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textSentTimeAgo" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="visitNotesLabel" candidateClass="UILabel"/>
             </relationships>

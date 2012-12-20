@@ -163,6 +163,7 @@
     }
     
     if (waitListee != nil){
+        cell.addOnlineImage.hidden = YES;
         cell.name.text = waitListee.guest ? waitListee.guest.name : nil;
         
         if (waitListee.estimatedWait != nil){
@@ -206,8 +207,16 @@
             cell.numberInParty.text = numberInParty;
         }
         
-        cell.tableNumberLabel.textColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1];
-        cell.tableNumberLabel.text = @"P191";
+        if (waitListee.tableNumber != nil){
+            cell.tableNumberLabel.hidden = NO;
+            cell.tableNumberLabel.text = waitListee.tableNumber;
+            cell.tableNumberLabel.textColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1];
+            cell.tableNumberLabel.font = [UIFont boldSystemFontOfSize:10.0];
+        }
+        
+        if (waitListee.reserveOnline){
+            cell.addOnlineImage.hidden = NO;
+        }
     }
     
     return cell;

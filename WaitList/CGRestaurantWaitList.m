@@ -15,6 +15,7 @@
 @synthesize numberInParty;
 
 @synthesize visitNotes;
+@synthesize tableNumber;
 
 @synthesize reserveOnline;
 

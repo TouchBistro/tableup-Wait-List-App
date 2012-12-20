@@ -27,11 +27,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
-//    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
+    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://localhost:8080/MattsMenus/mobile"]];
     
-    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
-    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
+//    [RKClient clientWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
+//    [RKObjectManager objectManagerWithBaseURL:[[NSURL alloc] initWithString:@"http://citygusto.com/mobile"]];
     
     RKObjectMapping *waitListWaitTimeMapping = [RKObjectMapping mappingForClass:[CGRestaurantWaitListWaitTime class]];
     [waitListWaitTimeMapping mapKeyPath:@"id" toAttribute:@"waitListWaitTimeId"];
@@ -60,6 +60,7 @@
     [waitListMapping mapKeyPath:@"estimatedWait" toAttribute:@"estimatedWait"];
     [waitListMapping mapKeyPath:@"numberInParty" toAttribute:@"numberInParty"];
     [waitListMapping mapKeyPath:@"visitNotes" toAttribute:@"visitNotes"];
+    [waitListMapping mapKeyPath:@"tableNumber" toAttribute:@"tableNumber"];
     [waitListMapping mapKeyPath:@"reserveOnline" toAttribute:@"reserveOnline"];
     [waitListMapping mapKeyPath:@"timeTableReadyTextSent" toAttribute:@"timeTableReadyTextSent"];
     [waitListMapping mapKeyPath:@"timeSeated" toAttribute:@"timeSeated"];

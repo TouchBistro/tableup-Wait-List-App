@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *numberInParty;
 @property (strong, nonatomic) IBOutlet UIImageView *notifyImage;
 @property (strong, nonatomic) IBOutlet UILabel *visitNotesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *tableNumberLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *addOnlineImageView;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *notifyButton;
