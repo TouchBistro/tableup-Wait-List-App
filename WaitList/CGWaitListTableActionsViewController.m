@@ -45,7 +45,7 @@
 - (void)viewDidLoad
 {
     self.currentRestaurant = [[CGRestaurant alloc] init];
-    self.currentRestaurant.restaurantId = [[NSNumber alloc] initWithInt:1];
+    self.currentRestaurant = [self.loggedInUser.ownedRestaurants objectAtIndex:0];//[[NSNumber alloc] initWithInt:loggedInUser.ownedRestaurants];
     
     NSString *url = @"/restaurants/";
     url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
