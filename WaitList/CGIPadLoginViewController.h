@@ -8,11 +8,15 @@
 
 #import "CGUser.h"
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CGIPadLoginViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+
+@property (strong, nonatomic) IBOutlet FBLoginView *facebookLoginView;
+
 
 @property (strong, nonatomic) CGUser *loggedInUser;
 

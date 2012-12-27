@@ -471,7 +471,7 @@
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         headerLabel.backgroundColor = [UIColor clearColor];
         headerLabel.font = [UIFont systemFontOfSize:10];
-        headerLabel.frame = CGRectMake(0,0,300,30);
+        headerLabel.frame = CGRectMake(0,0,self.tableView.bounds.size.width,30);
         headerLabel.text =  label;
         headerLabel.textAlignment = UITextAlignmentCenter;
         [customView addSubview:headerLabel];

@@ -63,7 +63,7 @@
     self.refreshControl = refreshControl;
     
     if (self.totalParties && self.totalGuests && self.estimatedWait){
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,30)];
+        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         
         NSString *label = @"Parties: ";
         label = [label stringByAppendingString:self.totalParties.stringValue];
@@ -73,12 +73,12 @@
         label = [label stringByAppendingString:self.estimatedWait.stringValue];
         label = [label stringByAppendingString:@" mins"];
         
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         headerLabel.backgroundColor = [UIColor clearColor];
         headerLabel.font = [UIFont systemFontOfSize:10];
-        headerLabel.frame = CGRectMake(0,0,300,30);
         headerLabel.text =  label;
         headerLabel.textAlignment = UITextAlignmentCenter;
+        
         
         [customView addSubview:headerLabel];
         self.tableView.tableHeaderView = customView;
@@ -218,7 +218,7 @@
         self.estimatedWait = fullWaitList.estimatedWait;
         
         
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,30)];
+        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         
         NSString *label = @"Parties: ";
         label = [label stringByAppendingString:self.totalParties.stringValue];
@@ -228,12 +228,12 @@
         label = [label stringByAppendingString:self.estimatedWait.stringValue];
         label = [label stringByAppendingString:@" mins"];
         
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         headerLabel.backgroundColor = [UIColor clearColor];
         headerLabel.font = [UIFont systemFontOfSize:10];
-        headerLabel.frame = CGRectMake(0,0,300,30);
         headerLabel.text =  label;
         headerLabel.textAlignment = UITextAlignmentCenter;
+        
         
         [customView addSubview:headerLabel];
         self.tableView.tableHeaderView = customView;
@@ -418,6 +418,7 @@
         CGAccountViewController *accountViewController = [segue destinationViewController];
         accountViewController.delegate = self;
         accountViewController.restaurants = self.loggedInUser.ownedRestaurants;
+        accountViewController.currentRestaurant = self.currentRestaurant;
         
         accountPopover =  [(UIStoryboardPopoverSegue *)segue popoverController];
     }

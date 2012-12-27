@@ -11,6 +11,7 @@
 #import "CGWaitListTableActionsViewController.h"
 #import "CGAddGuestIPadTableViewController.h"
 #import <RestKit/RestKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 
 @interface CGIPadLoginViewController ()
@@ -21,6 +22,8 @@
 
 - (void)viewDidLoad
 {
+    self.facebookLoginView.delegate = self;
+//    [self.facebookLoginView sizeToFit];
     [super viewDidLoad];
 }
 
@@ -106,4 +109,28 @@
     [self setPasswordTextField:nil];
     [super viewDidUnload];
 }
+
+
+#pragma mark - FBLoginViewDelegate
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    
+    if (user && user.id){
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setObject:user.id forKey:@"fbUid"];
+        [[RKClient sharedClient] post:@"/waitlist/facebook/login" params:params delegate:self];
+    }
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+}
+
+
+
+
+
 @end

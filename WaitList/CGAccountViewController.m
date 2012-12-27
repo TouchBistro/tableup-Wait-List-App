@@ -47,7 +47,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSString *restaurantName = [[_restaurants objectAtIndex:indexPath.row] name];
+    CGRestaurant *restaurant = [_restaurants objectAtIndex:indexPath.row];
+    NSString *restaurantName = [restaurant name];
+    
+    if (restaurant.restaurantId == self.currentRestaurant.restaurantId){
+        cell.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1];
+    }
+    
     cell.textLabel.text = restaurantName;
     
     return cell;
@@ -55,12 +61,20 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0){
-        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,60)];
+        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,80)];
         customView.backgroundColor = self.tableView.backgroundColor;
         
-        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,60)];
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,80)];
         
-        textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the Wait List Feature.  Tap a restaurant to see it's wait list.";
+        
+        if (self.currentRestaurant){
+            textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the Wait List Feature.  Tap a restaurant to see it's wait list.  Currently Viewing: ";
+            textView.text = [textView.text stringByAppendingString:self.currentRestaurant.name];
+        }else{
+            textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the Wait List Feature.  Tap a restaurant to see it's wait list.";
+        }
+        
+        
         textView.textAlignment = UITextAlignmentCenter;
         textView.backgroundColor = nil;
         textView.editable = NO;
@@ -75,7 +89,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0){
-        return 60.0;
+        return 80.0;
     }else{
         return 0.0;
     }

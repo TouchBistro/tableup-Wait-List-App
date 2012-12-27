@@ -21,6 +21,7 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *restaurants;
+@property (nonatomic, retain) CGRestaurant *currentRestaurant;
 @property (nonatomic, assign) id <CCAccountViewDelegate> delegate;
 
 - (IBAction)logOut:(id)sender;
