@@ -32,6 +32,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *permanentNotesTextView;
 @property (strong, nonatomic) IBOutlet UITextView *visitNotesTextView;
 
+@property (strong, nonatomic) IBOutlet UILabel *phoneNumberLabel;
+
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (strong, nonatomic) IBOutlet UILabel *visitLabel;
 @property (strong, nonatomic) IBOutlet UILabel *longestWaitLabel;
@@ -47,8 +49,9 @@
 @property (nonatomic, strong) NSNumber *totalParties;
 @property (nonatomic, strong) NSNumber *totalGuests;
 @property (nonatomic, strong) NSNumber *estimatedWait;
+@property (strong, nonatomic) IBOutlet UIButton *noPhoneNumberButton;
 
-
+- (IBAction)noPhoneNumber:(id)sender;
 - (IBAction)save:(id)sender;
 - (IBAction)saveAndText:(id)sender;
 

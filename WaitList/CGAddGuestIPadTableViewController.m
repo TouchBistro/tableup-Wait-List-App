@@ -48,6 +48,8 @@
 @synthesize totalParties;
 @synthesize estimatedWait;
 
+@synthesize noPhoneNumberButton;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -58,6 +60,7 @@
     [self setDataLoaded:NO];
     self.saveButton.hidden = YES;
     self.saveAndSendButton.hidden = YES;
+    self.noPhoneNumberButton.hidden = NO;
     
     self.visitLabel.hidden = YES;
     self.longestWaitLabel.hidden = YES;
@@ -106,6 +109,8 @@
     [self setVisitNotesTextView:nil];
     [self setVisitLabel:nil];
     [self setLongestWaitLabel:nil];
+    [self setNoPhoneNumberButton:nil];
+    [self setPhoneNumberLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -119,6 +124,8 @@
 - (IBAction)cancel:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
 }
+
+
 - (IBAction)save:(id)sender {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
@@ -420,6 +427,8 @@
         
         [self.spinner startAnimating];
         [self.view addSubview:spinner];
+        
+        self.noPhoneNumberButton.hidden = YES;
     }
 }
 
@@ -488,6 +497,19 @@
     }else{
         return 0.0;
     }
+}
+
+- (IBAction)noPhoneNumber:(id)sender {
+    self.noPhoneNumberButton.hidden = YES;
+    self.phoneNumberLabel.textColor = [UIColor lightGrayColor];
+    self.phoneNumberTextField.enabled = NO;
+    self.saveAndSendButton.hidden = YES;
+    
+    [self setDataLoaded:YES];
+    
+    [self.tableView reloadData];
+    
+    self.saveButton.hidden = NO;
 }
 
 @end

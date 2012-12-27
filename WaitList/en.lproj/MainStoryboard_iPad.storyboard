@@ -273,6 +273,21 @@
                                         <action selector="save:" destination="7ia-Rq-tEQ" eventType="touchUpInside" id="SOy-VR-LT7"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MpZ-Nd-jbQ">
+                                    <rect key="frame" x="20" y="20" width="460" height="71"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="No Phone Number" backgroundImage="buttonBackground.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="noPhoneNumber:" destination="7ia-Rq-tEQ" eventType="touchUpInside" id="TXw-dX-tv3"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bSv-Q5-b3m">
                                     <rect key="frame" x="20" y="167" width="460" height="71"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -516,8 +531,10 @@
                         <outlet property="estimatedWaitTextField" destination="iSy-K7-ApL" id="Rd2-QK-0c4"/>
                         <outlet property="longestWaitLabel" destination="pP3-0i-2Cd" id="iDD-Gq-824"/>
                         <outlet property="nameTextField" destination="mVw-ja-sED" id="zPu-Ib-iuq"/>
+                        <outlet property="noPhoneNumberButton" destination="MpZ-Nd-jbQ" id="DRG-ap-fs7"/>
                         <outlet property="numberInPartyTextField" destination="XHd-1n-ob3" id="dSx-Wc-E7b"/>
                         <outlet property="permanentNotesTextView" destination="Ra3-Ct-EUe" id="USX-oQ-Tt6"/>
+                        <outlet property="phoneNumberLabel" destination="lrY-lf-HvL" id="3lW-Sy-Ts5"/>
                         <outlet property="phoneNumberTextField" destination="4Tk-kW-iqJ" id="3Yp-qx-SO4"/>
                         <outlet property="saveAndSendButton" destination="bSv-Q5-b3m" id="20R-cU-ntI"/>
                         <outlet property="saveButton" destination="RPg-cN-EKN" id="B9d-eh-qIN"/>
@@ -1019,6 +1036,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGAddGuestIPadTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="noPhoneNumber:"/>
                 <relationship kind="action" name="save:"/>
                 <relationship kind="action" name="saveAndText:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
@@ -1026,8 +1044,10 @@
                 <relationship kind="outlet" name="estimatedWaitTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="longestWaitLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="noPhoneNumberButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="phoneNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="saveAndSendButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
