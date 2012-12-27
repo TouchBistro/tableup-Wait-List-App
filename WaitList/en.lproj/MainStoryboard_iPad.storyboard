@@ -249,7 +249,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="2ck-l1-gyd">
-                            <rect key="frame" x="0.0" y="463" width="500" height="258"/>
+                            <rect key="frame" x="0.0" y="507" width="500" height="258"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RPg-cN-EKN">
@@ -424,8 +424,32 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="gp4-xe-QI7">
+                                        <rect key="frame" x="0.0" y="273" width="500" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="31" y="0.0" width="438" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Table Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cK7-sC-72G">
+                                                    <rect key="frame" x="20" y="11" width="113" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="3L9-0q-BBi">
+                                                    <rect key="frame" x="141" y="8" width="297" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="90" id="rsd-Vv-hNk">
-                                        <rect key="frame" x="0.0" y="273" width="500" height="90"/>
+                                        <rect key="frame" x="0.0" y="317" width="500" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="438" height="89"/>
@@ -449,7 +473,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="89" id="xgF-Ew-EEL">
-                                        <rect key="frame" x="0.0" y="363" width="500" height="90"/>
+                                        <rect key="frame" x="0.0" y="407" width="500" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="438" height="88"/>
@@ -491,6 +515,7 @@
                         <outlet property="phoneNumberTextField" destination="4Tk-kW-iqJ" id="3Yp-qx-SO4"/>
                         <outlet property="saveAndSendButton" destination="bSv-Q5-b3m" id="20R-cU-ntI"/>
                         <outlet property="saveButton" destination="RPg-cN-EKN" id="B9d-eh-qIN"/>
+                        <outlet property="tableNumberTextField" destination="3L9-0q-BBi" id="zel-Zq-9lI"/>
                         <outlet property="visitLabel" destination="n78-vo-Eq1" id="S4N-La-akb"/>
                         <outlet property="visitNotesTextView" destination="FX4-1P-NDI" id="T4g-FH-vpr"/>
                     </connections>
@@ -588,7 +613,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Gco-35-Cj4">
-                            <rect key="frame" x="0.0" y="441" width="540" height="360"/>
+                            <rect key="frame" x="0.0" y="485" width="540" height="360"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="25 mins (15)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8ur-bj-PbF">
@@ -802,8 +827,35 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jC5-hX-17I">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tZF-CD-21H">
                                         <rect key="frame" x="0.0" y="207" width="540" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="31" y="0.0" width="478" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Table Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wh2-fp-QsC">
+                                                    <rect key="frame" x="20" y="11" width="113" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="hLp-Yp-zj4">
+                                                    <rect key="frame" x="141" y="8" width="317" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="b6H-Ve-feY" id="e7j-GN-COV"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jC5-hX-17I">
+                                        <rect key="frame" x="0.0" y="251" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="478" height="43"/>
@@ -830,7 +882,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="90" id="cmO-oJ-610">
-                                        <rect key="frame" x="0.0" y="251" width="540" height="90"/>
+                                        <rect key="frame" x="0.0" y="295" width="540" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="478" height="89"/>
@@ -857,7 +909,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="89" id="Ciy-cu-ZN1">
-                                        <rect key="frame" x="0.0" y="341" width="540" height="90"/>
+                                        <rect key="frame" x="0.0" y="385" width="540" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="478" height="88"/>
@@ -906,6 +958,7 @@
                         <outlet property="numberInPartyTextField" destination="szd-a2-uxb" id="0Ia-jN-X1H"/>
                         <outlet property="permanentNotesTextView" destination="9L0-My-uzP" id="XqP-dA-3mp"/>
                         <outlet property="phoneNumberTextField" destination="wgo-oA-0yp" id="nHl-SK-uaJ"/>
+                        <outlet property="tableNumberTextField" destination="hLp-Yp-zj4" id="6tN-w1-sVa"/>
                         <outlet property="textTimeSentAgoLabel" destination="5y3-6V-dBa" id="S5U-pe-A2s"/>
                         <outlet property="timeAgoLabel" destination="8ur-bj-PbF" id="vke-x6-mbD"/>
                         <outlet property="visitNotesTextView" destination="yxo-hn-F5z" id="73k-D2-dB4"/>
@@ -972,6 +1025,7 @@
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="saveAndSendButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="visitLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="visitNotesTextView" candidateClass="UITextView"/>
             </relationships>
@@ -990,6 +1044,7 @@
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tableNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="textTimeSentAgoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeAgoLabel" candidateClass="UILabel"/>

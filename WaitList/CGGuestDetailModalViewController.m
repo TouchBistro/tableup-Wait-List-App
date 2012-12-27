@@ -64,6 +64,7 @@
         self.nameTextField.text = self.waitListee.guest.name;
         self.emailTextField.text = self.waitListee.guest.email;
         self.estimatedWaitTextField.text = self.waitListee.estimatedWait ? self.waitListee.estimatedWait.stringValue : nil;
+        self.tableNumberTextField.text = self.waitListee.tableNumber ? self.waitListee.tableNumber : nil;
         self.visitNotesTextView.text = self.waitListee.visitNotes;
         self.permanentNotesTextView.text = self.waitListee.guest.permanentNotes;
         
@@ -259,6 +260,13 @@
             
             [params setObject:self.emailTextField.text forKey:@"email"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
+            
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }else if (textField == self.tableNumberTextField){
+        if (![self.tableNumberTextField.text isEqualToString:self.waitListee.tableNumber]){
+            
+            [params setObject:self.tableNumberTextField.text forKey:@"tableNumber"];
             
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }

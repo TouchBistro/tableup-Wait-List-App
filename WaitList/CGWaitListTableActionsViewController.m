@@ -325,6 +325,21 @@
         }
         
         
+        cell.addOnlineImageView.hidden = YES;
+        cell.tableNumberLabel.hidden = YES;
+        
+        if (waitListee.tableNumber != nil){
+            cell.tableNumberLabel.hidden = NO;
+            cell.tableNumberLabel.text = waitListee.tableNumber;
+            cell.tableNumberLabel.textColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1];
+            cell.tableNumberLabel.font = [UIFont boldSystemFontOfSize:10.0];
+        }
+        
+        if (waitListee.reserveOnline){
+            cell.addOnlineImageView.hidden = NO;
+        }
+        
+        
         [cell.notifyButton addTarget:self action:@selector(notifyButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
         [cell.seatedButton addTarget:self action:@selector(seatedButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
         [cell.removeButton addTarget:self action:@selector(removeButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];

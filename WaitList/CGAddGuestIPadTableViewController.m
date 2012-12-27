@@ -164,6 +164,10 @@
             [params setObject:self.guestId forKey:@"guestId"];
         }
         
+        if (self.tableNumberTextField.text.length > 0){
+            [params setObject:self.tableNumberTextField.text forKey:@"tableNumber"];
+        }
+        
         NSString *urlString = @"/restaurants/";
         urlString = [urlString stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
         urlString = [urlString stringByAppendingString:@"/waitlist"];
@@ -227,6 +231,10 @@
         
         if (self.permanentNotesTextView.text.length > 0){
             [params setObject:self.permanentNotesTextView.text forKey:@"permanentNotes"];
+        }
+        
+        if (self.tableNumberTextField.text.length > 0){
+            [params setObject:self.tableNumberTextField.text forKey:@"tableNumber"];
         }
         
         if (self.guestId){

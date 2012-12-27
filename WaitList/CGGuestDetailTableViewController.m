@@ -28,6 +28,7 @@
 @synthesize numberInPartyTextField;
 @synthesize emailTextField;
 @synthesize estimatedWaitTextField;
+@synthesize tableNumberTextField;
 @synthesize visitNotesTextView;
 @synthesize timeAgoLabel;
 
@@ -75,6 +76,7 @@
         self.nameTextField.text = self.waitListee.guest.name;
         self.emailTextField.text = self.waitListee.guest.email;
         self.estimatedWaitTextField.text = self.waitListee.estimatedWait ? self.waitListee.estimatedWait.stringValue : nil;
+        self.tableNumberTextField.text = self.waitListee.tableNumber;
         self.visitNotesTextView.text = self.waitListee.visitNotes;
         self.permanentNotesTextView.text = self.waitListee.guest.permanentNotes;
         
@@ -196,6 +198,7 @@
     [self setWait3Label:nil];
     [self setWait4Label:nil];
     [self setWait5Label:nil];
+    [self setTableNumberTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -375,6 +378,12 @@
             [params setObject:self.emailTextField.text forKey:@"email"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+        }
+    }else if (textField == self.tableNumberTextField){
+        if (![self.tableNumberTextField.text isEqualToString:self.waitListee.tableNumber]){
+            
+            [params setObject:self.tableNumberTextField.text forKey:@"tableNumber"];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }

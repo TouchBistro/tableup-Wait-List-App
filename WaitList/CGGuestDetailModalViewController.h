@@ -29,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *numberInPartyTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *estimatedWaitTextField;
+@property (strong, nonatomic) IBOutlet UITextField *tableNumberTextField;
 @property (strong, nonatomic) IBOutlet UITextView *permanentNotesTextView;
 @property (strong, nonatomic) IBOutlet UITextView *visitNotesTextView;
 
