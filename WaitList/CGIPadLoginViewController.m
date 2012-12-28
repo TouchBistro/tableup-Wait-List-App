@@ -128,6 +128,11 @@
     if (user && user.id){
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setObject:user.id forKey:@"fbUid"];
+        
+        [[NSUserDefaults standardUserDefaults] setValue:user.id  forKey:kPassword]; //set the password to the fbuid...we dont use it for facebook
+        [[NSUserDefaults standardUserDefaults] setValue:user.id forKey:kUserDefaultsUsername];
+        [[NSUserDefaults standardUserDefaults] setValue:user.id forKey:kFbUid];
+        
         [[RKClient sharedClient] post:@"/waitlist/facebook/login" params:params delegate:self];
     }
 }
