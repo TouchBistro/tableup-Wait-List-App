@@ -189,7 +189,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="addOnline.png" highlightedImage="addOnline.png" id="nd6-fN-IKC">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="nd6-fN-IKC">
                                             <rect key="frame" x="349" y="22" width="14" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -686,7 +686,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4y0-pg-fJQ">
-                                    <rect key="frame" x="112" y="73" width="80" height="80"/>
+                                    <rect key="frame" x="112" y="72" width="80" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" title="Button" image="notify.png" backgroundImage="notify.png">
@@ -977,6 +977,7 @@
                         <outlet property="emailTextField" destination="nDt-FM-WLD" id="ncl-Cf-dZm"/>
                         <outlet property="estimatedWaitTextField" destination="tkx-PH-HzL" id="E3a-hd-tSR"/>
                         <outlet property="nameTextField" destination="Zyr-6M-FnG" id="vCI-vQ-jrc"/>
+                        <outlet property="notifyButton" destination="4y0-pg-fJQ" id="F7H-ll-jGu"/>
                         <outlet property="notifyImageView" destination="LJ7-Xf-2Sa" id="MeT-u8-vhW"/>
                         <outlet property="numberInPartyTextField" destination="szd-a2-uxb" id="0Ia-jN-X1H"/>
                         <outlet property="permanentNotesTextView" destination="9L0-My-uzP" id="XqP-dA-3mp"/>
@@ -1017,7 +1018,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addOnline.png" width="14" height="14"/>
         <image name="buttonBackground.png" width="280" height="36"/>
         <image name="notify.png" width="80" height="80"/>
         <image name="notifySmall.png" width="15" height="14"/>
@@ -1066,6 +1066,7 @@
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="estimatedWaitTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="notifyImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>

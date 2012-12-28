@@ -36,6 +36,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeAgoLabel;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (strong, nonatomic) IBOutlet UIButton *notifyButton;
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 @property (strong, nonatomic) IBOutlet UIImageView *notifyImageView;

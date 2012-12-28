@@ -336,7 +336,17 @@
         }
         
         if (waitListee.reserveOnline){
+            UIImage *image = [UIImage imageNamed:@"addOnline.png"];
+            cell.addOnlineImageView.image = image;
             cell.addOnlineImageView.hidden = NO;
+        }
+        
+        if (waitListee.guest.phoneNumber == nil){
+            UIImage *image = [UIImage imageNamed:@"noPhoneRed.png"];
+            cell.addOnlineImageView.image = image;
+            cell.addOnlineImageView.hidden = NO;
+            
+            cell.notifyButton.enabled = NO;
         }
         
         
