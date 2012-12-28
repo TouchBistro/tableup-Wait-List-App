@@ -72,7 +72,18 @@
     self.wait5Label.hidden = YES;
     
     if (self.waitListee && self.waitListee.guest){
-        self.phoneNumberTextField.text = self.waitListee.guest.phoneNumber;
+        
+        if (self.waitListee.guest.phoneNumber){
+            self.phoneNumberTextField.text = self.waitListee.guest.phoneNumber;
+        }else{
+            self.phoneNumberTextField.text = @"Phone number not provided.";
+            self.phoneNumberTextField.textColor = [UIColor lightGrayColor];
+            self.phoneNumberLabel.textColor = [UIColor lightGrayColor];
+            
+            self.notifyButton.enabled = NO;
+            self.phoneNumberTextField.enabled = NO;
+            
+        }
         self.nameTextField.text = self.waitListee.guest.name;
         self.emailTextField.text = self.waitListee.guest.email;
         self.estimatedWaitTextField.text = self.waitListee.estimatedWait ? self.waitListee.estimatedWait.stringValue : nil;
@@ -199,6 +210,8 @@
     [self setWait4Label:nil];
     [self setWait5Label:nil];
     [self setTableNumberTextField:nil];
+    [self setNotifyButton:nil];
+    [self setPhoneNumberLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -355,6 +368,8 @@
             self.phoneNumberTextField.text = self.waitListee.guest.phoneNumber;
             
             [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"Phone Number can not be blank." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }else if (self.phoneNumberTextField.text.length != 10){
+            [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"A phone number must be 10 digits.  Please re-enter." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }else if (![self.phoneNumberTextField.text isEqualToString:self.waitListee.guest.phoneNumber]){
             
             [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];

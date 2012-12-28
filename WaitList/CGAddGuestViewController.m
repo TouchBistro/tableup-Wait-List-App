@@ -107,6 +107,8 @@
     [self setVisitLabel:nil];
     [self setLongestWaitLabel:nil];
     [self setTableNumberField:nil];
+    [self setNoPhoneNumberButton:nil];
+    [self setPhoneNumberLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -129,8 +131,7 @@
     [params setObject:userId forKey:@"userId"];
     [params setObject:password forKey:@"password"];
     
-    if (self.phoneNumberTextField.text.length > 0 && self.nameTextField.text.length > 0 &&
-        self.numberInPartyTextField.text.length > 0 && self.estimatedWaitTextField.text.length > 0)
+    if (self.nameTextField.text.length > 0 && self.numberInPartyTextField.text.length > 0 && self.estimatedWaitTextField.text.length > 0)
     {
         if (self.phoneNumberTextField.text.length > 0){
             [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
@@ -177,9 +178,7 @@
         [self.spinner startAnimating];
         [self.view addSubview:spinner];
     }else{
-        if (self.phoneNumberTextField.text.length == 0){
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Phone number required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
-        }else if (self.nameTextField.text.length == 0){
+        if (self.nameTextField.text.length == 0){
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Name required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }else if (self.numberInPartyTextField.text.length == 0) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Number of guests required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
@@ -260,6 +259,19 @@
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Estimated wait required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }
     }
+}
+
+- (IBAction)noPhoneNumber:(id)sender {
+    self.noPhoneNumberButton.hidden = YES;
+    self.phoneNumberLabel.textColor = [UIColor lightGrayColor];
+    self.phoneNumberTextField.enabled = NO;
+    self.saveAndSendButton.hidden = YES;
+    
+    [self setDataLoaded:YES];
+    
+    [self.tableView reloadData];
+    
+    self.saveButton.hidden = NO;
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
@@ -413,16 +425,29 @@
     NSString *phoneNumber = self.phoneNumberTextField.text;
     
     if (phoneNumber != nil){
-        NSString *url = @"/restaurants/";
-        url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
-        url = [url stringByAppendingString:@"/phonenumber/guests/"];
-        url = [url stringByAppendingString:phoneNumber];
-        
-        [[RKClient sharedClient] get:url delegate:self];
-        
-        [self.spinner startAnimating];
-        [self.view addSubview:spinner];
+        if (phoneNumber != nil && phoneNumber.length != 10){
+            [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"A phone number must be 10 digits.  Please re-enter." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }else{
+            NSString *url = @"/restaurants/";
+            url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
+            url = [url stringByAppendingString:@"/phonenumber/guests/"];
+            url = [url stringByAppendingString:phoneNumber];
+            
+            self.noPhoneNumberButton.hidden = YES;
+            [[RKClient sharedClient] get:url delegate:self];
+            
+            [self.spinner startAnimating];
+            [self.view addSubview:spinner];
+        }
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"The phone number entered is not the proper length.  Please fix." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.noPhoneNumberButton.hidden = YES;
+    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -17,7 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIView *userActionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *numberInPartyTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
@@ -41,6 +43,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *wait4Label;
 @property (strong, nonatomic) IBOutlet UILabel *wait5Label;
 
+@property (strong, nonatomic) IBOutlet UIButton *notifyButton;
 
 
 

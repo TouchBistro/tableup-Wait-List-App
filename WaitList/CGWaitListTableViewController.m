@@ -98,7 +98,7 @@
         self.estimatedWait = fullWaitList.estimatedWait;
         
         
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,30)];
+        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         
         NSString *label = @"Parties: ";
         label = [label stringByAppendingString:self.totalParties.stringValue];
@@ -108,10 +108,9 @@
         label = [label stringByAppendingString:self.estimatedWait.stringValue];
         label = [label stringByAppendingString:@" mins"];
         
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         headerLabel.backgroundColor = [UIColor clearColor];
         headerLabel.font = [UIFont systemFontOfSize:10];
-        headerLabel.frame = CGRectMake(0,0,300,30);
         headerLabel.text =  label;
         headerLabel.textAlignment = UITextAlignmentCenter;
         
@@ -215,7 +214,15 @@
         }
         
         if (waitListee.reserveOnline){
+            UIImage *image = [UIImage imageNamed:@"addOnline.png"];
+            cell.addOnlineImage.image = image;
             cell.addOnlineImage.hidden = NO;
+        }else{
+            if (waitListee.guest.phoneNumber == nil){
+                UIImage *image = [UIImage imageNamed:@"noPhoneRed.png"];
+                cell.addOnlineImage.image = image;
+                cell.addOnlineImage.hidden = NO;
+            }
         }
     }
     

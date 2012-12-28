@@ -64,7 +64,7 @@
         if (self.waitListee.guest.phoneNumber){
             self.phoneNumberTextField.text = self.waitListee.guest.phoneNumber;
         }else{
-            self.phoneNumberTextField.text = @"Phone Number not provided.";
+            self.phoneNumberTextField.text = @"Phone number not provided.";
             self.phoneNumberTextField.textColor = [UIColor lightGrayColor];
             
             self.notifyButton.enabled = NO;

@@ -23,7 +23,9 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButtonItem;
 - (IBAction)cancel:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *numberInPartyTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
@@ -54,9 +56,11 @@
 
 - (IBAction)save:(id)sender;
 - (IBAction)saveAndText:(id)sender;
+- (IBAction)noPhoneNumber:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UIButton *saveAndSendButton;
+@property (strong, nonatomic) IBOutlet UIButton *noPhoneNumberButton;
 
 
 @end

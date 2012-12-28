@@ -70,7 +70,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="addOnline.png" highlightedImage="addOnline.png" id="Ejh-qV-XTz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Ejh-qV-XTz">
                                             <rect key="frame" x="198" y="8" width="14" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -479,9 +479,11 @@
                         <outlet property="emailTextField" destination="3w0-hJ-nhs" id="vLE-aS-B4z"/>
                         <outlet property="estimatedWaitTextField" destination="lrf-sL-fno" id="Lbt-gW-yue"/>
                         <outlet property="nameTextField" destination="mpz-J1-2Xb" id="KPl-57-iqj"/>
+                        <outlet property="notifyButton" destination="mqF-b0-ZqH" id="OWl-GR-qby"/>
                         <outlet property="notifyImageView" destination="yYN-iD-quB" id="N9s-ys-S16"/>
                         <outlet property="numberInPartyTextField" destination="Hre-8t-W5W" id="E60-sV-oiY"/>
                         <outlet property="permanentNotesTextView" destination="YWP-fn-EDv" id="HjB-At-0Ih"/>
+                        <outlet property="phoneNumberLabel" destination="i1C-wN-Ibr" id="idk-64-H5r"/>
                         <outlet property="phoneNumberTextField" destination="sUA-Sm-KBh" id="9OI-4E-CY1"/>
                         <outlet property="tableNumberTextField" destination="s6F-Em-JyC" id="QvQ-gd-2FV"/>
                         <outlet property="tableView" destination="3kf-eZ-Suy" id="0cj-Xy-kyT"/>
@@ -514,6 +516,21 @@
                             <rect key="frame" x="0.0" y="411" width="320" height="416"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ifw-4S-VVF">
+                                    <rect key="frame" x="20" y="0.0" width="280" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="No Phone Number" backgroundImage="buttonBackground.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="noPhoneNumber:" destination="tQU-AQ-W3g" eventType="touchUpInside" id="emE-aD-GV4"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Tx-KO-3wz">
                                     <rect key="frame" x="20" y="49" width="280" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -787,8 +804,10 @@
                         <outlet property="estimatedWaitTextField" destination="jU7-SQ-mfr" id="g2l-Yw-4Nv"/>
                         <outlet property="longestWaitLabel" destination="u3Y-b8-xe9" id="0d6-Fl-zSD"/>
                         <outlet property="nameTextField" destination="Ybi-Lp-I1U" id="604-bB-Li5"/>
+                        <outlet property="noPhoneNumberButton" destination="ifw-4S-VVF" id="Iev-T9-7Nm"/>
                         <outlet property="numberInPartyTextField" destination="yPK-uK-cbv" id="GNn-Vj-ke3"/>
                         <outlet property="permanentNotesTextView" destination="Ao1-ZD-vud" id="ufc-km-QN9"/>
+                        <outlet property="phoneNumberLabel" destination="9Yo-4n-z2A" id="ojp-CC-KP6"/>
                         <outlet property="phoneNumberTextField" destination="Zxg-UK-hD1" id="uzH-n3-hcO"/>
                         <outlet property="saveAndSendButton" destination="PTC-u6-nTW" id="rVa-d5-Hgr"/>
                         <outlet property="saveButton" destination="7Tx-KO-3wz" id="HUp-ov-sTW"/>
@@ -1111,7 +1130,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addOnline.png" width="14" height="14"/>
         <image name="buttonBackground.png" width="280" height="36"/>
         <image name="notify.png" width="80" height="80"/>
         <image name="notifySmall.png" width="15" height="14"/>
@@ -1124,6 +1142,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGAddGuestViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="noPhoneNumber:"/>
                 <relationship kind="action" name="save:"/>
                 <relationship kind="action" name="saveAndText:"/>
                 <relationship kind="outlet" name="cancelButtonItem" candidateClass="UIBarButtonItem"/>
@@ -1132,8 +1151,10 @@
                 <relationship kind="outlet" name="longestWaitLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="navItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="noPhoneNumberButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="phoneNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="saveAndSendButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
@@ -1152,9 +1173,11 @@
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="estimatedWaitTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="notifyImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="phoneNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tableNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
