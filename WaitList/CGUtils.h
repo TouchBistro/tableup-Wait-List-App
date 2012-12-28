@@ -12,6 +12,8 @@ extern NSString *const kUserDefaultsAppKey;
 extern NSString *const kUserDefaultsUsername;
 extern NSString *const kUserDefaultsUserId;
 extern NSString *const kPassword;
+extern NSString *const kFbUid;
+
 
 @interface CGUtils : NSObject
 

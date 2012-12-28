@@ -12,7 +12,7 @@ NSString *const kUserDefaultsAppKey     = @"kUserDefaultsAppKey";
 NSString *const kUserDefaultsUsername   = @"kUserDefaultsUsername";
 NSString *const kUserDefaultsUserId     = @"kUserDefaultsUserId";
 NSString *const kPassword               = @"kPassword";
-
+NSString *const kFbUid                  = @"kFbUid";
 
 
 @implementation CGUtils

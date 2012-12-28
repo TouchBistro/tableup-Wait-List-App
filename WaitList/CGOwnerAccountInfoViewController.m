@@ -101,6 +101,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUserId];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPassword];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUsername];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kFbUid];
     
     [self dismissModalViewControllerAnimated:YES];
 }

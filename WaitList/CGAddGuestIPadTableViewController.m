@@ -133,6 +133,11 @@
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
     
+    NSString *fbUid = [[NSUserDefaults standardUserDefaults] objectForKey:kFbUid];
+    if (fbUid != nil){
+        [params setObject:fbUid forKey:@"fbUid"];
+    }
+    
     [params setObject:userId forKey:@"userId"];
     [params setObject:password forKey:@"password"];
     
@@ -200,6 +205,11 @@
     
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    NSString *fbUid = [[NSUserDefaults standardUserDefaults] objectForKey:kFbUid];
+    if (fbUid != nil){
+        [params setObject:fbUid forKey:@"fbUid"];
+    }
     
     [params setObject:userId forKey:@"userId"];
     [params setObject:password forKey:@"password"];

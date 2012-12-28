@@ -24,6 +24,12 @@
 {
     self.facebookLoginView.delegate = self;
 //    [self.facebookLoginView sizeToFit];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUserId];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPassword];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUsername];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kFbUid];
+    
     [super viewDidLoad];
 }
 
