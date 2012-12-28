@@ -136,8 +136,7 @@
     [params setObject:userId forKey:@"userId"];
     [params setObject:password forKey:@"password"];
     
-    if (self.phoneNumberTextField.text.length > 0 && self.nameTextField.text.length > 0 &&
-        self.numberInPartyTextField.text.length > 0 && self.estimatedWaitTextField.text.length > 0)
+    if (self.nameTextField.text.length > 0 && self.numberInPartyTextField.text.length > 0 && self.estimatedWaitTextField.text.length > 0)
     {
         if (self.phoneNumberTextField.text.length > 0){
             [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
@@ -184,9 +183,7 @@
         [self.spinner startAnimating];
         [self.view addSubview:spinner];
     }else{
-        if (self.phoneNumberTextField.text.length == 0){
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Phone number required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
-        }else if (self.nameTextField.text.length == 0){
+        if (self.nameTextField.text.length == 0){
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Name required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }else if (self.numberInPartyTextField.text.length == 0) {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Number of guests required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
@@ -417,7 +414,11 @@
 -(void) textFieldDidEndEditing: (UITextField * ) textField {
     NSString *phoneNumber = self.phoneNumberTextField.text;
     
-    if (phoneNumber != nil){
+    if (phoneNumber == nil){
+        [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"The phone number entered is not the proper length.  Please fix." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }else if (phoneNumber != nil && phoneNumber.length != 10){
+        [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"A phone number must be 10 digits.  Please re-enter." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }else{
         NSString *url = @"/restaurants/";
         url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
         url = [url stringByAppendingString:@"/phonenumber/guests/"];
@@ -429,7 +430,14 @@
         [self.view addSubview:spinner];
         
         self.noPhoneNumberButton.hidden = YES;
+        
     }
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    self.noPhoneNumberButton.hidden = YES;
+    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
