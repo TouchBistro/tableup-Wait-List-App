@@ -78,8 +78,15 @@
                     CGUser *user = result.asObject;
                     if (user != nil){
                         [self setLoggedInUser:user];
-                        [[NSUserDefaults standardUserDefaults] setValue:user.userId forKey:kUserDefaultsUserId];
-                        [self performSegueWithIdentifier: @"loginIPadSuccess" sender: self];
+                        
+                        if (self.loggedInUser.ownedRestaurants && self.loggedInUser.ownedRestaurants.count > 0){
+                            [[NSUserDefaults standardUserDefaults] setValue:user.userId forKey:kUserDefaultsUserId];
+                            [self performSegueWithIdentifier: @"loginIPadSuccess" sender: self];
+                        }else{
+                            [[[UIAlertView alloc] initWithTitle:@"Not Authorized" message:@"You are currently not an Owner Admin for a Wait List enabled restaurant.  For more information or to enable the Wait List feature for a restaurant you own, visit http://citygusto.com/waitlist." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+                        }
+                        
+                        
                     }
                 }
             }
@@ -103,8 +110,10 @@
             CGWaitListTableActionsViewController *waitListTableViewController = (CGWaitListTableActionsViewController *)navController.topViewController;
             
             if (waitListTableViewController != nil){
-                waitListTableViewController.loggedInUser = self.loggedInUser;
-                waitListTableViewController.currentRestaurant = [self.loggedInUser.ownedRestaurants objectAtIndex:0];
+                if (self.loggedInUser.ownedRestaurants && self.loggedInUser.ownedRestaurants.count > 0){
+                    waitListTableViewController.loggedInUser = self.loggedInUser;
+                    waitListTableViewController.currentRestaurant = [self.loggedInUser.ownedRestaurants objectAtIndex:0];
+                }
             }
         }
     }
@@ -113,6 +122,7 @@
 - (void)viewDidUnload {
     [self setUsernameTextField:nil];
     [self setPasswordTextField:nil];
+    [self setNotOwnerTextView:nil];
     [super viewDidUnload];
 }
 

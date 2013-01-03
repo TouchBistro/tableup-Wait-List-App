@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet FBLoginView *facebookLoginView;
 
+@property (strong, nonatomic) IBOutlet UITextView *notOwnerTextView;
 
 @property (strong, nonatomic) CGUser *loggedInUser;
 
