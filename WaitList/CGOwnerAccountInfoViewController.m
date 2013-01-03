@@ -41,7 +41,7 @@
             self.changeRestaurantButton.hidden = YES;
             
             self.adminMessageTextView.hidden = NO;
-            self.adminMessageTextView.text = @"You are currently not an admin for a Wait List enabled restaurant.  Visit http://citygusto.com for more information.";
+            self.adminMessageTextView.text = @"You are currently not an Owner Admin for a Wait List enabled restaurant.  For more information or to enable the Wait List feature for a restaurant you own, visit http://citygusto.com/waitlist.";
         }
         
         
