@@ -31,6 +31,8 @@
 @property (nonatomic, retain) CGAddGuestIPadTableViewController *addGuestController;
 @property (nonatomic, retain) UIPopoverController *addGuestPopover;
 
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
+
 - (IBAction)showAccount:(id)sender;
 - (IBAction)showAddGuest:(id)sender;
 

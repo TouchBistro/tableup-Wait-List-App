@@ -42,7 +42,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *longestWaitLabel;
 
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (nonatomic, strong) CGRestaurant *currentRestaurant;
 @property (nonatomic, strong) CGUser *loggedInUser;
@@ -61,6 +60,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) IBOutlet UIButton *saveAndSendButton;
 @property (strong, nonatomic) IBOutlet UIButton *noPhoneNumberButton;
+
 
 
 @end

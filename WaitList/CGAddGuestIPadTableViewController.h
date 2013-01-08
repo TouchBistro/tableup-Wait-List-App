@@ -14,6 +14,8 @@
 
 @protocol CCAddGuestIPadDelegate
 - (void) guestAdded:(CGRestaurantFullWaitList *) waitList;
+- (void) stopSpinner;
+- (void) startSpinner;
 @end
 
 @interface CGAddGuestIPadTableViewController : UITableViewController {
@@ -34,12 +36,10 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 
-@property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (strong, nonatomic) IBOutlet UILabel *visitLabel;
 @property (strong, nonatomic) IBOutlet UILabel *longestWaitLabel;
 
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
-@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 
 @property (nonatomic, strong) CGRestaurant *currentRestaurant;
 @property (nonatomic, strong) CGUser *loggedInUser;
@@ -50,6 +50,8 @@
 @property (nonatomic, strong) NSNumber *totalGuests;
 @property (nonatomic, strong) NSNumber *estimatedWait;
 @property (strong, nonatomic) IBOutlet UIButton *noPhoneNumberButton;
+
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
 - (IBAction)noPhoneNumber:(id)sender;
 - (IBAction)save:(id)sender;

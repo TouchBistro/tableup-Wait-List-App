@@ -27,6 +27,8 @@
 @synthesize loginButton;
 @synthesize loginNavigationBar;
 
+@synthesize activityView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -75,6 +77,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self setLoginButton:nil];
     [self setLoginNavigationBar:nil];
+    [self setActivityView:nil];
     [super viewDidUnload];
 }
 - (IBAction)login:(id)sender {
@@ -92,6 +95,12 @@
     [[NSUserDefaults standardUserDefaults] setValue:self.passwordTextField.text forKey:kPassword];
     
     [[RKClient sharedClient] post:@"/waitlist/login" params:params delegate:self];
+    
+    self.activityView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview: activityView];
+    
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.activityView startAnimating];
 }
 
 
@@ -136,6 +145,8 @@
             [[[UIAlertView alloc] initWithTitle:@"Login Failed" message:@"Login Failed. Please Try Again." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }
     }
+    
+    [self.activityView stopAnimating];
         
 }
 

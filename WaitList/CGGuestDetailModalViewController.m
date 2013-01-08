@@ -161,6 +161,8 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
     [super viewDidLoad];
 }
 
@@ -289,6 +291,10 @@
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }
+    
+    [self.view addSubview: activityView];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.activityView startAnimating];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
@@ -333,6 +339,9 @@
         
     }
     
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
+    
 }
 
 -(void) textViewDidEndEditing: (UITextView * ) textView{
@@ -369,6 +378,10 @@
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }
+    
+    [self.view addSubview: activityView];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.activityView startAnimating];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

@@ -24,4 +24,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 @property (strong, nonatomic) IBOutlet UINavigationBar *loginNavigationBar;
 
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
+
 @end

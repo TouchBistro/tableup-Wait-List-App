@@ -37,8 +37,6 @@
 @synthesize saveButton;
 @synthesize saveAndSendButton;
 
-@synthesize spinner;
-
 @synthesize currentRestaurant;
 @synthesize loggedInUser;
 
@@ -59,8 +57,6 @@
     
     self.visitLabel.hidden = YES;
     self.longestWaitLabel.hidden = YES;
-    
-    self.spinner.center = self.view.center;
     
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
     numberToolbar.barStyle = UIBarStyleBlackTranslucent;
@@ -180,8 +176,12 @@
         
         [[RKClient sharedClient] post:urlString params:params delegate:self];
         
-        [self.spinner startAnimating];
-        [self.view addSubview:spinner];
+        self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.view addSubview: activityView];
+        
+        self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);;
+        [self.activityView startAnimating];
+        
     }else{
         if (self.nameTextField.text.length == 0){
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Name required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
@@ -256,8 +256,11 @@
         
         [[RKClient sharedClient] post:urlString params:params delegate:self];
         
-        [self.spinner startAnimating];
-        [self.view addSubview:spinner];
+        self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.view addSubview: activityView];
+        
+        self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+        [self.activityView startAnimating];
     }else{
         if (self.phoneNumberTextField.text.length == 0){
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Phone number required." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
@@ -354,8 +357,8 @@
             }
         }
         
-        [self.spinner stopAnimating];
-        [self.spinner removeFromSuperview];
+        [self.activityView stopAnimating];
+        [self.activityView removeFromSuperview];
         [self setDataLoaded:YES];
         
         [self.tableView reloadData];
@@ -401,10 +404,9 @@
             
         }
         
-        [self.spinner stopAnimating];
-        [self.spinner removeFromSuperview];
-        
         [self.activityView stopAnimating];
+        [self.activityView removeFromSuperview];
+        
         [self dismissModalViewControllerAnimated:YES];
     }
 
@@ -446,8 +448,11 @@
             self.noPhoneNumberButton.hidden = YES;
             [[RKClient sharedClient] get:url delegate:self];
             
-            [self.spinner startAnimating];
-            [self.view addSubview:spinner];
+            self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [self.view addSubview: activityView]; 
+            
+            self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);;
+            [self.activityView startAnimating];
         }
     }else{
         [[[UIAlertView alloc] initWithTitle:@"Phone Number" message:@"The phone number entered is not the proper length.  Please fix." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];

@@ -32,6 +32,8 @@
 @synthesize estimatedWait;
 @synthesize currentRestaurant;
 
+@synthesize activityView;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -89,6 +91,7 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
     }
     
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 }
 
 - (void) notifyButtonTouchDownRepeat:(id)sender event:(UIEvent *)event
@@ -496,6 +499,16 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kFbUid];
     
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) stopSpinner{
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
+}
+- (void) startSpinner{
+    [self.view addSubview: activityView];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.activityView startAnimating];
 }
 
 @end

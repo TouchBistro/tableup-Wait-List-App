@@ -811,17 +811,12 @@
                         <outlet property="phoneNumberTextField" destination="Zxg-UK-hD1" id="uzH-n3-hcO"/>
                         <outlet property="saveAndSendButton" destination="PTC-u6-nTW" id="rVa-d5-Hgr"/>
                         <outlet property="saveButton" destination="7Tx-KO-3wz" id="HUp-ov-sTW"/>
-                        <outlet property="spinner" destination="bIy-Mq-7Ov" id="Ixi-oQ-mdK"/>
                         <outlet property="tableNumberField" destination="HVq-l9-zrR" id="eTE-c8-W87"/>
                         <outlet property="visitLabel" destination="5lS-ta-Mp5" id="QeP-IE-B2H"/>
                         <outlet property="visitNotesTextView" destination="XAy-O0-c8i" id="aV0-5S-jtc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHe-IL-hQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="bIy-Mq-7Ov">
-                    <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </activityIndicatorView>
             </objects>
             <point key="canvasLocation" x="1659" y="834"/>
         </scene>
@@ -1158,7 +1153,6 @@
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="saveAndSendButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="tableNumberField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="visitLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="visitNotesTextView" candidateClass="UITextView"/>
