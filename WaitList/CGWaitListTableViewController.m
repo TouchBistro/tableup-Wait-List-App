@@ -163,6 +163,7 @@
     
     if (waitListee != nil){
         cell.addOnlineImage.hidden = YES;
+        cell.tableNumberLabel.hidden = YES;
         cell.name.text = waitListee.guest ? waitListee.guest.name : nil;
         
         if (waitListee.estimatedWait != nil){
