@@ -31,6 +31,9 @@
 @synthesize timeOnWaitList;
 @synthesize timeSinceTextSent;
 
+@synthesize messages;
+@synthesize hasUnreadMessages;
+
 
 - (NSDictionary*)elementToPropertyMappings {
     return [NSDictionary dictionaryWithObjectsAndKeys:

@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSString *tableNumber;
 
 @property (nonatomic, assign, getter=isReserveOnline) BOOL reserveOnline;
+@property (nonatomic, assign) BOOL hasUnreadMessages;
+
 
 @property (nonatomic, strong) NSDate *timeTableReadyTextSent;
 @property (nonatomic, strong) NSDate *timeSeated;
@@ -31,5 +33,7 @@
 @property (nonatomic, strong) NSNumber *timeSinceTextSent;
 
 @property (nonatomic, strong) CGRestaurantGuest *guest;
+
+@property (nonatomic, strong) NSMutableArray *messages;
 
 @end

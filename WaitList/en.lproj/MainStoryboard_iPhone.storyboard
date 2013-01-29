@@ -471,6 +471,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="udk-14-KNx">
                         <barButtonItem key="backBarButtonItem" title="Wait List" id="LAh-ck-eSf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Messages" id="f67-Kp-qEW">
+                            <connections>
+                                <segue destination="V7V-27-dVw" kind="push" identifier="messageSegue" id="bzQ-5i-4Md"/>
+                            </connections>
+                        </barButtonItem>
                         <connections>
                             <outlet property="backBarButtonItem" destination="D1T-SA-c76" id="eJ5-j1-t9H"/>
                         </connections>
@@ -503,6 +508,102 @@
                 <barButtonItem title="Waitlist" id="D1T-SA-c76"/>
             </objects>
             <point key="canvasLocation" x="1659" y="228"/>
+        </scene>
+        <!--Message View Controller-->
+        <scene sceneID="qcT-Wd-Mgn">
+            <objects>
+                <tableViewController id="V7V-27-dVw" customClass="CGMessageViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="105" sectionHeaderHeight="22" sectionFooterHeight="22" id="rzg-Ot-Gxm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="zjT-rY-hut">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="Eff-KN-UwP">
+                                    <rect key="frame" x="20" y="26" width="280" height="114"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Send New Text Message:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kYL-zM-HOM">
+                                    <rect key="frame" x="20" y="5" width="280" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="15s-8o-agQ">
+                                    <rect key="frame" x="8" y="148" width="304" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Send" backgroundImage="buttonBackground.png">
+                                        <color key="titleColor" red="1" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="send:" destination="V7V-27-dVw" eventType="touchUpInside" id="SLX-cd-HrR"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Previous Messages with Matt - Party of 6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Haz-bl-7HW">
+                                    <rect key="frame" x="20" y="204" width="280" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" rowHeight="105" id="jRP-v8-IVH" customClass="CGMessageCell">
+                                <rect key="frame" x="0.0" y="247" width="320" height="105"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZtB-Jg-njh">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="Xr8-az-X3G">
+                                            <rect key="frame" x="20" y="20" width="280" height="72"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimg</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="fromLabel" destination="ZtB-Jg-njh" id="cVN-xo-9ns"/>
+                                    <outlet property="messageTextView" destination="Xr8-az-X3G" id="qnG-5b-kZd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="V7V-27-dVw" id="vX1-m6-R9p"/>
+                            <outlet property="delegate" destination="V7V-27-dVw" id="wkV-Vl-z2o"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="messageDetailLabel" destination="Haz-bl-7HW" id="4Ob-1h-Rch"/>
+                        <outlet property="messageTextField" destination="Eff-KN-UwP" id="3DC-Le-wRW"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AD6-Qm-fG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2229" y="235"/>
         </scene>
         <!--Add Guest View Controller-->
         <scene sceneID="Z5S-YG-bgl">
@@ -1198,6 +1299,21 @@
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="usernameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CGMessageCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGMessageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fromLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="CGMessageViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGMessageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="send:"/>
+                <relationship kind="outlet" name="messageDetailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="CGOwnerAccountInfoViewController" superclassName="UIViewController">

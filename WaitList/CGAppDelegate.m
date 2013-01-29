@@ -16,6 +16,7 @@
 
 #import "CGUtils.h"
 #import "CGLoginViewController.h"
+#import "CGMessage.h"
 
 #import <RestKit/RestKit.h>
 
@@ -55,6 +56,13 @@
     
     [guestMapping mapKeyPath:@"waitListHistory" toRelationship:@"waitListHistory" withMapping:waitListWaitTimeMapping];
     
+    RKObjectMapping *messageMapping = [RKObjectMapping mappingForClass:[CGMessage class]];
+    [messageMapping mapKeyPath:@"id" toAttribute:@"messageId"];
+    [messageMapping mapKeyPath:@"message" toAttribute:@"message"];
+    [messageMapping mapKeyPath:@"restaurantSent" toAttribute:@"restaurantSent"];
+    [messageMapping mapKeyPath:@"dateCreated" toAttribute:@"dateCreated"];
+    [messageMapping mapKeyPath:@"hasBeenRead" toAttribute:@"hasBeenRead"];
+    
     RKObjectMapping *waitListMapping = [RKObjectMapping mappingForClass:[CGRestaurantWaitList class]];
     [waitListMapping mapKeyPath:@"id" toAttribute:@"waitListId"];
     [waitListMapping mapKeyPath:@"estimatedWait" toAttribute:@"estimatedWait"];
@@ -67,17 +75,22 @@
     [waitListMapping mapKeyPath:@"timeRemovedFromWaitList" toAttribute:@"timeRemovedFromWaitList"];
     [waitListMapping mapKeyPath:@"timeSinceTextSent" toAttribute:@"timeSinceTextSent"];
     [waitListMapping mapKeyPath:@"timeOnWaitList" toAttribute:@"timeOnWaitList"];
+    [waitListMapping mapKeyPath:@"hasUnreadMessages" toAttribute:@"hasUnreadMessages"];
     [waitListMapping mapKeyPath:@"dateCreated" toAttribute:@"dateCreated"];
     [waitListMapping mapKeyPath:@"lastUpdated" toAttribute:@"lastUpdated"];
         
     [waitListMapping mapKeyPath:@"guest" toRelationship:@"guest" withMapping:guestMapping];
+    [waitListMapping mapKeyPath:@"messages" toRelationship:@"messages" withMapping:messageMapping];
+    
     
     RKObjectMapping *fullWaitListMapping = [RKObjectMapping mappingForClass:[CGRestaurantFullWaitList class]];
     [fullWaitListMapping mapKeyPath:@"id" toAttribute:@"fullWaitListId"];
     [fullWaitListMapping mapKeyPath:@"totalGuests" toAttribute:@"totalGuests"];
     [fullWaitListMapping mapKeyPath:@"totalParties" toAttribute:@"totalParties"];
     [fullWaitListMapping mapKeyPath:@"estimatedWait" toAttribute:@"estimatedWait"];
-    
+    [fullWaitListMapping mapKeyPath:@"unreadMessages" toAttribute:@"unreadMessages"];
+    [fullWaitListMapping mapKeyPath:@"numberOfUnreadMessages" toAttribute:@"numberOfUnreadMessages"];
+            
     [fullWaitListMapping mapKeyPath:@"waitListers" toRelationship:@"waitListers" withMapping:waitListMapping];
     
     RKObjectMapping *restaurantMapping = [RKObjectMapping mappingForClass:[CGRestaurant class]];

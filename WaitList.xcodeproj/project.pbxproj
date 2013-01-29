@@ -55,6 +55,9 @@
 		1B8D1D82164C4F4E008AFE6E /* partySize.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D74164C4F4E008AFE6E /* partySize.png */; };
 		1B8D1D83164C4F4E008AFE6E /* partySize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D75164C4F4E008AFE6E /* partySize@2x.png */; };
 		1B965865166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */; };
+		1B9DBD2D16B0005E003ADF75 /* CGMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD2C16B0005D003ADF75 /* CGMessageViewController.m */; };
+		1B9DBD3016B00849003ADF75 /* CGMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD2F16B00848003ADF75 /* CGMessageCell.m */; };
+		1B9DBD3316B0181C003ADF75 /* CGMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD3216B0181C003ADF75 /* CGMessage.m */; };
 		1B9F81BB169CA78800401C31 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F81B7169CA78800401C31 /* Default-Portrait~ipad.png */; };
 		1B9F81BC169CA78800401C31 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F81B8169CA78800401C31 /* Default-Portrait@2x~ipad.png */; };
 		1B9F81C6169CA88300401C31 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B9F81BF169CA88200401C31 /* Default-568h@2x.png */; };
@@ -187,6 +190,12 @@
 		1B8D1D75164C4F4E008AFE6E /* partySize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "partySize@2x.png"; sourceTree = "<group>"; };
 		1B965863166FB0BA00CFDF38 /* CGRestaurantFullWaitList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantFullWaitList.h; sourceTree = "<group>"; };
 		1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantFullWaitList.m; sourceTree = "<group>"; };
+		1B9DBD2B16B0005C003ADF75 /* CGMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageViewController.h; sourceTree = "<group>"; };
+		1B9DBD2C16B0005D003ADF75 /* CGMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageViewController.m; sourceTree = "<group>"; };
+		1B9DBD2E16B00848003ADF75 /* CGMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageCell.h; sourceTree = "<group>"; };
+		1B9DBD2F16B00848003ADF75 /* CGMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageCell.m; sourceTree = "<group>"; };
+		1B9DBD3116B0181C003ADF75 /* CGMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessage.h; sourceTree = "<group>"; };
+		1B9DBD3216B0181C003ADF75 /* CGMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessage.m; sourceTree = "<group>"; };
 		1B9F81B7169CA78800401C31 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		1B9F81B8169CA78800401C31 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		1B9F81BF169CA88200401C31 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -278,6 +287,8 @@
 				1BC94227166E4D9C003746A6 /* CGRestaurantWaitListWaitTime.m */,
 				1B965863166FB0BA00CFDF38 /* CGRestaurantFullWaitList.h */,
 				1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */,
+				1B9DBD3116B0181C003ADF75 /* CGMessage.h */,
+				1B9DBD3216B0181C003ADF75 /* CGMessage.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -368,6 +379,8 @@
 				1B8627D31631B6890025B835 /* CGWaitListTableViewController.m */,
 				1BA0D23216480511009E0B3A /* CGOwnerAccountInfoViewController.h */,
 				1BA0D23316480512009E0B3A /* CGOwnerAccountInfoViewController.m */,
+				1B9DBD2B16B0005C003ADF75 /* CGMessageViewController.h */,
+				1B9DBD2C16B0005D003ADF75 /* CGMessageViewController.m */,
 			);
 			name = "iPhone Controllers";
 			sourceTree = "<group>";
@@ -415,6 +428,8 @@
 			children = (
 				1B8627DA16321D700025B835 /* CGRestaurantWaitListCell.h */,
 				1B8627DB16321D700025B835 /* CGRestaurantWaitListCell.m */,
+				1B9DBD2E16B00848003ADF75 /* CGMessageCell.h */,
+				1B9DBD2F16B00848003ADF75 /* CGMessageCell.m */,
 			);
 			name = "iPhone Views";
 			sourceTree = "<group>";
@@ -609,6 +624,9 @@
 				1BCDA1641677C1BB004AEB50 /* CGAccountViewController.m in Sources */,
 				1B468E4F16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m in Sources */,
 				1B5AFBE41680C19800112CAA /* CGGuestDetailModalViewController.m in Sources */,
+				1B9DBD2D16B0005E003ADF75 /* CGMessageViewController.m in Sources */,
+				1B9DBD3016B00849003ADF75 /* CGMessageCell.m in Sources */,
+				1B9DBD3316B0181C003ADF75 /* CGMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "CGWaitListTableViewController.h"
 #import "CGUtils.h"
 #import "CGRestaurantWaitListWaitTime.h"
+#import "CGMessageViewController.h"
 
 #import <RestKit/RestKit.h>
 
@@ -496,6 +497,14 @@
     if (activeTextField) [activeTextField resignFirstResponder];
     if (activeTextView) [activeTextView resignFirstResponder];
     
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"messageSegue"]){
+        CGMessageViewController *messageViewController  = [segue destinationViewController];
+        messageViewController.waitListee = self.waitListee;
+        messageViewController.currentRestaurant = self.selectedRestaurant;
+    }
 }
 
 @end

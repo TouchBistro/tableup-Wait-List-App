@@ -18,6 +18,8 @@
 @synthesize estimatedWait;
 
 @synthesize waitListers;
+@synthesize unreadMessages;
+@synthesize numberOfUnreadMessages;
 
 
 @end

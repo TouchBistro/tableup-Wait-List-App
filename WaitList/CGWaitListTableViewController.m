@@ -26,6 +26,8 @@
 @synthesize totalGuests;
 @synthesize totalParties;
 @synthesize estimatedWait;
+@synthesize unreadMessages;
+@synthesize numberOfUnreadMessages;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -96,7 +98,8 @@
         self.totalParties = fullWaitList.totalParties;
         self.totalGuests = fullWaitList.totalGuests;
         self.estimatedWait = fullWaitList.estimatedWait;
-        
+        self.unreadMessages = fullWaitList.unreadMessages;
+        self.numberOfUnreadMessages = fullWaitList.numberOfUnreadMessages;
         
         UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         
@@ -225,6 +228,12 @@
                 cell.addOnlineImage.hidden = NO;
             }
         }
+        
+        if (waitListee.hasUnreadMessages){
+            cell.contentView.backgroundColor = [UIColor grayColor];
+        }else{
+            cell.contentView.backgroundColor = [UIColor whiteColor];
+        }
     }
     
     return cell;
@@ -316,6 +325,50 @@
         [self.waitListers removeAllObjects];
         [self.waitListers addObjectsFromArray:currentWaitList];
         [self.tableView reloadData];
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0){
+        if (self.unreadMessages){
+            UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,15)];
+            
+            UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
+            headerLabel.backgroundColor = [UIColor clearColor];
+            headerLabel.font = [UIFont systemFontOfSize:10];
+            headerLabel.frame = CGRectMake(0,0,300,15);
+            
+            NSString *unreadMessageString = @"You have ";
+            unreadMessageString = [unreadMessageString stringByAppendingString:self.numberOfUnreadMessages.stringValue];
+            unreadMessageString = [unreadMessageString stringByAppendingString:@" unread messages."];
+            headerLabel.text = unreadMessageString;
+            
+            headerLabel.textAlignment = UITextAlignmentCenter;
+            headerLabel.textColor = [UIColor purpleColor];
+            
+            [customView addSubview:headerLabel];
+            headerLabel = nil;
+            
+            return customView;
+        }else{
+            return nil;
+        }
+    }else{
+        return nil;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0){
+         if (self.unreadMessages){
+             return 15;
+         }else{
+             return 0;
+         }
+        
+    }else{
+        return 0;
     }
 }
 
