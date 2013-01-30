@@ -71,7 +71,6 @@
     
     [[RKClient sharedClient] post:urlString params:params delegate:self];
     
-    
     [super viewDidLoad];
 }
 
@@ -195,6 +194,7 @@
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    [self.delegate readMessages];
 }
 
 -(void)textViewDidChange:(UITextView *)textView

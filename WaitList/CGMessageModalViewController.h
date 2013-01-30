@@ -11,7 +11,15 @@
 #import "CGRestaurantWaitList.h"
 #import <RestKit/RestKit.h>
 
-@interface CGMessageModalViewController : UITableViewController <RKObjectLoaderDelegate, UITextViewDelegate>
+@protocol CGMessageModalViewDelegate
+- (void) readMessages;
+@end
+
+@interface CGMessageModalViewController : UITableViewController <RKObjectLoaderDelegate, UITextViewDelegate>{
+    id <CGMessageModalViewDelegate> delegate;
+}
+
+@property (nonatomic, assign) id <CGMessageModalViewDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UILabel *messageDetailLabel;
 

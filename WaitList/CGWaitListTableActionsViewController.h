@@ -12,8 +12,9 @@
 #import "CGUser.h"
 #import "CGAddGuestIPadTableViewController.h"
 #import "CGGuestDetailModalViewController.h"
+#import "CGMessageModalViewController.h"
 
-@interface CGWaitListTableActionsViewController : UITableViewController <CCAccountViewDelegate, CCAddGuestIPadDelegate, CGGuestDetailModalViewDelegate>{
+@interface CGWaitListTableActionsViewController : UITableViewController <CCAccountViewDelegate, CCAddGuestIPadDelegate, CGGuestDetailModalViewDelegate, CGMessageModalViewDelegate>{
     UIRefreshControl *refreshControl;
     __weak UIPopoverController *addGuestPopover;
     __weak UIPopoverController *accountPopover;
@@ -38,6 +39,8 @@
 
 - (IBAction)showAccount:(id)sender;
 - (IBAction)showAddGuest:(id)sender;
+
+-(void) readMessages;
 
 -(void) refreshMyTableView;
 -(void) retrieveWaitListForDisplay;
