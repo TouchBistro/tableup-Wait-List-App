@@ -1,30 +1,31 @@
 //
-//  CGMessageViewController.m
+//  CGMessageModalViewController.m
 //  WaitList
 //
-//  Created by Padraic Doyle on 1/23/13.
+//  Created by Padraic Doyle on 1/29/13.
 //  Copyright (c) 2013 Padraic Doyle. All rights reserved.
 //
 
-#import "CGMessageViewController.h"
-#import "CGMessageCell.h"
+#import "CGMessageModalViewController.h"
+#import "CGMessageModalCell.h"
 #import "CGMessage.h"
 #import "CGUtils.h"
-#import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface CGMessageViewController ()
+@interface CGMessageModalViewController ()
 
 @end
 
-@implementation CGMessageViewController
+@implementation CGMessageModalViewController
 
-@synthesize messageDetailLabel;
 @synthesize currentRestaurant;
-@synthesize messageTextView;
+@synthesize waitListee;
+
 @synthesize messageView;
+@synthesize messageTextView;
+
 @synthesize characterCountLabel;
-@synthesize backButton;
 
 - (void)viewDidLoad
 {
@@ -38,7 +39,7 @@
     self.messageDetailLabel.text = messageDetail;
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-        
+    
     NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
     
@@ -70,8 +71,8 @@
     
     [[RKClient sharedClient] post:urlString params:params delegate:self];
     
+    
     [super viewDidLoad];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,16 +95,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MessageCell";
+    static NSString *CellIdentifier = @"MessageModalCell";
     
-    CGMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    CGMessageModalCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil){
-        cell = [[CGMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[CGMessageModalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     CGMessage *message = [self.waitListee.messages objectAtIndex:indexPath.row];
-
+    
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm"];
     NSString *dateString = [dateFormatter stringFromDate:message.dateCreated];
@@ -133,17 +134,12 @@
     return cell;
 }
 
-
 #pragma mark - Table view delegate
 
-- (void)viewDidUnload {
-    [self setMessageDetailLabel:nil];
-    [self setMessageTextView:nil];
-    [self setMessageView:nil];
-    [self setCharacterCountLabel:nil];
-    [self setBackButton:nil];
-    [super viewDidUnload];
+- (IBAction)close:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
+
 - (IBAction)send:(id)sender {
     if (self.messageTextView.text.length > 0){
         if (self.messageTextView.text.length <= 115){
@@ -190,6 +186,14 @@
     }
 }
 
+- (void)viewDidUnload {
+    [self setMessageDetailLabel:nil];
+    [self setMessageView:nil];
+    [self setMessageTextView:nil];
+    [self setCharacterCountLabel:nil];
+    [super viewDidUnload];
+}
+
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
 }
 
@@ -203,8 +207,8 @@
     }else{
         characterCountLabel.textColor = [UIColor redColor];
     }
-}
-
     
+    
+}
 
 @end

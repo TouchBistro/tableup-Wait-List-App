@@ -71,6 +71,10 @@
 		1BA0D22E1647E6FE009E0B3A /* CGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D22D1647E6FE009E0B3A /* CGUser.m */; };
 		1BA0D2311647E717009E0B3A /* CGRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D2301647E717009E0B3A /* CGRestaurant.m */; };
 		1BA0D23416480512009E0B3A /* CGOwnerAccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D23316480512009E0B3A /* CGOwnerAccountInfoViewController.m */; };
+		1BA0D82516B82A6900488FE6 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0D82316B82A6900488FE6 /* message.png */; };
+		1BA0D82616B82A6900488FE6 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA0D82416B82A6900488FE6 /* message@2x.png */; };
+		1BA0D82916B82E9B00488FE6 /* CGMessageModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D82816B82E9B00488FE6 /* CGMessageModalViewController.m */; };
+		1BA0D82C16B82FA700488FE6 /* CGMessageModalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA0D82B16B82FA700488FE6 /* CGMessageModalCell.m */; };
 		1BAE48921630BAE400332F47 /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48901630BAE400332F47 /* CGLoginViewController.m */; };
 		1BAE48A81630CEEC00332F47 /* CGRestaurantWaitList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48A71630CEEC00332F47 /* CGRestaurantWaitList.m */; };
 		1BAE48B01630CF0900332F47 /* CGRestaurantGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE48AF1630CF0900332F47 /* CGRestaurantGuest.m */; };
@@ -213,6 +217,12 @@
 		1BA0D2301647E717009E0B3A /* CGRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurant.m; sourceTree = "<group>"; };
 		1BA0D23216480511009E0B3A /* CGOwnerAccountInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGOwnerAccountInfoViewController.h; sourceTree = "<group>"; };
 		1BA0D23316480512009E0B3A /* CGOwnerAccountInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGOwnerAccountInfoViewController.m; sourceTree = "<group>"; };
+		1BA0D82316B82A6900488FE6 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		1BA0D82416B82A6900488FE6 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
+		1BA0D82716B82E9B00488FE6 /* CGMessageModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageModalViewController.h; sourceTree = "<group>"; };
+		1BA0D82816B82E9B00488FE6 /* CGMessageModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageModalViewController.m; sourceTree = "<group>"; };
+		1BA0D82A16B82FA700488FE6 /* CGMessageModalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageModalCell.h; sourceTree = "<group>"; };
+		1BA0D82B16B82FA700488FE6 /* CGMessageModalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageModalCell.m; sourceTree = "<group>"; };
 		1BAE488F1630BAE400332F47 /* CGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginViewController.h; sourceTree = "<group>"; };
 		1BAE48901630BAE400332F47 /* CGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginViewController.m; sourceTree = "<group>"; };
 		1BAE48A61630CEEC00332F47 /* CGRestaurantWaitList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantWaitList.h; sourceTree = "<group>"; };
@@ -388,6 +398,8 @@
 		1B8D1D67164C4F31008AFE6E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1BA0D82316B82A6900488FE6 /* message.png */,
+				1BA0D82416B82A6900488FE6 /* message@2x.png */,
 				1B9F81BF169CA88200401C31 /* Default-568h@2x.png */,
 				1B9F81C0169CA88200401C31 /* Default.png */,
 				1B9F81C1169CA88300401C31 /* Default@2x.png */,
@@ -439,6 +451,8 @@
 			children = (
 				1BCDA155167780C2004AEB50 /* CGRestaurantWaitListActionsCell.h */,
 				1BCDA156167780C2004AEB50 /* CGRestaurantWaitListActionsCell.m */,
+				1BA0D82A16B82FA700488FE6 /* CGMessageModalCell.h */,
+				1BA0D82B16B82FA700488FE6 /* CGMessageModalCell.m */,
 			);
 			name = "iPad Views";
 			sourceTree = "<group>";
@@ -456,6 +470,8 @@
 				1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */,
 				1B5AFBE21680C19800112CAA /* CGGuestDetailModalViewController.h */,
 				1B5AFBE31680C19800112CAA /* CGGuestDetailModalViewController.m */,
+				1BA0D82716B82E9B00488FE6 /* CGMessageModalViewController.h */,
+				1BA0D82816B82E9B00488FE6 /* CGMessageModalViewController.m */,
 			);
 			name = "iPad Controller";
 			sourceTree = "<group>";
@@ -592,6 +608,8 @@
 				1B9F81CA169CA88300401C31 /* WaitListIcon72px.png in Resources */,
 				1B9F81CB169CA88300401C31 /* WaitListIcon114px.png in Resources */,
 				1B9F81CC169CA88300401C31 /* WaitListIcon144px.png in Resources */,
+				1BA0D82516B82A6900488FE6 /* message.png in Resources */,
+				1BA0D82616B82A6900488FE6 /* message@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +645,8 @@
 				1B9DBD2D16B0005E003ADF75 /* CGMessageViewController.m in Sources */,
 				1B9DBD3016B00849003ADF75 /* CGMessageCell.m in Sources */,
 				1B9DBD3316B0181C003ADF75 /* CGMessage.m in Sources */,
+				1BA0D82916B82E9B00488FE6 /* CGMessageModalViewController.m in Sources */,
+				1BA0D82C16B82FA700488FE6 /* CGMessageModalCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

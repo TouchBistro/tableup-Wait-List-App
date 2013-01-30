@@ -52,6 +52,8 @@
 @synthesize wait4Label;
 @synthesize wait5Label;
 
+@synthesize messageBarButtonItem;
+
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -159,9 +161,6 @@
             self.visitsLabel.text = label;
             self.visitsLabel.hidden = NO;
         }
-        
-        
-        
     }
     
     
@@ -170,6 +169,9 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
+    
+    UIImage *buttonImage = [[UIImage imageNamed:@"headerButton.png"]  resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
+    [self.messageBarButtonItem setBackgroundImage:buttonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -213,6 +215,7 @@
     [self setTableNumberTextField:nil];
     [self setNotifyButton:nil];
     [self setPhoneNumberLabel:nil];
+    [self setMessageBarButtonItem:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

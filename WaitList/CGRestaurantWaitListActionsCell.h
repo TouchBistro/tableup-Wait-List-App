@@ -23,5 +23,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *notifyButton;
 @property (strong, nonatomic) IBOutlet UIButton *seatedButton;
 @property (strong, nonatomic) IBOutlet UIButton *removeButton;
+@property (strong, nonatomic) IBOutlet UIButton *messageButton;
 
 @end

@@ -28,6 +28,9 @@
 @property (nonatomic, strong) NSNumber *totalGuests;
 @property (nonatomic, strong) NSNumber *estimatedWait;
 
+@property (nonatomic, assign) BOOL unreadMessages;
+@property (nonatomic, strong) NSNumber *numberOfUnreadMessages;
+
 @property (nonatomic, retain) CGAddGuestIPadTableViewController *addGuestController;
 @property (nonatomic, retain) UIPopoverController *addGuestPopover;
 

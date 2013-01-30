@@ -15,6 +15,7 @@
 #import "CGRestaurantFullWaitList.h"
 #import "CGRestaurantWaitListActionsCell.h"
 #import "CGGuestDetailModalViewController.h"
+#import "CGMessageModalViewController.h"
 #import "CGUtils.h"
 
 #import <RestKit/RestKit.h>
@@ -33,6 +34,9 @@
 @synthesize currentRestaurant;
 
 @synthesize activityView;
+
+@synthesize unreadMessages;
+@synthesize numberOfUnreadMessages;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -224,7 +228,13 @@
     }
 }
 
+- (void) messageButtonTouchDownRepeat:(id)sender event:(UIEvent *)event
+{
+    [self performSegueWithIdentifier:@"messageModalSegue" sender:sender];
+}
+
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    
     RKLogInfo(@"Load collection of Wait Listers: %@", objects);
     //should only have 1 object
     CGRestaurantFullWaitList *fullWaitList = [objects objectAtIndex:0];
@@ -367,11 +377,19 @@
             
             cell.notifyButton.enabled = NO;
         }
+
         
+        if (waitListee.hasUnreadMessages){
+            cell.contentView.backgroundColor = [UIColor grayColor];
+        }else{
+            cell.contentView.backgroundColor = [UIColor whiteColor];
+        }
         
         [cell.notifyButton addTarget:self action:@selector(notifyButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
         [cell.seatedButton addTarget:self action:@selector(seatedButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
         [cell.removeButton addTarget:self action:@selector(removeButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+        
+        [cell.messageButton addTarget:self action:@selector(messageButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
     }
     
     return cell;
@@ -466,6 +484,16 @@
             [guestDetail setSelectedRestaurant:self.currentRestaurant];
             [guestDetail setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
             guestDetail.delegate = self;
+        }
+    }else if ([[segue identifier] isEqualToString:@"messageModalSegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        CGMessageModalViewController *messageModal = (CGMessageModalViewController *)navController.topViewController;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+        
+        if (messageModal != nil){
+            messageModal.currentRestaurant = self.currentRestaurant;
+            [messageModal setWaitListee:[self.waitListers objectAtIndex:indexPath.row]];
         }
     }
 }
