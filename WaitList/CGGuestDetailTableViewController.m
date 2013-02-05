@@ -83,6 +83,7 @@
             self.phoneNumberTextField.textColor = [UIColor lightGrayColor];
             self.phoneNumberLabel.textColor = [UIColor lightGrayColor];
             
+            self.messageBarButtonItem.enabled = NO;
             self.notifyButton.enabled = NO;
             self.phoneNumberTextField.enabled = NO;
             

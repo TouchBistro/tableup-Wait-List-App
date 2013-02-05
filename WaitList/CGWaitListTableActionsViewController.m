@@ -18,6 +18,7 @@
 #import "CGMessageModalViewController.h"
 #import "CGUtils.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
 @interface CGWaitListTableActionsViewController ()
@@ -378,11 +379,12 @@
             cell.addOnlineImageView.hidden = NO;
             
             cell.notifyButton.enabled = NO;
+            cell.messageButton.enabled = NO;
         }
 
         
         if (waitListee.hasUnreadMessages){
-            cell.contentView.backgroundColor = [UIColor grayColor];
+            cell.contentView.backgroundColor = [UIColor colorWithRed:80.0/255.0 green:80.0/255.0 blue:80.0/255.0 alpha:1.0];
         }else{
             cell.contentView.backgroundColor = [UIColor whiteColor];
         }
@@ -429,6 +431,8 @@
     url = [url stringByAppendingString:@"/waitlist"];
     
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:300.0 target:self selector:@selector(refreshMyTableView) userInfo:nil repeats:YES];
 }
 
 - (void)restaurantSelected:(CGRestaurant *)restaurant{
@@ -545,11 +549,28 @@
     if (section == 0){
         if (self.unreadMessages){
             UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,15)];
+            customView.backgroundColor = [UIColor colorWithRed:80.0/255.0 green:80.0/255.0 blue:80.0/255.0 alpha:1.0];
+            
+            CALayer *bottomBorder = [CALayer layer];
+            bottomBorder.frame = CGRectMake(0.0f, customView.frame.size.height - 1, customView.frame.size.width, 1.0f);
+            bottomBorder.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1.0].CGColor;
+            
+            CALayer *topBorder = [CALayer layer];
+            topBorder.frame = CGRectMake(0.0f, 0, customView.frame.size.width, 1.0f);
+            topBorder.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1.0].CGColor;
+            
+            [customView.layer addSublayer:bottomBorder];
+            [customView.layer addSublayer:topBorder];
+            
+//            [customView.layer setBorderColor:[UIColor blackColor].CGColor];
+//            [customView.layer setBorderWidth:1.0f];
+            customView.clipsToBounds = YES;
             
             UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
             headerLabel.backgroundColor = [UIColor clearColor];
-            headerLabel.font = [UIFont systemFontOfSize:10];
+//            headerLabel.font = [UIFont systemFontOfSize:10];
             headerLabel.frame = CGRectMake(0,0,self.view.frame.size.width,15);
+            headerLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:10];
             
             NSString *unreadMessageString = @"You have ";
             unreadMessageString = [unreadMessageString stringByAppendingString:self.numberOfUnreadMessages.stringValue];
