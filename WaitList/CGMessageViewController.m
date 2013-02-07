@@ -105,7 +105,7 @@
     CGMessage *message = [self.waitListee.messages objectAtIndex:indexPath.row];
 
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"h:mm"];
+    [dateFormatter setDateFormat:@"h:mm a"];
     NSString *dateString = [dateFormatter stringFromDate:message.dateCreated];
     
     if (message.isRestaurantSent){
