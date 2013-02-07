@@ -335,7 +335,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0){
         if (self.unreadMessages){
-            UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,15)];
+            UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,15)];
             customView.backgroundColor = [UIColor colorWithRed:80.0/255.0 green:80.0/255.0 blue:80.0/255.0 alpha:1.0];
             
             CALayer *bottomBorder = [CALayer layer];
@@ -352,7 +352,7 @@
             UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
             headerLabel.backgroundColor = [UIColor clearColor];
 //            headerLabel.font = [UIFont systemFontOfSize:10];
-            headerLabel.frame = CGRectMake(0,0,300,15);
+            headerLabel.frame = CGRectMake(0,0,self.view.frame.size.width,15);
             headerLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:10];
             
             NSString *unreadMessageString = @"You have ";
