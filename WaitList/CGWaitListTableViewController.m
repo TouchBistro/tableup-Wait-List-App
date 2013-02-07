@@ -232,7 +232,7 @@
         }
         
         if (waitListee.hasUnreadMessages){
-            cell.contentView.backgroundColor = [UIColor colorWithRed:80.0/255.0 green:80.0/255.0 blue:80.0/255.0 alpha:1.0];
+            cell.contentView.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
         }else{
             cell.contentView.backgroundColor = [UIColor whiteColor];
         }
@@ -335,8 +335,8 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0){
         if (self.unreadMessages){
-            UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,15)];
-            customView.backgroundColor = [UIColor colorWithRed:80.0/255.0 green:80.0/255.0 blue:80.0/255.0 alpha:1.0];
+            UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,15)];
+            customView.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
             
             CALayer *bottomBorder = [CALayer layer];
             bottomBorder.frame = CGRectMake(0.0f, customView.frame.size.height - 1, customView.frame.size.width, 1.0f);
