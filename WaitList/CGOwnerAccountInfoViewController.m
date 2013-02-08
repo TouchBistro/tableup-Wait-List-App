@@ -11,6 +11,7 @@
 #import "CGLoginViewController.h"
 #import "CGWaitListTableViewController.h"
 #import "CGOwnerVenueViewController.h"
+#import "CGMessageOptionsViewController.h"
 #import "CGUtils.h"
 
 @interface CGOwnerAccountInfoViewController ()
@@ -91,6 +92,16 @@
             [venueListController setRestaurants:self.loggedInUser.ownedRestaurants];
             [venueListController setOwnerAccountInfoViewController:self];
         }
+    }else if ([[segue identifier] isEqualToString:@"messageOptionsSegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        
+        if (navController != nil){
+            CGMessageOptionsViewController *messageOptionsController = (CGMessageOptionsViewController *)navController.topViewController;
+            
+            if (messageOptionsController != nil){
+                [messageOptionsController setCurrentRestaurant:self.currentRestaurant];
+            }
+        }
     }
     
 }
@@ -105,4 +116,7 @@
     
     [self dismissModalViewControllerAnimated:YES];
 }
+
+
+
 @end

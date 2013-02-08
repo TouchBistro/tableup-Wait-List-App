@@ -14,4 +14,13 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *address1;
 
+
+@property (nonatomic, assign, getter=isWaitListOnlineReservationsEnabled) BOOL waitListOnlineReservationsEnabled;
+@property (nonatomic, assign, getter=isWaitListAllowMessages) BOOL waitListAllowMessages;
+
+@property (nonatomic, strong) NSString *waitListWelcomeMessage;
+@property (nonatomic, strong) NSString *tableReadyTextMessage;
+@property (nonatomic, strong) NSString *userWaitListPageMessage;
+
+
 @end

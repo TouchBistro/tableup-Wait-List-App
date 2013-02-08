@@ -97,6 +97,11 @@
     [restaurantMapping mapKeyPath:@"id" toAttribute:@"restaurantId"];
     [restaurantMapping mapKeyPath:@"name" toAttribute:@"name"];
     [restaurantMapping mapKeyPath:@"address1" toAttribute:@"address1"];
+    [restaurantMapping mapKeyPath:@"waitListOnlineReservationsEnabled" toAttribute:@"waitListOnlineReservationsEnabled"];
+    [restaurantMapping mapKeyPath:@"waitListAllowMessages" toAttribute:@"waitListAllowMessages"];
+    [restaurantMapping mapKeyPath:@"waitListWelcomeMessage" toAttribute:@"waitListWelcomeMessage"];
+    [restaurantMapping mapKeyPath:@"tableReadyTextMessage" toAttribute:@"tableReadyTextMessage"];
+    [restaurantMapping mapKeyPath:@"userWaitListPageMessage" toAttribute:@"userWaitListPageMessage"];
     
     RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[CGUser class]];
     [userMapping mapKeyPath:@"id" toAttribute:@"userId"];
