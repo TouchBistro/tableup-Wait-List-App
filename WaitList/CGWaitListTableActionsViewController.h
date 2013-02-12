@@ -36,6 +36,13 @@
 @property (nonatomic, retain) UIPopoverController *addGuestPopover;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navBarItem;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *messageOptionsBarButtonItem;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addGuestBarButtonItem;
+
+
+- (IBAction)showMessageOptions:(id)sender;
 
 - (IBAction)showAccount:(id)sender;
 - (IBAction)showAddGuest:(id)sender;

@@ -25,5 +25,6 @@
 @property (nonatomic, assign) id <CCAccountViewDelegate> delegate;
 
 - (IBAction)logOut:(id)sender;
+- (IBAction)manageMessageOptions:(id)sender;
 
 @end

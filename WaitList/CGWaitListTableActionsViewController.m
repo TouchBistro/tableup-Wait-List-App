@@ -16,6 +16,7 @@
 #import "CGRestaurantWaitListActionsCell.h"
 #import "CGGuestDetailModalViewController.h"
 #import "CGMessageModalViewController.h"
+#import "CGMessageOptionsModalViewController.h"
 #import "CGUtils.h"
 
 #import <QuartzCore/QuartzCore.h>
@@ -38,6 +39,10 @@
 
 @synthesize unreadMessages;
 @synthesize numberOfUnreadMessages;
+
+@synthesize navBarItem;
+@synthesize messageOptionsBarButtonItem;
+@synthesize addGuestBarButtonItem;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -95,6 +100,8 @@
         UIImage *navBarImg = [UIImage imageNamed:@"appHeaderiPad.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
     }
+    
+    self.navBarItem.rightBarButtonItems = [NSArray arrayWithObjects:self.addGuestBarButtonItem, self.messageOptionsBarButtonItem, nil];
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 }
@@ -401,6 +408,9 @@
 
 
 - (void)viewDidUnload {
+    [self setMessageOptionsBarButtonItem:nil];
+    [self setNavBarItem:nil];
+    [self setAddGuestBarButtonItem:nil];
     [super viewDidUnload];
 }
 
@@ -496,6 +506,13 @@
             messageModal.delegate = self;
             messageModal.currentRestaurant = self.currentRestaurant;
             [messageModal setWaitListee:[self.waitListers objectAtIndex:indexPath.row]];
+        }
+    }else if ([[segue identifier] isEqualToString:@"messageOptionSegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        CGMessageOptionsModalViewController *messageOptionsController = (CGMessageOptionsModalViewController *)navController.topViewController;
+        
+        if (messageOptionsController != nil){
+           [messageOptionsController setCurrentRestaurant:self.currentRestaurant];
         }
     }
 }
@@ -606,4 +623,7 @@
     }
 }
 
+- (IBAction)showMessageOptions:(id)sender {
+    [self performSegueWithIdentifier:@"messageOptionSegue" sender:self];
+}
 @end

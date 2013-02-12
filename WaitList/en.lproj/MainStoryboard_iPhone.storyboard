@@ -1510,7 +1510,6 @@
             <relationships>
                 <relationship kind="action" name="allowSwitch:"/>
                 <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="onlineReservationsSwitch:"/>
                 <relationship kind="action" name="save:"/>
                 <relationship kind="outlet" name="allowMessagesSwitch" candidateClass="UISwitch"/>
