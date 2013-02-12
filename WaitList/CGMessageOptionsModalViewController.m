@@ -7,6 +7,7 @@
 //
 
 #import "CGMessageOptionsModalViewController.h"
+#import "CGMessageOptions.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "CGUtils.h"
@@ -33,7 +34,7 @@
 @synthesize allowMessagesSwitch;
 @synthesize onlineReservationsSwitch;
 
-
+@synthesize activityView;
 @synthesize scrollView;
 
 - (void)viewDidLoad
@@ -44,38 +45,6 @@
         
     }
     
-    if (self.currentRestaurant){
-        if (self.currentRestaurant.isWaitListAllowMessages){
-            [self.allowMessagesSwitch setOn:YES];
-        }else{
-            [self.allowMessagesSwitch setOn:NO];
-        }
-        
-        if (self.currentRestaurant.isWaitListOnlineReservationsEnabled){
-            [self.onlineReservationsSwitch setOn:YES];
-        }else{
-            [self.onlineReservationsSwitch setOn:NO];
-        }
-        
-        if (self.currentRestaurant.waitListWelcomeMessage){
-            self.welcomeTextView.text = self.currentRestaurant.waitListWelcomeMessage;
-            NSNumber *stringLength = [NSNumber numberWithInteger:139 - self.currentRestaurant.waitListWelcomeMessage.length];
-            self.welcomeCountLabel.text = stringLength.stringValue;
-        }
-        
-        if (self.currentRestaurant.tableReadyTextMessage){
-            self.tableReadyTextView.text = self.currentRestaurant.tableReadyTextMessage;
-            NSNumber *stringLength = [NSNumber numberWithInteger:139 - self.currentRestaurant.tableReadyTextMessage.length];
-            self.tableReadyCountLabel.text = stringLength.stringValue;
-        }
-        
-        if (self.currentRestaurant.userWaitListPageMessage){
-            self.waitListPageTextView.text = self.currentRestaurant.userWaitListPageMessage;
-            NSNumber *stringLength = [NSNumber numberWithInteger:250 - self.currentRestaurant.userWaitListPageMessage.length];
-            self.waitListPageCountLabel.text = stringLength.stringValue;
-        }
-    }
-    
     self.scrollView.delegate = self;
     [scrollView setScrollEnabled:YES];
     [scrollView setContentSize:CGSizeMake(320, 1000)];
@@ -83,6 +52,32 @@
     [self setupTextView:self.waitListPageTextView];
     [self setupTextView:self.tableReadyTextView];
     [self setupTextView:self.welcomeTextView];
+    
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeaderiPadModal.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    NSString *fbUid = [[NSUserDefaults standardUserDefaults] objectForKey:kFbUid];
+    if (fbUid != nil){
+        [params setObject:fbUid forKey:@"fbUid"];
+    }
+    
+    [params setObject:userId forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
+    [params setObject:self.currentRestaurant.restaurantId forKey:@"restId"];
+    
+    [[RKClient sharedClient] get:@"/waitlist/restaurant/messageoptions" queryParameters:params delegate:self];
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview: activityView];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    
+    [self.activityView startAnimating];
     
     [super viewDidLoad];
 }
@@ -216,8 +211,67 @@
             welcomeCountLabel.textColor = [UIColor redColor];
         }
     }
+}
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    [self.activityView stopAnimating];
     
-    
+    if ([request isGET]) {
+        if ([response isOK]) {
+            if ([response isJSON]) {
+                NSLog(@"Got a JSON response back from our POST!");
+                
+                NSString* JSONString = [response bodyAsString];
+                NSString* MIMEType = @"application/json";
+                NSError* error = nil;
+                
+                id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:MIMEType];
+                id parsedData = [parser objectFromString:JSONString error:&error];
+                if (parsedData == nil && error) {
+                    NSLog(@"ERROR: JSON parsing error");
+                }
+                
+                RKObjectMappingProvider* mappingProvider = [RKObjectManager sharedManager].mappingProvider;
+                RKObjectMapper* mapper = [RKObjectMapper mapperWithObject:parsedData mappingProvider:mappingProvider];
+                RKObjectMappingResult* result = [mapper performMapping];
+                
+                if (result) {
+                    CGMessageOptions *messageOptions = result.asObject;
+                    if (messageOptions){
+                        if (messageOptions.isWaitListAllowMessages){
+                            [self.allowMessagesSwitch setOn:YES];
+                        }else{
+                            [self.allowMessagesSwitch setOn:NO];
+                        }
+                        
+                        if (messageOptions.isWaitListOnlineReservationsEnabled){
+                            [self.onlineReservationsSwitch setOn:YES];
+                        }else{
+                            [self.onlineReservationsSwitch setOn:NO];
+                        }
+                        
+                        if (messageOptions.waitListWelcomeMessage){
+                            self.welcomeTextView.text = messageOptions.waitListWelcomeMessage;
+                            NSNumber *stringLength = [NSNumber numberWithInteger:139 - messageOptions.waitListWelcomeMessage.length];
+                            self.welcomeCountLabel.text = stringLength.stringValue;
+                        }
+                        
+                        if (messageOptions.tableReadyTextMessage){
+                            self.tableReadyTextView.text = messageOptions.tableReadyTextMessage;
+                            NSNumber *stringLength = [NSNumber numberWithInteger:139 - messageOptions.tableReadyTextMessage.length];
+                            self.tableReadyCountLabel.text = stringLength.stringValue;
+                        }
+                        
+                        if (messageOptions.userWaitListPageMessage){
+                            self.waitListPageTextView.text = messageOptions.userWaitListPageMessage;
+                            NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.userWaitListPageMessage.length];
+                            self.waitListPageCountLabel.text = stringLength.stringValue;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @end

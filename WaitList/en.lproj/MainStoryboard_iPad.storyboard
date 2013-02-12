@@ -272,7 +272,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PG-0i-jfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem title="Message Options" id="D9X-qz-Wrb">
+                <barButtonItem title="Options &amp; Messages" id="D9X-qz-Wrb">
                     <connections>
                         <action selector="showMessageOptions:" destination="HJE-l2-9J6" id="RP2-fF-Yt3"/>
                     </connections>
@@ -782,7 +782,7 @@
                                             <action selector="onlineReservationsSwitch:" destination="xqL-WN-O1N" eventType="valueChanged" id="8uh-BI-gh1"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Online Reservations:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TpU-VN-RMG">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Join Wait List Online:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TpU-VN-RMG">
                                         <rect key="frame" x="20" y="67" width="195" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -824,7 +824,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tabel Ready Text Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EGt-hR-sAd">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Table Ready Text Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EGt-hR-sAd">
                                         <rect key="frame" x="20" y="234" width="172" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

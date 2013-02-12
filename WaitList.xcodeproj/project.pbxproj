@@ -56,6 +56,7 @@
 		1B8D1D83164C4F4E008AFE6E /* partySize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B8D1D75164C4F4E008AFE6E /* partySize@2x.png */; };
 		1B965865166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */; };
 		1B9712AB16CA86D900A82A66 /* CGMessageOptionsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9712AA16CA86D900A82A66 /* CGMessageOptionsModalViewController.m */; };
+		1B9712B216CADD6800A82A66 /* CGMessageOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9712B116CADD6800A82A66 /* CGMessageOptions.m */; };
 		1B981D9116C551DE00A5BC93 /* CGMessageOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B981D9016C551DE00A5BC93 /* CGMessageOptionsViewController.m */; };
 		1B9DBD2D16B0005E003ADF75 /* CGMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD2C16B0005D003ADF75 /* CGMessageViewController.m */; };
 		1B9DBD3016B00849003ADF75 /* CGMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD2F16B00848003ADF75 /* CGMessageCell.m */; };
@@ -198,6 +199,8 @@
 		1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantFullWaitList.m; sourceTree = "<group>"; };
 		1B9712A916CA86D900A82A66 /* CGMessageOptionsModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageOptionsModalViewController.h; sourceTree = "<group>"; };
 		1B9712AA16CA86D900A82A66 /* CGMessageOptionsModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageOptionsModalViewController.m; sourceTree = "<group>"; };
+		1B9712B016CADD6800A82A66 /* CGMessageOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageOptions.h; sourceTree = "<group>"; };
+		1B9712B116CADD6800A82A66 /* CGMessageOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageOptions.m; sourceTree = "<group>"; };
 		1B981D8F16C551DE00A5BC93 /* CGMessageOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageOptionsViewController.h; sourceTree = "<group>"; };
 		1B981D9016C551DE00A5BC93 /* CGMessageOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageOptionsViewController.m; sourceTree = "<group>"; };
 		1B9DBD2B16B0005C003ADF75 /* CGMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageViewController.h; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				1B965864166FB0BA00CFDF38 /* CGRestaurantFullWaitList.m */,
 				1B9DBD3116B0181C003ADF75 /* CGMessage.h */,
 				1B9DBD3216B0181C003ADF75 /* CGMessage.m */,
+				1B9712B016CADD6800A82A66 /* CGMessageOptions.h */,
+				1B9712B116CADD6800A82A66 /* CGMessageOptions.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -659,6 +664,7 @@
 				1BA0D82C16B82FA700488FE6 /* CGMessageModalCell.m in Sources */,
 				1B981D9116C551DE00A5BC93 /* CGMessageOptionsViewController.m in Sources */,
 				1B9712AB16CA86D900A82A66 /* CGMessageOptionsModalViewController.m in Sources */,
+				1B9712B216CADD6800A82A66 /* CGMessageOptions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

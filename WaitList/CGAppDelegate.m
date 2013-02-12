@@ -13,6 +13,7 @@
 #import "CGUser.h"
 #import "CGRestaurantWaitListWaitTime.h"
 #import "CGRestaurantFullWaitList.h"
+#import "CGMessageOptions.h"
 
 #import "CGUtils.h"
 #import "CGLoginViewController.h"
@@ -111,18 +112,24 @@
     
     [userMapping mapKeyPath:@"ownedRestaurants" toRelationship:@"ownedRestaurants" withMapping:restaurantMapping];
     
+    RKObjectMapping *messageOptionsMapping = [RKObjectMapping mappingForClass:[CGMessageOptions class]];
+    [messageOptionsMapping mapKeyPath:@"waitListAllowMessages" toAttribute:@"waitListAllowMessages"];
+    [messageOptionsMapping mapKeyPath:@"waitListWelcomeMessage" toAttribute:@"waitListWelcomeMessage"];
+    [messageOptionsMapping mapKeyPath:@"tableReadyTextMessage" toAttribute:@"tableReadyTextMessage"];
+    [messageOptionsMapping mapKeyPath:@"userWaitListPageMessage" toAttribute:@"userWaitListPageMessage"];
+    [messageOptionsMapping mapKeyPath:@"waitListOnlineReservationsEnabled" toAttribute:@"waitListOnlineReservationsEnabled"];
+    
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];
 //    [[RKObjectManager sharedManager].mappingProvider setMapping:waitListMapping forKeyPath:@"waitlisters"];
     [[RKObjectManager sharedManager].mappingProvider setMapping:userMapping forKeyPath:@"user"];
     [[RKObjectManager sharedManager].mappingProvider setMapping:fullWaitListMapping forKeyPath:@"waitList"];
+    [[RKObjectManager sharedManager].mappingProvider setMapping:messageOptionsMapping forKeyPath:@"messageOptions"];
     
     
     UIImage *image = [[UIImage imageNamed:@"headerButton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         
-    
-    
     return YES;
 }
 
