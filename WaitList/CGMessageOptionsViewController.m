@@ -184,7 +184,7 @@
         
         
         if (self.waitListPageTextView.text != nil){
-            [params setObject:self.waitListPageTextView.text forKey:@"waitListWelcomeMessage"];
+            [params setObject:self.waitListPageTextView.text forKey:@"userWaitListPageMessage"];
             self.currentRestaurant.userWaitListPageMessage = self.waitListPageTextView.text;
         }
         
