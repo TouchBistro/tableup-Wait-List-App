@@ -159,7 +159,7 @@
 }
 
 - (IBAction)save:(id)sender {
-    if (self.welcomeTextView.text.length <= 139 && self.tableReadyTextView.text.length <= 139 && self.waitListPageTextView.text.length <= 250){
+    if (self.welcomeTextView.text.length <= 127 && self.tableReadyTextView.text.length <= 160 && self.waitListPageTextView.text.length <= 250){
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
         NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
@@ -218,7 +218,7 @@
             waitListPageCountLabel.textColor = [UIColor redColor];
         }
     }else if (textView == self.tableReadyTextView){
-        remainingCharacters = [[NSNumber alloc] initWithInt:139 - self.tableReadyTextView.text.length];
+        remainingCharacters = [[NSNumber alloc] initWithInt:160 - self.tableReadyTextView.text.length];
         self.tableReadyCountLabel.text = remainingCharacters.stringValue;
         
         if (remainingCharacters.intValue > 0){
@@ -227,7 +227,7 @@
             tableReadyCountLabel.textColor = [UIColor redColor];
         }
     }else if (textView == self.welcomeTextView){
-        remainingCharacters = [[NSNumber alloc] initWithInt:139 - self.welcomeTextView.text.length];
+        remainingCharacters = [[NSNumber alloc] initWithInt:127 - self.welcomeTextView.text.length];
         self.welcomeCountLabel.text = remainingCharacters.stringValue;
         
         if (remainingCharacters.intValue > 0){
@@ -277,13 +277,13 @@
                         
                         if (messageOptions.waitListWelcomeMessage){
                             self.welcomeTextView.text = messageOptions.waitListWelcomeMessage;
-                            NSNumber *stringLength = [NSNumber numberWithInteger:139 - messageOptions.waitListWelcomeMessage.length];
+                            NSNumber *stringLength = [NSNumber numberWithInteger:127 - messageOptions.waitListWelcomeMessage.length];
                             self.welcomeCountLabel.text = stringLength.stringValue;
                         }
                         
                         if (messageOptions.tableReadyTextMessage){
                             self.tableReadyTextView.text = messageOptions.tableReadyTextMessage;
-                            NSNumber *stringLength = [NSNumber numberWithInteger:139 - messageOptions.tableReadyTextMessage.length];
+                            NSNumber *stringLength = [NSNumber numberWithInteger:160 - messageOptions.tableReadyTextMessage.length];
                             self.tableReadyCountLabel.text = stringLength.stringValue;
                         }
                         
