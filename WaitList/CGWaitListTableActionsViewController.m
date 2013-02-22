@@ -320,6 +320,7 @@
     
     if (waitListee != nil){
         cell.notifyButton.enabled = YES;
+        cell.messageButton.enabled = YES;
         cell.name.text = waitListee.guest ? waitListee.guest.name : nil;
         
         if (waitListee.estimatedWait != nil){
