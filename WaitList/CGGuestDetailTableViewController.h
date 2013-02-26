@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CGRestaurantWaitList.h"
 #import "CGRestaurant.h"
+#import <RestKit/RestKit.h>
 
 @protocol CGGuestDetailTableViewControllerDelegate;
 
-@interface CGGuestDetailTableViewController : UITableViewController <UITextFieldDelegate, UITextViewDelegate>
+@interface CGGuestDetailTableViewController : UITableViewController <UITextFieldDelegate, UITextViewDelegate, RKObjectLoaderDelegate, RKRequestDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *userActionView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -46,13 +47,12 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *notifyButton;
 
-
-
-
-
 - (IBAction)notify:(id)sender;
 - (IBAction)remove:(id)sender;
 - (IBAction)seated:(id)sender;
+
+- (void)prepareForSave;
+- (void)returnFromSave;
 
 @property (strong, nonatomic) CGRestaurantWaitList *waitListee;
 @property (strong, nonatomic) NSMutableArray *currentWaitList;

@@ -164,7 +164,6 @@
         }
     }
     
-    
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
@@ -310,7 +309,7 @@
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    [self.activityView stopAnimating];
+    [self returnFromSave];
     
     NSString *urlString = [request.URL absoluteString];
     NSRange isRange = [urlString rangeOfString:@"update" options:NSCaseInsensitiveSearch];
@@ -376,6 +375,7 @@
             [params setObject:self.nameTextField.text forKey:@"name"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.numberInPartyTextField){
@@ -386,6 +386,8 @@
         }else if (![self.numberInPartyTextField.text isEqualToString:self.waitListee.numberInParty.stringValue]){
             
             [params setObject:self.numberInPartyTextField.text forKey:@"numberInParty"];
+            
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.phoneNumberTextField){
@@ -400,6 +402,7 @@
             [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.estimatedWaitTextField){
@@ -410,6 +413,8 @@
         }else if (![self.estimatedWaitTextField.text isEqualToString:self.waitListee.estimatedWait.stringValue]){
             
             [params setObject:self.estimatedWaitTextField.text forKey:@"estimatedWait"];
+            
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.emailTextField){
@@ -418,12 +423,15 @@
             [params setObject:self.emailTextField.text forKey:@"email"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.tableNumberTextField){
         if (![self.tableNumberTextField.text isEqualToString:self.waitListee.tableNumber]){
             
             [params setObject:self.tableNumberTextField.text forKey:@"tableNumber"];
+            
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }
@@ -449,17 +457,22 @@
     urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
     urlString = [urlString stringByAppendingString:@"/update"];
     
+    [self prepareForSave];
+    
     if (textView == self.permanentNotesTextView){
         if (self.visitNotesTextView.text != self.waitListee.visitNotes){
             [params setObject:self.permanentNotesTextView.text forKey:@"permanentNotes"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textView == self.visitNotesTextView){
         if (self.visitNotesTextView.text != self.waitListee.visitNotes){
             
             [params setObject:self.visitNotesTextView.text forKey:@"visitNotes"];
+            
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }
@@ -510,5 +523,22 @@
         messageViewController.currentRestaurant = self.selectedRestaurant;
     }
 }
+
+- (void)prepareForSave{
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+    
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.tableView addSubview: activityView];
+    
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.activityView startAnimating];
+}
+
+- (void)returnFromSave{
+    [self.navigationItem setHidesBackButton:NO animated:YES];
+    [self.activityView stopAnimating];
+}
+
+
 
 @end
