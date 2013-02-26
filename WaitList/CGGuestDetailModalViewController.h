@@ -10,12 +10,13 @@
 #import "CGRestaurant.h"
 #import "CGRestaurantWaitList.h"
 #import "CGRestaurantFullWaitList.h"
+#import <RestKit/RestKit.h>
 
 @protocol CGGuestDetailModalViewDelegate
 -(void) guestEdited:(CGRestaurantFullWaitList *) waitList;
 @end
 
-@interface CGGuestDetailModalViewController : UITableViewController <UITextFieldDelegate, UITextViewDelegate>{
+@interface CGGuestDetailModalViewController : UITableViewController <UITextFieldDelegate, UITextViewDelegate, RKObjectLoaderDelegate, RKRequestDelegate>{
     id <CGGuestDetailModalViewDelegate>  delegate;
 }
 
@@ -50,12 +51,16 @@
 
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
 @property (nonatomic, assign, getter=isTimeToClose) BOOL timeToClose;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *closeButton;
 
 - (IBAction)close:(id)sender;
 
 - (IBAction)notify:(id)sender;
 - (IBAction)remove:(id)sender;
 - (IBAction)seated:(id)sender;
+
+- (void)prepareForSave;
+- (void)returnFromSave;
 
 @property (strong, nonatomic) CGRestaurantWaitList *waitListee;
 //@property (strong, nonatomic) NSMutableArray *currentWaitList;

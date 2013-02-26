@@ -195,6 +195,7 @@
     [self setWait4Label:nil];
     [self setWait5Label:nil];
     [self setNotifyButton:nil];
+    [self setCloseButton:nil];
     [super viewDidUnload];
 }
 
@@ -234,22 +235,26 @@
         if ([self.nameTextField.text length] == 0){
             self.nameTextField.text = self.waitListee.guest.name;
             
+            [self prepareForSave];
             [[[UIAlertView alloc] initWithTitle:@"Name" message:@"Name can not be blank." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }else if (![self.nameTextField.text isEqualToString:self.waitListee.guest.name]){
             
             [params setObject:self.nameTextField.text forKey:@"name"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.numberInPartyTextField){
         if ([self.numberInPartyTextField.text length] == 0){
             self.numberInPartyTextField.text = self.waitListee.numberInParty.stringValue;
             
+            [self prepareForSave];
             [[[UIAlertView alloc] initWithTitle:@"Guests" message:@"Guests can not be blank." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
         }else if (![self.numberInPartyTextField.text isEqualToString:self.waitListee.numberInParty.stringValue]){
-            
             [params setObject:self.numberInPartyTextField.text forKey:@"numberInParty"];
+            
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.phoneNumberTextField){
@@ -263,6 +268,7 @@
             [params setObject:self.phoneNumberTextField.text forKey:@"phoneNumber"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.estimatedWaitTextField){
@@ -273,6 +279,8 @@
         }else if (![self.estimatedWaitTextField.text isEqualToString:self.waitListee.estimatedWait.stringValue]){
             
             [params setObject:self.estimatedWaitTextField.text forKey:@"estimatedWait"];
+            
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.emailTextField){
@@ -281,6 +289,7 @@
             [params setObject:self.emailTextField.text forKey:@"email"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textField == self.tableNumberTextField){
@@ -288,18 +297,14 @@
             
             [params setObject:self.tableNumberTextField.text forKey:@"tableNumber"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }
-    
-    [self.view addSubview: activityView];
-    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-    [self.activityView startAnimating];
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    NSString * path = [request resourcePath];
-    
+    [self returnFromSave];
     if ([request isPOST]) {
         if ([response isOK]) {
             if ([response isJSON]) {
@@ -338,10 +343,15 @@
         }
         
     }
-    
-    [self.activityView stopAnimating];
-    [self.activityView removeFromSuperview];
-    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    self.closeButton.enabled = NO;
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    self.closeButton.enabled = NO;
 }
 
 -(void) textViewDidEndEditing: (UITextView * ) textView{
@@ -369,12 +379,15 @@
             [params setObject:self.permanentNotesTextView.text forKey:@"permanentNotes"];
             [params setObject:self.waitListee.guest.guestId forKey:@"guestId"];
             
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }else if (textView == self.visitNotesTextView){
         if (self.visitNotesTextView.text != self.waitListee.visitNotes){
             
             [params setObject:self.visitNotesTextView.text forKey:@"visitNotes"];
+            
+            [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
     }
@@ -513,6 +526,18 @@
     [self.activityView startAnimating];
     
     self.timeToClose = YES;
+}
+
+- (void)prepareForSave{
+    [self.view addSubview: activityView];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.activityView startAnimating];
+}
+
+- (void)returnFromSave{
+    self.closeButton.enabled = YES;
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
 }
 
 @end
