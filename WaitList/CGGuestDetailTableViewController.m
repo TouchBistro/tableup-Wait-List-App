@@ -345,6 +345,14 @@
 
 
 #pragma mark - TextFieldDelegate
+//- (void)textFieldDidBeginEditing:(UITextField *)textField{
+//    [self.navigationItem setHidesBackButton:YES animated:YES];
+//}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+    return YES;
+}
 -(void) textFieldDidEndEditing: (UITextField * ) textField {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
@@ -537,6 +545,7 @@
 - (void)returnFromSave{
     [self.navigationItem setHidesBackButton:NO animated:YES];
     [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
 }
 
 
