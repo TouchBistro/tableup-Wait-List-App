@@ -79,10 +79,10 @@
     [params setObject:self.currentRestaurant.restaurantId forKey:@"restId"];
     
     [[RKClient sharedClient] get:@"/waitlist/restaurant/messageoptions" queryParameters:params delegate:self];
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [self.view addSubview: activityView];
-    self.activityView.center = CGPointMake(240,160);
     
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.view addSubview: activityView];
     [self.activityView startAnimating];
     
     [super viewDidLoad];
@@ -198,8 +198,8 @@
             [params setObject:@"false" forKey:@"isWaitListAllowMessages" ];
         }
         
+        [self.activityView startAnimating];
         [[RKClient sharedClient] post:@"/waitlist/restaurant/messageoptions" params:params delegate:self];
-        [self dismissViewControllerAnimated:YES completion:nil];
     }else{
         [[[UIAlertView alloc] initWithTitle:@"Messages" message:@"Some of your messages are too long.  Please fix." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
@@ -239,8 +239,6 @@
 }
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    [self.activityView stopAnimating];
-    
     if ([request isGET]) {
         if ([response isOK]) {
             if ([response isJSON]) {
@@ -297,6 +295,9 @@
             }
         }
     }
+    
+    [self.activityView stopAnimating];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
