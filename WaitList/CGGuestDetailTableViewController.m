@@ -353,6 +353,13 @@
     [self.navigationItem setHidesBackButton:YES animated:YES];
     return YES;
 }
+
+- (void)textViewDidChange:(UITextView *)textView{
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+}
+
+
+
 -(void) textFieldDidEndEditing: (UITextField * ) textField {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
@@ -464,8 +471,6 @@
     urlString = [urlString stringByAppendingString:@"/waitlist/"];
     urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
     urlString = [urlString stringByAppendingString:@"/update"];
-    
-    [self prepareForSave];
     
     if (textView == self.permanentNotesTextView){
         if (self.visitNotesTextView.text != self.waitListee.visitNotes){
