@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *tableNumber;
 
 @property (nonatomic, assign, getter=isReserveOnline) BOOL reserveOnline;
+@property (nonatomic, assign) BOOL hasPreOrderItems;
 @property (nonatomic, assign) BOOL hasUnreadMessages;
 
 

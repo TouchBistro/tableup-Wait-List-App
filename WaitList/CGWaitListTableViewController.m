@@ -231,6 +231,12 @@
             }
         }
         
+        if (waitListee.hasPreOrderItems){
+            cell.partySizeImageView.image = [UIImage imageNamed:@"partySizePreOrder.png"];
+        }else{
+            cell.partySizeImageView.image = [UIImage imageNamed:@"partySize.png"];
+        }
+        
         if (waitListee.hasUnreadMessages){
             cell.contentView.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
         }else{

@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *addOnlineImage;
 @property (strong, nonatomic) IBOutlet UILabel *tableNumberLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *partySizeImageView;
 
 
 @end

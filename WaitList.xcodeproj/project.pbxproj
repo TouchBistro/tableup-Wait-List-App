@@ -17,6 +17,9 @@
 		1B1BBF3D162CB1AC00708323 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */; };
 		1B1BBF3F162CB1B400708323 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF3E162CB1B400708323 /* QuartzCore.framework */; };
 		1B1BBF41162CB1C000708323 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF40162CB1C000708323 /* libxml2.dylib */; };
+		1B2F45771760D1D500B512C6 /* CGPreOrderingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2F45761760D1D500B512C6 /* CGPreOrderingItem.m */; };
+		1B2F457E1760D5C900B512C6 /* partySizePreOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2F457C1760D5C900B512C6 /* partySizePreOrder.png */; };
+		1B2F457F1760D5C900B512C6 /* partySizePreOrder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2F457D1760D5C900B512C6 /* partySizePreOrder@2x.png */; };
 		1B468E4F16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */; };
 		1B585F6C166664920064D49F /* appHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6A166664920064D49F /* appHeader.png */; };
 		1B585F6D166664920064D49F /* headerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B585F6B166664920064D49F /* headerButton.png */; };
@@ -147,6 +150,10 @@
 		1B1BBF3C162CB1AC00708323 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1B1BBF3E162CB1B400708323 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1B1BBF40162CB1C000708323 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1B2F45751760D1D500B512C6 /* CGPreOrderingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPreOrderingItem.h; sourceTree = "<group>"; };
+		1B2F45761760D1D500B512C6 /* CGPreOrderingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPreOrderingItem.m; sourceTree = "<group>"; };
+		1B2F457C1760D5C900B512C6 /* partySizePreOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = partySizePreOrder.png; sourceTree = "<group>"; };
+		1B2F457D1760D5C900B512C6 /* partySizePreOrder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "partySizePreOrder@2x.png"; sourceTree = "<group>"; };
 		1B468E4C16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGAddGuestIPadTableViewController.h; sourceTree = "<group>"; };
 		1B468E4D16790EE3005B9EF4 /* CGAddGuestIPadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAddGuestIPadTableViewController.m; sourceTree = "<group>"; };
 		1B585F6A166664920064D49F /* appHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appHeader.png; sourceTree = "<group>"; };
@@ -310,6 +317,8 @@
 				1B9DBD3216B0181C003ADF75 /* CGMessage.m */,
 				1B9712B016CADD6800A82A66 /* CGMessageOptions.h */,
 				1B9712B116CADD6800A82A66 /* CGMessageOptions.m */,
+				1B2F45751760D1D500B512C6 /* CGPreOrderingItem.h */,
+				1B2F45761760D1D500B512C6 /* CGPreOrderingItem.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -411,6 +420,8 @@
 		1B8D1D67164C4F31008AFE6E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B2F457C1760D5C900B512C6 /* partySizePreOrder.png */,
+				1B2F457D1760D5C900B512C6 /* partySizePreOrder@2x.png */,
 				1BA0D82316B82A6900488FE6 /* message.png */,
 				1BA0D82416B82A6900488FE6 /* message@2x.png */,
 				1B9F81BF169CA88200401C31 /* Default-568h@2x.png */,
@@ -625,6 +636,8 @@
 				1B9F81CC169CA88300401C31 /* WaitListIcon144px.png in Resources */,
 				1BA0D82516B82A6900488FE6 /* message.png in Resources */,
 				1BA0D82616B82A6900488FE6 /* message@2x.png in Resources */,
+				1B2F457E1760D5C900B512C6 /* partySizePreOrder.png in Resources */,
+				1B2F457F1760D5C900B512C6 /* partySizePreOrder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +678,7 @@
 				1B981D9116C551DE00A5BC93 /* CGMessageOptionsViewController.m in Sources */,
 				1B9712AB16CA86D900A82A66 /* CGMessageOptionsModalViewController.m in Sources */,
 				1B9712B216CADD6800A82A66 /* CGMessageOptions.m in Sources */,
+				1B2F45771760D1D500B512C6 /* CGPreOrderingItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

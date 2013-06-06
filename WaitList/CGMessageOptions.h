@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSString *tableReadyTextMessage;
 @property (nonatomic, strong) NSString *userWaitListPageMessage;
 
+@property (nonatomic, assign, getter=isPreOrderingEnabled) BOOL preOrderingEnabled;
+
 @end

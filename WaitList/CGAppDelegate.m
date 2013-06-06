@@ -79,6 +79,8 @@
     [waitListMapping mapKeyPath:@"hasUnreadMessages" toAttribute:@"hasUnreadMessages"];
     [waitListMapping mapKeyPath:@"dateCreated" toAttribute:@"dateCreated"];
     [waitListMapping mapKeyPath:@"lastUpdated" toAttribute:@"lastUpdated"];
+    [waitListMapping mapKeyPath:@"hasPreOrderItems" toAttribute:@"hasPreOrderItems"];
+    
         
     [waitListMapping mapKeyPath:@"guest" toRelationship:@"guest" withMapping:guestMapping];
     [waitListMapping mapKeyPath:@"messages" toRelationship:@"messages" withMapping:messageMapping];
@@ -99,10 +101,12 @@
     [restaurantMapping mapKeyPath:@"name" toAttribute:@"name"];
     [restaurantMapping mapKeyPath:@"address1" toAttribute:@"address1"];
     [restaurantMapping mapKeyPath:@"waitListOnlineReservationsEnabled" toAttribute:@"waitListOnlineReservationsEnabled"];
+    [restaurantMapping mapKeyPath:@"preOrderingEnabled" toAttribute:@"preOrderingEnabled"];
     [restaurantMapping mapKeyPath:@"waitListAllowMessages" toAttribute:@"waitListAllowMessages"];
     [restaurantMapping mapKeyPath:@"waitListWelcomeMessage" toAttribute:@"waitListWelcomeMessage"];
     [restaurantMapping mapKeyPath:@"tableReadyTextMessage" toAttribute:@"tableReadyTextMessage"];
     [restaurantMapping mapKeyPath:@"userWaitListPageMessage" toAttribute:@"userWaitListPageMessage"];
+    
     
     RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[CGUser class]];
     [userMapping mapKeyPath:@"id" toAttribute:@"userId"];
@@ -118,6 +122,7 @@
     [messageOptionsMapping mapKeyPath:@"tableReadyTextMessage" toAttribute:@"tableReadyTextMessage"];
     [messageOptionsMapping mapKeyPath:@"userWaitListPageMessage" toAttribute:@"userWaitListPageMessage"];
     [messageOptionsMapping mapKeyPath:@"waitListOnlineReservationsEnabled" toAttribute:@"waitListOnlineReservationsEnabled"];
+    [messageOptionsMapping mapKeyPath:@"preOrderingEnabled" toAttribute:@"preOrderingEnabled"];    
     
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];
 //    [[RKObjectManager sharedManager].mappingProvider setMapping:waitListMapping forKeyPath:@"waitlisters"];

@@ -17,6 +17,7 @@
 
 @property (nonatomic, assign, getter=isWaitListOnlineReservationsEnabled) BOOL waitListOnlineReservationsEnabled;
 @property (nonatomic, assign, getter=isWaitListAllowMessages) BOOL waitListAllowMessages;
+@property (nonatomic, assign, getter=isPreOrderingEnabled) BOOL preOrderingEnabled;
 
 @property (nonatomic, strong) NSString *waitListWelcomeMessage;
 @property (nonatomic, strong) NSString *tableReadyTextMessage;

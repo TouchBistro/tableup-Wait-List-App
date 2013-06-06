@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hq4-Mf-tld">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hq4-Mf-tld">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Wait List Table View Controller-->
@@ -90,6 +90,7 @@
                                     <outlet property="name" destination="NjA-Mt-W5F" id="5o6-QH-yc9"/>
                                     <outlet property="notifyImage" destination="BKu-en-63i" id="ePP-1b-SZ5"/>
                                     <outlet property="numberInParty" destination="8H0-H2-dtF" id="Fh3-d2-yJa"/>
+                                    <outlet property="partySizeImageView" destination="yZM-hq-BxA" id="voj-wU-4Cs"/>
                                     <outlet property="tableNumberLabel" destination="e6C-1C-dNU" id="aex-6C-ddj"/>
                                     <outlet property="textSentTimeAgo" destination="DUK-bx-MVw" id="qip-39-GXm"/>
                                     <outlet property="visitNotesLabel" destination="2IL-Jh-HfD" id="dZ4-bg-ZOB"/>
@@ -1556,6 +1557,7 @@
                 <relationship kind="outlet" name="name" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="notifyImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="numberInParty" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="partySizeImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="tableNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textSentTimeAgo" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="visitNotesLabel" candidateClass="UILabel"/>
