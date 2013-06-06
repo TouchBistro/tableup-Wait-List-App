@@ -231,6 +231,7 @@
                                     <outlet property="notifyButton" destination="6CM-gX-rym" id="rFm-Sy-pZW"/>
                                     <outlet property="notifyImage" destination="fnP-Mn-8ax" id="56J-jL-lrP"/>
                                     <outlet property="numberInParty" destination="lgi-Jb-cao" id="51l-yN-7h5"/>
+                                    <outlet property="partySizeImageView" destination="nJk-Yd-Fuu" id="a8b-I7-lzh"/>
                                     <outlet property="removeButton" destination="H9d-OJ-lE7" id="MPg-uU-wjx"/>
                                     <outlet property="seatedButton" destination="tVI-5D-a4B" id="aPv-ab-3sP"/>
                                     <outlet property="tableNumberLabel" destination="eIS-es-Hci" id="mIs-y8-NJu"/>
@@ -1484,6 +1485,7 @@
                 <relationship kind="outlet" name="notifyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="notifyImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="numberInParty" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="partySizeImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="removeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="seatedButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableNumberLabel" candidateClass="UILabel"/>

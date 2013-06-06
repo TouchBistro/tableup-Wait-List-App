@@ -397,6 +397,12 @@
             cell.contentView.backgroundColor = [UIColor whiteColor];
         }
         
+        if (waitListee.hasPreOrderItems){
+            cell.partySizeImageView.image = [UIImage imageNamed:@"partySizePreOrder.png"];
+        }else{
+            cell.partySizeImageView.image = [UIImage imageNamed:@"partySize.png"];
+        }
+        
         [cell.notifyButton addTarget:self action:@selector(notifyButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
         [cell.seatedButton addTarget:self action:@selector(seatedButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
         [cell.removeButton addTarget:self action:@selector(removeButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
