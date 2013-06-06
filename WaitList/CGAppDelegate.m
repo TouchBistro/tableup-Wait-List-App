@@ -122,7 +122,9 @@
     [messageOptionsMapping mapKeyPath:@"tableReadyTextMessage" toAttribute:@"tableReadyTextMessage"];
     [messageOptionsMapping mapKeyPath:@"userWaitListPageMessage" toAttribute:@"userWaitListPageMessage"];
     [messageOptionsMapping mapKeyPath:@"waitListOnlineReservationsEnabled" toAttribute:@"waitListOnlineReservationsEnabled"];
-    [messageOptionsMapping mapKeyPath:@"preOrderingEnabled" toAttribute:@"preOrderingEnabled"];    
+    [messageOptionsMapping mapKeyPath:@"preOrderingEnabled" toAttribute:@"preOrderingEnabled"];
+    [messageOptionsMapping mapKeyPath:@"preOrderingMessage" toAttribute:@"preOrderingMessage"];
+    
     
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];
 //    [[RKObjectManager sharedManager].mappingProvider setMapping:waitListMapping forKeyPath:@"waitlisters"];
