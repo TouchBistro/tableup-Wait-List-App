@@ -1253,7 +1253,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3hF-Bt-xcr">
-                                        <rect key="frame" x="20" y="452" width="280" height="44"/>
+                                        <rect key="frame" x="20" y="494" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Save" backgroundImage="buttonBackground.png">
@@ -1265,6 +1265,21 @@
                                         </state>
                                         <connections>
                                             <action selector="save:" destination="V4k-D9-WjF" eventType="touchUpInside" id="0wD-va-RjB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FUf-Af-UYE">
+                                        <rect key="frame" x="20" y="442" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Manage Pre-Order Items" backgroundImage="buttonBackground.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="managePreOrder:" destination="V4k-D9-WjF" eventType="touchUpInside" id="tQD-xr-sv6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1510,6 +1525,7 @@
             <relationships>
                 <relationship kind="action" name="allowSwitch:"/>
                 <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="managePreOrder:"/>
                 <relationship kind="action" name="onlineReservationsSwitch:"/>
                 <relationship kind="action" name="save:"/>
                 <relationship kind="outlet" name="allowMessagesSwitch" candidateClass="UISwitch"/>

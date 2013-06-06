@@ -36,5 +36,6 @@
 - (IBAction)save:(id)sender;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+- (IBAction)managePreOrder:(id)sender;
 
 @end

@@ -772,7 +772,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Jwt-vR-Pp4">
-                                <rect key="frame" x="0.0" y="0.0" width="540" height="556"/>
+                                <rect key="frame" x="0.0" y="0.0" width="540" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="47e-fr-cid">
@@ -867,7 +867,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tfc-PL-wTu">
-                                        <rect key="frame" x="40" y="465" width="460" height="71"/>
+                                        <rect key="frame" x="40" y="600" width="460" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Save" backgroundImage="buttonBackground.png">
@@ -880,6 +880,21 @@
                                         <connections>
                                             <action selector="noPhoneNumber:" destination="7ia-Rq-tEQ" eventType="touchUpInside" id="YCX-hs-bla"/>
                                             <action selector="save:" destination="xqL-WN-O1N" eventType="touchUpInside" id="Lua-xL-C5S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PFI-FW-9sx">
+                                        <rect key="frame" x="40" y="521" width="460" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Manage Pre-Order Items" backgroundImage="buttonBackground.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="managePreOrder:" destination="xqL-WN-O1N" eventType="touchUpInside" id="cx9-C2-e1Y"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1461,6 +1476,7 @@
             <relationships>
                 <relationship kind="action" name="allowSwitch:"/>
                 <relationship kind="action" name="close:"/>
+                <relationship kind="action" name="managePreOrder:"/>
                 <relationship kind="action" name="onlineReservationsSwitch:"/>
                 <relationship kind="action" name="save:"/>
                 <relationship kind="outlet" name="allowMessagesSwitch" candidateClass="UISwitch"/>

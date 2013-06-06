@@ -273,4 +273,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)managePreOrder:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://citygusto.com/restaurantPreOrdering/list/id?restaurantId=%@", self.currentRestaurant.restaurantId]]];
+}
 @end
