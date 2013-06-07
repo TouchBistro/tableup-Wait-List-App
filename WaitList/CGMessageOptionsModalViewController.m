@@ -52,6 +52,7 @@
     [self setupTextView:self.waitListPageTextView];
     [self setupTextView:self.tableReadyTextView];
     [self setupTextView:self.welcomeTextView];
+    [self setupTextView:self.preOrderTextView];
     
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeaderiPadModal.png"];
@@ -121,11 +122,14 @@
     [self setAllowMessagesSwitch:nil];
     [self setOnlineReservationsSwitch:nil];
     [self setSaveButton:nil];
+    [self setPreOrderCountLabel:nil];
+    [self setPreOrderTextView:nil];
+    [self setPreOrderSwitch:nil];
     [super viewDidUnload];
 }
 
 - (IBAction)save:(id)sender {
-    if (self.welcomeTextView.text.length <= 127 && self.tableReadyTextView.text.length <= 160 && self.waitListPageTextView.text.length <= 250){
+    if (self.welcomeTextView.text.length <= 127 && self.tableReadyTextView.text.length <= 160 && self.waitListPageTextView.text.length <= 250 && self.preOrderTextView.text.length <= 250){
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
         NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
@@ -155,6 +159,11 @@
             self.currentRestaurant.waitListWelcomeMessage = self.welcomeTextView.text;
         }
         
+        if (self.preOrderTextView.text != nil){
+            [params setObject:self.preOrderTextView.text forKey:@"preOrderingMessage" ];
+            self.currentRestaurant.preOrderingMessage = self.preOrderTextView.text;
+        }
+        
         if (self.onlineReservationsSwitch.on){
             [params setObject:@"true" forKey:@"isWaitListOnlineReservationsEnabled" ];
             self.currentRestaurant.waitListOnlineReservationsEnabled = YES;
@@ -169,6 +178,14 @@
         }else{
             [params setObject:@"false" forKey:@"isWaitListAllowMessages" ];
             self.currentRestaurant.waitListAllowMessages = NO;
+        }
+        
+        if (self.preOrderSwitch.on){
+            [params setObject:@"true" forKey:@"isPreOrderingEnabled"];
+            self.currentRestaurant.preOrderingEnabled = YES;
+        }else{
+            [params setObject:@"false" forKey:@"isPreOrderingEnabled"];
+            self.currentRestaurant.preOrderingEnabled = NO;
         }
         
         [self.activityView startAnimating];
@@ -209,6 +226,15 @@
         }else{
             welcomeCountLabel.textColor = [UIColor redColor];
         }
+    }else if (textView == self.preOrderTextView){
+        remainingCharacters = [[NSNumber alloc] initWithInt:127 - self.preOrderTextView.text.length];
+        self.preOrderCountLabel.text = remainingCharacters.stringValue;
+        
+        if (remainingCharacters.intValue > 0){
+            self.preOrderCountLabel.textColor = [UIColor blackColor];
+        }else{
+            self.preOrderCountLabel.textColor = [UIColor redColor];
+        }
     }
 }
 
@@ -247,6 +273,12 @@
                             [self.onlineReservationsSwitch setOn:NO];
                         }
                         
+                        if (messageOptions.isPreOrderingEnabled){
+                            [self.preOrderSwitch setOn:YES];
+                        }else{
+                            [self.preOrderSwitch setOn:NO];
+                        }
+                        
                         if (messageOptions.waitListWelcomeMessage){
                             self.welcomeTextView.text = messageOptions.waitListWelcomeMessage;
                             NSNumber *stringLength = [NSNumber numberWithInteger:127 - messageOptions.waitListWelcomeMessage.length];
@@ -263,6 +295,12 @@
                             self.waitListPageTextView.text = messageOptions.userWaitListPageMessage;
                             NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.userWaitListPageMessage.length];
                             self.waitListPageCountLabel.text = stringLength.stringValue;
+                        }
+                        
+                        if (messageOptions.preOrderingMessage){
+                            self.preOrderTextView.text = messageOptions.preOrderingMessage;
+                            NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.preOrderingMessage.length];
+                            self.preOrderCountLabel.text = stringLength.stringValue;
                         }
                     }
                 }
