@@ -504,7 +504,7 @@
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:customView.frame];
         headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont systemFontOfSize:10];
+        headerLabel.font = [UIFont boldSystemFontOfSize:10];
         headerLabel.frame = CGRectMake(0,0,300,30);
         
         headerLabel.text =  @"Parties: ";
@@ -517,7 +517,7 @@
         
         
         headerLabel.textAlignment = UITextAlignmentCenter;
-        headerLabel.textColor = [UIColor redColor];
+        headerLabel.textColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1.0];
         
         [customView addSubview:headerLabel];
         headerLabel = nil;

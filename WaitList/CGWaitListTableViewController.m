@@ -78,9 +78,12 @@
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont systemFontOfSize:10];
+        headerLabel.font = [UIFont boldSystemFontOfSize:10];
         headerLabel.frame = CGRectMake(0,0,300,30);
         headerLabel.text =  label;
+        headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
+        headerLabel.shadowColor = [UIColor whiteColor];
+    	headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
         headerLabel.textAlignment = UITextAlignmentCenter;
         
         [customView addSubview:headerLabel];
@@ -115,8 +118,11 @@
         
         UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
         headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont systemFontOfSize:10];
+        headerLabel.font = [UIFont boldSystemFontOfSize:10];
         headerLabel.text =  label;
+        headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
+        headerLabel.shadowColor = [UIColor whiteColor];
+    	headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
         headerLabel.textAlignment = UITextAlignmentCenter;
         
         [customView addSubview:headerLabel];
@@ -238,10 +244,19 @@
         }
         
         if (waitListee.hasUnreadMessages){
-            cell.contentView.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
+            cell.contentView.backgroundColor = [UIColor colorWithRed:227.0/255.0 green:201.0/255.0 blue:214.0/255.0 alpha:1.0];
         }else{
-            cell.contentView.backgroundColor = [UIColor whiteColor];
+            cell.contentView.backgroundColor = [UIColor clearColor];
         }
+        
+        CALayer *bottomBorder = [CALayer layer];
+        
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = cell.bounds;
+        gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor, nil];
+        [cell.layer insertSublayer:gradient atIndex:0];
+        
+		bottomBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     }
     
     return cell;
@@ -342,15 +357,15 @@
     if (section == 0){
         if (self.unreadMessages){
             UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,15)];
-            customView.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
+            customView.backgroundColor = [UIColor colorWithRed:227.0/255.0 green:201.0/255.0 blue:214.0/255.0 alpha:1.0];
             
             CALayer *bottomBorder = [CALayer layer];
             bottomBorder.frame = CGRectMake(0.0f, customView.frame.size.height - 1, customView.frame.size.width, 1.0f);
-            bottomBorder.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1.0].CGColor;
+            bottomBorder.backgroundColor = [UIColor colorWithRed:200.0/255.0 green:149.0/255.0 blue:175.0/255.0 alpha:1.0].CGColor;
             
             CALayer *topBorder = [CALayer layer];
             topBorder.frame = CGRectMake(0.0f, 0, customView.frame.size.width, 1.0f);
-            topBorder.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1.0].CGColor;
+            topBorder.backgroundColor = [UIColor colorWithRed:200.0/255.0 green:149.0/255.0 blue:175.0/255.0 alpha:1.0].CGColor;
             
             [customView.layer addSublayer:bottomBorder];
             [customView.layer addSublayer:topBorder];
@@ -367,7 +382,7 @@
             headerLabel.text = unreadMessageString;
             
             headerLabel.textAlignment = UITextAlignmentCenter;
-            headerLabel.textColor = [UIColor purpleColor];
+            headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
             
             [customView addSubview:headerLabel];
             headerLabel = nil;
