@@ -111,6 +111,6 @@
 }
 
 - (IBAction)help:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://citygusto.com/restaurantPreOrdering/list/id?restaurantId=%@", self.currentRestaurant.restaurantId]]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://citygusto.com/waitlist/training"]];
 }
 @end
