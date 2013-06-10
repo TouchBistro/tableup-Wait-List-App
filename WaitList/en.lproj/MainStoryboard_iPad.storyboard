@@ -1490,7 +1490,7 @@
         <image name="buttonBackground.png" width="280" height="36"/>
         <image name="message.png" width="80" height="80"/>
         <image name="notify.png" width="80" height="80"/>
-        <image name="notifySmall.png" width="15" height="14"/>
+        <image name="notifySmall.png" width="16" height="15"/>
         <image name="partySize.png" width="35" height="35"/>
         <image name="remove.png" width="80" height="80"/>
         <image name="seated.png" width="80" height="80"/>
