@@ -394,8 +394,17 @@
         if (waitListee.hasUnreadMessages){
             cell.contentView.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
         }else{
-            cell.contentView.backgroundColor = [UIColor whiteColor];
+            cell.contentView.backgroundColor = [UIColor clearColor];
         }
+        
+        CALayer *bottomBorder = [CALayer layer];
+        
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = cell.bounds;
+        gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor, nil];
+        [cell.layer insertSublayer:gradient atIndex:0];
+        
+		bottomBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
         
         if (waitListee.hasPreOrderItems){
             cell.partySizeImageView.image = [UIImage imageNamed:@"partySizePreOrder.png"];
