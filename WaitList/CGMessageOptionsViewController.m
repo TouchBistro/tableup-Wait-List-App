@@ -135,6 +135,20 @@
 
 - (void)keyboardWasShown:(NSNotification *)notification
 {
+    UIView *firstResponder = nil;
+    if (self.waitListPageTextView.isFirstResponder){
+        firstResponder = self.waitListPageTextView;
+    }else if (self.tableReadyTextView.isFirstResponder){
+        firstResponder = self.tableReadyTextView;
+    }else if (self.welcomeTextView.isFirstResponder){
+        firstResponder = self.welcomeTextView;
+    }else if (self.preOrderTextView.isFirstResponder){
+        firstResponder = self.preOrderTextView;
+    }else{
+        firstResponder = self.saveButton;
+    }
+    
+    
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
@@ -144,8 +158,8 @@
     // Step 3: Scroll the target text field into view.
     CGRect aRect = self.view.frame;
     aRect.size.height -= keyboardSize.height;
-    if (!CGRectContainsPoint(aRect, self.saveButton.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.saveButton.frame.origin.y - (keyboardSize.height-68));
+    if (!CGRectContainsPoint(aRect, firstResponder.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, firstResponder.frame.origin.y - (keyboardSize.height-90));
         [self.scrollView setContentOffset:scrollPoint animated:YES];
     }
 }

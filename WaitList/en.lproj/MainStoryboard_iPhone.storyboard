@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hq4-Mf-tld">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hq4-Mf-tld">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Wait List Table View Controller-->
@@ -1388,6 +1388,11 @@
                                 <action selector="cancel:" destination="V4k-D9-WjF" id="slx-xg-iIu"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ZjQ-qP-0rk">
+                            <connections>
+                                <action selector="save:" destination="V4k-D9-WjF" id="Gcx-Ma-q6g"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -1450,7 +1455,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Pat's Pizza" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="a5o-WI-fF3">
-                                            <rect key="frame" x="10" y="2" width="93" height="22"/>
+                                            <rect key="frame" x="10" y="1" width="94" height="23"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
@@ -1459,7 +1464,7 @@
                                             <size key="shadowOffset" width="1" height="1"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="123 Main St" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="jhq-GS-1OF">
-                                            <rect key="frame" x="10" y="24" width="75" height="18"/>
+                                            <rect key="frame" x="10" y="24" width="76" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1629,6 +1634,7 @@
             <relationships>
                 <relationship kind="action" name="allowSwitch:"/>
                 <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="managePreOrder:"/>
                 <relationship kind="action" name="onlineReservationsSwitch:"/>
                 <relationship kind="action" name="save:"/>
