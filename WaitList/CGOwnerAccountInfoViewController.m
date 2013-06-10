@@ -119,4 +119,7 @@
 
 
 
+- (IBAction)help:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://citygusto.com/waitlist/training"]];
+}
 @end

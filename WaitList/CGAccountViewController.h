@@ -26,5 +26,6 @@
 
 - (IBAction)logOut:(id)sender;
 - (IBAction)manageMessageOptions:(id)sender;
+- (IBAction)help:(id)sender;
 
 @end

@@ -20,5 +20,6 @@
 
 @property (nonatomic, strong) CGRestaurant *currentRestaurant;
 @property (strong, nonatomic) IBOutlet UITextView *adminMessageTextView;
+- (IBAction)help:(id)sender;
 
 @end

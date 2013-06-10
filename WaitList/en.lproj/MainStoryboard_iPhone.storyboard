@@ -1155,6 +1155,22 @@
                                     <action selector="logOut:" destination="zDn-Ud-qKF" eventType="touchUpInside" id="uZ1-Vt-daG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ah4-Bl-QeW">
+                                <rect key="frame" x="20" y="360" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Help &amp; Training Information" backgroundImage="buttonBackground.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="help:" destination="zDn-Ud-qKF" eventType="touchUpInside" id="uAh-eb-sNT"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Venue Selected:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="OPO-Sc-uZE">
                                 <rect key="frame" x="20" y="55" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1634,7 +1650,6 @@
             <relationships>
                 <relationship kind="action" name="allowSwitch:"/>
                 <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="managePreOrder:"/>
                 <relationship kind="action" name="onlineReservationsSwitch:"/>
                 <relationship kind="action" name="save:"/>
@@ -1667,6 +1682,7 @@
         <class className="CGOwnerAccountInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGOwnerAccountInfoViewController.h"/>
             <relationships>
+                <relationship kind="action" name="help:"/>
                 <relationship kind="action" name="logOut:"/>
                 <relationship kind="outlet" name="adminMessageTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="changeRestaurantButton" candidateClass="UIButton"/>
