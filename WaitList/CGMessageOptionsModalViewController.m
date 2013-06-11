@@ -204,7 +204,7 @@
         self.waitListPageCountLabel.text = remainingCharacters.stringValue;
         
         if (remainingCharacters.intValue > 0){
-            waitListPageCountLabel.textColor = [UIColor blackColor];
+            waitListPageCountLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0];
         }else{
             waitListPageCountLabel.textColor = [UIColor redColor];
         }
@@ -213,7 +213,7 @@
         self.tableReadyCountLabel.text = remainingCharacters.stringValue;
         
         if (remainingCharacters.intValue > 0){
-            tableReadyCountLabel.textColor = [UIColor blackColor];
+            tableReadyCountLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0];
         }else{
             tableReadyCountLabel.textColor = [UIColor redColor];
         }
@@ -222,7 +222,7 @@
         self.welcomeCountLabel.text = remainingCharacters.stringValue;
         
         if (remainingCharacters.intValue > 0){
-            welcomeCountLabel.textColor = [UIColor blackColor];
+            welcomeCountLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0];
         }else{
             welcomeCountLabel.textColor = [UIColor redColor];
         }
@@ -231,7 +231,7 @@
         self.preOrderCountLabel.text = remainingCharacters.stringValue;
         
         if (remainingCharacters.intValue > 0){
-            self.preOrderCountLabel.textColor = [UIColor blackColor];
+            self.preOrderCountLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0];
         }else{
             self.preOrderCountLabel.textColor = [UIColor redColor];
         }

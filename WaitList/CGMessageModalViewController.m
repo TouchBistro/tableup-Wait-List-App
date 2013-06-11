@@ -203,7 +203,7 @@
     characterCountLabel.text = remainingCharacters.stringValue;
     
     if (remainingCharacters.intValue > 0){
-        characterCountLabel.textColor = [UIColor blackColor];
+        characterCountLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0];
     }else{
         characterCountLabel.textColor = [UIColor redColor];
     }

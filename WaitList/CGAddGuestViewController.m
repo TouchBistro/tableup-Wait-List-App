@@ -517,7 +517,9 @@
         
         
         headerLabel.textAlignment = UITextAlignmentCenter;
-        headerLabel.textColor = [UIColor colorWithRed:173.0/255.0 green:98.0/255.0 blue:137.0/255.0 alpha:1.0];
+        headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
+        headerLabel.shadowColor = [UIColor whiteColor];
+    	headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
         
         [customView addSubview:headerLabel];
         headerLabel = nil;
