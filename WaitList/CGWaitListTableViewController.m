@@ -66,31 +66,8 @@
     }
     
     if (self.totalParties && self.totalGuests && self.estimatedWait){
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,300,30)];
-        
-        NSString *label = @"Parties: ";
-        label = [label stringByAppendingString:self.totalParties.stringValue];
-        label = [label stringByAppendingString:@" / Guests: "];
-        label = [label stringByAppendingString:self.totalGuests.stringValue];
-        label = [label stringByAppendingString:@" / Estimated Wait: "];
-        label = [label stringByAppendingString:self.estimatedWait.stringValue];
-        label = [label stringByAppendingString:@" mins"];
-        
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont boldSystemFontOfSize:10];
-        headerLabel.frame = CGRectMake(0,0,300,30);
-        headerLabel.text =  label;
-        headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
-        headerLabel.shadowColor = [UIColor whiteColor];
-    	headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        headerLabel.textAlignment = UITextAlignmentCenter;
-        
-        [customView addSubview:headerLabel];
-        self.tableView.tableHeaderView = customView;
+        [self addTopHeader];
     }
-
-    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
@@ -105,28 +82,7 @@
         self.estimatedWait = fullWaitList.estimatedWait;
         self.unreadMessages = fullWaitList.unreadMessages;
         self.numberOfUnreadMessages = fullWaitList.numberOfUnreadMessages;
-        
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
-        
-        NSString *label = @"Parties: ";
-        label = [label stringByAppendingString:self.totalParties.stringValue];
-        label = [label stringByAppendingString:@" / Guests: "];
-        label = [label stringByAppendingString:self.totalGuests.stringValue];
-        label = [label stringByAppendingString:@" / Estimated Wait: "];
-        label = [label stringByAppendingString:self.estimatedWait.stringValue];
-        label = [label stringByAppendingString:@" mins"];
-        
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
-        headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont boldSystemFontOfSize:10];
-        headerLabel.text =  label;
-        headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
-        headerLabel.shadowColor = [UIColor whiteColor];
-    	headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        headerLabel.textAlignment = UITextAlignmentCenter;
-        
-        [customView addSubview:headerLabel];
-        self.tableView.tableHeaderView = customView;
+        [self addTopHeader];
         
         self.dataLoaded = TRUE;
         [self.tableView reloadData];
@@ -408,6 +364,83 @@
     }else{
         return 0;
     }
+}
+
+-(void) addTopHeader {
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,75)];
+    
+    NSString *label = @"Parties: ";
+    label = [label stringByAppendingString:self.totalParties.stringValue];
+    label = [label stringByAppendingString:@" / Guests: "];
+    label = [label stringByAppendingString:self.totalGuests.stringValue];
+    label = [label stringByAppendingString:@" / Estimated Wait: "];
+    label = [label stringByAppendingString:self.estimatedWait.stringValue];
+    label = [label stringByAppendingString:@" mins"];
+    
+    self.waitListHeaderButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.waitListHeaderButton addTarget:self
+               action:@selector(waitListHeaderButtonPressed:)
+     forControlEvents:UIControlEventTouchDown];
+    [self.waitListHeaderButton setTitle:@"View WaitList" forState:UIControlStateNormal];
+    self.waitListHeaderButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    [self.waitListHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.waitListHeaderButton.frame = CGRectMake(30, 10, 130.0, 40.0);
+    
+    UIImage *buttonBackground = [UIImage imageNamed:@"buttonBackgroundPinkLEFT.png"];
+    UIImage *newImage = [buttonBackground stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+    [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
+    
+    [customView addSubview:self.waitListHeaderButton];
+    
+    self.removeHeaderButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.removeHeaderButton addTarget:self
+                     action:@selector(removeHeaderButtonPressed:)
+           forControlEvents:UIControlEventTouchDown];
+    [self.removeHeaderButton setTitle:@"Seated & Removed" forState:UIControlStateNormal];
+    self.removeHeaderButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    [self.removeHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.removeHeaderButton.frame = CGRectMake(160, 10, 130.0, 40.0);
+    
+    UIImage *buttonBackgroundRight = [UIImage imageNamed:@"buttonBackgroundGreyRIGHT.png"];
+    [self.removeHeaderButton setBackgroundImage:buttonBackgroundRight forState:UIControlStateNormal];
+    [customView addSubview:self.removeHeaderButton];
+    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,45,self.tableView.bounds.size.width,30)];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:10];
+    headerLabel.text =  label;
+    headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
+    headerLabel.shadowColor = [UIColor whiteColor];
+    headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    headerLabel.textAlignment = UITextAlignmentCenter;
+    
+    [customView addSubview:headerLabel];
+    self.tableView.tableHeaderView = customView;
+}
+
+-(void) waitListHeaderButtonPressed: (id) sender {
+    UIImage *waitListBackground = [UIImage imageNamed:@"buttonBackgroundPinkLEFT.png"];
+    UIImage *removeBackground = [UIImage imageNamed:@"buttonBackgroundGreyRIGHT.png"];
+    UIImage *newImage = [waitListBackground stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+
+    [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
+    [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
+    
+    [self.waitListHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.removeHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+}
+
+-(void) removeHeaderButtonPressed: (id) sender {
+    UIImage *waitListBackground = [UIImage imageNamed:@"buttonBackgroundGreyLEFT.png"];
+    UIImage *removeBackground = [UIImage imageNamed:@"buttonBackgroundPinkRIGHT.png"];
+    
+    UIImage *newImage = [waitListBackground stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+    
+    [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
+    [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
+    
+    [self.waitListHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.removeHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 

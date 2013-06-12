@@ -28,12 +28,13 @@
 @property (nonatomic, assign) BOOL unreadMessages;
 @property (nonatomic, strong) NSNumber *numberOfUnreadMessages;
 
-
+@property (strong, nonatomic) UIButton *waitListHeaderButton;
+@property (strong, nonatomic) UIButton *removeHeaderButton;
 
 -(void) refreshMyTableView;
 -(void) retrieveWaitListForDisplay;
-- (IBAction)accountInfo:(id)sender;
 
+- (IBAction)accountInfo:(id)sender;
 
 - (void)guestDetailControllerDidFinish:(NSArray *)currentWaitList;
 
