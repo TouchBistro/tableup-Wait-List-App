@@ -68,10 +68,10 @@
         
         
         if (self.currentRestaurant){
-            textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the Wait List Feature.  Tap a restaurant to see its wait list.  Currently Viewing: ";
+            textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the WaitList Feature.  Tap a restaurant to view WaitList.  Currently Viewing: ";
             textView.text = [textView.text stringByAppendingString:self.currentRestaurant.name];
         }else{
-            textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the Wait List Feature.  Tap a restaurant to see its wait list.";
+            textView.text = @"Below are restaurants to which you have been granted admin access AND that have signed up for the WaitList Feature.  Tap a restaurant to view WaitList.";
         }
         
         
