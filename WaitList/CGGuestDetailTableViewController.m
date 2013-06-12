@@ -229,6 +229,32 @@
 }
 
 - (IBAction)addPartyToWaitList:(id)sender {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    [params setObject:userId forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
+    
+    NSString *fbUid = [[NSUserDefaults standardUserDefaults] objectForKey:kFbUid];
+    if (fbUid != nil){
+        [params setObject:fbUid forKey:@"fbUid"];
+    }
+    
+    NSString *urlString = @"/restaurants/";
+    urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/waitlist/"];
+    urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/addPartyBackToWaitList"];
+    
+    [[RKClient sharedClient] post:urlString params:params delegate:self];
+    
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.tableView addSubview: activityView];
+    
+    self.activityView.center = CGPointMake(240,160);
+    [self.activityView startAnimating];
 }
 
 - (IBAction)notify:(id)sender {
