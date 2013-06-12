@@ -31,6 +31,8 @@
 @property (strong, nonatomic) UIButton *waitListHeaderButton;
 @property (strong, nonatomic) UIButton *removeHeaderButton;
 
+@property (assign, nonatomic) BOOL showRemoved;
+
 -(void) refreshMyTableView;
 -(void) retrieveWaitListForDisplay;
 

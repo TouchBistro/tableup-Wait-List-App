@@ -54,17 +54,6 @@
 
 @synthesize messageBarButtonItem;
 
-
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     self.visitsLabel.hidden = YES;
@@ -179,6 +168,21 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    
+    if (self.waitListerHasBeenRemoved){
+        self.addPartyButton.hidden = NO;
+        
+        self.notifyButton.hidden = YES;
+        self.seatedButton.hidden = YES;
+        self.removeButton.hidden = YES;
+    }else{
+        self.notifyButton.hidden = NO;
+        self.seatedButton.hidden = NO;
+        self.removeButton.hidden = NO;
+        
+        self.addPartyButton.hidden = YES;
+    }
+    
     [super viewDidLoad];
     
 //    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/guests" delegate:self];
@@ -216,9 +220,15 @@
     [self setNotifyButton:nil];
     [self setPhoneNumberLabel:nil];
     [self setMessageBarButtonItem:nil];
+    [self setSeatedButton:nil];
+    [self setRemoveButton:nil];
+    [self setAddPartyButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (IBAction)addPartyToWaitList:(id)sender {
 }
 
 - (IBAction)notify:(id)sender {

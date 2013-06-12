@@ -46,7 +46,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *wait5Label;
 
 @property (strong, nonatomic) IBOutlet UIButton *notifyButton;
+@property (strong, nonatomic) IBOutlet UIButton *seatedButton;
+@property (strong, nonatomic) IBOutlet UIButton *removeButton;
+@property (strong, nonatomic) IBOutlet UIButton *addPartyButton;
 
+
+@property (assign, nonatomic) BOOL waitListerHasBeenRemoved;
+
+
+- (IBAction)addPartyToWaitList:(id)sender;
 - (IBAction)notify:(id)sender;
 - (IBAction)remove:(id)sender;
 - (IBAction)seated:(id)sender;
