@@ -24,6 +24,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *seatedButton;
 @property (strong, nonatomic) IBOutlet UIButton *removeButton;
 @property (strong, nonatomic) IBOutlet UIButton *messageButton;
+@property (strong, nonatomic) IBOutlet UIButton *addToPartyButton;
+
 @property (strong, nonatomic) IBOutlet UIImageView *partySizeImageView;
 
 @end

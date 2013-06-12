@@ -63,6 +63,10 @@
     url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
     url = [url stringByAppendingString:@"/waitlist"];
     
+    if (self.showRemoved){
+        url = [url stringByAppendingString:@"/removed"];
+    }
+    
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
     
     [super viewDidLoad];
@@ -75,28 +79,7 @@
     self.refreshControl = refreshControl;
     
     if (self.totalParties && self.totalGuests && self.estimatedWait){
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
-        
-        NSString *label = @"Parties: ";
-        label = [label stringByAppendingString:self.totalParties.stringValue];
-        label = [label stringByAppendingString:@" / Guests: "];
-        label = [label stringByAppendingString:self.totalGuests.stringValue];
-        label = [label stringByAppendingString:@" / Estimated Wait: "];
-        label = [label stringByAppendingString:self.estimatedWait.stringValue];
-        label = [label stringByAppendingString:@" mins"];
-        
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
-        headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont boldSystemFontOfSize:10];
-        headerLabel.text =  label;
-        headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
-        headerLabel.shadowColor = [UIColor whiteColor];
-    	headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        headerLabel.textAlignment = UITextAlignmentCenter;
-        
-        
-        [customView addSubview:headerLabel];
-        self.tableView.tableHeaderView = customView;
+        [self addTopHeader];
     }
     
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
@@ -239,6 +222,50 @@
     }
 }
 
+- (void) addToPartyButtonTouchDownRepeat:(id)sender event:(UIEvent *)event
+{
+    CGRestaurantWaitListActionsCell *cell = (CGRestaurantWaitListActionsCell *)[sender superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)[[sender superview] superview]];
+    
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if(touch.tapCount == 2)
+    {
+        if (cell && indexPath){
+            CGRestaurantWaitList *waitListee = [self.waitListers objectAtIndex:indexPath.row];
+            
+            NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+            
+            NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+            NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+            
+            NSString *fbUid = [[NSUserDefaults standardUserDefaults] objectForKey:kFbUid];
+            if (fbUid != nil){
+                [params setObject:fbUid forKey:@"fbUid"];
+            }
+            
+            [params setObject:userId forKey:@"userId"];
+            [params setObject:password forKey:@"password"];
+            
+            NSString *urlString = @"/restaurants/";
+            urlString = [urlString stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
+            urlString = [urlString stringByAppendingString:@"/waitlist/"];
+            urlString = [urlString stringByAppendingString:waitListee.waitListId.stringValue];
+            urlString = [urlString stringByAppendingString:@"/addPartyBackToWaitList"];
+            
+            
+            [self.tableView beginUpdates];
+            [self.waitListers removeObjectAtIndex:indexPath.row];
+            [self.tableView deleteRowsAtIndexPaths:[[NSArray alloc] initWithObjects:indexPath, nil]  withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+            
+            
+            [[RKClient sharedClient] post:urlString params:params delegate:self];
+            
+        }
+    }
+}
+
 - (void) messageButtonTouchDownRepeat:(id)sender event:(UIEvent *)event
 {
     [self performSegueWithIdentifier:@"messageModalSegue" sender:sender];
@@ -258,29 +285,7 @@
         self.unreadMessages = fullWaitList.unreadMessages;
         self.numberOfUnreadMessages = fullWaitList.numberOfUnreadMessages;
         
-        
-        UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
-        
-        NSString *label = @"Parties: ";
-        label = [label stringByAppendingString:self.totalParties.stringValue];
-        label = [label stringByAppendingString:@" / Guests: "];
-        label = [label stringByAppendingString:self.totalGuests.stringValue];
-        label = [label stringByAppendingString:@" / Estimated Wait: "];
-        label = [label stringByAppendingString:self.estimatedWait.stringValue];
-        label = [label stringByAppendingString:@" mins"];
-        
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,30)];
-        headerLabel.backgroundColor = [UIColor clearColor];
-        headerLabel.font = [UIFont boldSystemFontOfSize:10];
-        headerLabel.text =  label;
-        headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
-        headerLabel.shadowColor = [UIColor whiteColor];
-    	headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
-        headerLabel.textAlignment = UITextAlignmentCenter;
-        
-        
-        [customView addSubview:headerLabel];
-        self.tableView.tableHeaderView = customView;
+        [self addTopHeader];
         
         self.dataLoaded = TRUE;
         [self.tableView reloadData];
@@ -418,11 +423,29 @@
             cell.partySizeImageView.image = [UIImage imageNamed:@"partySize.png"];
         }
         
-        [cell.notifyButton addTarget:self action:@selector(notifyButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
-        [cell.seatedButton addTarget:self action:@selector(seatedButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
-        [cell.removeButton addTarget:self action:@selector(removeButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
-        
-        [cell.messageButton addTarget:self action:@selector(messageButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+        if (self.showRemoved){
+            cell.notifyButton.hidden = YES;
+            cell.seatedButton.hidden = YES;
+            cell.removeButton.hidden = YES;
+            cell.messageButton.hidden = NO;
+            
+            cell.addToPartyButton.hidden = NO;
+            
+            [cell.addToPartyButton addTarget:self action:@selector(addToPartyButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+            [cell.messageButton addTarget:self action:@selector(messageButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+        }else{
+            cell.notifyButton.hidden = NO;
+            cell.seatedButton.hidden = NO;
+            cell.removeButton.hidden = NO;
+            cell.messageButton.hidden = NO;
+            
+            cell.addToPartyButton.hidden = YES;
+            
+            [cell.notifyButton addTarget:self action:@selector(notifyButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+            [cell.seatedButton addTarget:self action:@selector(seatedButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+            [cell.removeButton addTarget:self action:@selector(removeButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+            [cell.messageButton addTarget:self action:@selector(messageButtonTouchDownRepeat:event:) forControlEvents:UIControlEventTouchDownRepeat];
+        }
     }
     
     return cell;
@@ -451,6 +474,10 @@
     url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
     url = [url stringByAppendingString:@"/waitlist"];
     
+    if (self.showRemoved){
+        url = [url stringByAppendingString:@"/removed"];
+    }
+    
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
     
 }
@@ -461,6 +488,10 @@
     NSString *url = @"/restaurants/";
     url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
     url = [url stringByAppendingString:@"/waitlist"];
+    
+    if (self.showRemoved){
+        url = [url stringByAppendingString:@"/removed"];
+    }
     
     [[RKObjectManager sharedManager] loadObjectsAtResourcePath:url delegate:self];
     
@@ -476,6 +507,10 @@
     NSString *url = @"/restaurants/";
     url = [url stringByAppendingString:self.currentRestaurant.restaurantId.stringValue];
     url = [url stringByAppendingString:@"/waitlist"];
+    
+    if (self.showRemoved){
+        url = [url stringByAppendingString:@"/removed"];
+    }
     
     if (accountPopover){
         [accountPopover dismissPopoverAnimated:YES];
@@ -648,4 +683,109 @@
 - (IBAction)showMessageOptions:(id)sender {
     [self performSegueWithIdentifier:@"messageOptionSegue" sender:self];
 }
+
+-(void) addTopHeader {
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,75)];
+    
+    self.waitListHeaderButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.removeHeaderButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [self.waitListHeaderButton addTarget:self
+                                  action:@selector(waitListHeaderButtonPressed:)
+                        forControlEvents:UIControlEventTouchDown];
+    [self.waitListHeaderButton setTitle:@"View WaitList" forState:UIControlStateNormal];
+    self.waitListHeaderButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    [self.waitListHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.waitListHeaderButton.frame = CGRectMake(234, 10, 150.0, 40.0);
+    
+    [self.removeHeaderButton addTarget:self
+                                action:@selector(removeHeaderButtonPressed:)
+                      forControlEvents:UIControlEventTouchDown];
+    [self.removeHeaderButton setTitle:@"Seated & Removed" forState:UIControlStateNormal];
+    self.removeHeaderButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    [self.removeHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.removeHeaderButton.frame = CGRectMake(384, 10, 150.0, 40.0);
+    
+    
+    NSString *label = @"Parties: ";
+    label = [label stringByAppendingString:self.totalParties.stringValue];
+    label = [label stringByAppendingString:@" / Guests: "];
+    label = [label stringByAppendingString:self.totalGuests.stringValue];
+    label = [label stringByAppendingString:@" / Estimated Wait: "];
+    label = [label stringByAppendingString:self.estimatedWait.stringValue];
+    label = [label stringByAppendingString:@" mins"];
+    
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,45,self.tableView.bounds.size.width,30)];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:10];
+    headerLabel.text =  label;
+    headerLabel.textColor = [UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0];
+    headerLabel.shadowColor = [UIColor whiteColor];
+    headerLabel.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    headerLabel.textAlignment = UITextAlignmentCenter;
+    
+    [customView addSubview:headerLabel];
+    
+    if (self.showRemoved){
+        UIImage *waitListBackground = [UIImage imageNamed:@"buttonBackgroundGreyLEFT.png"];
+        UIImage *removeBackground = [UIImage imageNamed:@"buttonBackgroundPinkRIGHT.png"];
+        
+        UIImage *newImage = [waitListBackground stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+        
+        [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
+        [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
+        
+        [self.waitListHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.removeHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }else{
+        UIImage *waitListBackground = [UIImage imageNamed:@"buttonBackgroundPinkLEFT.png"];
+        UIImage *removeBackground = [UIImage imageNamed:@"buttonBackgroundGreyRIGHT.png"];
+        UIImage *newImage = [waitListBackground stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+        
+        [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
+        [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
+        
+        [self.waitListHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.removeHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    
+    [customView addSubview:self.removeHeaderButton];
+    [customView addSubview:self.waitListHeaderButton];
+    
+    self.tableView.tableHeaderView = customView;
+}
+
+-(void) waitListHeaderButtonPressed: (id) sender {
+    UIImage *waitListBackground = [UIImage imageNamed:@"buttonBackgroundPinkLEFT.png"];
+    UIImage *removeBackground = [UIImage imageNamed:@"buttonBackgroundGreyRIGHT.png"];
+    UIImage *newImage = [waitListBackground stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+    
+    [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
+    [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
+    
+    [self.waitListHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.removeHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    self.showRemoved = NO;
+    
+    [self refreshMyTableView];
+}
+
+-(void) removeHeaderButtonPressed: (id) sender {
+    UIImage *waitListBackground = [UIImage imageNamed:@"buttonBackgroundGreyLEFT.png"];
+    UIImage *removeBackground = [UIImage imageNamed:@"buttonBackgroundPinkRIGHT.png"];
+    
+    UIImage *newImage = [waitListBackground stretchableImageWithLeftCapWidth:12.0 topCapHeight:0.0];
+    
+    [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
+    [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
+    
+    [self.waitListHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.removeHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    self.showRemoved = YES;
+    
+    [self refreshMyTableView];
+}
+
 @end

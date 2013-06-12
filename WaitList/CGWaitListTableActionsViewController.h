@@ -53,5 +53,9 @@
 -(void) retrieveWaitListForDisplay;
 -(IBAction)accountInfo:(id)sender;
 
+@property (strong, nonatomic) UIButton *waitListHeaderButton;
+@property (strong, nonatomic) UIButton *removeHeaderButton;
+
+@property (assign, nonatomic) BOOL showRemoved;
 
 @end
