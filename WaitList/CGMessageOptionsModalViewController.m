@@ -47,12 +47,13 @@
     
     self.scrollView.delegate = self;
     [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 1000)];
+    [scrollView setContentSize:CGSizeMake(320, 1400)];
     
     [self setupTextView:self.waitListPageTextView];
     [self setupTextView:self.tableReadyTextView];
     [self setupTextView:self.welcomeTextView];
     [self setupTextView:self.preOrderTextView];
+    [self setupTextView:self.feedbackTextView];
     
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeaderiPadModal.png"];
@@ -125,11 +126,14 @@
     [self setPreOrderCountLabel:nil];
     [self setPreOrderTextView:nil];
     [self setPreOrderSwitch:nil];
+    [self setFeedbackSwitch:nil];
+    [self setFeedbackLabel:nil];
+    [self setFeedbackTextView:nil];
     [super viewDidUnload];
 }
 
 - (IBAction)save:(id)sender {
-    if (self.welcomeTextView.text.length <= 127 && self.tableReadyTextView.text.length <= 160 && self.waitListPageTextView.text.length <= 250 && self.preOrderTextView.text.length <= 250){
+    if (self.welcomeTextView.text.length <= 127 && self.tableReadyTextView.text.length <= 160 && self.waitListPageTextView.text.length <= 250 && self.preOrderTextView.text.length <= 250 && self.feedbackTextView.text.length <= 250){
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
         NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
@@ -164,6 +168,11 @@
             self.currentRestaurant.preOrderingMessage = self.preOrderTextView.text;
         }
         
+        if (self.feedbackTextView.text != nil){
+            [params setObject:self.feedbackTextView.text forKey:@"feedbackMessage" ];
+            self.currentRestaurant.feedbackMessage = self.feedbackTextView.text;
+        }
+        
         if (self.onlineReservationsSwitch.on){
             [params setObject:@"true" forKey:@"isWaitListOnlineReservationsEnabled" ];
             self.currentRestaurant.waitListOnlineReservationsEnabled = YES;
@@ -185,6 +194,14 @@
             self.currentRestaurant.preOrderingEnabled = YES;
         }else{
             [params setObject:@"false" forKey:@"isPreOrderingEnabled"];
+            self.currentRestaurant.preOrderingEnabled = NO;
+        }
+        
+        if (self.feedbackSwitch.on){
+            [params setObject:@"true" forKey:@"isFeedbackEnabled"];
+            self.currentRestaurant.preOrderingEnabled = YES;
+        }else{
+            [params setObject:@"false" forKey:@"isFeedbackEnabled"];
             self.currentRestaurant.preOrderingEnabled = NO;
         }
         
@@ -235,6 +252,15 @@
         }else{
             self.preOrderCountLabel.textColor = [UIColor redColor];
         }
+    }else if (textView == self.feedbackTextView){
+        remainingCharacters = [[NSNumber alloc] initWithInt:127 - self.feedbackTextView.text.length];
+        self.feedbackLabel.text = remainingCharacters.stringValue;
+        
+        if (remainingCharacters.intValue > 0){
+            self.feedbackLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0];
+        }else{
+            self.feedbackLabel.textColor = [UIColor redColor];
+        }
     }
 }
 
@@ -279,6 +305,12 @@
                             [self.preOrderSwitch setOn:NO];
                         }
                         
+                        if (messageOptions.isFeedbackEnabled){
+                            [self.feedbackSwitch setOn:YES];
+                        }else{
+                            [self.feedbackSwitch setOn:NO];
+                        }
+                        
                         if (messageOptions.waitListWelcomeMessage){
                             self.welcomeTextView.text = messageOptions.waitListWelcomeMessage;
                             NSNumber *stringLength = [NSNumber numberWithInteger:127 - messageOptions.waitListWelcomeMessage.length];
@@ -301,6 +333,12 @@
                             self.preOrderTextView.text = messageOptions.preOrderingMessage;
                             NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.preOrderingMessage.length];
                             self.preOrderCountLabel.text = stringLength.stringValue;
+                        }
+                        
+                        if (messageOptions.feedbackMessage){
+                            self.feedbackTextView.text = messageOptions.feedbackMessage;
+                            NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.feedbackMessage.length];
+                            self.feedbackLabel.text = stringLength.stringValue;
                         }
                     }
                 }
