@@ -22,11 +22,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *tableReadyCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *waitListPageCountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *preOrderCountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *feedbackCountLabel;
 
 @property (strong, nonatomic) IBOutlet UITextView *welcomeTextView;
 @property (strong, nonatomic) IBOutlet UITextView *tableReadyTextView;
 @property (strong, nonatomic) IBOutlet UITextView *waitListPageTextView;
 @property (strong, nonatomic) IBOutlet UITextView *preOrderTextView;
+@property (strong, nonatomic) IBOutlet UITextView *feedbackTextView;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -35,9 +37,10 @@
 @property (assign, nonatomic) BOOL allowPreOrdering;
 
 @property (strong, nonatomic) IBOutlet UISwitch *allowPreOrderingSwitch;
-
 @property (strong, nonatomic) IBOutlet UISwitch *allowMessagesSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *onlineReservationsSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *feedbackSwitch;
+
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 - (IBAction)save:(id)sender;
 

@@ -124,6 +124,8 @@
     [messageOptionsMapping mapKeyPath:@"waitListOnlineReservationsEnabled" toAttribute:@"waitListOnlineReservationsEnabled"];
     [messageOptionsMapping mapKeyPath:@"preOrderingEnabled" toAttribute:@"preOrderingEnabled"];
     [messageOptionsMapping mapKeyPath:@"preOrderingMessage" toAttribute:@"preOrderingMessage"];
+    [messageOptionsMapping mapKeyPath:@"feedbackEnabled" toAttribute:@"feedbackEnabled"];
+    [messageOptionsMapping mapKeyPath:@"feedbackMessage" toAttribute:@"feedbackMessage"];
     
     
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];

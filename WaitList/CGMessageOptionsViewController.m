@@ -48,12 +48,13 @@
     
     self.scrollView.delegate = self;
     [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 900)];
+    [scrollView setContentSize:CGSizeMake(320, 1300)];
     
     [self setupTextView:self.waitListPageTextView];
     [self setupTextView:self.tableReadyTextView];
     [self setupTextView:self.welcomeTextView];
     [self setupTextView:self.preOrderTextView];
+    [self setupTextView:self.feedbackTextView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
@@ -129,6 +130,9 @@
     [self setAllowPreOrderingSwitch:nil];
     [self setPreOrderCountLabel:nil];
     [self setPreOrderTextView:nil];
+    [self setFeedbackSwitch:nil];
+    [self setFeedbackCountLabel:nil];
+    [self setFeedbackTextView:nil];
     [super viewDidUnload];
 }
 
@@ -144,6 +148,8 @@
         firstResponder = self.welcomeTextView;
     }else if (self.preOrderTextView.isFirstResponder){
         firstResponder = self.preOrderTextView;
+    }else if (self.feedbackTextView.isFirstResponder){
+        firstResponder = self.feedbackTextView;
     }else{
         firstResponder = self.saveButton;
     }
@@ -175,7 +181,7 @@
 }
 
 - (IBAction)save:(id)sender {
-    if (self.welcomeTextView.text.length <= 127 && self.tableReadyTextView.text.length <= 160 && self.waitListPageTextView.text.length <= 250 && self.preOrderTextView.text.length <= 250){
+    if (self.welcomeTextView.text.length <= 127 && self.tableReadyTextView.text.length <= 160 && self.waitListPageTextView.text.length <= 250 && self.preOrderTextView.text.length <= 250 && self.feedbackTextView.text.length <= 250){
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
         NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
@@ -206,6 +212,10 @@
             [params setObject:self.preOrderTextView.text forKey:@"preOrderingMessage" ];
         }
         
+        if (self.feedbackTextView.text != nil){
+            [params setObject:self.feedbackTextView.text forKey:@"feedbackMessage" ];
+        }
+        
         if (self.onlineReservationsSwitch.on){
             [params setObject:@"true" forKey:@"isWaitListOnlineReservationsEnabled" ];
         }else{
@@ -222,6 +232,12 @@
             [params setObject:@"true" forKey:@"isPreOrderingEnabled" ];
         }else{
             [params setObject:@"false" forKey:@"isPreOrderingEnabled" ];
+        }
+        
+        if (self.feedbackSwitch.on){
+            [params setObject:@"true" forKey:@"isFeedbackEnabled" ];
+        }else{
+            [params setObject:@"false" forKey:@"isFeedbackEnabled" ];
         }
         
         [self.activityView startAnimating];
@@ -270,6 +286,15 @@
         }else{
             self.preOrderCountLabel.textColor = [UIColor redColor];
         }
+    }else if (textView == self.feedbackTextView){
+        remainingCharacters = [[NSNumber alloc] initWithInt:250 - self.feedbackTextView.text.length];
+        self.feedbackCountLabel.text = remainingCharacters.stringValue;
+        
+        if (remainingCharacters.intValue > 0){
+            self.preOrderCountLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0];
+        }else{
+            self.preOrderCountLabel.textColor = [UIColor redColor];
+        }
     }
 }
 
@@ -308,6 +333,12 @@
                             [self.allowPreOrderingSwitch setOn:NO];
                         }
                         
+                        if (messageOptions.isFeedbackEnabled){
+                            [self.feedbackSwitch setOn:YES];
+                        }else{
+                            [self.feedbackSwitch setOn:NO];
+                        }
+                        
                         if (messageOptions.isWaitListOnlineReservationsEnabled){
                             [self.onlineReservationsSwitch setOn:YES];
                         }else{
@@ -336,6 +367,12 @@
                             self.preOrderTextView.text = messageOptions.preOrderingMessage;
                             NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.preOrderingMessage.length];
                             self.preOrderCountLabel.text = stringLength.stringValue;
+                        }
+                        
+                        if (messageOptions.feedbackMessage){
+                            self.feedbackTextView.text = messageOptions.feedbackMessage;
+                            NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.feedbackMessage.length];
+                            self.feedbackCountLabel.text = stringLength.stringValue;
                         }
                     }
                 }
