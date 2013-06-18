@@ -382,7 +382,7 @@
 }
 
 -(void) addTopHeader {
-    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,75)];
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.tableView.bounds.size.width,60)];
     
     NSString *label = @"Parties: ";
     label = [label stringByAppendingString:self.totalParties.stringValue];
@@ -399,19 +399,19 @@
                                   action:@selector(waitListHeaderButtonPressed:)
                         forControlEvents:UIControlEventTouchDown];
     [self.waitListHeaderButton setTitle:@"View WaitList" forState:UIControlStateNormal];
-    self.waitListHeaderButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    self.waitListHeaderButton.titleLabel.font = [UIFont boldSystemFontOfSize:10.0];
     [self.waitListHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    self.waitListHeaderButton.frame = CGRectMake(30, 10, 130.0, 40.0);
+    self.waitListHeaderButton.frame = CGRectMake(40, 5, 120.0, 40.0);
     
     [self.removeHeaderButton addTarget:self
                                 action:@selector(removeHeaderButtonPressed:)
                       forControlEvents:UIControlEventTouchDown];
     [self.removeHeaderButton setTitle:@"Seated & Removed" forState:UIControlStateNormal];
-    self.removeHeaderButton.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    self.removeHeaderButton.titleLabel.font = [UIFont boldSystemFontOfSize:10.0];
     [self.removeHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.removeHeaderButton.frame = CGRectMake(160, 10, 130.0, 40.0);
+    self.removeHeaderButton.frame = CGRectMake(160, 5, 120.0, 40.0);
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,45,self.tableView.bounds.size.width,30)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,35,self.tableView.bounds.size.width,30)];
     headerLabel.backgroundColor = [UIColor clearColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:10];
     headerLabel.text =  label;
@@ -431,7 +431,7 @@
         [self.waitListHeaderButton setBackgroundImage:newImage forState:UIControlStateNormal];
         [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
         
-        [self.waitListHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.waitListHeaderButton setTitleColor:[UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0] forState:UIControlStateNormal];
         [self.removeHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }else{
         UIImage *waitListBackground = [UIImage imageNamed:@"buttonBackgroundPinkLEFT.png"];
@@ -442,7 +442,7 @@
         [self.removeHeaderButton setBackgroundImage:removeBackground forState:UIControlStateNormal];
         
         [self.waitListHeaderButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.removeHeaderButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.removeHeaderButton setTitleColor:[UIColor colorWithRed:99.0/255.0 green:98.0/255.0 blue:98.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     }
     
     [customView addSubview:self.removeHeaderButton];
