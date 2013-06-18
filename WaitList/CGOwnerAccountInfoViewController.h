@@ -22,4 +22,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *adminMessageTextView;
 - (IBAction)help:(id)sender;
 
+- (IBAction)viewAccount:(id)sender;
+
 @end

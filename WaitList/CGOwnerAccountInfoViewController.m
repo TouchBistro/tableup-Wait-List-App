@@ -122,4 +122,8 @@
 - (IBAction)help:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://citygusto.com/waitlist/training"]];
 }
+
+- (IBAction)viewAccount:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://citygusto.com/restaurantWaitList/viewWaitListStats/id?restaurantId=%@", self.currentRestaurant.restaurantId]]];
+}
 @end

@@ -755,7 +755,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="2Rp-2m-IS7">
-                            <rect key="frame" x="0.0" y="90" width="320" height="172"/>
+                            <rect key="frame" x="0.0" y="90" width="320" height="247"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="i6q-Ln-4WV">
@@ -788,6 +788,22 @@
                                     </state>
                                     <connections>
                                         <action selector="help:" destination="RcY-dB-D0P" eventType="touchUpInside" id="RSh-xS-GhQ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CaE-Dp-p1k">
+                                    <rect key="frame" x="8" y="170" width="304" height="67"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <size key="titleShadowOffset" width="1" height="1"/>
+                                    <state key="normal" title="Your WaitList Account &amp; Analytics" backgroundImage="buttonBackground.png">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="viewAccount:" destination="RcY-dB-D0P" eventType="touchUpInside" id="aVp-Lz-yv0"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -1477,6 +1493,8 @@
                         <outlet property="numberInPartyTextField" destination="szd-a2-uxb" id="0Ia-jN-X1H"/>
                         <outlet property="permanentNotesTextView" destination="9L0-My-uzP" id="XqP-dA-3mp"/>
                         <outlet property="phoneNumberTextField" destination="wgo-oA-0yp" id="nHl-SK-uaJ"/>
+                        <outlet property="removeButton" destination="Dgx-EN-MiG" id="H6m-tv-mLQ"/>
+                        <outlet property="seatedButton" destination="C3Q-J1-ejQ" id="h5q-RE-xDf"/>
                         <outlet property="tableNumberTextField" destination="hLp-Yp-zj4" id="6tN-w1-sVa"/>
                         <outlet property="textTimeSentAgoLabel" destination="5y3-6V-dBa" id="S5U-pe-A2s"/>
                         <outlet property="timeAgoLabel" destination="8ur-bj-PbF" id="vke-x6-mbD"/>
@@ -1565,6 +1583,7 @@
                 <relationship kind="action" name="help:"/>
                 <relationship kind="action" name="logOut:"/>
                 <relationship kind="action" name="manageMessageOptions:"/>
+                <relationship kind="action" name="viewAccount:"/>
             </relationships>
         </class>
         <class className="CGAddGuestIPadTableViewController" superclassName="UITableViewController">
@@ -1607,6 +1626,8 @@
                 <relationship kind="outlet" name="numberInPartyTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="permanentNotesTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="removeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="seatedButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="textTimeSentAgoLabel" candidateClass="UILabel"/>
@@ -1678,9 +1699,6 @@
         <class className="CGRestaurantWaitListActionsCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantWaitListActionsCell.h"/>
             <relationships>
-                <relationship kind="action" name="notify:"/>
-                <relationship kind="action" name="remove:"/>
-                <relationship kind="action" name="seated:"/>
                 <relationship kind="outlet" name="addOnlineImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="addToPartyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="estimatedWaitTime" candidateClass="UILabel"/>

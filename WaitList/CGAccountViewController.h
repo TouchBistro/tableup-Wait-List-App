@@ -28,4 +28,6 @@
 - (IBAction)manageMessageOptions:(id)sender;
 - (IBAction)help:(id)sender;
 
+- (IBAction)viewAccount:(id)sender;
+
 @end

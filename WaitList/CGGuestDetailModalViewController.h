@@ -37,7 +37,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeAgoLabel;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+
 @property (strong, nonatomic) IBOutlet UIButton *notifyButton;
+@property (strong, nonatomic) IBOutlet UIButton *seatedButton;
+@property (strong, nonatomic) IBOutlet UIButton *removeButton;
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 @property (strong, nonatomic) IBOutlet UIImageView *notifyImageView;
@@ -64,5 +67,7 @@
 
 @property (strong, nonatomic) CGRestaurantWaitList *waitListee;
 //@property (strong, nonatomic) NSMutableArray *currentWaitList;
+
+@property (assign, nonatomic) BOOL waitListerHasBeenRemoved;
 
 @end

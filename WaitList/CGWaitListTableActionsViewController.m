@@ -551,6 +551,8 @@
         if (guestDetail != nil){
             [guestDetail setSelectedRestaurant:self.currentRestaurant];
             [guestDetail setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
+            
+            guestDetail.waitListerHasBeenRemoved = self.showRemoved;
             guestDetail.delegate = self;
         }
     }else if ([[segue identifier] isEqualToString:@"messageModalSegue"]){

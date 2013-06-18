@@ -1115,7 +1115,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FJO-Xz-mzg">
-                                <rect key="frame" x="20" y="240" width="280" height="50"/>
+                                <rect key="frame" x="20" y="189" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -1131,7 +1131,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eIn-GW-Qhd">
-                                <rect key="frame" x="20" y="180" width="280" height="52"/>
+                                <rect key="frame" x="20" y="129" width="280" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -1147,7 +1147,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GYx-y7-KYc">
-                                <rect key="frame" x="20" y="84" width="280" height="50"/>
+                                <rect key="frame" x="20" y="42" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -1160,7 +1160,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VHG-PG-yt6">
-                                <rect key="frame" x="20" y="300" width="280" height="50"/>
+                                <rect key="frame" x="20" y="247" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -1176,7 +1176,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ah4-Bl-QeW">
-                                <rect key="frame" x="20" y="360" width="280" height="50"/>
+                                <rect key="frame" x="20" y="305" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -1191,8 +1191,24 @@
                                     <action selector="help:" destination="zDn-Ud-qKF" eventType="touchUpInside" id="uAh-eb-sNT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aSq-0Z-3k7">
+                                <rect key="frame" x="20" y="363" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Your WaitList Account &amp; Analytics" backgroundImage="buttonBackground.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewAccount:" destination="zDn-Ud-qKF" eventType="touchUpInside" id="DVr-MQ-dhl"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Venue Selected:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="OPO-Sc-uZE">
-                                <rect key="frame" x="20" y="65" width="280" height="21"/>
+                                <rect key="frame" x="20" y="13" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1201,7 +1217,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap to view WaitList" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="6V7-Ia-Cvv">
-                                <rect key="frame" x="20" y="130" width="280" height="21"/>
+                                <rect key="frame" x="20" y="100" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1753,6 +1769,7 @@
             <relationships>
                 <relationship kind="action" name="help:"/>
                 <relationship kind="action" name="logOut:"/>
+                <relationship kind="action" name="viewAccount:"/>
                 <relationship kind="outlet" name="adminMessageTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="changeRestaurantButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="currentVenueButton" candidateClass="UIButton"/>

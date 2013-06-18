@@ -163,6 +163,16 @@
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
+    if (self.waitListerHasBeenRemoved){
+        self.notifyButton.hidden = YES;
+        self.seatedButton.hidden = YES;
+        self.removeButton.hidden = YES;
+    }else{
+        self.notifyButton.hidden = NO;
+        self.seatedButton.hidden = NO;
+        self.removeButton.hidden = NO;
+    }
+    
     [super viewDidLoad];
 }
 
@@ -196,6 +206,8 @@
     [self setWait5Label:nil];
     [self setNotifyButton:nil];
     [self setCloseButton:nil];
+    [self setSeatedButton:nil];
+    [self setRemoveButton:nil];
     [super viewDidUnload];
 }
 
@@ -230,6 +242,10 @@
     urlString = [urlString stringByAppendingString:@"/waitlist/"];
     urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
     urlString = [urlString stringByAppendingString:@"/update"];
+    
+    if (self.waitListerHasBeenRemoved){
+        [params setObject:@"true" forKey:@"showRemoved"];
+    }
     
     if (textField == self.nameTextField){
         if ([self.nameTextField.text length] == 0){
@@ -390,6 +406,10 @@
             [self prepareForSave];
             [[RKClient sharedClient] post:urlString params:params delegate:self];
         }
+    }
+    
+    if (self.waitListerHasBeenRemoved){
+        [params setObject:@"true" forKey:@"showRemoved"];
     }
     
     [self.view addSubview: activityView];
