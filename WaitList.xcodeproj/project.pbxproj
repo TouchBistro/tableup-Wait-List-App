@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B00D2E51770CBE10094634E /* appHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B00D2E41770CBE10094634E /* appHeader@2x.png */; };
 		1B0F7FC0165B22E0004EA747 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0F7FBE165B22E0004EA747 /* FacebookSDK.framework */; };
 		1B0F7FC1165B22E0004EA747 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F7FBF165B22E0004EA747 /* FacebookSDKResources.bundle */; };
 		1B1BBF33162CB13900708323 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1BBF26162CAF4B00708323 /* libRestKit.a */; };
@@ -146,6 +147,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B00D2E41770CBE10094634E /* appHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appHeader@2x.png"; sourceTree = "<group>"; };
 		1B0F7FBE165B22E0004EA747 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		1B0F7FBF165B22E0004EA747 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		1B1BBF1A162CAF4B00708323 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 		1B8D1D67164C4F31008AFE6E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B00D2E41770CBE10094634E /* appHeader@2x.png */,
 				1B970BCB1768DB2A00482A1C /* returnToWaitList.png */,
 				1B970BCC1768DB2A00482A1C /* returnToWaitList@2x.png */,
 				1B970BC71768BE1400482A1C /* buttonBackgroundGreyRIGHT.png */,
@@ -662,6 +665,7 @@
 				1B970BCA1768BE1400482A1C /* buttonBackgroundPinkRIGHT.png in Resources */,
 				1B970BCD1768DB2A00482A1C /* returnToWaitList.png in Resources */,
 				1B970BCE1768DB2A00482A1C /* returnToWaitList@2x.png in Resources */,
+				1B00D2E51770CBE10094634E /* appHeader@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
