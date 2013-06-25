@@ -48,7 +48,7 @@
     
     self.scrollView.delegate = self;
     [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 1300)];
+    [scrollView setContentSize:CGSizeMake(320, 1700)];
     
     [self setupTextView:self.waitListPageTextView];
     [self setupTextView:self.tableReadyTextView];
@@ -133,6 +133,7 @@
     [self setFeedbackSwitch:nil];
     [self setFeedbackCountLabel:nil];
     [self setFeedbackTextView:nil];
+    [self setWaitListStatus1:nil];
     [super viewDidUnload];
 }
 
@@ -150,10 +151,19 @@
         firstResponder = self.preOrderTextView;
     }else if (self.feedbackTextView.isFirstResponder){
         firstResponder = self.feedbackTextView;
+    }else if (self.waitListStatus1.isFirstResponder){
+        firstResponder = self.waitListStatus1;
+    }else if (self.waitListStatus2.isFirstResponder){
+        firstResponder = self.waitListStatus2;
+    }else if (self.waitListStatus3.isFirstResponder){
+        firstResponder = self.waitListStatus3;
+    }else if (self.waitListStatus4.isFirstResponder){
+        firstResponder = self.waitListStatus4;
+    }else if (self.waitListStatus5.isFirstResponder){
+        firstResponder = self.waitListStatus5;
     }else{
         firstResponder = self.saveButton;
     }
-    
     
     CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -214,6 +224,26 @@
         
         if (self.feedbackTextView.text != nil){
             [params setObject:self.feedbackTextView.text forKey:@"feedbackMessage" ];
+        }
+        
+        if (self.waitListStatus1.text != nil){
+            [params setObject:self.waitListStatus1.text forKey:@"waitListStatus1" ];
+        }
+        
+        if (self.waitListStatus2.text != nil){
+            [params setObject:self.waitListStatus2.text forKey:@"waitListStatus2" ];
+        }
+        
+        if (self.waitListStatus3.text != nil){
+            [params setObject:self.waitListStatus3.text forKey:@"waitListStatus3" ];
+        }
+        
+        if (self.waitListStatus4.text != nil){
+            [params setObject:self.waitListStatus4.text forKey:@"waitListStatus4" ];
+        }
+        
+        if (self.waitListStatus5.text != nil){
+            [params setObject:self.waitListStatus5.text forKey:@"waitListStatus5" ];
         }
         
         if (self.onlineReservationsSwitch.on){
@@ -373,6 +403,26 @@
                             self.feedbackTextView.text = messageOptions.feedbackMessage;
                             NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.feedbackMessage.length];
                             self.feedbackCountLabel.text = stringLength.stringValue;
+                        }
+                        
+                        if (messageOptions.waitListStatus1){
+                            self.waitListStatus1.text = messageOptions.waitListStatus1;
+                        }
+                        
+                        if (messageOptions.waitListStatus2){
+                            self.waitListStatus2.text = messageOptions.waitListStatus2;
+                        }
+                        
+                        if (messageOptions.waitListStatus3){
+                            self.waitListStatus3.text = messageOptions.waitListStatus3;
+                        }
+                        
+                        if (messageOptions.waitListStatus4){
+                            self.waitListStatus4.text = messageOptions.waitListStatus4;
+                        }
+                        
+                        if (messageOptions.waitListStatus5){
+                            self.waitListStatus5.text = messageOptions.waitListStatus5;
                         }
                     }
                 }

@@ -88,6 +88,13 @@
         self.estimatedWait = fullWaitList.estimatedWait;
         self.unreadMessages = fullWaitList.unreadMessages;
         self.numberOfUnreadMessages = fullWaitList.numberOfUnreadMessages;
+        
+        self.waitListStatus1 = fullWaitList.waitListStatus1;
+        self.waitListStatus2 = fullWaitList.waitListStatus2;
+        self.waitListStatus3 = fullWaitList.waitListStatus3;
+        self.waitListStatus4 = fullWaitList.waitListStatus4;
+        self.waitListStatus5 = fullWaitList.waitListStatus5;
+        
         [self addTopHeader];
         
         self.dataLoaded = TRUE;
@@ -135,6 +142,7 @@
     }
     
     if (waitListee != nil){
+        cell.statusImageView.hidden = YES;
         cell.addOnlineImage.hidden = YES;
         cell.tableNumberLabel.hidden = YES;
         cell.name.text = waitListee.guest ? waitListee.guest.name : nil;
@@ -211,6 +219,26 @@
             cell.contentView.backgroundColor = [UIColor clearColor];
         }
         
+        if (waitListee.statusNumber){
+            cell.statusImageView.hidden = NO;
+            if ([waitListee.statusNumber intValue] == 1){
+                UIImage *image = [UIImage imageNamed:@"statusRed"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 2){
+                UIImage *image = [UIImage imageNamed:@"statusBlue"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 3){
+                UIImage *image = [UIImage imageNamed:@"statusOrange"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 4){
+                UIImage *image = [UIImage imageNamed:@"statusYellow"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 5){
+                UIImage *image = [UIImage imageNamed:@"statusBlack"];
+                cell.statusImageView.image = image;
+            }
+        }
+        
         CALayer *bottomBorder = [CALayer layer];
         
         CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -282,6 +310,12 @@
                 addGuestController.totalParties = self.totalParties;
                 addGuestController.totalGuests = self.totalGuests;
                 addGuestController.estimatedWait = self.estimatedWait;
+                
+                addGuestController.waitListStatus1 = self.waitListStatus1;
+                addGuestController.waitListStatus2 = self.waitListStatus2;
+                addGuestController.waitListStatus3 = self.waitListStatus3;
+                addGuestController.waitListStatus4 = self.waitListStatus4;
+                addGuestController.waitListStatus5 = self.waitListStatus5;
                 
                 [addGuestController setWaitListTableViewController:segue.sourceViewController];
                 [addGuestController setLoggedInUser:self.loggedInUser];

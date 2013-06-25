@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *tableNumberLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *partySizeImageView;
 
+@property (strong, nonatomic) IBOutlet UIImageView *statusImageView;
 
 @end

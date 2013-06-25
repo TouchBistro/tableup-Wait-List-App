@@ -80,6 +80,7 @@
     [waitListMapping mapKeyPath:@"dateCreated" toAttribute:@"dateCreated"];
     [waitListMapping mapKeyPath:@"lastUpdated" toAttribute:@"lastUpdated"];
     [waitListMapping mapKeyPath:@"hasPreOrderItems" toAttribute:@"hasPreOrderItems"];
+    [waitListMapping mapKeyPath:@"statusNumber" toAttribute:@"statusNumber"];
     
         
     [waitListMapping mapKeyPath:@"guest" toRelationship:@"guest" withMapping:guestMapping];
@@ -93,6 +94,11 @@
     [fullWaitListMapping mapKeyPath:@"estimatedWait" toAttribute:@"estimatedWait"];
     [fullWaitListMapping mapKeyPath:@"unreadMessages" toAttribute:@"unreadMessages"];
     [fullWaitListMapping mapKeyPath:@"numberOfUnreadMessages" toAttribute:@"numberOfUnreadMessages"];
+    [fullWaitListMapping mapKeyPath:@"waitListStatus1" toAttribute:@"waitListStatus1"];
+    [fullWaitListMapping mapKeyPath:@"waitListStatus2" toAttribute:@"waitListStatus2"];
+    [fullWaitListMapping mapKeyPath:@"waitListStatus3" toAttribute:@"waitListStatus3"];
+    [fullWaitListMapping mapKeyPath:@"waitListStatus4" toAttribute:@"waitListStatus4"];
+    [fullWaitListMapping mapKeyPath:@"waitListStatus5" toAttribute:@"waitListStatus5"];
             
     [fullWaitListMapping mapKeyPath:@"waitListers" toRelationship:@"waitListers" withMapping:waitListMapping];
     
@@ -126,6 +132,11 @@
     [messageOptionsMapping mapKeyPath:@"preOrderingMessage" toAttribute:@"preOrderingMessage"];
     [messageOptionsMapping mapKeyPath:@"feedbackEnabled" toAttribute:@"feedbackEnabled"];
     [messageOptionsMapping mapKeyPath:@"feedbackMessage" toAttribute:@"feedbackMessage"];
+    [messageOptionsMapping mapKeyPath:@"waitListStatus1" toAttribute:@"waitListStatus1"];
+    [messageOptionsMapping mapKeyPath:@"waitListStatus2" toAttribute:@"waitListStatus2"];
+    [messageOptionsMapping mapKeyPath:@"waitListStatus3" toAttribute:@"waitListStatus3"];
+    [messageOptionsMapping mapKeyPath:@"waitListStatus4" toAttribute:@"waitListStatus4"];
+    [messageOptionsMapping mapKeyPath:@"waitListStatus5" toAttribute:@"waitListStatus5"];
     
     
     [[RKObjectManager sharedManager].mappingProvider setMapping:guestMapping forKeyPath:@"guests"];

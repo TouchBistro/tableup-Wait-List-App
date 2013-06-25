@@ -35,6 +35,8 @@
 @property (strong, nonatomic) IBOutlet UITextView *permanentNotesTextView;
 @property (strong, nonatomic) IBOutlet UITextView *visitNotesTextView;
 
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+
 
 @property (strong, nonatomic) CGWaitListTableViewController *waitListTableViewController;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
@@ -61,6 +63,15 @@
 @property (strong, nonatomic) IBOutlet UIButton *saveAndSendButton;
 @property (strong, nonatomic) IBOutlet UIButton *noPhoneNumberButton;
 
+@property (nonatomic, strong) NSString *waitListStatus1;
+@property (nonatomic, strong) NSString *waitListStatus2;
+@property (nonatomic, strong) NSString *waitListStatus3;
+@property (nonatomic, strong) NSString *waitListStatus4;
+@property (nonatomic, strong) NSString *waitListStatus5;
+
+@property (nonatomic, strong) NSMutableArray *waitListStatuses;
+
+@property (nonatomic, strong) NSNumber *statusNumber;
 
 
 @end

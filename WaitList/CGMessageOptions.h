@@ -21,6 +21,10 @@
 @property (nonatomic, strong) NSString *preOrderingMessage;
 @property (nonatomic, strong) NSString *feedbackMessage;
 
-
+@property (nonatomic, strong) NSString *waitListStatus1;
+@property (nonatomic, strong) NSString *waitListStatus2;
+@property (nonatomic, strong) NSString *waitListStatus3;
+@property (nonatomic, strong) NSString *waitListStatus4;
+@property (nonatomic, strong) NSString *waitListStatus5;
 
 @end

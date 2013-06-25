@@ -33,6 +33,8 @@
 @property (nonatomic, strong) NSNumber *timeOnWaitList;
 @property (nonatomic, strong) NSNumber *timeSinceTextSent;
 
+@property (nonatomic, strong) NSNumber *statusNumber;
+
 @property (nonatomic, strong) CGRestaurantGuest *guest;
 
 @property (nonatomic, strong) NSMutableArray *messages;
