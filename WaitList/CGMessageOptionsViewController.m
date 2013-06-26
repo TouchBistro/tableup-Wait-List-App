@@ -56,6 +56,12 @@
     [self setupTextView:self.preOrderTextView];
     [self setupTextView:self.feedbackTextView];
     
+    self.waitListStatus1.delegate = self;
+    self.waitListStatus2.delegate = self;
+    self.waitListStatus3.delegate = self;
+    self.waitListStatus4.delegate = self;
+    self.waitListStatus5.delegate = self;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification
@@ -275,6 +281,27 @@
     }else{
         [[[UIAlertView alloc] initWithTitle:@"Messages" message:@"Some of your messages are too long.  Please fix." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.waitListStatus1){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus2){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus3){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus4){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus5){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }
+    
+    return YES;
 }
 
 -(void)textViewDidChange:(UITextView *)textView

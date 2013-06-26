@@ -10,7 +10,7 @@
 #import <RestKit/RestKit.h>
 #import "CGRestaurant.h"
 
-@interface CGMessageOptionsViewController : UIViewController <RKObjectLoaderDelegate, UITextViewDelegate>
+@interface CGMessageOptionsViewController : UIViewController <RKObjectLoaderDelegate, UITextViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) CGRestaurant *currentRestaurant;
 
