@@ -9,7 +9,7 @@
 #import "CGRestaurant.h"
 #import <UIKit/UIKit.h>
 
-@interface CGMessageOptionsModalViewController : UIViewController <UITextViewDelegate>
+@interface CGMessageOptionsModalViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) CGRestaurant *currentRestaurant;
 
@@ -46,5 +46,11 @@
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 - (IBAction)managePreOrder:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UITextField *waitListStatus1;
+@property (strong, nonatomic) IBOutlet UITextField *waitListStatus2;
+@property (strong, nonatomic) IBOutlet UITextField *waitListStatus3;
+@property (strong, nonatomic) IBOutlet UITextField *waitListStatus4;
+@property (strong, nonatomic) IBOutlet UITextField *waitListStatus5;
 
 @end

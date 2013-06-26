@@ -285,6 +285,12 @@
         self.unreadMessages = fullWaitList.unreadMessages;
         self.numberOfUnreadMessages = fullWaitList.numberOfUnreadMessages;
         
+        self.waitListStatus1 = fullWaitList.waitListStatus1;
+        self.waitListStatus2 = fullWaitList.waitListStatus2;
+        self.waitListStatus3 = fullWaitList.waitListStatus3;
+        self.waitListStatus4 = fullWaitList.waitListStatus4;
+        self.waitListStatus5 = fullWaitList.waitListStatus5;
+        
         [self addTopHeader];
         
         self.dataLoaded = TRUE;
@@ -332,7 +338,28 @@
     if (waitListee != nil){
         cell.notifyButton.enabled = YES;
         cell.messageButton.enabled = YES;
+        cell.statusImageView.hidden = YES;
         cell.name.text = waitListee.guest ? waitListee.guest.name : nil;
+        
+        if (waitListee.statusNumber){
+            cell.statusImageView.hidden = NO;
+            if ([waitListee.statusNumber intValue] == 1){
+                UIImage *image = [UIImage imageNamed:@"statusRed"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 2){
+                UIImage *image = [UIImage imageNamed:@"statusBlue"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 3){
+                UIImage *image = [UIImage imageNamed:@"statusOrange"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 4){
+                UIImage *image = [UIImage imageNamed:@"statusYellow"];
+                cell.statusImageView.image = image;
+            }else if ([waitListee.statusNumber intValue] == 5){
+                UIImage *image = [UIImage imageNamed:@"statusBlack"];
+                cell.statusImageView.image = image;
+            }
+        }
         
         if (waitListee.estimatedWait != nil){
             NSString *estimatedWaitString = waitListee.estimatedWait.stringValue;
@@ -539,6 +566,12 @@
             addGuestController.estimatedWait = self.estimatedWait;
             addGuestController.delegate = self;
             
+            addGuestController.waitListStatus1 = self.waitListStatus1;
+            addGuestController.waitListStatus2 = self.waitListStatus2;
+            addGuestController.waitListStatus3 = self.waitListStatus3;
+            addGuestController.waitListStatus4 = self.waitListStatus4;
+            addGuestController.waitListStatus5 = self.waitListStatus5;
+            
             [addGuestController setLoggedInUser:self.loggedInUser];
             [addGuestController setCurrentRestaurant:self.currentRestaurant];
             
@@ -551,6 +584,12 @@
         if (guestDetail != nil){
             [guestDetail setSelectedRestaurant:self.currentRestaurant];
             [guestDetail setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
+            
+            guestDetail.waitListStatus1 = self.waitListStatus1;
+            guestDetail.waitListStatus2 = self.waitListStatus2;
+            guestDetail.waitListStatus3 = self.waitListStatus3;
+            guestDetail.waitListStatus4 = self.waitListStatus4;
+            guestDetail.waitListStatus5 = self.waitListStatus5;
             
             guestDetail.waitListerHasBeenRemoved = self.showRemoved;
             guestDetail.delegate = self;

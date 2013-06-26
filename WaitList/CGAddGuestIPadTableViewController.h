@@ -61,6 +61,17 @@
 @property (strong, nonatomic) IBOutlet UIButton *saveAndSendButton;
 
 @property (nonatomic, assign) id <CCAddGuestIPadDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+
+@property (nonatomic, strong) NSString *waitListStatus1;
+@property (nonatomic, strong) NSString *waitListStatus2;
+@property (nonatomic, strong) NSString *waitListStatus3;
+@property (nonatomic, strong) NSString *waitListStatus4;
+@property (nonatomic, strong) NSString *waitListStatus5;
+
+@property (nonatomic, strong) NSMutableArray *waitListStatuses;
+
+@property (nonatomic, strong) NSNumber *statusNumber;
 
 
 @end

@@ -251,6 +251,10 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="statusBlack.png" id="bb2-Sn-BD8">
+                                            <rect key="frame" x="0.0" y="27" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -267,6 +271,7 @@
                                     <outlet property="partySizeImageView" destination="nJk-Yd-Fuu" id="a8b-I7-lzh"/>
                                     <outlet property="removeButton" destination="H9d-OJ-lE7" id="MPg-uU-wjx"/>
                                     <outlet property="seatedButton" destination="tVI-5D-a4B" id="aPv-ab-3sP"/>
+                                    <outlet property="statusImageView" destination="bb2-Sn-BD8" id="DsD-k5-5fL"/>
                                     <outlet property="tableNumberLabel" destination="eIS-es-Hci" id="mIs-y8-NJu"/>
                                     <outlet property="textSentTimeAgo" destination="Vxf-7c-vtI" id="UDZ-Ed-9go"/>
                                     <outlet property="visitNotesLabel" destination="fes-1s-ATE" id="cNa-ub-Oxe"/>
@@ -322,7 +327,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="2ck-l1-gyd">
-                            <rect key="frame" x="0.0" y="507" width="500" height="258"/>
+                            <rect key="frame" x="0.0" y="551" width="500" height="258"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RPg-cN-EKN">
@@ -539,8 +544,39 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="yLg-U3-G0r">
+                                        <rect key="frame" x="0.0" y="317" width="500" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="31" y="0.0" width="438" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dFE-Qd-7RE">
+                                                    <rect key="frame" x="20" y="11" width="97" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="w9F-2I-wMm">
+                                                    <rect key="frame" x="141" y="8" width="297" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                </textField>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap to add status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HsI-9N-kd8">
+                                                    <rect key="frame" x="141" y="12" width="277" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="90" id="rsd-Vv-hNk">
-                                        <rect key="frame" x="0.0" y="317" width="500" height="90"/>
+                                        <rect key="frame" x="0.0" y="361" width="500" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="438" height="89"/>
@@ -564,7 +600,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="89" id="xgF-Ew-EEL">
-                                        <rect key="frame" x="0.0" y="407" width="500" height="90"/>
+                                        <rect key="frame" x="0.0" y="451" width="500" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="438" height="88"/>
@@ -608,6 +644,7 @@
                         <outlet property="phoneNumberTextField" destination="4Tk-kW-iqJ" id="3Yp-qx-SO4"/>
                         <outlet property="saveAndSendButton" destination="bSv-Q5-b3m" id="20R-cU-ntI"/>
                         <outlet property="saveButton" destination="RPg-cN-EKN" id="B9d-eh-qIN"/>
+                        <outlet property="statusLabel" destination="HsI-9N-kd8" id="Tpo-tI-vKA"/>
                         <outlet property="tableNumberTextField" destination="3L9-0q-BBi" id="zel-Zq-9lI"/>
                         <outlet property="visitLabel" destination="n78-vo-Eq1" id="S4N-La-akb"/>
                         <outlet property="visitNotesTextView" destination="FX4-1P-NDI" id="T4g-FH-vpr"/>
@@ -850,7 +887,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Jwt-vR-Pp4">
-                                <rect key="frame" x="0.0" y="0.0" width="540" height="947"/>
+                                <rect key="frame" x="0.0" y="0.0" width="540" height="1131"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="47e-fr-cid">
@@ -1006,6 +1043,15 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Custom Statuses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="KNF-xP-fJ9">
+                                        <rect key="frame" x="20" y="735" width="418" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="250" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="M2T-t3-qQV">
                                         <rect key="frame" x="474" y="414" width="46" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1043,7 +1089,7 @@
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tfc-PL-wTu">
-                                        <rect key="frame" x="40" y="835" width="460" height="71"/>
+                                        <rect key="frame" x="40" y="1040" width="460" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -1060,7 +1106,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PFI-FW-9sx">
-                                        <rect key="frame" x="40" y="756" width="460" height="71"/>
+                                        <rect key="frame" x="40" y="961" width="460" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -1075,6 +1121,56 @@
                                             <action selector="managePreOrder:" destination="xqL-WN-O1N" eventType="touchUpInside" id="cx9-C2-e1Y"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="statusRed.png" id="LUx-Pq-QbF">
+                                        <rect key="frame" x="20" y="764" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="statusBlue.png" id="V6z-O3-yOt">
+                                        <rect key="frame" x="20" y="802" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="statusOrange.png" id="ZUG-pb-E9A">
+                                        <rect key="frame" x="20" y="840" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="statusYellow.png" id="1jg-me-knz">
+                                        <rect key="frame" x="20" y="878" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="statusBlack.png" id="kug-V5-ufq">
+                                        <rect key="frame" x="20" y="916" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="zkL-vI-Mms">
+                                        <rect key="frame" x="53" y="762" width="467" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="uXs-Po-biu">
+                                        <rect key="frame" x="53" y="800" width="467" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="8oW-oG-1vc">
+                                        <rect key="frame" x="53" y="838" width="467" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="CYs-Lk-7re">
+                                        <rect key="frame" x="53" y="876" width="467" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="u5H-c8-WuE">
+                                        <rect key="frame" x="53" y="914" width="467" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                             </scrollView>
@@ -1109,6 +1205,11 @@
                         <outlet property="tableReadyTextView" destination="pW2-C3-Ui3" id="wFe-re-fXh"/>
                         <outlet property="waitListPageCountLabel" destination="M2T-t3-qQV" id="8Id-1M-rds"/>
                         <outlet property="waitListPageTextView" destination="UyI-7x-oPm" id="H6m-gG-Lg0"/>
+                        <outlet property="waitListStatus1" destination="zkL-vI-Mms" id="GTa-km-oKs"/>
+                        <outlet property="waitListStatus2" destination="uXs-Po-biu" id="SNZ-aN-tCF"/>
+                        <outlet property="waitListStatus3" destination="8oW-oG-1vc" id="b9r-SF-2fe"/>
+                        <outlet property="waitListStatus4" destination="CYs-Lk-7re" id="Fc9-zk-sNx"/>
+                        <outlet property="waitListStatus5" destination="u5H-c8-WuE" id="EAx-es-PD2"/>
                         <outlet property="welcomeCountLabel" destination="YKO-MC-RFc" id="OVZ-hk-cOh"/>
                         <outlet property="welcomeTextView" destination="5v0-xR-ZpB" id="FAo-xF-D1L"/>
                     </connections>
@@ -1144,7 +1245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Gco-35-Cj4">
-                            <rect key="frame" x="0.0" y="485" width="540" height="360"/>
+                            <rect key="frame" x="0.0" y="529" width="540" height="360"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="25 mins (15)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8ur-bj-PbF">
@@ -1414,8 +1515,33 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MS8-l6-PFN">
+                                        <rect key="frame" x="0.0" y="295" width="540" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="31" y="0.0" width="478" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZbN-QU-v1i">
+                                                    <rect key="frame" x="20" y="11" width="89" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap to add status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C9U-oo-r5x">
+                                                    <rect key="frame" x="117" y="11" width="341" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="90" id="cmO-oJ-610">
-                                        <rect key="frame" x="0.0" y="295" width="540" height="90"/>
+                                        <rect key="frame" x="0.0" y="339" width="540" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="478" height="89"/>
@@ -1442,7 +1568,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="89" id="Ciy-cu-ZN1">
-                                        <rect key="frame" x="0.0" y="385" width="540" height="90"/>
+                                        <rect key="frame" x="0.0" y="429" width="540" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="31" y="0.0" width="478" height="88"/>
@@ -1495,6 +1621,7 @@
                         <outlet property="phoneNumberTextField" destination="wgo-oA-0yp" id="nHl-SK-uaJ"/>
                         <outlet property="removeButton" destination="Dgx-EN-MiG" id="H6m-tv-mLQ"/>
                         <outlet property="seatedButton" destination="C3Q-J1-ejQ" id="h5q-RE-xDf"/>
+                        <outlet property="statusLabel" destination="C9U-oo-r5x" id="xga-Jp-tuA"/>
                         <outlet property="tableNumberTextField" destination="hLp-Yp-zj4" id="6tN-w1-sVa"/>
                         <outlet property="textTimeSentAgoLabel" destination="5y3-6V-dBa" id="S5U-pe-A2s"/>
                         <outlet property="timeAgoLabel" destination="8ur-bj-PbF" id="vke-x6-mbD"/>
@@ -1575,6 +1702,11 @@
         <image name="remove.png" width="80" height="80"/>
         <image name="returnToWaitList.png" width="80" height="80"/>
         <image name="seated.png" width="80" height="80"/>
+        <image name="statusBlack.png" width="25" height="25"/>
+        <image name="statusBlue.png" width="25" height="25"/>
+        <image name="statusOrange.png" width="25" height="25"/>
+        <image name="statusRed.png" width="25" height="25"/>
+        <image name="statusYellow.png" width="25" height="25"/>
     </resources>
     <classes>
         <class className="CGAccountViewController" superclassName="UITableViewController">
@@ -1605,6 +1737,7 @@
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="saveAndSendButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tableNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="visitLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="visitNotesTextView" candidateClass="UITextView"/>
@@ -1628,6 +1761,7 @@
                 <relationship kind="outlet" name="phoneNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="removeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="seatedButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tableNumberTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="textTimeSentAgoLabel" candidateClass="UILabel"/>
@@ -1692,6 +1826,11 @@
                 <relationship kind="outlet" name="tableReadyTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="waitListPageCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="waitListPageTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="waitListStatus1" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="waitListStatus2" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="waitListStatus3" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="waitListStatus4" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="waitListStatus5" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="welcomeCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="welcomeTextView" candidateClass="UITextView"/>
             </relationships>
@@ -1710,6 +1849,7 @@
                 <relationship kind="outlet" name="partySizeImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="removeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="seatedButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="statusImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="tableNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textSentTimeAgo" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="visitNotesLabel" candidateClass="UILabel"/>

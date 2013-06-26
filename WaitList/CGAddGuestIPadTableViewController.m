@@ -12,6 +12,7 @@
 #import "CGRestaurantFullWaitList.h"
 #import "CGRestaurantGuest.h"
 #import <RestKit/RestKit.h>
+#import "ActionSheetPicker.h"
 
 @interface CGAddGuestIPadTableViewController ()
 
@@ -86,6 +87,13 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                      action:@selector(handleStatusLabelTap:)];
+    
+    [singleFingerTap setCancelsTouchesInView:NO];
+    [self.statusLabel setUserInteractionEnabled:YES];
+    [self.statusLabel addGestureRecognizer:singleFingerTap];
+    
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     
 }
@@ -110,6 +118,7 @@
     [self setNoPhoneNumberButton:nil];
     [self setPhoneNumberLabel:nil];
     [self setActivityView:nil];
+    [self setStatusLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -529,6 +538,31 @@
     [self.tableView reloadData];
     
     self.saveButton.hidden = NO;
+}
+
+- (void)handleStatusLabelTap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.view == self.statusLabel){
+        
+        [ActionSheetStringPicker showPickerWithTitle:@"Choose Status" rows:self.waitListStatuses initialSelection:0 target:self successAction:@selector(statusWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.statusLabel];
+    }
+}
+
+- (void)statusWasSelected:(NSNumber *)selectedIndex element:(id)element{
+    NSString *selectedStatus = [self.waitListStatuses objectAtIndex:[selectedIndex intValue]];
+    
+    self.statusLabel.text = selectedStatus;
+    
+    if ([selectedStatus isEqualToString:self.waitListStatus1]){
+        self.statusNumber = [NSNumber numberWithInt:1];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus2]){
+        self.statusNumber = [NSNumber numberWithInt:2];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus3]){
+        self.statusNumber = [NSNumber numberWithInt:3];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus4]){
+        self.statusNumber = [NSNumber numberWithInt:4];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus5]){
+        self.statusNumber = [NSNumber numberWithInt:5];
+    }
 }
 
 @end

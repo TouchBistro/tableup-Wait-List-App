@@ -47,13 +47,19 @@
     
     self.scrollView.delegate = self;
     [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:CGSizeMake(320, 1400)];
+    [scrollView setContentSize:CGSizeMake(320, 1900)];
     
     [self setupTextView:self.waitListPageTextView];
     [self setupTextView:self.tableReadyTextView];
     [self setupTextView:self.welcomeTextView];
     [self setupTextView:self.preOrderTextView];
     [self setupTextView:self.feedbackTextView];
+    
+    self.waitListStatus1.delegate = self;
+    self.waitListStatus2.delegate = self;
+    self.waitListStatus3.delegate = self;
+    self.waitListStatus4.delegate = self;
+    self.waitListStatus5.delegate = self;
     
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeaderiPadModal.png"];
@@ -205,6 +211,26 @@
             self.currentRestaurant.preOrderingEnabled = NO;
         }
         
+        if (self.waitListStatus1.text != nil){
+            [params setObject:self.waitListStatus1.text forKey:@"waitListStatus1" ];
+        }
+        
+        if (self.waitListStatus2.text != nil){
+            [params setObject:self.waitListStatus2.text forKey:@"waitListStatus2" ];
+        }
+        
+        if (self.waitListStatus3.text != nil){
+            [params setObject:self.waitListStatus3.text forKey:@"waitListStatus3" ];
+        }
+        
+        if (self.waitListStatus4.text != nil){
+            [params setObject:self.waitListStatus4.text forKey:@"waitListStatus4" ];
+        }
+        
+        if (self.waitListStatus5.text != nil){
+            [params setObject:self.waitListStatus5.text forKey:@"waitListStatus5" ];
+        }
+        
         [self.activityView startAnimating];
         [[RKClient sharedClient] post:@"/waitlist/restaurant/messageoptions" params:params delegate:self];
     }else{
@@ -340,6 +366,26 @@
                             NSNumber *stringLength = [NSNumber numberWithInteger:250 - messageOptions.feedbackMessage.length];
                             self.feedbackLabel.text = stringLength.stringValue;
                         }
+                        
+                        if (messageOptions.waitListStatus1){
+                            self.waitListStatus1.text = messageOptions.waitListStatus1;
+                        }
+                        
+                        if (messageOptions.waitListStatus2){
+                            self.waitListStatus2.text = messageOptions.waitListStatus2;
+                        }
+                        
+                        if (messageOptions.waitListStatus3){
+                            self.waitListStatus3.text = messageOptions.waitListStatus3;
+                        }
+                        
+                        if (messageOptions.waitListStatus4){
+                            self.waitListStatus4.text = messageOptions.waitListStatus4;
+                        }
+                        
+                        if (messageOptions.waitListStatus5){
+                            self.waitListStatus5.text = messageOptions.waitListStatus5;
+                        }
                     }
                 }
             }
@@ -347,6 +393,27 @@
     }
     [self.activityView stopAnimating];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == self.waitListStatus1){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus2){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus3){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus4){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }else if (textField == self.waitListStatus5){
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+    }
+    
+    return YES;
 }
 
 - (IBAction)managePreOrder:(id)sender {

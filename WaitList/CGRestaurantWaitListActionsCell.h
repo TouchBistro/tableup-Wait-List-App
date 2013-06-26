@@ -27,5 +27,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *addToPartyButton;
 
 @property (strong, nonatomic) IBOutlet UIImageView *partySizeImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *statusImageView;
 
 @end

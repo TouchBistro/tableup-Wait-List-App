@@ -52,6 +52,17 @@
 @property (strong, nonatomic) IBOutlet UILabel *wait4Label;
 @property (strong, nonatomic) IBOutlet UILabel *wait5Label;
 
+@property (nonatomic, strong) NSString *waitListStatus1;
+@property (nonatomic, strong) NSString *waitListStatus2;
+@property (nonatomic, strong) NSString *waitListStatus3;
+@property (nonatomic, strong) NSString *waitListStatus4;
+@property (nonatomic, strong) NSString *waitListStatus5;
+
+@property (nonatomic, strong) NSMutableArray *waitListStatuses;
+
+@property (nonatomic, strong) NSNumber *statusNumber;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
 @property (nonatomic, assign, getter=isTimeToClose) BOOL timeToClose;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *closeButton;
