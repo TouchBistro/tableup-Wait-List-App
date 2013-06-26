@@ -12,6 +12,7 @@
 #import "CGUtils.h"
 #import "CGRestaurantWaitListWaitTime.h"
 #import "CGMessageViewController.h"
+#import "ActionSheetPicker.h"
 
 #import <RestKit/RestKit.h>
 
@@ -183,6 +184,50 @@
         self.addPartyButton.hidden = YES;
     }
     
+    self.waitListStatuses = [[NSMutableArray alloc] init];
+    
+    if (self.waitListStatus1.length > 0){
+        [self.waitListStatuses addObject:self.waitListStatus1];
+    }
+    
+    if (self.waitListStatus2.length > 0){
+        [self.waitListStatuses addObject:self.waitListStatus2];
+    }
+    
+    if (self.waitListStatus3.length > 0){
+        [self.waitListStatuses addObject:self.waitListStatus3];
+    }
+    
+    if (self.waitListStatus4.length > 0){
+        [self.waitListStatuses addObject:self.waitListStatus4];
+    }
+    
+    if (self.waitListStatus5.length > 0){
+        [self.waitListStatuses addObject:self.waitListStatus5];
+    }
+    
+    
+    if (self.waitListee.statusNumber){
+        if ([self.waitListee.statusNumber intValue] == 1){
+            self.statusLabel.text = self.waitListStatus1;
+        }else if ([self.waitListee.statusNumber intValue] == 2){
+            self.statusLabel.text = self.waitListStatus2;
+        }else if ([self.waitListee.statusNumber intValue] == 3){
+            self.statusLabel.text = self.waitListStatus3;
+        }else if ([self.waitListee.statusNumber intValue] == 4){
+            self.statusLabel.text = self.waitListStatus4;
+        }else if ([self.waitListee.statusNumber intValue] == 5){
+            self.statusLabel.text = self.waitListStatus5;
+        }
+    }
+    
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                      action:@selector(handleStatusLabelTap:)];
+    
+    [singleFingerTap setCancelsTouchesInView:NO];
+    [self.statusLabel setUserInteractionEnabled:YES];
+    [self.statusLabel addGestureRecognizer:singleFingerTap];
+    
     [super viewDidLoad];
     
 //    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:@"/restaurants/1/guests" delegate:self];
@@ -223,6 +268,7 @@
     [self setSeatedButton:nil];
     [self setRemoveButton:nil];
     [self setAddPartyButton:nil];
+    [self setStatusLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -587,6 +633,57 @@
     [self.navigationItem setHidesBackButton:NO animated:YES];
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
+}
+
+- (void)handleStatusLabelTap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.view == self.statusLabel){
+        
+        [ActionSheetStringPicker showPickerWithTitle:@"Choose Status" rows:self.waitListStatuses initialSelection:0 target:self successAction:@selector(statusWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.statusLabel];
+    }
+}
+
+- (void)statusWasSelected:(NSNumber *)selectedIndex element:(id)element{
+    NSString *selectedStatus = [self.waitListStatuses objectAtIndex:[selectedIndex intValue]];
+    
+    self.statusLabel.text = selectedStatus;
+    
+    if ([selectedStatus isEqualToString:self.waitListStatus1]){
+        self.waitListee.statusNumber = [NSNumber numberWithInt:1];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus2]){
+        self.waitListee.statusNumber = [NSNumber numberWithInt:2];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus3]){
+        self.waitListee.statusNumber = [NSNumber numberWithInt:3];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus4]){
+        self.waitListee.statusNumber = [NSNumber numberWithInt:4];
+    }else if ([selectedStatus isEqualToString:self.waitListStatus5]){
+        self.waitListee.statusNumber = [NSNumber numberWithInt:5];
+    }
+    
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    NSNumber *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
+    NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
+    
+    NSString *fbUid = [[NSUserDefaults standardUserDefaults] objectForKey:kFbUid];
+    if (fbUid != nil){
+        [params setObject:fbUid forKey:@"fbUid"];
+    }
+    
+    [params setObject:userId.stringValue forKey:@"userId"];
+    [params setObject:password forKey:@"password"];
+    
+    NSString *urlString = @"/restaurants/";
+    urlString = [urlString stringByAppendingString:self.selectedRestaurant.restaurantId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/waitlist/"];
+    urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
+    urlString = [urlString stringByAppendingString:@"/update"];
+    
+    [params setObject:self.waitListee.statusNumber forKey:@"statusNumber"];
+    
+    [self prepareForSave];
+    [[RKClient sharedClient] post:urlString params:params delegate:self];
+    
 }
 
 

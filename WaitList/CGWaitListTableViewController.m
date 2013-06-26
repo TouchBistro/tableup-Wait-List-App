@@ -326,6 +326,12 @@
         CGGuestDetailTableViewController *guestDetailTableViewController = [segue destinationViewController];
         
         if (guestDetailTableViewController != nil){
+            guestDetailTableViewController.waitListStatus1 = self.waitListStatus1;
+            guestDetailTableViewController.waitListStatus2 = self.waitListStatus2;
+            guestDetailTableViewController.waitListStatus3 = self.waitListStatus3;
+            guestDetailTableViewController.waitListStatus4 = self.waitListStatus4;
+            guestDetailTableViewController.waitListStatus5 = self.waitListStatus5;
+            
             [guestDetailTableViewController setSelectedRestaurant:self.currentRestaurant];
             [guestDetailTableViewController setWaitListee:[self.waitListers objectAtIndex:self.tableView.indexPathForSelectedRow.row]];
             guestDetailTableViewController.waitListerHasBeenRemoved = self.showRemoved;

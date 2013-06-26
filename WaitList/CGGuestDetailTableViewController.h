@@ -65,6 +65,17 @@
 @property (strong, nonatomic) CGRestaurantWaitList *waitListee;
 @property (strong, nonatomic) NSMutableArray *currentWaitList;
 
+@property (nonatomic, strong) NSString *waitListStatus1;
+@property (nonatomic, strong) NSString *waitListStatus2;
+@property (nonatomic, strong) NSString *waitListStatus3;
+@property (nonatomic, strong) NSString *waitListStatus4;
+@property (nonatomic, strong) NSString *waitListStatus5;
+
+@property (nonatomic, strong) NSMutableArray *waitListStatuses;
+
+@property (nonatomic, strong) NSNumber *statusNumber;
+@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
+
 @end
 
 
