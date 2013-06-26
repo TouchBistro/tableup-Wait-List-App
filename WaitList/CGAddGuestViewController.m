@@ -581,7 +581,11 @@
 - (void)handleStatusLabelTap:(UITapGestureRecognizer *)recognizer {
     if (recognizer.view == self.statusLabel){
         
-        [ActionSheetStringPicker showPickerWithTitle:@"Choose Status" rows:self.waitListStatuses initialSelection:0 target:self successAction:@selector(statusWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.statusLabel];
+        if (self.waitListStatuses.count > 0){
+            [ActionSheetStringPicker showPickerWithTitle:@"Choose Status" rows:self.waitListStatuses initialSelection:0 target:self successAction:@selector(statusWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.statusLabel];
+        }else{
+            [[[UIAlertView alloc] initWithTitle:@"Setup" message:@"You do not have any waitlist statuses set up." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }
     }
 }
 

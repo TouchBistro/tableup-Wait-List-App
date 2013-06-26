@@ -186,6 +186,11 @@
     
     self.waitListStatuses = [[NSMutableArray alloc] init];
     
+    if (self.waitListStatus1.length > 0 || self.waitListStatus2.length > 0 || self.waitListStatus3.length > 0
+        || self.waitListStatus4.length > 0 || self.waitListStatus4.length > 0){
+        [self.waitListStatuses addObject:@"No Status"];
+    }
+    
     if (self.waitListStatus1.length > 0){
         [self.waitListStatuses addObject:self.waitListStatus1];
     }
@@ -638,29 +643,40 @@
 - (void)handleStatusLabelTap:(UITapGestureRecognizer *)recognizer {
     if (recognizer.view == self.statusLabel){
         
-        [ActionSheetStringPicker showPickerWithTitle:@"Choose Status" rows:self.waitListStatuses initialSelection:0 target:self successAction:@selector(statusWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.statusLabel];
+        if (self.waitListStatuses.count > 0){
+            [ActionSheetStringPicker showPickerWithTitle:@"Choose Status" rows:self.waitListStatuses initialSelection:0 target:self successAction:@selector(statusWasSelected:element:) cancelAction:@selector(actionPickerCancelled:) origin:self.statusLabel];
+        }else{
+            [[[UIAlertView alloc] initWithTitle:@"Setup" message:@"You do not have any waitlist statuses set up." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil] show];
+        }
     }
 }
 
 - (void)statusWasSelected:(NSNumber *)selectedIndex element:(id)element{
     NSString *selectedStatus = [self.waitListStatuses objectAtIndex:[selectedIndex intValue]];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    self.statusLabel.text = selectedStatus;
-    
-    if ([selectedStatus isEqualToString:self.waitListStatus1]){
-        self.waitListee.statusNumber = [NSNumber numberWithInt:1];
-    }else if ([selectedStatus isEqualToString:self.waitListStatus2]){
-        self.waitListee.statusNumber = [NSNumber numberWithInt:2];
-    }else if ([selectedStatus isEqualToString:self.waitListStatus3]){
-        self.waitListee.statusNumber = [NSNumber numberWithInt:3];
-    }else if ([selectedStatus isEqualToString:self.waitListStatus4]){
-        self.waitListee.statusNumber = [NSNumber numberWithInt:4];
-    }else if ([selectedStatus isEqualToString:self.waitListStatus5]){
-        self.waitListee.statusNumber = [NSNumber numberWithInt:5];
+    if ([selectedStatus isEqualToString:@"No Status"]){
+        self.statusLabel.text = @"Tap to add status";
+        [params setObject:[NSNumber numberWithInt:-1] forKey:@"statusNumber"];
+    }else{
+        self.statusLabel.text = selectedStatus;
+        
+        if ([selectedStatus isEqualToString:self.waitListStatus1]){
+            self.waitListee.statusNumber = [NSNumber numberWithInt:1];
+        }else if ([selectedStatus isEqualToString:self.waitListStatus2]){
+            self.waitListee.statusNumber = [NSNumber numberWithInt:2];
+        }else if ([selectedStatus isEqualToString:self.waitListStatus3]){
+            self.waitListee.statusNumber = [NSNumber numberWithInt:3];
+        }else if ([selectedStatus isEqualToString:self.waitListStatus4]){
+            self.waitListee.statusNumber = [NSNumber numberWithInt:4];
+        }else if ([selectedStatus isEqualToString:self.waitListStatus5]){
+            self.waitListee.statusNumber = [NSNumber numberWithInt:5];
+        }
+        
+        [params setObject:self.waitListee.statusNumber forKey:@"statusNumber"];
     }
     
     
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
     NSNumber *userId = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserId];
     NSString *password = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
@@ -679,7 +695,7 @@
     urlString = [urlString stringByAppendingString:self.waitListee.waitListId.stringValue];
     urlString = [urlString stringByAppendingString:@"/update"];
     
-    [params setObject:self.waitListee.statusNumber forKey:@"statusNumber"];
+    
     
     [self prepareForSave];
     [[RKClient sharedClient] post:urlString params:params delegate:self];
