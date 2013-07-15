@@ -12,6 +12,7 @@
 #import "CGUtils.h"
 #import "CGRestaurantWaitListWaitTime.h"
 #import "CGRestaurantFullWaitList.h"
+#import "MBProgressHUD.h"
 #import "ActionSheetPicker.h"
 #import <RestKit/RestKit.h>
 
@@ -412,12 +413,7 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    self.closeButton.enabled = NO;
     return YES;
-}
-
-- (void)textViewDidChange:(UITextView *)textView{
-    self.closeButton.enabled = NO;
 }
 
 -(void) textViewDidEndEditing: (UITextView * ) textView{
@@ -599,13 +595,14 @@
 }
 
 - (void)prepareForSave{
+    [self startSpinner];
     [self.view addSubview: activityView];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.activityView startAnimating];
 }
 
 - (void)returnFromSave{
-    self.closeButton.enabled = YES;
+    [self stopSpinner];
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
 }
@@ -671,5 +668,18 @@
     [[RKClient sharedClient] post:urlString params:params delegate:self];
     
 }
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Saving";
+    hud.userInteractionEnabled = NO;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
+
 
 @end

@@ -432,19 +432,10 @@
 
 
 #pragma mark - TextFieldDelegate
-//- (void)textFieldDidBeginEditing:(UITextField *)textField{
-//    [self.navigationItem setHidesBackButton:YES animated:YES];
-//}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    [self.navigationItem setHidesBackButton:YES animated:YES];
     return YES;
 }
-
-- (void)textViewDidChange:(UITextView *)textView{
-    [self.navigationItem setHidesBackButton:YES animated:YES];
-}
-
 
 
 -(void) textFieldDidEndEditing: (UITextField * ) textField {
@@ -625,7 +616,7 @@
 }
 
 - (void)prepareForSave{
-    [self.navigationItem setHidesBackButton:YES animated:YES];
+    [self startSpinner];
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self.tableView addSubview: activityView];
@@ -635,7 +626,7 @@
 }
 
 - (void)returnFromSave{
-    [self.navigationItem setHidesBackButton:NO animated:YES];
+    [self stopSpinner];
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
 }
@@ -700,6 +691,16 @@
     [self prepareForSave];
     [[RKClient sharedClient] post:urlString params:params delegate:self];
     
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Saving";
+    hud.userInteractionEnabled = NO;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CGRestaurantWaitList.h"
 #import "CGRestaurant.h"
+#import "MBProgressHUD.h"
 #import <RestKit/RestKit.h>
 
 @protocol CGGuestDetailTableViewControllerDelegate;

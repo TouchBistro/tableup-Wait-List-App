@@ -68,6 +68,7 @@
 		1B9712AB16CA86D900A82A66 /* CGMessageOptionsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9712AA16CA86D900A82A66 /* CGMessageOptionsModalViewController.m */; };
 		1B9712B216CADD6800A82A66 /* CGMessageOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9712B116CADD6800A82A66 /* CGMessageOptions.m */; };
 		1B981D9116C551DE00A5BC93 /* CGMessageOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B981D9016C551DE00A5BC93 /* CGMessageOptionsViewController.m */; };
+		1B9967BD179442D200A09464 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9967BC1794424C00A09464 /* MBProgressHUD.m */; };
 		1B9DBD2D16B0005E003ADF75 /* CGMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD2C16B0005D003ADF75 /* CGMessageViewController.m */; };
 		1B9DBD3016B00849003ADF75 /* CGMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD2F16B00848003ADF75 /* CGMessageCell.m */; };
 		1B9DBD3316B0181C003ADF75 /* CGMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9DBD3216B0181C003ADF75 /* CGMessage.m */; };
@@ -236,6 +237,8 @@
 		1B9712B116CADD6800A82A66 /* CGMessageOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageOptions.m; sourceTree = "<group>"; };
 		1B981D8F16C551DE00A5BC93 /* CGMessageOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageOptionsViewController.h; sourceTree = "<group>"; };
 		1B981D9016C551DE00A5BC93 /* CGMessageOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageOptionsViewController.m; sourceTree = "<group>"; };
+		1B9967BB1794424C00A09464 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		1B9967BC1794424C00A09464 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		1B9DBD2B16B0005C003ADF75 /* CGMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageViewController.h; sourceTree = "<group>"; };
 		1B9DBD2C16B0005D003ADF75 /* CGMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMessageViewController.m; sourceTree = "<group>"; };
 		1B9DBD2E16B00848003ADF75 /* CGMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMessageCell.h; sourceTree = "<group>"; };
@@ -407,6 +410,7 @@
 		1B83C9C8162475FC005799B6 /* WaitList */ = {
 			isa = PBXGroup;
 			children = (
+				1B9967B61794423800A09464 /* MBprogressHud */,
 				1BA3863F177A078900E659F1 /* ActionSheetPicker */,
 				1B1BBF42162CB2E900708323 /* Models */,
 				1BCDA15416777E15004AEB50 /* iPad Views */,
@@ -516,6 +520,15 @@
 				1B8D1D75164C4F4E008AFE6E /* partySize@2x.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		1B9967B61794423800A09464 /* MBprogressHud */ = {
+			isa = PBXGroup;
+			children = (
+				1B9967BB1794424C00A09464 /* MBProgressHUD.h */,
+				1B9967BC1794424C00A09464 /* MBProgressHUD.m */,
+			);
+			name = MBprogressHud;
 			sourceTree = "<group>";
 		};
 		1BA3863F177A078900E659F1 /* ActionSheetPicker */ = {
@@ -769,6 +782,7 @@
 				1B2F45771760D1D500B512C6 /* CGPreOrderingItem.m in Sources */,
 				1BA38645177A07D200E659F1 /* AbstractActionSheetPicker.m in Sources */,
 				1BA38646177A07D200E659F1 /* ActionSheetStringPicker.m in Sources */,
+				1B9967BD179442D200A09464 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
