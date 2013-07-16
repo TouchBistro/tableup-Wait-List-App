@@ -614,6 +614,8 @@
         activeTextView = permanentNotesTextView;
     }else if ([visitNotesTextView isFirstResponder]){
         activeTextView = visitNotesTextView;
+    }else if ([tableNumberTextField isEditing]){
+        activeTextField = tableNumberTextField;
     }
     
     if (activeTextField) [activeTextField resignFirstResponder];
