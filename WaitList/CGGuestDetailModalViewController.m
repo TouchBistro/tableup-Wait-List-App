@@ -162,6 +162,12 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    UITapGestureRecognizer *scrolltap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [scrolltap setCancelsTouchesInView:NO];
+    [self.tableView addGestureRecognizer:scrolltap];
+    
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     if (self.waitListerHasBeenRemoved){
@@ -413,9 +419,13 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    self.closeButton.enabled = NO;
     return YES;
 }
 
+- (void)textViewDidChange:(UITextView *)textView{
+    self.closeButton.enabled = NO;
+}
 -(void) textViewDidEndEditing: (UITextView * ) textView{
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
@@ -603,6 +613,8 @@
 
 - (void)returnFromSave{
     [self stopSpinner];
+    
+    self.closeButton.enabled = YES;
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
 }

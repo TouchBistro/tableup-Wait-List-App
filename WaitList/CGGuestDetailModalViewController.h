@@ -81,4 +81,6 @@
 
 @property (assign, nonatomic) BOOL waitListerHasBeenRemoved;
 
+@property (assign, nonatomic) BOOL waitingForBackEndToReturn;
+
 @end
