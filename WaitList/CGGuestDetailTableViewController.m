@@ -166,8 +166,17 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
+    
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
+    
+    
+    UITapGestureRecognizer *scrolltap = [[UITapGestureRecognizer alloc]
+                                         initWithTarget:self
+                                         action:@selector(dismissKeyboard)];
+    
+    [scrolltap setCancelsTouchesInView:NO];
+    [self.tableView addGestureRecognizer:scrolltap];
     
     
     if (self.waitListerHasBeenRemoved){
@@ -434,7 +443,12 @@
 #pragma mark - TextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    [self.navigationItem setHidesBackButton:YES animated:YES];
     return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    [self.navigationItem setHidesBackButton:YES animated:YES];
 }
 
 
@@ -627,6 +641,7 @@
 
 - (void)returnFromSave{
     [self stopSpinner];
+    [self.navigationItem setHidesBackButton:NO animated:YES];
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
 }
